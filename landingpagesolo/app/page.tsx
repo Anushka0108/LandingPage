@@ -346,31 +346,58 @@ export default function Home() {
 
   <div className="credential-visual">
 
-    <div className="credential-card">
+  <div className="credential-card">
 
-      <p>VERIFIED CREDENTIAL</p>
+    <div className="credential-main">
 
-      <h3>Full Stack Development</h3>
+      <div className="certificate-badge">
+        <div className="certificate-inner">
+          <span className="certificate-brand">◇ academia</span>
+          <strong>ReactJS</strong>
+          <span>Coursework</span>
+        </div>
+      </div>
+      <div className="credential-content">
 
-      <span className="credential-badge">
-        ✓ VERIFIED
-      </span>
-
-      <div className="credential-info">
-        <div>
-          <small>ISSUED TO</small>
-          <strong>Anushka</strong>
+        <div className="credential-title">
+          <h3>ReactJS</h3>
+          <p>SPARK+</p>
         </div>
 
-        <div>
-          <small>SKILLS</small>
-          <strong>React • Node.js • SQL</strong>
+        <div className="credential-status">
+          <span className="skills-count">8 Skills</span>
+          <span className="verified-status">Verified</span>
         </div>
+
+        <p className="credential-description">
+          This badge represents completion of the ReactJS
+          Certification Course. It reflects understanding o...
+          <span> see more</span>
+        </p>
+
       </div>
 
     </div>
 
+    <div className="credential-actions">
+
+      <button className="open-badge">
+        Open badge
+      </button>
+
+      <a href="#" className="view-credential">
+        View Credential
+      </a>
+
+      <span className="credential-platform">
+        ◈
+      </span>
+
+    </div>
+
   </div>
+
+</div>
 
   <div className="credential-text">
 

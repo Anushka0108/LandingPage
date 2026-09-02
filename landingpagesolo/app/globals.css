@@ -613,83 +613,266 @@ section {
   align-items: center;
 }
 
+.credential-visual {
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+}
+
 .credential-card {
-  padding: 40px;
-
-  min-height: 300px;
-
-  border-radius: 20px;
-
-  background:
-    linear-gradient(135deg,
-      #171717,
-      #313b62);
-
-  color: white;
-
-  box-shadow: 0 25px 60px rgba(20, 30, 60, 0.2);
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dfe3e8;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(20, 30, 60, 0.08);
+  color: #171717;
 }
 
-.credential-card>p {
-  font-size: 11px;
-  letter-spacing: 2px;
-  opacity: 0.7;
-}
-
-.credential-card h3 {
-  margin-top: 55px;
-
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 27px;
-}
-
-.credential-badge {
-  display: inline-block;
-
-  margin-top: 20px;
-  padding: 8px 13px;
-
-  border-radius: 20px;
-
-  background: rgba(255, 255, 255, 0.12);
-  font-size: 12px;
-}
-
-.credential-info {
+.credential-main {
+  position: relative;
+  min-height: 220px;
+  padding: 24px;
   display: flex;
-  gap: 50px;
-  margin-top: 40px;
+  align-items: flex-start;
+  gap: 28px;
 }
 
-.credential-info small {
-  display: block;
-  font-size: 9px;
-  opacity: 0.6;
-}
-
-.credential-info strong {
-  display: block;
-  margin-top: 5px;
-  font-size: 13px;
-}
-
-.credential-flow {
+.certificate-badge {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid #27a9d6;
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 35px;
+  justify-content: center;
+  background: #ffffff;
+  position: relative;
 }
 
-.credential-flow span {
-  padding: 10px 14px;
+.certificate-badge::before {
+  content: "";
+  position: absolute;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  border: 1px dashed #27a9d6;
+}
+
+.certificate-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-roboto), sans-serif;
+}
+
+.certificate-brand {
+  font-size: 7px;
+  color: #27a9d6;
+  margin-bottom: 13px;
+}
+
+.certificate-inner strong {
+  font-size: 9px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.certificate-inner span:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 7px 0;
+  border-radius: 0 0 55px 55px;
+  background: #27a9d6;
+  color: white;
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.credential-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.credential-title h3 {
+  margin: 5px 0 2px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #202020;
+}
+
+.credential-title p {
+  margin: 0;
+  font-size: 19px;
+  color: #5e6470;
+}
+
+.credential-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.skills-count {
+  padding: 8px 14px;
   border-radius: 8px;
-  background: #f2f4f8;
-  font-size: 13px;
+  background: #ffe2da;
+  color: #f04422;
+  font-size: 12px;
   font-weight: 600;
 }
 
-.credential-flow b {
-  color: var(--blue);
+.verified-status {
+  padding: 8px 14px;
+  border-radius: 7px;
+  background: #43ad55;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.credential-description {
+  margin-top: 18px;
+  max-width: 430px;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #686d75;
+}
+
+.credential-description span {
+  color: var(--coral);
+}
+
+.credential-logo {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  margin-top: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 3px solid #159bc5;
+  box-shadow: inset 0 0 0 3px #e9f8fc;
+}
+
+.credential-logo span {
+  font-size: 25px;
+  color: #159bc5;
+}
+
+.credential-actions {
+  min-height: 69px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: #f7f7f7;
+  border-top: 1px solid #eeeeee;
+}
+
+.credential-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.credential-icons button {
+  border: none;
+  background: transparent;
+  color: var(--coral);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  transition: 0.2s ease;
+}
+
+.credential-icons button:hover {
+  transform: translateY(-2px);
+  color: var(--orange);
+}
+
+.open-badge {
+  border: none;
+  padding: 11px 15px;
+  border-radius: 10px;
+  background: var(--orange);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.open-badge:hover {
+  background: #ea580c;
+  transform: translateY(-1px);
+}
+
+.view-credential {
+  color: var(--coral);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.view-credential:hover {
+  text-decoration: underline;
+}
+
+.credential-platform {
+  font-size: 18px;
+  color: #287da5;
+}
+
+@media (max-width: 650px) {
+  .credential-main {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .certificate-badge {
+    width: 90px;
+    height: 90px;
+  }
+
+  .certificate-badge::before {
+    width: 76px;
+    height: 76px;
+  }
+
+  .credential-logo {
+    display: none;
+  }
+
+  .credential-title h3 {
+    font-size: 18px;
+  }
+
+  .credential-title p {
+    font-size: 16px;
+  }
+
+  .credential-actions {
+    gap: 12px;
+    padding: 12px 15px;
+    flex-wrap: wrap;
+  }
+
+  .credential-icons {
+    gap: 12px;
+  }
 }
 
 .skill-section {
