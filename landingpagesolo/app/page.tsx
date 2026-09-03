@@ -1,5 +1,9 @@
 "use client"
+
+import NavBar from "./components/NavBar";
+
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -22,44 +26,7 @@ export default function Home() {
 
   return (
     <main>
-      <header className="navbar">
-        <div className="nav-container">
-            <Image
-              src="/images/solologo.png"
-              alt="SOLO logo"
-              width={120}
-              height={55}
-              priority
-            />
-
-          <nav className="nav-links">
-            <a href="#">Home</a>
-
-            <a href="#">
-              Explore <span>▾</span>
-            </a>
-
-            <a href="#">
-              Stakeholder Journey <span>▾</span>
-            </a>
-
-            <a href="#">Infrastructure</a>
-
-            <a href="#">Success Stories</a>
-
-            <a href="#">
-              Contact Us <span>▾</span>
-            </a>
-
-            <a href="#">Blog</a>
-
-            <a href="#" className="contact-btn">
-              Get Started
-            </a>
-          </nav>
-        </div>
-      </header>
-      
+      <NavBar></NavBar>
       <div className="hero">
   <div className="hero-content">
     <div className="hero-text">
@@ -107,43 +74,45 @@ export default function Home() {
     </p>
   </div>
 
-  <div className="ecosystem-grid">
-    <div className="ecosystem-card">
-      <div className="card-number">01</div>
-      <h3>Learn</h3>
-      <p>
-        Explore courses, projects, internships and other learning
-        opportunities aligned with your interests.
-      </p>
-    </div>
+<div className="ecosystem-grid">
 
-    <div className="ecosystem-card">
-      <div className="card-number">02</div>
-      <h3>Build</h3>
-      <p>
-        Develop skills through real-world experiences, projects,
-        achievements and continuous learning.
-      </p>
-    </div>
-
-    <div className="ecosystem-card">
-      <div className="card-number">03</div>
-      <h3>Prove</h3>
-      <p>
-        Turn your learning and achievements into verifiable
-        credentials and digital badges.
-      </p>
-    </div>
-
-    <div className="ecosystem-card">
-      <div className="card-number">04</div>
-      <h3>Grow</h3>
-      <p>
-        Discover career pathways, internships and jobs that match
-        your skills and goals.
-      </p>
-    </div>
+  <div className="ecosystem-card">
+    <div className="card-number">01</div>
+    <h3>Learn</h3>
+    <p>
+      Explore courses, projects, internships and other learning
+      opportunities aligned with your interests.
+    </p>
   </div>
+
+  <div className="ecosystem-card">
+    <div className="card-number">02</div>
+    <h3>Build</h3>
+    <p>
+      Develop skills through real-world experiences, projects,
+      achievements and continuous learning.
+    </p>
+  </div>
+
+  <div className="ecosystem-card">
+    <div className="card-number">03</div>
+    <h3>Prove</h3>
+    <p>
+      Turn your learning and achievements into verifiable
+      credentials and digital badges.
+    </p>
+  </div>
+
+  <div className="ecosystem-card">
+    <div className="card-number">04</div>
+    <h3>Grow</h3>
+    <p>
+      Discover career pathways, internships and jobs that match
+      your skills and goals.
+    </p>
+  </div>
+
+</div>
 </section>
 
 <section className="journey-section scroll-fade">
