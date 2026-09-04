@@ -7,6 +7,7 @@ import FadeInSection from "../components/FadeInSection";
 
 import { opportunities } from "../data/opportunties";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -46,8 +47,23 @@ const skills = [
 ];
 
 export default function ExplorePage() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const searchParams = useSearchParams();
+  const type = searchParams.get("type");
+
+  const [activeFilter, setActiveFilter] = useState(
+    type || "All"
+  );
+
   const [search, setSearch] = useState("");
+
+  const filterMap: Record<string, string> = {
+    COURSE: "Courses",
+    INTERNSHIP: "Internships",
+    PROJECT: "Projects",
+    HACKATHON: "Hackathons",
+    JOB: "Jobs",
+    CAREER: "Career Pathways",
+  };
 
   const filters = [
     "All",
@@ -59,10 +75,19 @@ export default function ExplorePage() {
     "Career Pathways",
   ];
 
+  const filterTypeMap: Record<string, string> = {
+    Courses: "COURSE",
+    Internships: "INTERNSHIP",
+    Projects: "PROJECT",
+    Hackathons: "HACKATHON",
+    Jobs: "JOB",
+    "Career Pathways": "CAREER",
+  };
+
   const filteredOpportunities = opportunities.filter((item) => {
     const matchesFilter =
       activeFilter === "All" ||
-      item.type.toLowerCase() === activeFilter.slice(0, -1).toLowerCase();
+      item.type.toUpperCase() === filterTypeMap[activeFilter];
 
     const matchesSearch =
       item.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -95,7 +120,7 @@ export default function ExplorePage() {
       </FadeInSection>
       
       <FadeInSection>
-      <section className="explore-section opportunity-section">
+      <section id="opportunity" className="explore-section opportunity-section">
         <div className="section-heading">
           <p className="section-label">DISCOVER OPPORTUNITIES</p>
           <h2>Find your next opportunity.</h2>

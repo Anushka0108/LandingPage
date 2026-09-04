@@ -183,42 +183,42 @@ export default function Home() {
       <span>01</span>
       <h3>Courses</h3>
       <p>Learn new skills through relevant learning opportunities.</p>
-      <a href="#">Explore Courses →</a>
+      <a href="/explore?type=Courses#opportunity">Explore Courses →</a>
     </div>
 
     <div className="opportunity-card">
       <span>02</span>
       <h3>Internships</h3>
       <p>Gain practical experience and strengthen your profile.</p>
-      <a href="#">Explore Internships →</a>
+      <a href="/explore?type=Internships#opportunity">Explore Internships →</a>
     </div>
 
     <div className="opportunity-card">
       <span>03</span>
       <h3>Live Projects</h3>
       <p>Apply your knowledge to real-world projects.</p>
-      <a href="#">Explore Projects →</a>
+      <a href="/explore?type=Projects#opportunity">Explore Projects →</a>
     </div>
 
     <div className="opportunity-card">
       <span>04</span>
       <h3>Hackathons</h3>
       <p>Challenge yourself and showcase what you can build.</p>
-      <a href="#">Explore Hackathons →</a>
+      <a href="/explore?type=Hackathons#opportunity">Explore Hackathons →</a>
     </div>
 
     <div className="opportunity-card">
       <span>05</span>
       <h3>Jobs</h3>
       <p>Find roles that match your skills and career goals.</p>
-      <a href="#">Explore Jobs →</a>
+      <a href="/explore?type=Jobs#opportunity">Explore Jobs →</a>
     </div>
 
     <div className="opportunity-card">
       <span>06</span>
       <h3>Career Pathways</h3>
       <p>Follow structured learning journeys toward specific roles.</p>
-      <a href="#">Explore Pathways →</a>
+      <a href="/explore?type=Career Pathways#opportunity">Explore Pathways →</a>
     </div>
 
   </div>
@@ -408,9 +408,6 @@ export default function Home() {
       and understand exactly where you need to improve.
     </p>
 
-    <a href="#" className="section-button">
-      Discover Your Skill Gap →
-    </a>
 
   </div>
 
@@ -441,18 +438,6 @@ export default function Home() {
       <span>◐</span>
       <p>Node.js</p>
       <small>Partial</small>
-    </div>
-
-    <div className="skill-row missing">
-      <span>+</span>
-      <p>AWS</p>
-      <small>Missing</small>
-    </div>
-
-    <div className="skill-row missing">
-      <span>+</span>
-      <p>Docker</p>
-      <small>Missing</small>
     </div>
 
   </div>
@@ -523,13 +508,19 @@ export default function Home() {
       Discover where you can go next.
     </p>
 
-    <a href="#" className="cta-button">
+    <Link href="/signin" className="cta-button">
       Get Started →
-    </a>
+    </Link>
 
   </div>
 
 </section>
+</FadeInSection>
+
+<FadeInSection>
+  <section className="contact">
+
+  </section>
 </FadeInSection>
 
     </main>
