@@ -3,50 +3,13 @@
 import OpportunityCard from "../components/OpportunityCard";
 import FilterBar from "../components/FilterBar";
 import NavBar from "../components/NavBar";
+import FadeInSection from "../components/FadeInSection";
 
+import { opportunities } from "../data/opportunties";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-
-const opportunities = [
-  {
-    type: "COURSE",
-    title: "Full Stack Web Development",
-    organization: "SOLO Learning",
-    skills: ["React", "Node.js", "SQL"],
-  },
-  {
-    type: "INTERNSHIP",
-    title: "Frontend Developer Intern",
-    organization: "Tech Innovations",
-    skills: ["React", "JavaScript", "CSS"],
-  },
-  {
-    type: "PROJECT",
-    title: "Build an AI-Powered Web App",
-    organization: "SOLO Projects",
-    skills: ["Python", "React", "AI"],
-  },
-  {
-    type: "HACKATHON",
-    title: "Future Tech Hackathon",
-    organization: "SOLO Community",
-    skills: ["Innovation", "Web", "AI"],
-  },
-  {
-    type: "JOB",
-    title: "Junior Full Stack Developer",
-    organization: "Digital Labs",
-    skills: ["React", "Node.js", "MongoDB"],
-  },
-  {
-    type: "COURSE",
-    title: "Data Analytics with Python",
-    organization: "SOLO Learning",
-    skills: ["Python", "SQL", "Data"],
-  },
-];
 
 const pathways = [
   {
@@ -113,6 +76,7 @@ export default function ExplorePage() {
   return (
     <main className="explore-page">
         <NavBar></NavBar>
+        <FadeInSection>
       <section className="explore-hero ">
         <div className="explore-hero-content">
           <p className="explore-label">DISCOVER • LEARN • GROW</p>
@@ -128,8 +92,9 @@ export default function ExplorePage() {
           </p>
           </div>
       </section>
-
-
+      </FadeInSection>
+      
+      <FadeInSection>
       <section className="explore-section opportunity-section">
         <div className="section-heading">
           <p className="section-label">DISCOVER OPPORTUNITIES</p>
@@ -154,8 +119,9 @@ export default function ExplorePage() {
           </div>
         )}
       </section>
+      </FadeInSection>
 
-
+      <FadeInSection>
       <section className="explore-section skill-section">
         <div className="section-heading">
           <p className="section-label">SKILL-BASED DISCOVERY</p>
@@ -178,26 +144,7 @@ export default function ExplorePage() {
           ))}
         </div>
       </section>
-
-
-      <section className="explore-cta">
-        <div>
-          <p className="section-label">YOUR NEXT STEP STARTS HERE</p>
-
-          <h2>
-            Your next opportunity
-            <span> could start with one skill.</span>
-          </h2>
-
-          <p>
-            Explore what you can learn, build and achieve with SOLO.
-          </p>
-
-          <a href="#" className="explore-cta-button">
-            Start Exploring →
-          </a>
-        </div>
-      </section>
+      </FadeInSection>
 
     </main>
   );

@@ -1,6 +1,7 @@
 "use client"
 
 import NavBar from "./components/NavBar";
+import FadeInSection from "./components/FadeInSection";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -8,26 +9,11 @@ import { useEffect } from "react";
 
 export default function Home() {
 
-  useEffect(()=>{
-    const element=document.querySelectorAll(".scroll-fade");
-
-    const observer=new IntersectionObserver((entries)=>{
-      entries.forEach((entry)=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show")
-        }
-      })
-    },{threshold: 0.15});
-    element.forEach((elem)=>observer.observe(elem))
-    return ()=>{
-      element.forEach((elem)=>observer.unobserve(elem))
-    }
-  })
-
   return (
     <main>
       <NavBar></NavBar>
-      <div className="hero">
+      <FadeInSection>
+      <section className="hero">
   <div className="hero-content">
     <div className="hero-text">
       <p className="hero-label">LEARN • GROW • DISCOVER</p>
@@ -56,9 +42,11 @@ export default function Home() {
 
   <div className="hero-glow hero-glow-one"></div>
   <div className="hero-glow hero-glow-two"></div>
-</div>
+</section>
+</FadeInSection>
 
-<section className="intro-section scroll-fade">
+<FadeInSection>
+<section className="intro-section ">
   <div className="section-heading">
     <p className="section-label">THE SOLO ECOSYSTEM</p>
 
@@ -114,8 +102,10 @@ export default function Home() {
 
 </div>
 </section>
+</FadeInSection>
 
-<section className="journey-section scroll-fade">
+<FadeInSection>
+<section className="journey-section">
   <div className="section-heading center">
     <p className="section-label">YOUR JOURNEY</p>
 
@@ -169,9 +159,10 @@ export default function Home() {
     </div>
   </div>
 </section>
+</FadeInSection>
 
-
-<section className="opportunities-section scroll-fade">
+<FadeInSection>
+<section className="opportunities-section">
   <div className="section-heading center">
     <p className="section-label">EXPLORE</p>
 
@@ -232,9 +223,10 @@ export default function Home() {
 
   </div>
 </section>
+</FadeInSection>
 
-
-<section className="profile-section scroll-fade">
+<FadeInSection>
+<section className="profile-section">
 
   <div className="profile-text">
 
@@ -309,9 +301,10 @@ export default function Home() {
   </div>
 
 </section>
+</FadeInSection>
 
-
-<section className="credentials-section scroll-fade">
+<FadeInSection>
+<section className="credentials-section">
 
   <div className="credential-visual">
 
@@ -396,8 +389,10 @@ export default function Home() {
   </div>
 
 </section>
+</FadeInSection>
 
-<section className="skill-section scroll-fade">
+<FadeInSection>
+<section className="skill-section">
 
   <div className="skill-text">
 
@@ -463,8 +458,10 @@ export default function Home() {
   </div>
 
 </section>
+</FadeInSection>
 
-<section className="community-section scroll-fade">
+<FadeInSection>
+<section className="community-section">
 
   <div className="section-heading center">
 
@@ -507,9 +504,10 @@ export default function Home() {
   </div>
 
 </section>
+</FadeInSection>
 
-
-<section className="final-cta scroll-fade">
+<FadeInSection>
+<section className="final-cta">
 
   <div>
 
@@ -532,6 +530,7 @@ export default function Home() {
   </div>
 
 </section>
+</FadeInSection>
 
     </main>
   );
