@@ -14,9 +14,9 @@ export default function NavBar(){
                     />
         
                   <nav className="nav-links">
-                    <Link href="\">Home</Link>
+                    <Link href="/">Home</Link>
         
-                    <Link href="\explore">
+                    <Link href="/explore">
                       Explore 
                     </Link>
         
@@ -34,9 +34,13 @@ export default function NavBar(){
         
                     <a href="#">Blog</a>
         
-                    <a href="#" className="contact-btn">
-                      Get Started
-                    </a>
+                    <Link href="/signin" className="nav-signin">
+                      Sign In
+                    </Link>
+
+                    <Link href="/signup" className="nav-signup">
+                      Sign Up
+                    </Link>
                   </nav>
                 </div>
               </header>
