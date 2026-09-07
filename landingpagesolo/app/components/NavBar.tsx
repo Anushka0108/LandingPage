@@ -1,5 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
+import UserMenu from "./UserMenu"
+
+// TODO: replace with your real auth check (e.g. from a session/context hook)
+const isLoggedIn = true;
 
 export default function NavBar(){
     return(
@@ -33,14 +37,20 @@ export default function NavBar(){
                     </a>
         
                     <a href="#">Blog</a>
-        
-                    <Link href="/signin" className="nav-signin">
-                      Sign In
-                    </Link>
 
-                    <Link href="/signup" className="nav-signup">
-                      Sign Up
-                    </Link>
+                    {isLoggedIn ? (
+                     <UserMenu avatarSrc="/images/profilepic.png" showChat={false} showLanguage={false} />
+                    ) : (
+                      <>
+                        <Link href="/signin" className="nav-signin">
+                          Sign In
+                        </Link>
+
+                        <Link href="/signup" className="nav-signup">
+                          Sign Up
+                        </Link>
+                      </>
+                    )}
                   </nav>
                 </div>
               </header>
