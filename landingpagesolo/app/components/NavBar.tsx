@@ -25,7 +25,7 @@ export default function NavBar(){
         
                     <a href="/infrastructure">Infrastructure</a>
         
-                    <a href="#">Success Stories</a>
+                    <a href="/#success-stories">Success Stories</a>
         
                     <a href="/contact">
                       Contact Us 
