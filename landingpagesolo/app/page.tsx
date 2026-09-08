@@ -2,6 +2,7 @@
 
 import NavBar from "./components/NavBar";
 import FadeInSection from "./components/FadeInSection";
+import Footer from "./components/Footer";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -29,11 +30,11 @@ export default function Home() {
       </p>
 
       <div className="hero-buttons">
-        <a href="#" className="hero-primary">
+        <Link href="/signup"  className="hero-primary">
           Begin Your Journey
-        </a>
+        </Link>
 
-        <a href="#" className="hero-secondary">
+        <a href="/contact" className="infra-secondary-btn">
           Contact Us
         </a>
       </div>
@@ -508,21 +509,32 @@ export default function Home() {
       Discover where you can go next.
     </p>
 
-    <Link href="/signin" className="cta-button">
+    <Link href="/signup" className="cta-button">
       Get Started →
     </Link>
 
   </div>
 
-</section>
-</FadeInSection>
+    </section>
+    </FadeInSection>
 
-<FadeInSection>
-  <section className="contact">
+    <FadeInSection>
+      <section className="contact">
 
-  </section>
-</FadeInSection>
-
+      </section>
+    </FadeInSection>
+        <Footer></Footer>
+        <button
+      className="back-to-top"
+      onClick={() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }}
+    >
+      ↑
+    </button>
     </main>
   );
 }

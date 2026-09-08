@@ -140,14 +140,6 @@ export default function UserMenu({
               <span className="account-menu-icon"><ProfileIcon /></span>
               Profile
             </Link>
-            <Link href="/settings" className="account-menu-item" role="menuitem">
-              <span className="account-menu-icon"><SettingsIcon /></span>
-              Settings
-            </Link>
-            <button type="button" className="account-menu-item danger" role="menuitem">
-              <span className="account-menu-icon"><SignOutIcon /></span>
-              Sign out
-            </button>
           </div>
         )}
       </div>

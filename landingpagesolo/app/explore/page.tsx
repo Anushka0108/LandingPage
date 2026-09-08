@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "../components/Footer";
 
 
 const pathways = [
@@ -170,7 +171,18 @@ export default function ExplorePage() {
         </div>
       </section>
       </FadeInSection>
-
+      <Footer></Footer>
+      <button
+        className="back-to-top"
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
+        ↑
+      </button>
     </main>
   );
 }

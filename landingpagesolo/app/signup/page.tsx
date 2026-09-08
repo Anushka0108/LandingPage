@@ -16,7 +16,6 @@ export default function SignUpPage() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: wire up to your auth API, include `role` in the payload
     console.log("Sign up as", role);
   }
 

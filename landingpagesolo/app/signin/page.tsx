@@ -15,7 +15,6 @@ export default function SignInPage() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: wire up to your auth API
     console.log("Sign in", form);
   }
 
