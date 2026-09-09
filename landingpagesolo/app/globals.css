@@ -4518,3 +4518,40 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+.story-grid-wrapper {
+  position: relative;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.story-view-all-link {
+  position: absolute;
+  top: -46px;
+  right: 0;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--orange);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.story-view-all-link:hover {
+  color: #ea580c;
+  transform: translateX(3px);
+}
+
+.success-stories-page {
+  padding-top: 60px;
+}
+
+@media (max-width: 700px) {
+  .story-view-all-link {
+    position: static;
+    display: block;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+}
