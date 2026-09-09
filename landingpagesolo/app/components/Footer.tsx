@@ -23,36 +23,30 @@ export default function Footer() {
           <div className="footer-links">
             <div>
               <h4>Explore</h4>
-              <Link href="/explore">Opportunities</Link>
-              <Link href="/explore">Courses</Link>
-              <Link href="/explore">Projects</Link>
-              <Link href="/explore">Career Pathways</Link>
+              <a href="/explore#opportunity">Opportunities</a>
+              <a href="/explore?type=Courses#opportunity">Courses</a>
+              <a href="/explore?type=Projects#opportunity">Projects</a>
+              <a href="/explore?type=Career Pathways#opportunity">Career Pathways</a>
             </div>
 
             <div>
               <h4>SOLO</h4>
-              <Link href="#">About Us</Link>
-              <Link href="#">Success Stories</Link>
-              <Link href="#">Blog</Link>
-              <Link href="#">Contact Us</Link>
+              <Link href="/infrastructure">Infrastructure</Link>
+              <Link href="/#success-stories">Success Stories</Link>
+              <Link href="/contact">Contact Us</Link>
             </div>
 
             <div>
               <h4>Get Started</h4>
-              <Link href="#">Create Account</Link>
-              <Link href="#">Find Your Path</Link>
-              <Link href="#">Start Learning</Link>
+              <Link href="/signup">Create Account</Link>
+              <Link href="/explore">Find Your Path</Link>
+              <Link href="/signup">Start Learning</Link>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p>© 2026 SOLO. All rights reserved.</p>
-
-          <div>
-            <Link href="#">Privacy Policy</Link>
-            <Link href="#">Terms of Service</Link>
-          </div>
         </div>
 
       </div>

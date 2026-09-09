@@ -16,151 +16,151 @@ export const infrastructureLayers: InfrastructureLayer[] = [
     number: "01",
     title: "Learning & Employment Hub",
     description:
-      "This is where your learning and career journey comes together. SOLO connects courses, projects, internships, jobs, credentials, and career pathways in one place.",
+      "Bring learning and career opportunities together in one place. SOLO connects courses, projects, internships, jobs, credentials, and career pathways while using AI to help you discover opportunities that match your skills and goals.",
     learnerBenefit:
-      "Instead of searching across different platforms, you can discover learning and career opportunities that connect directly to your skills and goals.",
+      "You can discover relevant learning and career opportunities, build your skills, showcase your achievements, and connect your learning directly to your career goals.",
     features: [
       {
         title: "Lifelong Skills Portfolio",
         description:
-          "Build a profile that grows with you by recording your skills, education, projects, experiences, achievements, badges, and credentials."
+          "Build a comprehensive skill-based profile over time with your education, skills, projects, experiences, achievements, badges, and credentials. Generate professional resumes from your verified achievements.",
       },
       {
         title: "Stakeholder Portals",
         description:
-          "Connect with institutions, employers, mentors, and other members of the SOLO ecosystem."
+          "Connect learners with institutions, employers, mentors, training centers, and other stakeholders while supporting programs, opportunities, applications, and learner progress.",
       },
       {
         title: "Credential & Badge Issuance Platform",
         description:
-          "Receive digital badges and credentials that recognize the skills and achievements you have earned."
+          "Issue and receive digital certificates, badges, and learner records with support for Open Badges, Comprehensive Learner Records, skill alignment, evidence, and endorsements.",
       },
       {
         title: "Identity & Credential Wallet",
         description:
-          "Keep your verified credentials and professional identity organized and accessible in one place."
+          "Access a web and mobile wallet to securely store, organize, manage, and share verifiable credentials while maintaining control over your identity and privacy.",
       },
       {
         title: "Verification & Utilization Suite",
         description:
-          "Use verified credentials and achievements as trusted evidence when applying for learning and career opportunities."
-      }
-    ]
+          "Verify credentials, badges, endorsements, and evidence and use them across resumes, applications, recruitment systems, and other learning and employment platforms.",
+      },
+    ],
   },
 
   {
     number: "02",
     title: "Integration Layer",
     description:
-      "SOLO connects with learning platforms, institutions, employers, HR systems, job boards, and other external systems.",
+      "Connect SOLO with learning platforms, institutions, employers, HR systems, job boards, wallets, and other external systems so information and workflows can move between platforms.",
     learnerBenefit:
-      "Your learning and achievement information can move between connected systems without requiring you to repeatedly enter the same information.",
+      "Your learning records, skills, credentials, and other relevant information can stay connected across the platforms you use without repeatedly entering the same information.",
     features: [
       {
         title: "Integration Gateway",
         description:
-          "Provides secure connections between SOLO and external platforms."
+          "Connect LMS, HRMS, SIS, ATS, social platforms, and other systems to unify workflows and automate processes such as enrollments, credential issuance, and applications.",
       },
       {
-        title: "Developer APIs",
+        title: "Developer API",
         description:
-          "Allows other applications and services to securely connect with SOLO."
+          "Provide REST and GraphQL APIs that allow applications and services to securely access and integrate SOLO capabilities using scoped permissions and authentication.",
       },
       {
         title: "Data Sync Engine",
         description:
-          "Keeps relevant information synchronized between connected systems."
+          "Synchronize learning records, skills, credentials, and other information with connected wallets, social platforms, LMS, HRMS, and other systems in real time or on scheduled intervals.",
       },
       {
         title: "Credential APIs",
         description:
-          "Enable verified credentials to be issued, accessed, and used across connected platforms."
-      }
-    ]
+          "Create, issue, revoke, and validate credentials through APIs while supporting Open Badges, Comprehensive Learner Records, Verifiable Credentials, skill frameworks, and webhook-based events.",
+      },
+    ],
   },
 
   {
     number: "03",
     title: "AI Intelligence Layer",
     description:
-      "SOLO uses AI to understand skills, credentials, opportunities, and career requirements so that learners can make better decisions.",
+      "Use AI to understand skills, credentials, opportunities, learner profiles, and career requirements so that learning and employment decisions can be more relevant and personalized.",
     learnerBenefit:
-      "The more complete your profile becomes, the better SOLO can help you discover relevant opportunities and understand what skills you may need next.",
+      "SOLO can better understand your skills and achievements and connect them with relevant opportunities, career pathways, and areas where you can continue developing.",
     features: [
       {
         title: "Skills & Credential Intelligence Engine",
         description:
-          "Understands the skills represented by your learning experiences, projects, achievements, badges, and credentials."
+          "Extract and map skills from credentials, resumes, courses, job postings, internships, achievements, and other sources using frameworks such as OSN, Lightcast, O*NET, ESCO, and custom skill taxonomies.",
       },
       {
         title: "Opportunity & Talent Matching Engine",
         description:
-          "Helps connect learners with relevant courses, internships, projects, jobs, and career pathways based on their skills and interests."
+          "Match learners with courses, internships, projects, jobs, and career pathways based on skills and interests while helping employers identify talent aligned with job requirements.",
       },
       {
         title: "Analytics & Insights Engine",
         description:
-          "Provides insights into your progress, achievements, skills, and career development."
-      }
-    ]
+          "Provide dashboards and insights into credentialing activity, learner progress, skill readiness, program outcomes, workforce development, curriculum planning, and impact.",
+      },
+    ],
   },
 
   {
     number: "04",
     title: "Standards & Definition Layer",
     description:
-      "SOLO uses recognized standards to describe skills and credentials consistently, making achievements easier to understand and verify.",
+      "Use recognized standards and shared definitions to describe skills, credentials, learning outcomes, and employment information consistently across different systems.",
     learnerBenefit:
-      "Your skills and credentials can be represented in a structured way that makes them more useful across education and employment systems.",
+      "Your skills, achievements, and credentials can be represented in structured and standardized formats, making them easier to understand, verify, and use across education and employment systems.",
     features: [
       {
         title: "Credential Standards",
         description:
-          "Supports standards for digital credentials and verifiable achievements."
+          "Support Open Badges 2.0 and 3.0, W3C Verifiable Credentials, Comprehensive Learner Records, and Learning and Employment Records for structured and verifiable achievement data.",
       },
       {
         title: "Skill Standards",
         description:
-          "Provides structured ways of describing and organizing skills."
+          "Use frameworks such as OSN, ESCO, SFIA, O*NET, and Lightcast to describe and organize skills while supporting custom and local skill frameworks.",
       },
       {
         title: "Skill Definition & Exchange",
         description:
-          "Helps skills be understood and exchanged consistently between different systems."
+          "Use standards such as CASE and CTDL to connect skills and credentials with job roles, competencies, learning outcomes, and other educational and employment information.",
       },
       {
         title: "Other Standards",
         description:
-          "Supports additional standards that help connect learning, skills, credentials, and employment data."
-      }
-    ]
+          "Support semantic and interoperability standards such as JSON-LD and Schema.org together with credential exchange protocols, privacy requirements, and interoperability across wallets, registries, and issuers.",
+      },
+    ],
   },
 
   {
     number: "05",
     title: "Data & Storage Layer",
     description:
-      "This layer provides the foundation for securely storing and managing the information that powers the SOLO ecosystem.",
+      "Provide the data foundation for securely storing, organizing, connecting, and managing the identity, skills, credentials, learning, and employment information that powers the SOLO ecosystem.",
     learnerBenefit:
-      "Your achievements, skills, credentials, and learning information can be organized and protected while remaining useful across your journey.",
+      "Your learning records, skills, achievements, and credentials can be securely organized and connected while remaining useful throughout your education and career journey.",
     features: [
-      {
-        title: "Verifiable Data Vault",
-        description:
-          "Provides a trusted environment for managing verifiable learner and credential information."
-      },
       {
         title: "Structured & Semantic Data Stores",
         description:
-          "Organize learning, skills, credential, and opportunity information so that it can be meaningfully connected."
+          "Use graph, document, and vector databases to organize skills, credentials, opportunities, and other information while enabling semantic linking, search, analytics, and AI-powered recommendations.",
+      },
+      {
+        title: "Verifiable Data Vault",
+        description:
+          "Securely store identity, credentials, and metadata while allowing users to control access and selectively share their learning and work records.",
       },
       {
         title: "Blockchain Trust Engine",
         description:
-          "Supports trusted and tamper-resistant verification of credential information."
-      }
-    ]
-  }
+          "Support secure credential metadata and signatures, decentralized verification, revocation checks, DID registries, and audit processes using blockchain-based trust mechanisms.",
+      },
+    ],
+  },
 ];
 
 export const learnerJourney = [

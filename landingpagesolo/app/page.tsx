@@ -369,49 +369,31 @@ export default function Home() {
 
       <FadeInSection>
         <section className="skill-section">
-          <div className="skill-text">
-            <p className="section-label">CAREER READINESS</p>
+        <div className="skill-text">
+          <p className="section-label">SKILL COMPATIBILITY</p>
 
-            <h2>
-              Know where you stand.
-              <span> Know what to build next.</span>
-            </h2>
+          <h2>
+            See how a course
+            <span> fits your skills.</span>
+          </h2>
 
-            <p>
-              Compare your skills against the requirements of a job role and
-              understand exactly where you need to improve.
-            </p>
-          </div>
+          <p>
+            When you open a course, SOLO compares its required skills with
+            the skills in your profile. See what you already know, what you
+            can strengthen, and which skills you can build next.
+          </p>
+        </div>
 
-          <div className="skill-analysis">
-            <div className="skill-header">
-              <div>
-                <small>PROFILE MATCH</small>
-                <h3>Full Stack Developer</h3>
-              </div>
-
-              <strong>78%</strong>
-            </div>
-
-            <div className="skill-row matched">
-              <span>✓</span>
-              <p>React</p>
-              <small>Matched</small>
-            </div>
-
-            <div className="skill-row matched">
-              <span>✓</span>
-              <p>JavaScript</p>
-              <small>Matched</small>
-            </div>
-
-            <div className="skill-row partial">
-              <span>◐</span>
-              <p>Node.js</p>
-              <small>Partial</small>
-            </div>
-          </div>
-        </section>
+        <div className="skill-analysis">
+              <Image
+                 src="/images/skill.png"
+                 alt="Skill analysis"
+                 width={450}
+                 height={450}
+                 priority
+               />
+      </div>
+      </section>
       </FadeInSection>
 
       <FadeInSection>

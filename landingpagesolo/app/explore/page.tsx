@@ -39,12 +39,8 @@ const skills = [
   "SQL",
   "Java",
   "Machine Learning",
-  "Figma",
   "Node.js",
-  "Cloud",
   "JavaScript",
-  "Data Analytics",
-  "Git & GitHub",
 ];
 
 export default function ExplorePage() {
@@ -146,31 +142,7 @@ export default function ExplorePage() {
         )}
       </section>
       </FadeInSection>
-
-      <FadeInSection>
-      <section className="explore-section skill-section">
-        <div className="section-heading">
-          <p className="section-label">SKILL-BASED DISCOVERY</p>
-          <h2>What do you want to build?</h2>
-          <p>
-            Choose a skill and discover everything available around it.
-          </p>
-        </div>
-
-        <div className="skill-cloud">
-          {skills.map((skill, index) => (
-            <button
-              className={`skill-pill skill-${index % 4}`}
-              key={skill}
-              onClick={() => setSearch(skill)}
-            >
-              {skill}
-              <span>→</span>
-            </button>
-          ))}
-        </div>
-      </section>
-      </FadeInSection>
+      
       <Footer></Footer>
       <button
         className="back-to-top"
