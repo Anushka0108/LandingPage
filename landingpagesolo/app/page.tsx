@@ -429,9 +429,8 @@ export default function Home() {
           </h2>
 
           <p>
-            When you open a course, SOLO compares its required skills with
-            the skills in your profile. See what you already know, what you
-            can strengthen, and which skills you can build next.
+            When you explore an opportunity, SOLO compares its requirements with the skills in your profile.
+             See what you already know, understand how well you match, and discover the opportunities that fit you best.
           </p>
         </div>
 
