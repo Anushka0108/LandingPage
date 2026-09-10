@@ -3231,19 +3231,69 @@ section {
 
 .back-to-top {
   position: fixed;
-  right: 25px;
-  bottom: 25px;
-  width: 50px;
-  height: 50px;
+  right: 30px;
+  bottom: 30px;
+  width: 48px;
+  height: 48px;
+  border: none;
   border-radius: 50%;
   background: var(--orange);
   color: white;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  text-decoration: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.25);
+
+  animation: backToTopIn 0.45s ease-out both;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(249, 115, 22, 0.35);
+  background: #ea580c;
+}
+
+.back-to-top:active {
+  transform: translateY(-2px) scale(0.94);
+}
+
+@keyframes backToTopIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    right: 20px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    animation: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 900px) {

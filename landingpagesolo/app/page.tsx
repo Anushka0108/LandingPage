@@ -6,9 +6,22 @@ import Footer from "./components/Footer";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        setShowBackToTop(window.scrollY > 300);
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
   return (
     <main>
       <NavBar></NavBar>
@@ -537,17 +550,19 @@ export default function Home() {
         <section className="contact"></section>
       </FadeInSection>
       <Footer></Footer>
-      <button
-        className="back-to-top"
-        onClick={() => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
-      >
-        ↑
-      </button>
+      {showBackToTop && (
+        <button
+          className="back-to-top"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
+          ↑
+        </button>
+      )}
     </main>
   );
 }
