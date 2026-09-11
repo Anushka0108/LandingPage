@@ -126,15 +126,19 @@ body {
 
   background:
     radial-gradient(circle at 75% 25%,
-      rgba(245, 158, 11, 0.25),
-      transparent 32%),
-    radial-gradient(circle at 15% 75%,
-      rgba(239, 68, 68, 0.12),
+      rgba(245, 158, 11, 0.22),
       transparent 30%),
-    linear-gradient(135deg,
+    radial-gradient(circle at 15% 75%,
+      rgba(239, 68, 68, 0.14),
+      transparent 28%),
+    radial-gradient(circle at 50% 5%,
+      rgba(37, 99, 235, 0.10),
+      transparent 22%),
+    linear-gradient(120deg,
       #fff7ed 0%,
-      #fffaf5 45%,
-      #eff6ff 100%);
+      #fffaf5 40%,
+      #eff6ff 65%,
+      #fff7ed 100%);
 
   display: flex;
   align-items: center;
@@ -261,6 +265,17 @@ section {
 .journey-section,
 .community-section {
   padding: 120px 70px;
+}
+
+/* Section rhythm: alternate solid white and warm-gradient
+   "beats" down the page so each section reads as its own chapter
+   rather than one continuous scroll. */
+.intro-section {
+  background: #ffffff;
+}
+
+.opportunities-section {
+  background: #ffffff;
 }
 
 .section-heading {
@@ -457,7 +472,21 @@ section {
   gap: 100px;
   align-items: center;
 
-  background: #fff7ed;
+  background:
+    radial-gradient(circle at 85% 15%,
+      rgba(37, 99, 235, 0.14),
+      transparent 28%),
+    radial-gradient(circle at 10% 85%,
+      rgba(245, 158, 11, 0.16),
+      transparent 28%),
+    radial-gradient(circle at 50% 50%,
+      rgba(239, 68, 68, 0.08),
+      transparent 22%),
+    linear-gradient(120deg,
+      #fff7ed 0%,
+      #fffaf5 42%,
+      #eff6ff 65%,
+      #fff7ed 100%);
 }
 
 .profile-text {
@@ -491,7 +520,7 @@ section {
   padding: 14px 23px;
   border-radius: 9px;
 
-  background: var(--primary);
+  background: var(--orange);
   color: white;
 
   text-decoration: none;
@@ -592,6 +621,8 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 100px;
   align-items: center;
+
+  background: #ffffff;
 }
 
 .credential-visual {
@@ -973,16 +1004,10 @@ section {
   text-align: center;
 
   background:
-    radial-gradient(circle at 20% 30%,
-      rgba(245, 158, 11, 0.28),
-      transparent 35%),
-    radial-gradient(circle at 80% 70%,
-      rgba(239, 68, 68, 0.14),
-      transparent 35%),
-    linear-gradient(135deg,
-      #fff1e6,
-      #fff8e7,
-      #eff6ff);
+    radial-gradient(circle at 50% 25%,
+      rgba(249, 115, 22, 0.07),
+      transparent 40%),
+    #ffffff;
 }
 
 .final-cta>div {
@@ -1913,7 +1938,21 @@ section {
 }
 
 .skill-section {
-  background: white;
+  background:
+    radial-gradient(circle at 12% 20%,
+      rgba(37, 99, 235, 0.16),
+      transparent 28%),
+    radial-gradient(circle at 88% 80%,
+      rgba(245, 158, 11, 0.14),
+      transparent 30%),
+    radial-gradient(circle at 50% 50%,
+      rgba(239, 68, 68, 0.06),
+      transparent 20%),
+    linear-gradient(120deg,
+      #eff6ff 0%,
+      #fff7ed 45%,
+      #fffaf5 70%,
+      #eff6ff 100%);
 }
 
 .skill-cloud {
@@ -4038,7 +4077,7 @@ section {
   margin: 0;
   font-family: var(--font-montserrat), sans-serif;
   font-size: clamp(44px, 3vw, 70px);
-  line-height: 0.3;
+  line-height: 1.05;
   letter-spacing: -3px;
   font-weight: 800;
   color: #101d45;
@@ -4129,13 +4168,31 @@ section {
   inset: -7px;
   border-radius: 50%;
   border: 1px solid rgba(37, 99, 235, 0.16);
+  transition:
+    inset 0.35s ease,
+    border-color 0.35s ease,
+    opacity 0.35s ease;
 }
 
+.journey-item:hover .journey-circle {
+  transform: translateY(-9px) scale(1.04);
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow:
+    0 20px 42px rgba(37, 99, 235, 0.18),
+    0 0 35px rgba(249, 115, 22, 0.1),
+    inset 0 0 25px rgba(255, 255, 255, 0.95);
+}
+
+.journey-item:hover .journey-circle::before {
+  inset: -10px;
+  border-color: rgba(249, 115, 22, 0.25);
+}
 
 .journey-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Arial, sans-serif;
   font-size: 72px;
   line-height: 1;
   font-weight: 700;
@@ -4149,6 +4206,12 @@ section {
 .journey-icon svg {
   width: 44px;
   height: 44px;
+}
+
+.journey-item:hover .journey-icon {
+  transform: scale(1.12);
+  text-shadow:
+    0 4px 15px rgba(249, 115, 22, 0.25);
 }
 
 .journey-item:nth-child(1) .journey-icon {
@@ -4180,6 +4243,11 @@ section {
   transition:
     color 0.3s ease,
     transform 0.3s ease;
+}
+
+.journey-item:hover h3 {
+  color: var(--orange);
+  transform: translateY(-2px);
 }
 
 .journey-item p {
@@ -5099,6 +5167,27 @@ section {
 .success-stories-section {
   padding: 100px 70px;
   background: #fff;
+}
+
+/* Homepage instance only (has id="success-stories") gets the
+   gradient beat to keep the section rhythm alternating; the
+   standalone /success-stories page keeps its plain white background. */
+#success-stories.success-stories-section {
+  background:
+    radial-gradient(circle at 25% 25%,
+      rgba(245, 158, 11, 0.16),
+      transparent 28%),
+    radial-gradient(circle at 80% 80%,
+      rgba(37, 99, 235, 0.12),
+      transparent 28%),
+    radial-gradient(circle at 50% 10%,
+      rgba(239, 68, 68, 0.08),
+      transparent 20%),
+    linear-gradient(120deg,
+      #fff8e7 0%,
+      #fffaf5 40%,
+      #eff6ff 65%,
+      #fff8e7 100%);
 }
 
 .story-heading {
