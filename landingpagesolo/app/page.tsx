@@ -189,10 +189,7 @@ export default function Home() {
           <div className="journey-decoration journey-decoration-one"></div>
           <div className="journey-decoration journey-decoration-two"></div>
           <div className="journey-decoration journey-decoration-three"></div>
-          <div className="journey-decoration journey-decoration-four"></div><br />
-          <div className="journey-button">  <Link href="/signup" className="hero-primary">
-                Begin Your Journey
-                </Link></div>
+          <div className="journey-decoration journey-decoration-four"></div>
         </section>
       </FadeInSection>
 
