@@ -11,6 +11,7 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image"; 
 import Link from "next/link"; 
 import Footer from "../components/Footer"; 
+import BackToTop from "../components/BackToTop";
  
  
 const pathways = [ 
@@ -156,8 +157,9 @@ export default function ExplorePage() {
   return ( 
     <main className="explore-page"> 
         <NavBar></NavBar> 
-        <FadeInSection> 
+        
       <section className="explore-hero "> 
+        <FadeInSection> 
         <div className="explore-hero-content"> 
           <p className="explore-label">DISCOVER • LEARN • GROW</p> 
  
@@ -171,8 +173,9 @@ export default function ExplorePage() {
             opportunities that match your interests and skills. 
           </p> 
           </div> 
+          </FadeInSection> 
       </section> 
-      </FadeInSection> 
+      
        
       <FadeInSection> 
       <section id="opportunity" className="explore-section opportunity-section"> 
@@ -209,19 +212,9 @@ export default function ExplorePage() {
         )} 
       </section> 
       </FadeInSection> 
- 
+      <BackToTop></BackToTop> 
       <Footer></Footer> 
-      <button 
-        className="back-to-top" 
-        onClick={() => { 
-          window.scrollTo({ 
-            top: 0, 
-            behavior: "smooth", 
-          }); 
-        }} 
-      > 
-        ↑ 
-      </button> 
+      
     </main> 
   ); 
 }

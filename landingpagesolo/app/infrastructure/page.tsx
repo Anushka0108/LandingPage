@@ -11,6 +11,7 @@ import {
   whySolo,
 } from "../data/infrastructure";
 import FadeInSection from "../components/FadeInSection";
+import BackToTop from "../components/BackToTop";
 
 function ArchitectureLayer({
   layer,
@@ -90,6 +91,7 @@ export default function InfrastructurePage() {
       <main className="infrastructure-page">
         <FadeInSection>
           <section className="infra-hero">
+            
             <div className="infra-hero-content">
               <span className="infra-eyebrow">
                 SOLO INFRASTRUCTURE
@@ -148,8 +150,10 @@ export default function InfrastructurePage() {
                 <span>Careers</span>
               </div>
             </div>
+            
           </section>
-        </FadeInSection>
+          </FadeInSection>
+        
 
         <FadeInSection>
           <section className="infra-intro" id="how-it-works">
@@ -308,17 +312,7 @@ export default function InfrastructurePage() {
           </section>
         </FadeInSection>
       </main>
-      <button
-        className="back-to-top"
-        onClick={() => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
-      >
-        ↑
-      </button>
+      <BackToTop></BackToTop>
       <Footer />
     </>
   );

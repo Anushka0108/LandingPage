@@ -4,6 +4,7 @@ import { useState } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import FadeInSection from "../components/FadeInSection";
+import BackToTop from "../components/BackToTop";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -159,17 +160,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <button
-            className="back-to-top"
-            onClick={() => {
-                window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-                });
-            }}
-            >
-            ↑
-            </button>
+        <BackToTop></BackToTop>
       </main>
       </FadeInSection>
 

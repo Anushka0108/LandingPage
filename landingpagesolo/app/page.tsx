@@ -7,26 +7,14 @@ import Footer from "./components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import BackToTop from "./components/BackToTop";
 
 export default function Home() {
-  const [showBackToTop, setShowBackToTop] = useState(false);
-
-    useEffect(() => {
-      const handleScroll = () => {
-        setShowBackToTop(window.scrollY > 300);
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
   return (
     <main>
       <NavBar></NavBar>
-      <FadeInSection>
         <section className="hero">
+          <FadeInSection>
           <div className="hero-content">
             <div className="hero-text">
               <p className="hero-label">LEARN • GROW • DISCOVER</p>
@@ -55,8 +43,8 @@ export default function Home() {
 
           <div className="hero-glow hero-glow-one"></div>
           <div className="hero-glow hero-glow-two"></div>
+          </FadeInSection>
         </section>
-      </FadeInSection>
 
       <FadeInSection>
         <section className="intro-section ">
@@ -549,19 +537,7 @@ export default function Home() {
         <section className="contact"></section>
       </FadeInSection>
       <Footer></Footer>
-      {showBackToTop && (
-        <button
-          className="back-to-top"
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
-        >
-          ↑
-        </button>
-      )}
+      <BackToTop></BackToTop>
     </main>
   );
 }

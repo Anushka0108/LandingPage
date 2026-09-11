@@ -110,20 +110,8 @@ export default function FilterBar({
 
   return (
     <div className="filter-container">
-      <div className="filter-bar">
-        {filters.map((filter) => (
-          <button
-            key={filter}
-            type="button"
-            className={activeFilter === filter ? "active" : ""}
-            onClick={() => onFilterChange(filter)}
-          >
-            {filter}
-          </button>
-        ))}
-      </div>
 
-      <div className="discovery-section">
+        <div className="discovery-section">
         <div className="github-discovery discovery-card">
           <div className="discovery-icon github-icon">
             <span>⌘</span>
@@ -268,6 +256,19 @@ export default function FilterBar({
           </div>
         </div>
       </div>
+      <div className="filter-bar">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            type="button"
+            className={activeFilter === filter ? "active" : ""}
+            onClick={() => onFilterChange(filter)}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
     </div>
   );
 }
