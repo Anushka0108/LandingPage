@@ -3376,6 +3376,7 @@ section {
 
 .contact-page {
   min-height: 100vh;
+  padding-top: 80px;
 }
 
 .contact-page {
@@ -3729,6 +3730,9 @@ section {
 .infrastructure-page {
   background: var(--background);
   color: var(--foreground);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .infra-hero {
@@ -4172,20 +4176,6 @@ section {
     inset 0.35s ease,
     border-color 0.35s ease,
     opacity 0.35s ease;
-}
-
-.journey-item:hover .journey-circle {
-  transform: translateY(-9px) scale(1.04);
-  border-color: rgba(249, 115, 22, 0.35);
-  box-shadow:
-    0 20px 42px rgba(37, 99, 235, 0.18),
-    0 0 35px rgba(249, 115, 22, 0.1),
-    inset 0 0 25px rgba(255, 255, 255, 0.95);
-}
-
-.journey-item:hover .journey-circle::before {
-  inset: -10px;
-  border-color: rgba(249, 115, 22, 0.25);
 }
 
 .journey-icon {
@@ -5188,6 +5178,7 @@ section {
       #fffaf5 40%,
       #eff6ff 65%,
       #fff8e7 100%);
+  scroll-margin-top: 100px;
 }
 
 .story-heading {

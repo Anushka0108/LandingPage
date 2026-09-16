@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import FadeInSection from "../components/FadeInSection";
@@ -8,6 +8,10 @@ import BackToTop from "../components/BackToTop";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

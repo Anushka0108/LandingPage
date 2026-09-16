@@ -286,10 +286,6 @@ export default function Home() {
               <li>✓ Add certificates and badges</li>
               <li>✓ Generate an ATS-ready resume</li>
             </ul>
-
-            <a href="#" className="section-button">
-              Build Your Profile →
-            </a>
           </div>
 
           <div className="profile-preview">
