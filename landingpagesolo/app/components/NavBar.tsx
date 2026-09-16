@@ -3,9 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import UserMenu from "./UserMenu";
 
-const isLoggedIn = true;
+const isLoggedIn = false; // Replace with actual authentication logic
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -17,15 +16,12 @@ export default function NavBar() {
           src="/images/solologo.png"
           alt="SOLO logo"
           width={120}
-          height={55}
+          height={46}
           priority
         />
 
         <nav className="nav-links">
-          <Link
-            href="/"
-            className={pathname === "/" ? "active" : ""}
-          >
+          <Link href="/" className={pathname === "/" ? "active" : ""}>
             Home
           </Link>
 
@@ -43,11 +39,7 @@ export default function NavBar() {
             Infrastructure
           </Link>
 
-          <Link
-            href="/#success-stories"
-          >
-            Success Stories
-          </Link>
+          <Link href="/#success-stories">Success Stories</Link>
 
           <Link
             href="/contact"
@@ -56,23 +48,10 @@ export default function NavBar() {
             Contact Us
           </Link>
 
-          {isLoggedIn ? (
-            <UserMenu
-              avatarSrc="/images/profilepic.png"
-              showChat={false}
-              showLanguage={false}
-            />
-          ) : (
-            <>
-              <Link href="/signin" className="nav-signin">
-                Sign In
-              </Link>
-
-              <Link href="/signup" className="nav-signup">
-                Sign Up
-              </Link>
-            </>
-          )}
+         
+          <Link href="/signup" className="nav-signup">
+            Sign Up
+          </Link>
         </nav>
       </div>
     </header>

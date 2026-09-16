@@ -139,7 +139,7 @@ export default function SignUpPage() {
             </button>
 
             <div className="auth-divider">
-              <span>or</span>
+              <span>Don't have an account? </span>
             </div>
 
             <Link href="/signin" className="auth-btn-secondary">
