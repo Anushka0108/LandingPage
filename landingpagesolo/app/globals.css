@@ -474,19 +474,19 @@ section {
 
   background:
     radial-gradient(circle at 85% 15%,
-      rgba(37, 99, 235, 0.14),
-      transparent 28%),
+      rgba(18, 85, 255, 0.12),
+      transparent 30%),
     radial-gradient(circle at 10% 85%,
-      rgba(245, 158, 11, 0.16),
-      transparent 28%),
-    radial-gradient(circle at 50% 50%,
-      rgba(239, 68, 68, 0.08),
-      transparent 22%),
+      rgba(255, 127, 7, 0.18),
+      transparent 30%),
+    radial-gradient(circle at 55% 45%,
+      rgba(245, 158, 11, 0.12),
+      transparent 30%),
     linear-gradient(120deg,
       #fff7ed 0%,
       #fffaf5 42%,
-      #eff6ff 65%,
-      #fff7ed 100%);
+      #fff8ed 70%,
+      #fff3e8 100%);
 }
 
 .profile-text {
@@ -889,11 +889,20 @@ section {
 
 .skill-section {
   padding: 130px 70px;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 100px;
   align-items: center;
-  background: #fffaf5;
+
+  background:
+    radial-gradient(circle at 85% 20%,
+      rgba(18, 85, 255, 0.08),
+      transparent 28%),
+    radial-gradient(circle at 10% 80%,
+      rgba(255, 127, 7, 0.10),
+      transparent 30%),
+    #fff8f0;
 }
 
 .skill-text {
