@@ -1,320 +1,308 @@
 "use client";
-import { successStories } from "./data/successStories";
+
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import NavBar from "./components/NavBar";
 import FadeInSection from "./components/FadeInSection";
 import Footer from "./components/Footer";
-
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import BackToTop from "./components/BackToTop";
+import { successStories } from "./data/successStories";
+import { opportunities } from "./data/opportunties";
 
 export default function Home() {
   return (
     <main>
       <NavBar></NavBar>
-        <section className="hero">
-          <FadeInSection>
-          <div className="hero-content hero-split">
-            <div className="hero-text">
-              <p className="hero-label">LEARN • GROW • DISCOVER</p>
 
-              <h1>
-                Verified skills
-                <span> Real Opportunities.</span>
-              </h1>
-
-              <p className="hero-description">
-                Discover what interests you, develop meaningful skills, and turn
-                your learning into opportunities.
-              </p>
-
-              <div className="hero-buttons">
-                <Link href="/signup" className="hero-primary">
-                  Begin Your Journey
-                </Link>
-
-                <a href="/contact" className="infra-secondary-btn">
-                  Contact Us
-                </a>
-              </div>
+      <section className="hero hero-fullscreen">
+        <FadeInSection>
+          <div className="hero-fullscreen-inner">
+            <div className="hero-pill-badge">
+              <span>●</span> SKILLS-FIRST INFRASTRUCTURE FOR LEARNERS
             </div>
 
-            <div className="hero-journey-card">
-              <div className="hero-journey-head">
-                <p className="hero-journey-label">YOUR JOURNEY</p>
-                <h2>
-                  From learning to
-                  <span> opportunity.</span>
-                </h2>
-                <p>SOLO connects every step of your professional journey.</p>
-              </div>
+            <h1 className="hero-title-compact">
+              Turn What You Learn Into <br />
+              <span>Proof of What You Can Do.</span>
+            </h1>
 
-              <div className="journey journey-compact">
-                <div className="journey-item">
-                  <div className="journey-circle">
-                    <span className="journey-icon"><svg  xmlns="http://www.w3.org/2000/svg" width={44} height={44} 
-                    fill={"currentColor"} viewBox={"0 0 24 24"}>
-                    {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
-                    <path d="M18 10c0-4.41-3.59-8-8-8s-8 3.59-8 8 3.59 8 8 8c1.85 0 3.54-.63 4.9-1.69l5.1 5.1L21.41 20l-5.1-5.1A8 8 0 0 0 18 10M4 10c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6-6-2.69-6-6"></path>
-                    </svg></span>
-                  </div>
-                  <h3>Discover</h3>
-                  <p>Explore your interests and career possibilities.</p>
-                </div>
-
-                <div className="journey-line"></div>
-
-                <div className="journey-item">
-                  <div className="journey-circle">
-                    <span className="journey-icon"><svg  xmlns="http://www.w3.org/2000/svg" width={44} height={44} 
-                    fill={"currentColor"} viewBox={"0 0 24 24"}>
-                    {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
-                    <path d="M21 7h-5V3c0-.55-.45-1-1-1H9c-.55 0-1 .45-1 1v8H3c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1M4 13h4v7H4zm6-1V4h4v16h-4zm10 8h-4V9h4z"></path>
-                    </svg></span>
-                  </div>
-                  <h3>Build Skills</h3>
-                  <p>Develop skills aligned with your career goals.</p>
-                </div>
-
-                <div className="journey-line"></div>
-
-                <div className="journey-item">
-                  <div className="journey-circle">
-                    <span className="journey-icon"><svg  xmlns="http://www.w3.org/2000/svg" width={44} height={44} 
-                    fill={"currentColor"} viewBox={"0 0 24 24"}>
-                    {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
-                    <path d="m21.45 8.61-9-4.5a1 1 0 0 0-.89 0l-6 3-3 1.5-1 .5a1 1 0 0 0-.55.89v6h2v-5.38l2 1v3.83c0 2.06 3.12 4.56 7 4.56s7-2.49 7-4.56v-3.83l2.45-1.22c.34-.17.55-.52.55-.89s-.21-.72-.55-.89Zm-15 .29L12 6.12l6.76 3.38L12 12.88 5.24 9.5l1.21-.61ZM17 15.45c0 .76-2.11 2.56-5 2.56s-5-1.79-5-2.56v-2.83l4.55 2.28c.14.07.29.11.45.11s.31-.04.45-.11L17 12.62z"></path>
-                    </svg></span>
-                  </div>
-                  <h3>Gain Experience</h3>
-                  <p>Take courses, projects and internships.</p>
-                </div>
-
-                <div className="journey-line"></div>
-
-                <div className="journey-item">
-                  <div className="journey-circle">
-                    <span className="journey-icon"><svg  xmlns="http://www.w3.org/2000/svg" width={44} height={44} 
-                    fill={"currentColor"} viewBox={"0 0 24 24"}>
-                    {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
-                    <path d="M19.96 8.52c.02-.17.04-.35.04-.52 0-2.38-2.14-4.29-4.52-3.96C14.79 2.81 13.47 2 12 2s-2.79.8-3.48 2.04C6.14 3.71 4 5.63 4 8c0 .17.01.35.04.52C2.81 9.21 2 10.53 2 12s.8 2.79 2.04 3.48c-.02.17-.04.35-.04.52 0 2.38 2.14 4.28 4.52 3.96C9.21 21.19 10.53 22 12 22s2.79-.8 3.48-2.04C17.86 20.28 20 18.37 20 16c0-.17-.01-.35-.04-.52C21.19 14.79 22 13.47 22 12s-.8-2.79-2.04-3.48m-1.44 5.4-1.1.29.43 1.05c.09.23.14.48.14.73 0 1.1-.9 2-2 2-.25 0-.5-.05-.73-.15l-1.05-.43-.29 1.1c-.23.87-1.02 1.48-1.92 1.48s-1.69-.61-1.92-1.48l-.29-1.1-1.05.43c-.23.09-.48.15-.73.15-1.1 0-2-.9-2-2 0-.25.05-.5.14-.73l.43-1.05-1.1-.29C4.61 13.69 4 12.9 4 12s.61-1.69 1.48-1.92l1.1-.29-.43-1.05c-.09-.23-.14-.48-.14-.73 0-1.1.9-2 2-2 .25 0 .5.05.73.15l1.05.43.29-1.1c.23-.87 1.02-1.48 1.92-1.48s1.69.61 1.92 1.48l.29 1.1 1.05-.43c.23-.09.48-.15.73-.15 1.1 0 2 .9 2 2 0 .25-.05.5-.14.73l-.43 1.05 1.1.29C19.39 10.31 20 11.1 20 12s-.61 1.69-1.48 1.92"></path><path d="m11 12.59-1.29-1.3-1.42 1.42 2.71 2.7 4.74-4.7-1.41-1.42z"></path>
-                    </svg></span>
-                  </div>
-                  <h3>Earn Credentials</h3>
-                  <p>Turn your achievements into trusted proof.</p>
-                </div>
-
-                <div className="journey-line"></div>
-
-                <div className="journey-item">
-                  <div className="journey-circle">
-                    <span className="journey-icon"><svg  xmlns="http://www.w3.org/2000/svg" width={44} height={44} 
-                    fill={"currentColor"} viewBox={"0 0 24 24"}>
-                    {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
-                    <path d="M20 6h-3V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2M9 4h6v2H9zM8 8h12v3.07l-.83.39a16.78 16.78 0 0 1-14.34 0L4 11.07V8zM4 20v-6.72c2.54 1.19 5.27 1.79 8 1.79s5.46-.6 8-1.79V20z"></path>
-                    </svg></span>
-                  </div>
-                  <h3>Find Opportunities</h3>
-                  <p>Move toward your next career opportunity.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-glow hero-glow-one"></div>
-          <div className="hero-glow hero-glow-two"></div>
-          </FadeInSection>
-        </section>
-
-      <FadeInSection>
-        <section className="intro-section ">
-          <div className="section-heading">
-            <p className="section-label">THE SOLO ECOSYSTEM</p>
-
-            <h2>
-              Your learning, skills,
-              <span> credentials and career — connected.</span>
-            </h2>
-
-            <p>
-              SOLO brings everything you need to build skills, gain experience,
-              earn verified credentials and discover meaningful career
-              opportunities into one connected platform.
+            <p className="hero-desc-compact">
+              SOLO bridges learning and employment by turning skills into verified credentials, ATS-ready resumes, and real career opportunities.
             </p>
-          </div>
 
-          <div className="ecosystem-grid">
-            <div className="ecosystem-card">
-              <div className="card-number">01</div>
-              <h3>Learn</h3>
-              <p>
-                Explore courses, projects, internships and other learning
-                opportunities aligned with your interests.
+            <div className="hero-cta-group">
+              <Link href="/signup" className="hero-btn-primary">
+                Get Started
+              </Link>
+
+              <Link href="/contact" className="hero-btn-contact">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </FadeInSection>
+      </section>
+
+      <section style={{ padding: "60px 20px 80px", background: "#ffffff" }}>
+        <FadeInSection>
+          <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: "40px" }}>
+              <h2 style={{
+                fontFamily: "var(--font-montserrat), sans-serif",
+                fontSize: "clamp(24px, 2.5vw, 34px)",
+                fontWeight: "800",
+                color: "#0f172a",
+                margin: "0 0 10px",
+                letterSpacing: "-1px"
+              }}>
+                Your Complete Learning-to-Employment Flywheel
+              </h2>
+              <p style={{ fontSize: "15px", color: "#64748b", margin: 0 }}>
+                From curiosity to verified hiring readiness across six unified steps.
               </p>
             </div>
 
-            <div className="ecosystem-card">
-              <div className="card-number">02</div>
-              <h3>Build</h3>
-              <p>
-                Develop skills through real-world experiences, projects,
-                achievements and continuous learning.
-              </p>
-            </div>
-
-            <div className="ecosystem-card">
-              <div className="card-number">03</div>
-              <h3>Prove</h3>
-              <p>
-                Turn your learning and achievements into verifiable credentials
-                and digital badges.
-              </p>
-            </div>
-
-            <div className="ecosystem-card">
-              <div className="card-number">04</div>
-              <h3>Grow</h3>
-              <p>
-                Discover career pathways, internships and jobs that match your
-                skills and goals.
-              </p>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      
-      <FadeInSection>
-        <section className="opportunities-section">
-          <div className="section-heading center">
-            <p className="section-label">EXPLORE</p>
-
-            <h2>
-              Opportunities that
-              <span> move you forward.</span>
-            </h2>
-
-            <p>
-              Discover experiences that help you learn, build and prepare for
-              your career.
-            </p>
-          </div>
-
-          <div className="opportunity-grid">
-            <div className="opportunity-card">
-              <span>01</span>
-              <h3>Courses</h3>
-              <p>Learn new skills through relevant learning opportunities.</p>
-              <a href="/explore?type=Courses#opportunity">Explore Courses →</a>
-            </div>
-
-            <div className="opportunity-card">
-              <span>02</span>
-              <h3>Internships</h3>
-              <p>Gain practical experience and strengthen your profile.</p>
-              <a href="/explore?type=Internships#opportunity">
-                Explore Internships →
-              </a>
-            </div>
-
-            <div className="opportunity-card">
-              <span>03</span>
-              <h3>Live Projects</h3>
-              <p>Apply your knowledge to real-world projects.</p>
-              <a href="/explore?type=Projects#opportunity">
-                Explore Projects →
-              </a>
-            </div>
-
-            <div className="opportunity-card">
-              <span>04</span>
-              <h3>Hackathons</h3>
-              <p>Challenge yourself and showcase what you can build.</p>
-              <a href="/explore?type=Hackathons#opportunity">
-                Explore Hackathons →
-              </a>
-            </div>
-
-            <div className="opportunity-card">
-              <span>05</span>
-              <h3>Jobs</h3>
-              <p>Find roles that match your skills and career goals.</p>
-              <a href="/explore?type=Jobs#opportunity">Explore Jobs →</a>
-            </div>
-
-            <div className="opportunity-card">
-              <span>06</span>
-              <h3>Career Pathways</h3>
-              <p>Follow structured learning journeys toward specific roles.</p>
-              <a href="/explore?type=Career Pathways#opportunity">
-                Explore Pathways →
-              </a>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+              gap: "16px"
+            }}>
+              {[
+                { num: "1", title: "Discover", desc: "Explore target roles & courses" },
+                { num: "2", title: "Learn", desc: "Enroll in courses, hackathons & projects" },
+                { num: "3", title: "Build Skills", desc: "Work on live projects & assignments" },
+                { num: "4", title: "Prove Skills", desc: "Submit certificates & open evidence" },
+                { num: "5", title: "Grow", desc: "Identify skill gaps against live market roles" },
+                { num: "6", title: "Showcase", desc: "Verifiable credentials & ATS resumes" }
+              ].map((step) => (
+                <div key={step.num} style={{
+                  background: "#ffffff",
+                  border: "1px solid #e2e8f0",
+                  borderRadius: "14px",
+                  padding: "20px 16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  boxShadow: "0 3px 15px rgba(0, 0, 0, 0.02)"
+                }}>
+                  <div style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    background: "var(--orange)",
+                    color: "#ffffff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontFamily: "var(--font-montserrat), sans-serif",
+                    fontWeight: "800",
+                    fontSize: "13px",
+                    marginBottom: "14px"
+                  }}>
+                    {step.num}
+                  </div>
+                  <h3 style={{
+                    fontFamily: "var(--font-montserrat), sans-serif",
+                    fontSize: "16px",
+                    fontWeight: "750",
+                    color: "#1e293b",
+                    margin: "0 0 6px"
+                  }}>
+                    {step.title}
+                  </h3>
+                  <p style={{ fontSize: "12px", color: "#64748b", lineHeight: "1.5", margin: 0 }}>
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-        </section>
-      </FadeInSection>
+        </FadeInSection>
+      </section>
+
+      <section className="opportunities-section" style={{ background: "#fffaf5", padding: "70px 0", overflow: "hidden" }}>
+        <FadeInSection>
+          <div style={{ maxWidth: "1280px", margin: "0 auto 35px", padding: "0 20px" }}>
+            <div className="section-heading center" style={{ margin: "0 auto" }}>
+              <p className="section-label">EXPLORE OPPORTUNITIES</p>
+              <h2>
+                Opportunities that <span>move you forward.</span>
+              </h2>
+              <p>Discover experiences that help you learn, build, and prepare for your career.</p>
+            </div>
+          </div>
+
+          <div className="marquee-wrapper">
+            <div className="marquee-track">
+              {[...opportunities, ...opportunities].map((item, index) => (
+                <div key={index} className="opportunity-card-compact">
+                  <div className="compact-card-content">
+                    <div className="compact-card-header">
+                      <div className="compact-avatar">
+                        <Image src="/images/profilepic.png" alt="Organization logo" width={32} height={32} style={{ borderRadius: "50%" }} />
+                      </div>
+                      <div className="compact-title-col">
+                        <h3>{item.title}</h3>
+                        <p>{item.organization}</p>
+                      </div>
+                    </div>
+
+                    <div className="compact-tags-row">
+                      <span className="skills-badge">{item.skills.length} Skills</span>
+                      <span className="type-badge">{item.type}</span>
+                      <span className="posted-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.58 2 2 6.58 2 12s4.58 10 10 10 10-4.58 10-10S17.42 2 12 2m0 18c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8-3.66 8-8 8"></path>
+                          <path d="M13 7h-2v6h6v-2h-4z"></path>
+                        </svg>
+                        {item.posted}
+                      </span>
+                    </div>
+
+                    <div className="compact-details-row">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 15c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2"></path>
+                          <path d="M11.65 21.94a1.03 1.03 0 0 0 .7 0C12.7 21.81 21 18.61 21 11c0-4.96-4.04-9-9-9s-9 4.04-9 9c0 7.6 8.3 10.8 8.65 10.94M12 4c3.86 0 7 3.14 7 7 0 5.42-5.53 8.26-7 8.91-1.47-.66-7-3.5-7-8.91 0-3.86 3.14-7 7-7"></path>
+                        </svg>
+                        {item.location}
+                      </span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M21 7h-1.4L18 5.4V3c0-.55-.45-1-1-1h-1c-1.44 0-2.75.78-3.45 2H9c-3.86 0-7 3.14-7 7 0 .25.02 6.28 2.11 10.45A1 1 0 0 0 5 22h4c.55 0 1-.45 1-1v-3h2v3c0 .55.45 1 1 1h4c.33 0 .65-.17.83-.45 1.54-2.31 2.08-5.11 2.27-6.55h.9c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1m-1 6h-.81c-.53 0-.97.42-1 .95 0 .04-.19 3.38-1.75 6.05h-2.45v-3c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v3H5.63c-1.61-3.73-1.64-8.95-1.64-9 0-2.76 2.24-5 5-5h4.18c.42 0 .8-.27.94-.67A1.99 1.99 0 0 1 15.98 4v1.81c0 .27.11.52.29.71l2.19 2.19c.19.19.44.29.71.29h.81v4Z"></path>
+                        </svg>
+                        {item.payment}
+                      </span>
+                    </div>
+
+                    <div className="compact-action-row">
+                      <Link href={`/explore/opportunity/${item.id}`} className="view-btn">
+                        View more
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: "35px" }}>
+            <Link href="/signin" className="hero-primary" style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "12px 28px",
+              borderRadius: "8px",
+              textDecoration: "none",
+              fontSize: "14px",
+              fontWeight: "700"
+            }}>
+              Login to Explore More →
+            </Link>
+          </div>
+        </FadeInSection>
+      </section>
 
       <FadeInSection>
         <section className="profile-section">
           <div className="profile-text">
             <p className="section-label">YOUR PROFESSIONAL IDENTITY</p>
-
             <h2>
-              More than a resume.
-              <span> A profile that grows with you.</span>
+              More than a resume. <span>A profile that grows with you.</span>
             </h2>
-
             <p>
-              Build a dynamic professional profile that brings together your
-              education, skills, projects, internships, experiences,
-              achievements and credentials.
+              Build a dynamic professional profile that brings together your education, skills, projects, internships, experiences, achievements and credentials.
             </p>
-
             <ul>
-              <li>✓ Import your existing resume</li>
-              <li>✓ Add skills and interests</li>
-              <li>✓ Showcase projects and experience</li>
-              <li>✓ Add certificates and badges</li>
-              <li>✓ Generate an ATS-ready resume</li>
+              <li>✓ Import your existing resume or fill your profile manually</li>
+              <li>✓ Add skills and career interests for personalized recommendations</li>
+              <li>✓ Showcase coursework, live projects, internships, and volunteering</li>
+              <li>✓ Submit certificates and receive verifiable digital badges</li>
+              <li>✓ Generate an ATS-ready resume with embedded proof</li>
             </ul>
+            <Link href="/profile" className="section-button">
+              Learn More
+            </Link>
           </div>
 
-          <div className="profile-preview">
-            <div className="profile-top">
-              <div className="profile-avatar">A</div>
+          <div className="profile-preview" style={{ padding: "0", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "16px", overflow: "hidden" }}>
+            <div style={{ padding: "16px 20px 0" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "14px", alignItems: "stretch" }}>
+                <div style={{ background: "#fff", padding: "16px", borderRadius: "12px", border: "1px solid #edf2f7" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                    <h3 style={{ margin: 0, fontSize: "14px", fontWeight: "700" }}>About Learner</h3>
+                    <span style={{ color: "var(--orange)", fontSize: "12px" }}>✎</span>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "6px 0" }}>
+                    <span style={{ color: "var(--orange)", fontSize: "12px", fontWeight: "600" }}>Add social link</span>
+                    <span style={{ color: "var(--orange)", fontSize: "12px" }}>✎</span>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "6px" }}>
+                    <span style={{ fontSize: "12px", color: "#4b5563" }}>Location</span>
+                    <span style={{ color: "var(--orange)", fontSize: "12px" }}>✎</span>
+                  </div>
+                </div>
 
-              <div>
-                <h3>Anushka</h3>
-                <p>Full Stack Developer</p>
+                <div style={{ background: "linear-gradient(135deg, #0284c7 0%, #38bdf8 30%, #7c3aed 100%)", borderRadius: "12px", padding: "14px 16px", color: "#fff" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
+                    <span style={{ fontSize: "11px", fontWeight: "600", opacity: 0.9 }}>@learner.profile ✎</span>
+                    <button style={{ background: "#fff", color: "#1f2937", border: "none", borderRadius: "6px", padding: "4px 8px", fontSize: "10px", fontWeight: "600", cursor: "pointer" }}>📷 Edit cover photo</button>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                    <div>
+                      <h4 style={{ margin: "0 0 2px", fontSize: "14px", fontWeight: "700" }}>Learner Profile ✎</h4>
+                      <p style={{ margin: 0, fontSize: "11px", opacity: 0.9 }}>Motivated and detail-oriented student ✎</p>
+                    </div>
+                    <div style={{ display: "flex", gap: "12px", textAlign: "center" }}>
+                      <div>
+                        <strong style={{ display: "block", fontSize: "12px" }}>0</strong>
+                        <small style={{ fontSize: "9px", opacity: 0.85 }}>Posts</small>
+                      </div>
+                      <div>
+                        <strong style={{ display: "block", fontSize: "12px" }}>0</strong>
+                        <small style={{ fontSize: "9px", opacity: 0.85 }}>Followers</small>
+                      </div>
+                      <div>
+                        <strong style={{ display: "block", fontSize: "12px" }}>0</strong>
+                        <small style={{ fontSize: "9px", opacity: 0.85 }}>Following</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div className="profile-skills">
-              <h4>Skills</h4>
-
-              <div>
-                <span>JavaScript</span>
-                <span>React</span>
-                <span>Node.js</span>
-                <span>SQL</span>
-              </div>
-            </div>
-
-            <div className="profile-stats">
-              <div>
-                <strong>12</strong>
-                <small>Credentials</small>
+              <div style={{ background: "#fff7ed", border: "1px solid #fed7aa", borderRadius: "10px", padding: "10px 14px", margin: "14px 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div>
+                  <h4 style={{ margin: 0, fontSize: "12px", fontWeight: "700", color: "#1f2937" }}>Resume & profile</h4>
+                  <p style={{ margin: 0, fontSize: "10.5px", color: "#6b7280" }}>Build a resume from your profile or pull in details by uploading a file.</p>
+                </div>
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <button style={{ background: "var(--orange)", color: "#fff", border: "none", borderRadius: "6px", padding: "5px 10px", fontSize: "10.5px", fontWeight: "700", cursor: "pointer" }}>Generate resume ✨</button>
+                  <button style={{ background: "#fff", color: "var(--orange)", border: "1px solid var(--orange)", borderRadius: "6px", padding: "5px 10px", fontSize: "10.5px", fontWeight: "700", cursor: "pointer" }}>Import from resume 📄</button>
+                </div>
               </div>
 
-              <div>
-                <strong>08</strong>
-                <small>Projects</small>
+              <div style={{ background: "#fff", padding: "14px 16px", borderRadius: "12px", border: "1px solid #edf2f7" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "10px" }}>
+                  <h4 style={{ margin: 0, fontSize: "13px", fontWeight: "700" }}>Acquired Skills</h4>
+                  <span style={{ color: "var(--orange)", fontSize: "12px" }}>✎</span>
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                  <span style={{ padding: "4px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", fontSize: "10.5px", color: "#374151" }}>Artificial Intelligence (AI) And Machine Learning</span>
+                  <span style={{ padding: "4px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", fontSize: "10.5px", color: "#374151" }}>Information And Communications Technology</span>
+                  <span style={{ padding: "4px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", fontSize: "10.5px", color: "#374151" }}>Online Engineering</span>
+                  <span style={{ padding: "4px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", fontSize: "10.5px", color: "#374151" }}>React Navigation</span>
+                  <span style={{ padding: "4px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", fontSize: "10.5px", color: "#374151" }}>Virtual Lab Automation</span>
+                  <span style={{ padding: "4px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", fontSize: "10.5px", color: "#6b7280" }}>42 More Skills</span>
+                </div>
               </div>
 
-              <div>
-                <strong>04</strong>
-                <small>Experiences</small>
+              <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", margin: "14px 0 16px", flexWrap: "wrap" }}>
+                <button style={{ background: "#fff", color: "var(--orange)", border: "1px solid var(--orange)", borderRadius: "999px", padding: "4px 10px", fontSize: "10px", fontWeight: "600", cursor: "pointer" }}>Verify Government ID</button>
+                <button style={{ background: "#fff", color: "var(--orange)", border: "1px solid var(--orange)", borderRadius: "999px", padding: "4px 10px", fontSize: "10px", fontWeight: "600", cursor: "pointer" }}>Ask for endorsement</button>
+                <button style={{ background: "#fff", color: "var(--orange)", border: "1px solid var(--orange)", borderRadius: "999px", padding: "4px 10px", fontSize: "10px", fontWeight: "600", cursor: "pointer" }}>Profile CLR</button>
+                <button style={{ background: "#fff", color: "var(--orange)", border: "1px solid var(--orange)", borderRadius: "999px", padding: "4px 10px", fontSize: "10px", fontWeight: "600", cursor: "pointer" }}>Copy Profile Link</button>
               </div>
             </div>
           </div>
@@ -328,7 +316,7 @@ export default function Home() {
               <div className="credential-main">
                 <div className="certificate-badge">
                   <div className="certificate-inner">
-                    <span className="certificate-brand">◇ academia</span>
+                    <span className="certificate-brand">◇ SOLO Network</span>
                     <strong>ReactJS</strong>
                     <span>Coursework</span>
                   </div>
@@ -338,27 +326,18 @@ export default function Home() {
                     <h3>ReactJS</h3>
                     <p>SPARK+</p>
                   </div>
-
                   <div className="credential-status">
                     <span className="skills-count">8 Skills</span>
                     <span className="verified-status">Verified</span>
                   </div>
-
                   <p className="credential-description">
-                    This badge represents completion of the ReactJS
-                    Certification Course. It reflects understanding o...
-                    <span> see more</span>
+                    This badge represents completion of the ReactJS Certification Course. It reflects understanding of component lifecycle, hooks, and verified web development coursework.
                   </p>
                 </div>
               </div>
-
               <div className="credential-actions">
                 <button className="open-badge">Open badge</button>
-
-                <a href="#" className="view-credential">
-                  View Credential
-                </a>
-
+                <a href="#" className="view-credential">View Credential</a>
                 <span className="credential-platform">◈</span>
               </div>
             </div>
@@ -366,18 +345,12 @@ export default function Home() {
 
           <div className="credential-text">
             <p className="section-label">VERIFIED ACHIEVEMENTS</p>
-
             <h2>
-              Turn your learning into
-              <span> trusted proof.</span>
+              Turn your learning into <span>trusted proof.</span>
             </h2>
-
             <p>
-              Your achievements shouldn't disappear inside a folder of
-              certificates. SOLO turns learning experiences into verifiable
-              digital credentials that you can showcase.
+              Your achievements shouldn&apos;t disappear inside a folder of certificates. SOLO turns learning experiences into verifiable digital credentials and Open Badges that you can showcase.
             </p>
-
             <div className="credential-flow">
               <span>Learn</span>
               <b>→</b>
@@ -387,130 +360,179 @@ export default function Home() {
               <b>→</b>
               <span>Share</span>
             </div>
+            <div style={{ marginTop: "24px" }}>
+              <Link href="/credentials" className="section-button">
+                Learn More
+              </Link>
+            </div>
           </div>
         </section>
       </FadeInSection>
 
       <FadeInSection>
-        <section className="skill-section">
-        <div className="skill-text">
-          <p className="section-label">SKILL COMPATIBILITY</p>
+        <section className="career-pathway-explorer" style={{ padding: "80px 70px", background: "#ffffff", borderTop: "1px solid #eef2f6", borderBottom: "1px solid #eef2f6" }}>
+          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+            <div className="section-heading center">
+              <p className="section-label">STRUCTURED CAREER PATHWAYS</p>
+              <h2>
+                Explore guided paths from <span>curiosity to career.</span>
+              </h2>
+              <p>
+                Follow structured learning pathways with interlinked digital course badges to systematically build and verify in-demand competencies.
+              </p>
+            </div>
 
-          <h2>
-            See how a course
-            <span> fits your skills.</span>
-          </h2>
+            <div style={{
+              background: "radial-gradient(#d1d5db 1px, transparent 1px)",
+              backgroundSize: "20px 20px",
+              backgroundColor: "#fafaf9",
+              border: "1px solid #e5e7eb",
+              borderRadius: "18px",
+              padding: "40px 24px",
+              overflowX: "auto"
+            }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", minWidth: "900px", gap: "12px", position: "relative" }}>
+                {[
+                  { name: "ReactJS", badge: "◇ academia", type: "Coursework", color: "#0284c7" },
+                  { name: "React Fundamentals", badge: "◇ academia", type: "Skills Validation", color: "#7c3aed" },
+                  { name: "React Redux Toolkit", badge: "◇ academia", type: "Coursework", color: "#0284c7" },
+                  { name: "RTK Query Basics", badge: "◇ academia", type: "Coursework", color: "#0284c7" },
+                  { name: "Redux & RTK Query", badge: "◇ academia", type: "Skills Validation", color: "#7c3aed" },
+                  { name: "NextJS", badge: "◇ academia", type: "Coursework", color: "#0284c7" }
+                ].map((node, i, arr) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", flex: 1 }}>
+                    <div style={{
+                      background: "#ffffff",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "14px",
+                      padding: "16px 14px",
+                      textAlign: "center",
+                      width: "100%",
+                      minWidth: "135px",
+                      boxShadow: "0 4px 14px rgba(0,0,0,0.03)",
+                      position: "relative"
+                    }}>
+                      <span style={{
+                        position: "absolute",
+                        top: "-8px",
+                        right: "10px",
+                        background: "#10b981",
+                        color: "#ffffff",
+                        fontSize: "9px",
+                        fontWeight: "700",
+                        padding: "2px 7px",
+                        borderRadius: "10px"
+                      }}>
+                        Earned
+                      </span>
+                      <div style={{
+                        width: "52px",
+                        height: "52px",
+                        borderRadius: "50%",
+                        border: `2.5px solid ${node.color}`,
+                        margin: "0 auto 10px",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background: "#ffffff"
+                      }}>
+                        <span style={{ fontSize: "6px", color: node.color, fontWeight: "700" }}>{node.badge}</span>
+                        <span style={{ fontSize: "7px", color: "#1e293b", fontWeight: "700" }}>Credential</span>
+                        <span style={{ fontSize: "6px", background: node.color, color: "#ffffff", width: "100%", textAlign: "center", marginTop: "2px" }}>{node.type}</span>
+                      </div>
+                      <h4 style={{ margin: 0, fontSize: "12px", fontWeight: "700", color: "#0f172a" }}>{node.name}</h4>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <div style={{ width: "24px", height: "2px", background: "#cbd5e1", flexShrink: 0, margin: "0 4px" }} />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          <p>
-            When you explore an opportunity, SOLO compares its requirements with the skills in your profile.
-             See what you already know, understand how well you match, and discover the opportunities that fit you best.
-          </p>
-        </div>
-
-        <div className="skill-analysis">
-              <Image
-                 src="/images/skill.png"
-                 alt="Skill analysis"
-                 width={450}
-                 height={450}
-                 priority
-               />
-      </div>
-      </section>
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "32px" }}>
+              <Link href="/pathways" className="section-button">
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </section>
       </FadeInSection>
 
       <FadeInSection>
         <section className="community-section">
           <div className="section-heading center">
             <p className="section-label">THE SOLO COMMUNITY</p>
-
             <h2>
-              Learn together.
-              <span> Grow together.</span>
+              Learn together. <span>Grow together.</span>
             </h2>
-
-            <p>
-              Connect with learners, mentors, institutions and employers through
-              the SOLO ecosystem.
-            </p>
+            <p>Connect with learners, mentors, institutions and employers through the SOLO ecosystem.</p>
           </div>
 
           <div className="community-grid">
             <div>
               <strong>Learners</strong>
-              <p>Connect, share and learn from your peers.</p>
+              <p>Connect, share credentials, and learn from your peers.</p>
             </div>
-
             <div>
               <strong>Mentors</strong>
               <p>Learn from professionals and experienced experts.</p>
             </div>
-
             <div>
               <strong>Institutions</strong>
-              <p>Discover programs and opportunities from institutions.</p>
+              <p>Discover programs and opportunities from partner colleges.</p>
             </div>
-
             <div>
               <strong>Employers</strong>
-              <p>Discover opportunities and showcase your capabilities.</p>
+              <p>Discover opportunities and showcase your verified capabilities.</p>
             </div>
           </div>
         </section>
-        <FadeInSection>
-          <section id="success-stories" className="success-stories-section">
-            <div className="story-heading">
-              <h2>Success Stories</h2>
-              <p>See how organizations are transforming with SOLO</p>
-            </div>
+      </FadeInSection>
 
-            <div className="story-grid-wrapper">
-              <Link href="/success-stories" className="story-view-all-link">
-                View All  →
-              </Link>
+      <FadeInSection>
+        <section id="success-stories" className="success-stories-section">
+          <div className="story-heading">
+            <h2>Success Stories</h2>
+            <p>See how organizations are transforming with SOLO</p>
+          </div>
 
-              <div className="story-grid">
-                {successStories.map((story) => (
-                  <div className="story-card" key={story.id}>
-                    <div className="story-card-top">
-                      <span className="story-name">{story.partnerName}</span>
-                      <span className="story-tag">{story.category}</span>
-                    </div>
+          <div className="story-grid-wrapper">
+            <Link href="/success-stories" className="story-view-all-link">
+              View All →
+            </Link>
 
-                    <h3>{story.cardTitle}</h3>
-                    <p>{story.cardDescription}</p>
-
-                    <div className="story-card-bottom">
-                      <Link
-                        href={`/success-stories/${story.id}`}
-                        className="story-readmore"
-                      >
-                        Read More
-                      </Link>
-                      <span className="story-logo">
-                        {story.partnerLogoText}
-                      </span>
-                    </div>
+            <div className="story-grid">
+              {successStories.map((story) => (
+                <div className="story-card" key={story.id}>
+                  <div className="story-card-top">
+                    <span className="story-name">{story.partnerName}</span>
+                    <span className="story-tag">{story.category}</span>
                   </div>
-                ))}
-              </div>
+                  <h3>{story.cardTitle}</h3>
+                  <p>{story.cardDescription}</p>
+                  <div className="story-card-bottom">
+                    <Link href={`/success-stories/${story.id}`} className="story-readmore">
+                      Read More
+                    </Link>
+                    <span className="story-logo">{story.partnerLogoText}</span>
+                  </div>
+                </div>
+              ))}
             </div>
-          </section>
-        </FadeInSection>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <FadeInSection>
         <section className="final-cta">
           <div>
             <p className="section-label">START YOUR JOURNEY</p>
-
             <h2>
-              Your skills can take
-              <span> you further.</span>
+              Your skills can take <span>you further.</span>
             </h2>
-
-            <p>
-              Build your skills. Prove what you can do. Discover where you can
-              go next.
-            </p>
-
+            <p>Build your skills. Prove what you can do. Discover where you can go next.</p>
             <Link href="/signup" className="cta-button">
               Get Started →
             </Link>
@@ -518,9 +540,6 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      <FadeInSection>
-        <section className="contact"></section>
-      </FadeInSection>
       <Footer></Footer>
       <BackToTop></BackToTop>
     </main>

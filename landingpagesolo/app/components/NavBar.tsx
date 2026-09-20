@@ -50,7 +50,7 @@ export default function NavBar() {
 
          
           <Link href="/signup" className="nav-signup">
-            Sign Up
+            Get Started
           </Link>
         </nav>
       </div>
