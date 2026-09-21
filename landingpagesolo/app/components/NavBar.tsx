@@ -26,7 +26,7 @@ export default function NavBar() {
           </Link>
 
           <Link
-            href="/explore"
+            href="/#explore"
             className={pathname.startsWith("/explore") ? "active" : ""}
           >
             Explore

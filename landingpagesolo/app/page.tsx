@@ -123,7 +123,7 @@ export default function Home() {
 
       <section className="opportunities-section" style={{ background: "#fffaf5", padding: "70px 0", overflow: "hidden" }}>
         <FadeInSection>
-          <div style={{ maxWidth: "1280px", margin: "0 auto 35px", padding: "0 20px" }}>
+          <div id="explore" style={{ maxWidth: "1280px", margin: "0 auto 35px", padding: "0 20px" }}>
             <div className="section-heading center" style={{ margin: "0 auto" }}>
               <p className="section-label">EXPLORE OPPORTUNITIES</p>
               <h2>
@@ -198,7 +198,7 @@ export default function Home() {
               fontSize: "14px",
               fontWeight: "700"
             }}>
-              Login to Explore More →
+              Login to Explore More
             </Link>
           </div>
         </FadeInSection>
@@ -351,15 +351,6 @@ export default function Home() {
             <p>
               Your achievements shouldn&apos;t disappear inside a folder of certificates. SOLO turns learning experiences into verifiable digital credentials and Open Badges that you can showcase.
             </p>
-            <div className="credential-flow">
-              <span>Learn</span>
-              <b>→</b>
-              <span>Achieve</span>
-              <b>→</b>
-              <span>Verify</span>
-              <b>→</b>
-              <span>Share</span>
-            </div>
             <div style={{ marginTop: "24px" }}>
               <Link href="/credential" className="section-button">
                 Learn More

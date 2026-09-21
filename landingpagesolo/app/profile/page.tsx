@@ -98,21 +98,6 @@ export default function LifelongSkillsPortfolioPage() {
               }}>
                 Start Your Journey Now
               </a>
-
-              <a href="#resume-builder" className="hero-secondary" style={{
-                display: "inline-block",
-                background: "rgba(255, 255, 255, 0.85)",
-                color: "var(--blue)",
-                border: "2px solid #dbe5f8",
-                padding: "14px 28px",
-                borderRadius: "9px",
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "14px",
-                fontWeight: "700",
-                textDecoration: "none"
-              }}>
-                Generate Resume
-              </a>
             </div>
 
             <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", borderTop: "1px solid rgba(226, 232, 240, 0.8)", paddingTop: "24px" }}>
