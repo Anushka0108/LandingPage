@@ -1430,17 +1430,6 @@ section {
   color: #777d87;
 }
 
-.credentials-section {
-  padding: 130px 70px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
-  align-items: center;
-
-  background: #ffffff;
-}
-
 .credential-visual {
   width: 100%;
   max-width: 650px;

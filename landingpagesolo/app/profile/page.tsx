@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import NavBar from "../components/NavBar";
 import FadeInSection from "../components/FadeInSection";
@@ -8,544 +7,633 @@ import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
 
 export default function LifelongSkillsPortfolioPage() {
-  const [selectedTemplate, setSelectedTemplate] = useState("classic");
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [resumeGenerated, setResumeGenerated] = useState(false);
-  const [showImportModal, setShowImportModal] = useState(false);
-  const [showTemplateModal, setShowTemplateModal] = useState(false);
+  const profileTabs = [
+    { name: "Education", count: "3", active: true },
+    { name: "Work Experience", count: "1" },
+    { name: "Internships" },
+    { name: "Courses", count: "9" },
+    { name: "Hackathons" },
+    { name: "Live Projects" },
+    { name: "Volunteering" },
+    { name: "Other Achievements" },
+    { name: "Posts" },
+    { name: "Endorsements" },
+  ];
 
-  const handleGenerateResume = () => {
-    setIsGenerating(true);
-    setTimeout(() => {
-      setIsGenerating(false);
-      setResumeGenerated(true);
-    }, 1100);
-  };
+  const skills = [
+    "Software Development",
+    "Information Technology",
+    "Web Development",
+    "Programming",
+    "Database Management",
+    "42 More Skills",
+  ];
+
+  const educationRecords = [
+    {
+      title: "Bachelor's Degree",
+      institution: "Your Institution",
+      period: "Present",
+      skills: "14 Skills",
+      description:
+        "Currently pursuing higher education with a focus on developing technical, professional, and practical skills.",
+    },
+    {
+      title: "Higher Secondary Education",
+      institution: "Your School",
+      period: "Completed",
+      skills: "",
+      description:
+        "Completed higher secondary education with a focus on academic and foundational skills.",
+    },
+    {
+      title: "Secondary Education",
+      institution: "Your School",
+      period: "Completed",
+      skills: "",
+      description:
+        "Completed secondary education and developed a strong foundation across core academic areas.",
+    },
+  ];
 
   return (
-    <main className="portfolio-page" style={{ background: "#ffffff", minHeight: "100vh" }}>
+    <main
+      className="portfolio-page"
+      style={{
+        background: "#ffffff",
+        minHeight: "100vh",
+        overflowX: "hidden",
+      }}
+    >
       <NavBar />
 
-      {/* HERO SECTION */}
+      {/* =========================================================
+          HERO
+      ========================================================= */}
       <FadeInSection>
-        <section className="explore-hero" style={{
-          minHeight: "calc(100vh - 65px)",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-          overflow: "hidden",
-          background: "radial-gradient(circle at 75% 25%, rgba(245, 158, 11, 0.22), transparent 30%), radial-gradient(circle at 15% 75%, rgba(239, 68, 68, 0.12), transparent 28%), radial-gradient(circle at 50% 5%, rgba(37, 99, 235, 0.10), transparent 22%), linear-gradient(120deg, #fff7ed 0%, #fffaf5 40%, #eff6ff 65%, #fff7ed 100%)"
-        }}>
-          <div className="explore-hero-content" style={{
-            width: "100%",
-            maxWidth: "1400px",
-            margin: "0 auto",
-            padding: "80px 58px",
-            position: "relative",
-            zIndex: 2,
-            boxSizing: "border-box"
-          }}>
-            <p className="explore-label" style={{
-              fontFamily: "var(--font-montserrat), sans-serif",
-              fontSize: "12px",
-              fontWeight: "800",
-              letterSpacing: "2px",
-              color: "var(--coral)",
-              margin: "0 0 20px"
-            }}>
-              LIFELONG SKILLS PORTFOLIO
-            </p>
+        <section className="profile-hero">
+          <div className="hero-background-glow glow-one" />
+          <div className="hero-background-glow glow-two" />
+          <div className="hero-background-glow glow-three" />
 
-            <h1 style={{
-              margin: "0",
-              fontFamily: "var(--font-montserrat), sans-serif",
-              fontSize: "clamp(44px, 3.8vw, 75px)",
-              lineHeight: "1.04",
-              letterSpacing: "-3px",
-              fontWeight: "800",
-              color: "#171717",
-              maxWidth: "920px"
-            }}>
-              Showcase, validate, and reuse your skills
-              <span style={{ display: "block", color: "var(--orange)" }}>
-                across education, career, and life.
-              </span>
-            </h1>
+          <div className="profile-hero-inner">
+            <div className="hero-copy">
+              <p className="hero-label">LIFELONG SKILLS PROFILE</p>
 
-            <p className="explore-hero-description" style={{
-              maxWidth: "680px",
-              margin: "28px 0 35px",
-              color: "#5d6470",
-              fontSize: "16px",
-              lineHeight: "1.7"
-            }}>
-              Build a dynamic, verified professional identity. Unlike traditional resumes with self-reported claims, SOLO binds every skill to cryptographic credentials, coursework artifacts, and real-world project deliverables.
-            </p>
+              <h1>
+                Your skills,
+                <span> experience,</span>
+                <br />
+                and achievements
+                <span className="orange-text"> in one profile.</span>
+              </h1>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap", marginBottom: "40px" }}>
-              <a href="#how-it-works" className="hero-primary" style={{
-                display: "inline-block",
-                background: "var(--orange)",
-                color: "#ffffff",
-                border: "2px solid var(--orange)",
-                padding: "14px 28px",
-                borderRadius: "9px",
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "14px",
-                fontWeight: "700",
-                textDecoration: "none",
-                boxShadow: "0 10px 25px rgba(249, 115, 22, 0.25)"
-              }}>
-                Start Your Journey Now
-              </a>
-            </div>
+              <p className="hero-description">
+                Your SOLO profile brings together the information that
+                represents what you have learned, built, and achieved. 
+              </p>
 
-            <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", borderTop: "1px solid rgba(226, 232, 240, 0.8)", paddingTop: "24px" }}>
-              {[
-                { title: "Manage Achievements", sub: "Centralized credential records" },
-                { title: "Verifiable & Portable", sub: "W3C & Open Badges compliant" },
-                { title: "AI Recommendations", sub: "Role and pathway matching" },
-                { title: "Showcase & Share", sub: "ATS resumes & portfolio links" }
-              ].map((item, i) => (
-                <div key={i} style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                  <span style={{ fontSize: "13.5px", fontWeight: "700", color: "#1e293b", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#10b981" viewBox="0 0 24 24">
-                      <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"/>
-                    </svg>
-                    {item.title}
-                  </span>
-                  <small style={{ fontSize: "11px", color: "#64748b", paddingLeft: "22px" }}>{item.sub}</small>
+              <div className="hero-buttons">
+                <a href="#profile-overview" className="hero-primary">
+                  Explore Your Profile
+                </a>
+
+                <a href="#profile-sections" className="hero-secondary">
+                  See What You Can Showcase
+                </a>
+              </div>
+
+              <div className="hero-points">
+                <div>
+                  <span className="check-icon">✓</span>
+                  <div>
+                    <strong>Professional Profile</strong>
+                    <small>Skills, experience & achievements</small>
+                  </div>
                 </div>
-              ))}
+
+                <div>
+                  <span className="check-icon">✓</span>
+                  <div>
+                    <strong>Skills & Interests</strong>
+                    <small>Help personalize your experience</small>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="check-icon">✓</span>
+                  <div>
+                    <strong>Verifiable Achievements</strong>
+                    <small>Credentials and badges</small>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="hero-glow hero-glow-one" style={{
-            position: "absolute",
-            borderRadius: "50%",
-            filter: "blur(80px)",
-            pointerEvents: "none",
-            width: "450px",
-            height: "450px",
-            right: "5%",
-            top: "10%",
-            background: "rgba(18, 85, 255, 0.12)"
-          }}></div>
-          <div className="hero-glow hero-glow-two" style={{
-            position: "absolute",
-            borderRadius: "50%",
-            filter: "blur(80px)",
-            pointerEvents: "none",
-            width: "350px",
-            height: "350px",
-            left: "30%",
-            bottom: "-150px",
-            background: "rgba(253, 67, 34, 0.10)"
-          }}></div>
         </section>
       </FadeInSection>
 
-      {/* HOW IT WORKS */}
+      {/* =========================================================
+          INTRO
+      ========================================================= */}
       <FadeInSection>
-        <section id="how-it-works" style={{ padding: "90px 20px", background: "#ffffff" }}>
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "800", color: "#ff5500", letterSpacing: "1.5px", textTransform: "uppercase" }}>
-                STEP-BY-STEP WORKFLOW
-              </span>
-              <h2 style={{
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "clamp(26px, 3vw, 38px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                margin: "8px 0 12px",
-                letterSpacing: "-1px"
-              }}>
-                How It Works: Your Career Powered by SOLO
+        <section className="intro-section">
+          <div className="section-container">
+            <div className="section-heading">
+              <span className="section-label">YOUR SOLO PROFILE</span>
+
+              <h2>
+                More than a profile.
+                <br />
+                <span>A complete record of what you can do.</span>
               </h2>
-              <p style={{ fontSize: "15px", color: "#64748b", margin: 0 }}>
-                Connecting education, continuous skilling, and job placement into one seamless portfolio.
+
+              <p>
+                Your SOLO profile is designed to bring your professional and
+                learning information together. Instead of keeping education,
+                skills, experiences, projects, and achievements in separate
+                places, they can be organized within your learner profile.
               </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "20px" }}>
-              {[
-                {
-                  step: "01",
-                  title: "Create & Import",
-                  desc: "Build your profile by importing credentials or adding achievements manually. AI-driven extraction maps everything to recognized skills."
-                },
-                {
-                  step: "02",
-                  title: "Showcase & Endorse",
-                  desc: "Organize and display your verified credentials. Connect with peers & employers to receive endorsements and validate skills."
-                },
-                {
-                  step: "03",
-                  title: "Generate Resumes & Share",
-                  desc: "Quickly generate ATS-friendly resumes. Share your profile and track engagement for personalized job matching."
-                },
-                {
-                  step: "04",
-                  title: "Connect & Advance",
-                  desc: "Access SOLO's ecosystem seamlessly. Use your portfolio data for learning, job placement, and credential management."
-                }
-              ].map((col, idx) => (
-                <div key={idx} className="interactive-feature-card">
-                  <span style={{
-                    fontSize: "14px",
-                    fontWeight: "800",
-                    color: "var(--orange)",
-                    fontFamily: "var(--font-montserrat), sans-serif",
-                    marginBottom: "14px",
-                    display: "block"
-                  }}>
-                    {col.step}
-                  </span>
-                  <h3 style={{
-                    fontFamily: "var(--font-montserrat), sans-serif",
-                    fontSize: "18px",
-                    fontWeight: "750",
-                    color: "#1e293b",
-                    margin: "0 0 10px"
-                  }}>
-                    {col.title}
-                  </h3>
-                  <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.6", margin: 0 }}>
-                    {col.desc}
+            <div className="profile-purpose-grid">
+              <div className="purpose-card purpose-large">
+                <div className="purpose-number">01</div>
+
+                <div>
+                  <h3>Build your professional identity</h3>
+                  <p>
+                    Add your basic information, profile photo, cover photo,
+                    biography, education, experience, projects, courses,
+                    achievements, and other relevant information.
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      {/* BUILD YOUR PORTFOLIO */}
-      <FadeInSection>
-        <section style={{ padding: "90px 20px", background: "#fffaf5", borderTop: "1px solid #f1f5f9", borderBottom: "1px solid #f1f5f9" }}>
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "800", color: "#ff5500", letterSpacing: "1.5px", textTransform: "uppercase" }}>
-                BUILD YOUR PORTFOLIO
-              </span>
-              <h2 style={{
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "clamp(26px, 3vw, 38px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                margin: "8px 0 12px",
-                letterSpacing: "-1px"
-              }}>
-                Import & AI Extract Your Achievements
-              </h2>
-              <p style={{ fontSize: "15px", color: "#64748b", maxWidth: "780px", margin: "0 auto" }}>
-                Effortlessly import your professional data from LinkedIn, GitHub, or upload your resume to get instant parsing of your education, work experience, certifications, trainings, live projects, and badges.
-              </p>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
-              <div style={{ background: "#ffffff", borderRadius: "14px", border: "1px solid #e2e8f0", padding: "28px" }}>
-                <div style={{ display: "flex", gap: "10px", marginBottom: "18px", flexWrap: "wrap" }}>
-                  {["LinkedIn", "GitHub", "Resume Upload", "AI Extraction"].map((btn, i) => (
-                    <span key={i} style={{ padding: "5px 12px", borderRadius: "6px", background: "#eff6ff", color: "#2563eb", fontSize: "12px", fontWeight: "700" }}>
-                      {btn}
-                    </span>
-                  ))}
-                </div>
-                <h3 style={{ fontSize: "18px", fontWeight: "750", color: "#0f172a", margin: "0 0 10px" }}>
-                  Instant Parsing & Verification
-                </h3>
-                <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.6", margin: "0 0 20px" }}>
-                  Upload an existing resume or connect external accounts. SOLO identifies and extracts competencies, auto-populating your profile and grouping them into recognized skill categories.
-                </p>
-                <div 
-                  onClick={() => setShowImportModal(true)}
-                  style={{ border: "2px dashed #cbd5e1", borderRadius: "8px", padding: "20px", textAlign: "center", background: "#f8fafc", cursor: "pointer" }}
-                >
-                  <strong style={{ fontSize: "13px", color: "#1e293b", display: "block" }}>Resume & Profile Data Extractor</strong>
-                  <small style={{ color: "#94a3b8" }}>Supported formats: PDF, DOCX, LinkedIn Profile JSON</small>
-                </div>
               </div>
 
-              <div style={{ background: "#ffffff", borderRadius: "14px", border: "1px solid #e2e8f0", padding: "28px" }}>
-                <div style={{ display: "flex", gap: "10px", marginBottom: "18px", flexWrap: "wrap" }}>
-                  {["Manual Entry", "Personal Projects", "Interest Tags", "Skill Frameworks"].map((btn, i) => (
-                    <span key={i} style={{ padding: "5px 12px", borderRadius: "6px", background: "#ecfdf5", color: "#059669", fontSize: "12px", fontWeight: "700" }}>
-                      {btn}
-                    </span>
-                  ))}
-                </div>
-                <h3 style={{ fontSize: "18px", fontWeight: "750", color: "#0f172a", margin: "0 0 10px" }}>
-                  Manual Addition & Skill Mapping
-                </h3>
-                <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.6", margin: "0 0 20px" }}>
-                  Add achievements, career interests, or practical coursework manually. Our intelligent platform maps entries against recognized skill frameworks, giving you validated, searchable capabilities.
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                  {["React.js", "Python", "Docker", "Node.js", "SQL", "Cloud Architecture"].map((sk, i) => (
-                    <span key={i} style={{
-                      padding: "6px 12px",
-                      borderRadius: "20px",
-                      background: "#fff7ed",
-                      border: "1px solid #fed7aa",
-                      color: "var(--orange)",
-                      fontSize: "12px",
-                      fontWeight: "600"
-                    }}>
-                      + {sk}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
+              <div className="purpose-card">
+                <div className="purpose-number">02</div>
 
-      {/* SHOWCASE & MANAGE SKILLS */}
-      <FadeInSection>
-        <section style={{ padding: "90px 20px", background: "#ffffff" }}>
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "800", color: "#ff5500", letterSpacing: "1.5px", textTransform: "uppercase" }}>
-                CENTRALIZED HUB
-              </span>
-              <h2 style={{
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "clamp(26px, 3vw, 38px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                margin: "8px 0 12px",
-                letterSpacing: "-1px"
-              }}>
-                Showcase & Manage Skills
-              </h2>
-              <p style={{ fontSize: "15px", color: "#64748b", maxWidth: "780px", margin: "0 auto" }}>
-                Your portfolio houses a comprehensive and organized hub for credentials, badges, projects, and recognitions. Attach verifiable documents with granular privacy controls.
-              </p>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
-              <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "24px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-                  <strong style={{ fontSize: "15px", color: "#0f172a" }}>Software Development</strong>
-                  <span style={{ background: "#e2e8f0", color: "#334155", padding: "2px 8px", borderRadius: "10px", fontSize: "11px", fontWeight: "700" }}>
-                    24 Verified
-                  </span>
-                </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
-                  {["React.js", "Python", "Node.js", "JavaScript", "TypeScript", "Docker", "AWS", "MongoDB"].map((item, idx) => (
-                    <span key={idx} style={{ padding: "5px 10px", background: "#ffffff", border: "1px solid #cbd5e1", borderRadius: "6px", fontSize: "12px", color: "#334155" }}>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "24px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-                  <strong style={{ fontSize: "15px", color: "#0f172a" }}>Data Science & Analytics</strong>
-                  <span style={{ background: "#e2e8f0", color: "#334155", padding: "2px 8px", borderRadius: "10px", fontSize: "11px", fontWeight: "700" }}>
-                    18 Verified
-                  </span>
-                </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
-                  {["Machine Learning", "TensorFlow", "PyTorch", "Pandas", "Scikit-learn", "Data Analysis", "SQL"].map((item, idx) => (
-                    <span key={idx} style={{ padding: "5px 10px", background: "#ffffff", border: "1px solid #cbd5e1", borderRadius: "6px", fontSize: "12px", color: "#334155" }}>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "24px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-                  <strong style={{ fontSize: "15px", color: "#0f172a" }}>Peer Endorsements</strong>
-                  <span style={{ background: "#ecfdf5", color: "#059669", padding: "2px 8px", borderRadius: "10px", fontSize: "11px", fontWeight: "700" }}>
-                    Active
-                  </span>
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "10px", background: "#ffffff", padding: "10px 12px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
-                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#2563eb", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "700" }}>JD</div>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#0f172a" }}>John Doe</div>
-                      <div style={{ fontSize: "11px", color: "#64748b" }}>endorsed React.js</div>
-                    </div>
-                    <span style={{ fontSize: "11px", fontWeight: "700", color: "#059669" }}>+5</span>
-                  </div>
-
-                  <div style={{ display: "flex", alignItems: "center", gap: "10px", background: "#ffffff", padding: "10px 12px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
-                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "var(--orange)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "700" }}>AS</div>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#0f172a" }}>Alice Smith</div>
-                      <div style={{ fontSize: "11px", color: "#64748b" }}>endorsed Machine Learning</div>
-                    </div>
-                    <span style={{ fontSize: "11px", fontWeight: "700", color: "#059669" }}>+3</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      {/* RESUME BUILDER SECTION */}
-      <FadeInSection>
-        <section id="resume-builder" style={{ padding: "90px 20px", background: "#f8fafc", borderTop: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0" }}>
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "800", color: "#ff5500", letterSpacing: "1.5px", textTransform: "uppercase" }}>
-                ATS-READY RESUME GENERATION
-              </span>
-              <h2 style={{
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "clamp(26px, 3vw, 38px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                margin: "8px 0 12px",
-                letterSpacing: "-1px"
-              }}>
-                Role-Specific, Optimized Templates
-              </h2>
-              <p style={{ fontSize: "15px", color: "#64748b", maxWidth: "780px", margin: "0 auto" }}>
-                Transform your portfolio into polished resumes optimized to navigate applicant tracking systems. Every credential includes clickable verification links for hiring teams.
-              </p>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "20px", marginBottom: "36px" }}>
-              {[
-                { id: "classic", name: "Modern", desc: "Clean and professional layout" },
-                { id: "split", name: "Creative", desc: "Two-tone profile sidebar design" },
-                { id: "technical", name: "Technical", desc: "Developer and skill matrix focused" },
-                { id: "executive", name: "Executive", desc: "Dense layout for senior positions" }
-              ].map((tpl) => (
-                <div
-                  key={tpl.id}
-                  onClick={() => setSelectedTemplate(tpl.id)}
-                  className={`template-selector-card ${selectedTemplate === tpl.id ? "active" : ""}`}
-                >
-                  <strong style={{ display: "block", fontSize: "15px", color: "#0f172a", marginBottom: "4px" }}>{tpl.name}</strong>
-                  <p style={{ margin: 0, fontSize: "12.5px", color: "#64748b" }}>{tpl.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ background: "#ffffff", borderRadius: "14px", border: "1px solid #e2e8f0", padding: "30px", maxWidth: "800px", margin: "0 auto", boxShadow: "0 6px 24px rgba(0,0,0,0.03)" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #f1f5f9", paddingBottom: "16px", marginBottom: "20px", flexWrap: "wrap", gap: "10px" }}>
                 <div>
-                  <h4 style={{ margin: "0 0 4px", fontSize: "16px", fontWeight: "750", color: "#0f172a" }}>Generation Process</h4>
-                  <p style={{ margin: 0, fontSize: "12.5px", color: "#64748b" }}>1. Analyze Data to 2. Format Content to 3. Generate PDF</p>
+                  <h3>Showcase your skills</h3>
+                  <p>
+                    Your acquired skills are displayed as part of your profile,
+                    helping you present the capabilities you have developed.
+                  </p>
                 </div>
-                <button
-                  onClick={handleGenerateResume}
-                  style={{
-                    background: "var(--orange)",
-                    color: "#ffffff",
-                    border: "none",
-                    padding: "10px 22px",
-                    borderRadius: "8px",
-                    fontSize: "13.5px",
-                    fontWeight: "700",
-                    cursor: "pointer"
-                  }}
-                >
-                  {isGenerating ? "Processing..." : "Generate Resume"}
-                </button>
               </div>
 
-              {resumeGenerated && (
-                <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "20px", marginBottom: "20px", animation: "slideUp 0.3s ease" }}>
-                  <span style={{ display: "inline-block", background: "#ecfdf5", color: "#059669", padding: "3px 8px", borderRadius: "4px", fontSize: "11px", fontWeight: "700", marginBottom: "10px" }}>
-                    RESUME PREVIEW READY
-                  </span>
-                  <h3 style={{ margin: "0 0 2px", fontSize: "18px", color: "#0f172a" }}>Anushka Abhilash B</h3>
-                  <p style={{ margin: "0 0 10px", fontSize: "13px", color: "#64748b" }}>Information Technology • Goa College of Engineering</p>
-                  <ul style={{ margin: 0, paddingLeft: "18px", fontSize: "13px", color: "#334155", lineHeight: "1.6" }}>
-                    <li>BE In Information Technology: 14 verified skills mapped to coursework</li>
-                    <li>Verified Badges: React Navigation, Virtual Lab Automation, Online Engineering</li>
-                  </ul>
+              <div className="purpose-card">
+                <div className="purpose-number">03</div>
+
+                <div>
+                  <h3>Keep your achievements together</h3>
+                  <p>
+                    Education, projects, internships, courses, badges,
+                    certificates, and other achievements can be represented in
+                    one profile.
+                  </p>
                 </div>
-              )}
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* =========================================================
+          PROFILE OVERVIEW
+      ========================================================= */}
+      <FadeInSection>
+        <section id="profile-overview" className="profile-showcase-section">
+          <div className="section-container">
+            <div className="section-heading center">
+              <span className="section-label">PROFILE OVERVIEW</span>
+
+              <h2>
+                See your profile
+                <span> at a glance.</span>
+              </h2>
+
+              <p>
+                The profile brings your identity, skills, and professional
+                information together in a single view.
+              </p>
+            </div>
+
+            <div className="profile-browser">
+              <div className="browser-top">
+                <div className="browser-dots">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+
+                <div className="browser-title">SOLO · My Profile</div>
+              </div>
+
+              <div className="profile-browser-body">
+                {/* LEFT ABOUT PANEL */}
+                <div className="about-panel">
+                  <div className="about-heading">
+                    <h3>About Me</h3>
+
+                    <button className="icon-button" type="button">
+                      ✎
+                    </button>
+                  </div>
+
+                  <div className="about-item">
+                    <span>Add social link</span>
+                    <button className="icon-button" type="button">
+                      ✎
+                    </button>
+                  </div>
+
+                  <div className="about-item">
+                    <span>Your Location</span>
+                    <button className="icon-button" type="button">
+                      ✎
+                    </button>
+                  </div>
+                </div>
+
+                {/* MAIN PROFILE HEADER */}
+                <div className="profile-main">
+                  <div className="profile-cover">
+                    <div className="profile-handle">
+                      <span className="profile-symbol">◉</span>
+                      @YourUsername
+                      <button
+                        className="edit-white"
+                        type="button"
+                      >
+                        ✎
+                      </button>
+                    </div>
+
+                    <button className="cover-button" type="button">
+                      📷 Edit cover photo
+                    </button>
+
+                    <div className="profile-identity">
+                      <div className="avatar">
+                        <div className="avatar-inner">👤</div>
+                      </div>
+
+                      <div className="identity-text">
+                        <div className="identity-name">
+                          Your Name
+                          <button
+                            className="edit-white"
+                            type="button"
+                          >
+                            ✎
+                          </button>
+                        </div>
+
+                        <div className="identity-bio">
+                          Learner and aspiring professional
+                          <button
+                            className="edit-white"
+                            type="button"
+                          >
+                            ✎
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="profile-stats">
+                        <div>
+                          <strong>0</strong>
+                          <span>Posts</span>
+                        </div>
+
+                        <div>
+                          <strong>0</strong>
+                          <span>Followers</span>
+                        </div>
+
+                        <div>
+                          <strong>0</strong>
+                          <span>Following</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SKILLS PANEL */}
+                <div className="skills-panel">
+                  <div className="skills-heading">
+                    <h3>Acquired Skills</h3>
+                    <button className="icon-button" type="button">
+                      ✎
+                    </button>
+                  </div>
+
+                  <div className="skill-list">
+                    {skills.map((skill, index) => (
+                      <span
+                        key={index}
+                        className={
+                          skill === "42 More Skills"
+                            ? "skill-chip more"
+                            : "skill-chip"
+                        }
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* PROFILE ACTIONS */}
+                <div className="profile-actions">
+                  <button type="button">Verify Government ID</button>
+                  <button type="button">Ask for endorsement</button>
+                  <button type="button">Profile CLR</button>
+                  <button type="button">Copy Profile Link</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* =========================================================
+          PROFILE SECTIONS
+      ========================================================= */}
+      <FadeInSection>
+        <section id="profile-sections" className="sections-section">
+          <div className="section-container">
+            <div className="section-heading">
+              <span className="section-label">YOUR PROFILE RECORDS</span>
+
+              <h2>
+                Everything has
+                <span> its place.</span>
+              </h2>
+
+              <p>
+                Your profile organizes different types of learning and
+                experience into separate sections, making it easier to present
+                the full picture of your capabilities.
+              </p>
+            </div>
+
+            <div className="profile-tabs-demo">
+              {profileTabs.map((tab, index) => (
+                <div
+                  key={index}
+                  className={`profile-tab ${
+                    tab.active ? "profile-tab-active" : ""
+                  }`}
+                >
+                  <span>{tab.name}</span>
+
+                  {tab.count && (
+                    <span className="tab-count">{tab.count}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="section-explanation">
+              <div className="explanation-line" />
 
               <div>
-                <span style={{ fontSize: "12px", fontWeight: "700", color: "#475569", display: "block", marginBottom: "10px" }}>SHARE & EXPORT</span>
-                <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                  {["Email", "LinkedIn", "Share Link", "Download", "Cloud Save", "Print"].map((action, i) => (
-                    <button key={i} style={{
-                      background: "#f1f5f9",
-                      border: "none",
-                      borderRadius: "6px",
-                      padding: "7px 14px",
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      color: "#334155",
-                      cursor: "pointer"
-                    }}>
-                      {action}
-                    </button>
-                  ))}
-                </div>
+                <h3>One profile, different types of experience.</h3>
+
+                <p>
+                  Depending on what you have completed, your profile can
+                  contain education, work experience, internships, courses,
+                  hackathons, live projects, volunteering, achievements,
+                  posts, and endorsements.
+                </p>
               </div>
             </div>
           </div>
         </section>
       </FadeInSection>
 
-      {/* STANDARDS & INTEROPERABILITY */}
+      {/* =========================================================
+          EDUCATION RECORDS
+      ========================================================= */}
       <FadeInSection>
-        <section style={{ padding: "90px 20px", background: "#ffffff" }}>
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "800", color: "#ff5500", letterSpacing: "1.5px", textTransform: "uppercase" }}>
-                GLOBAL STANDARDS & INTEROPERABILITY
-              </span>
-              <h2 style={{
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "clamp(26px, 3vw, 38px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                margin: "8px 0 12px",
-                letterSpacing: "-1px"
-              }}>
-                Recognized Global Frameworks
+        <section className="records-section">
+          <div className="section-container">
+            <div className="section-heading center">
+              <span className="section-label">PROFILE RECORD</span>
+
+              <h2>
+                Your education,
+                <span> clearly presented.</span>
               </h2>
-              <p style={{ fontSize: "15px", color: "#64748b", maxWidth: "780px", margin: "0 auto" }}>
-                Each skill and certificate aligns with leading standards such as ESCO, O*NET, ISO, and W3C Verifiable Credentials, ensuring international recognition.
+
+              <p>
+                Profile records can contain details, skills, descriptions, and
+                credential information associated with your achievements.
               </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px", marginBottom: "40px" }}>
-              {[
-                { label: "Global Standards", sub: "Industry compliance" },
-                { label: "OpenBadges", sub: "100% Cryptographic verification" },
-                { label: "CLR v2.0", sub: "Comprehensive Learner Record" },
-                { label: "W3C VC", sub: "Verifiable Credential Standard" }
-              ].map((item, idx) => (
-                <div key={idx} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "10px", padding: "18px", textAlign: "center" }}>
-                  <div style={{ fontSize: "15px", fontWeight: "750", color: "#0f172a", marginBottom: "4px" }}>{item.label}</div>
-                  <div style={{ fontSize: "12px", color: "#64748b" }}>{item.sub}</div>
-                </div>
-              ))}
-            </div>
+            <div className="education-interface">
+              <div className="education-header">
+                <h3>Education</h3>
 
-            <div style={{ background: "#fffaf5", border: "1px solid #fed7aa", borderRadius: "14px", padding: "28px" }}>
-              <h4 style={{ margin: "0 0 14px", fontSize: "16px", fontWeight: "750", color: "#0f172a" }}>
-                Data Synchronization Status
-              </h4>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px" }}>
-                <div>
-                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#1e293b", display: "block" }}>Education Records</span>
-                  <small style={{ color: "#64748b" }}>Synchronized 2 min ago</small>
+                <div className="education-actions">
+                  <button type="button">⊞ Add</button>
+                  <button type="button">⇩ Import</button>
                 </div>
-                <div>
-                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#1e293b", display: "block" }}>Professional Credentials</span>
-                  <small style={{ color: "#64748b" }}>Syncing in progress...</small>
+              </div>
+
+              <div className="education-grid">
+                {educationRecords.map((record, index) => (
+                  <div
+                    key={index}
+                    className="education-card"
+                    style={{
+                      animationDelay: `${index * 120}ms`,
+                    }}
+                  >
+                    <div className="education-card-top">
+                      <div className="credential-badge">
+                        <div className="badge-inner">★</div>
+                      </div>
+
+                      <div className="education-info">
+                        <h4>{record.title}</h4>
+
+                        <p className="institution">
+                          {record.institution}
+                        </p>
+
+                        <p className="period">{record.period}</p>
+
+                        <div className="record-tags">
+                          {record.skills && (
+                            <span>{record.skills}</span>
+                          )}
+
+                          <span>Self Issued</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="education-description">
+                      {record.description}
+                      <span> see more</span>
+                    </p>
+
+                    <div className="education-card-footer">
+                      <button
+                        className="footer-icon"
+                        type="button"
+                      >
+                        ✎
+                      </button>
+
+                      <button
+                        className="footer-icon"
+                        type="button"
+                      >
+                        ▢
+                      </button>
+
+                      <button
+                        className="footer-icon"
+                        type="button"
+                      >
+                        ◉
+                      </button>
+
+                      <button
+                        className="open-badge"
+                        type="button"
+                      >
+                        Openbadge
+                      </button>
+
+                      <button
+                        className="credential-link"
+                        type="button"
+                      >
+                        View Credential
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* =========================================================
+          SKILLS
+      ========================================================= */}
+      <FadeInSection>
+        <section className="skills-explanation-section">
+          <div className="section-container">
+            <div className="skills-content">
+              <div className="skills-copy">
+                <span className="section-label">ACQUIRED SKILLS</span>
+
+                <h2>
+                  Your skills become
+                  <span> part of your profile.</span>
+                </h2>
+
+                <p>
+                  SOLO allows learners to add relevant skills while building
+                  their profile. Keeping your skills updated helps the platform
+                  provide recommendations relevant to your interests and
+                  capabilities.
+                </p>
+
+                <div className="skills-benefits">
+                  <div className="benefit">
+                    <span>01</span>
+
+                    <div>
+                      <strong>Show what you know</strong>
+                      <p>
+                        Display the skills associated with your learning and
+                        experiences.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="benefit">
+                    <span>02</span>
+
+                    <div>
+                      <strong>Connect skills to your profile</strong>
+                      <p>
+                        Skills can appear alongside your education,
+                        experiences, and achievements.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="benefit">
+                    <span>03</span>
+
+                    <div>
+                      <strong>Keep your profile relevant</strong>
+                      <p>
+                        Updated skills help SOLO provide relevant
+                        recommendations.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#1e293b", display: "block" }}>Achievements</span>
-                  <small style={{ color: "#64748b" }}>Last sync: 5 min ago</small>
+              </div>
+
+              <div className="skills-visual">
+                <div className="floating-label label-one">
+                  <span>✓</span>
+                  Skill added
+                </div>
+
+                <div className="floating-label label-two">
+                  <span>✓</span>
+                  Profile updated
+                </div>
+
+                <div className="skill-card-large">
+                  <div className="skill-card-header">
+                    <div>
+                      <small>PROFILE</small>
+                      <h3>Acquired Skills</h3>
+                    </div>
+
+                    <button type="button">✎</button>
+                  </div>
+
+                  <div className="large-skill-list">
+                    {[
+                      "Web Development",
+                      "Software Development",
+                      "Programming",
+                      "Database Management",
+                      "Information Technology",
+                      "Problem Solving",
+                    ].map((skill, index) => (
+                      <div
+                        className="large-skill"
+                        key={index}
+                        style={{
+                          animationDelay: `${index * 100}ms`,
+                        }}
+                      >
+                        <span>✓</span>
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="skills-more">
+                    + 42 More Skills
+                  </div>
                 </div>
               </div>
             </div>
@@ -553,45 +641,63 @@ export default function LifelongSkillsPortfolioPage() {
         </section>
       </FadeInSection>
 
-      {/* ECOSYSTEM INTEGRATION */}
+      {/* =========================================================
+          CREDENTIALS
+      ========================================================= */}
       <FadeInSection>
-        <section style={{ padding: "90px 20px", background: "#f8fafc", borderTop: "1px solid #e2e8f0" }}>
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "800", color: "#ff5500", letterSpacing: "1.5px", textTransform: "uppercase" }}>
-                SOLO ECOSYSTEM INTEGRATION
+        <section className="credentials-section">
+          <div className="section-container">
+            <div className="section-heading center">
+              <span className="section-label">
+                CREDENTIALS & ACHIEVEMENTS
               </span>
-              <h2 style={{
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "clamp(26px, 3vw, 38px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                margin: "8px 0 12px",
-                letterSpacing: "-1px"
-              }}>
-                Connected Platform Modules
+
+              <h2>
+                Your achievements can become
+                <span> verifiable proof.</span>
               </h2>
+
+              <p>
+                SOLO supports verified credentials and digital badges that can
+                be associated with your learning and achievements.
+              </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
-              <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "26px" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "750", color: "#0f172a", margin: "0 0 8px" }}>Single Sign-On (SSO)</h3>
-                <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.6", margin: 0 }}>
-                  Seamlessly access Learning Hub, Employment Hub, Credential Wallet, and other SOLO modules with one secure login. Your portfolio auto-syncs across all platforms.
+            <div className="credential-flow">
+              <div className="credential-step">
+                <div className="credential-number">01</div>
+                <div className="credential-icon">🏆</div>
+
+                <h3>Achievement</h3>
+
+                <p>
+                  Complete learning or other eligible activities.
                 </p>
               </div>
 
-              <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "26px" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "750", color: "#0f172a", margin: "0 0 8px" }}>Credential Wallet</h3>
-                <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.6", margin: 0 }}>
-                  Export verifiable achievements and badges to your personal wallet using Open Badges or CLR format. Control and share your credentials anytime, anywhere.
+              <div className="flow-arrow">→</div>
+
+              <div className="credential-step">
+                <div className="credential-number">02</div>
+                <div className="credential-icon">✓</div>
+
+                <h3>Credential</h3>
+
+                <p>
+                  Receive a credential or badge after assessment and issuance.
                 </p>
               </div>
 
-              <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "26px" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "750", color: "#0f172a", margin: "0 0 8px" }}>Learning & Employment Hub</h3>
-                <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.6", margin: 0 }}>
-                  Your portfolio feeds into curated learning programs, internships, and job opportunities personalized based on your verified skills and interests.
+              <div className="flow-arrow">→</div>
+
+              <div className="credential-step">
+                <div className="credential-number">03</div>
+                <div className="credential-icon">↗</div>
+
+                <h3>Showcase</h3>
+
+                <p>
+                  Share your verified achievements with others.
                 </p>
               </div>
             </div>
@@ -599,313 +705,1635 @@ export default function LifelongSkillsPortfolioPage() {
         </section>
       </FadeInSection>
 
-      {/* FINAL CTA */}
+      {/* =========================================================
+          WHY PROFILE MATTERS
+      ========================================================= */}
       <FadeInSection>
-        <section style={{ padding: "90px 20px", textAlign: "center", background: "#ffffff" }}>
-          <div style={{ maxWidth: "750px", margin: "0 auto" }}>
-            <h2 style={{
-              fontFamily: "var(--font-montserrat), sans-serif",
-              fontSize: "clamp(28px, 3.5vw, 42px)",
-              fontWeight: "800",
-              color: "#0f172a",
-              margin: "0 0 14px",
-              letterSpacing: "-1px"
-            }}>
-              Ready to Take Control of Your Career?
+        <section className="why-section">
+          <div className="section-container">
+            <div className="why-grid">
+              <div>
+                <span className="section-label">WHY IT MATTERS</span>
+
+                <h2>
+                  Keep your
+                  <span> capabilities visible.</span>
+                </h2>
+
+                <p>
+                  SOLO is designed to help learners move beyond scattered
+                  certificates and disconnected records by maintaining a
+                  professional profile containing their skills, experiences,
+                  and achievements.
+                </p>
+              </div>
+
+              <div className="why-cards">
+                <div className="why-card">
+                  <span>01</span>
+
+                  <h3>One professional profile</h3>
+
+                  <p>
+                    Bring your education, experience, skills and achievements
+                    together.
+                  </p>
+                </div>
+
+                <div className="why-card">
+                  <span>02</span>
+
+                  <h3>Evidence of your learning</h3>
+
+                  <p>
+                    Showcase projects, achievements, credentials and badges
+                    connected to your learning.
+                  </p>
+                </div>
+
+                <div className="why-card">
+                  <span>03</span>
+
+                  <h3>Professional visibility</h3>
+
+                  <p>
+                    Share your profile and achievements with employers,
+                    institutions, mentors, and your professional network.
+                  </p>
+                </div>
+
+                <div className="why-card">
+                  <span>04</span>
+
+                  <h3>A profile that grows</h3>
+
+                  <p>
+                    Continue adding new skills, experiences, learning
+                    activities and achievements as you progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* =========================================================
+          FINAL CTA
+      ========================================================= */}
+      <FadeInSection>
+        <section className="final-cta">
+          <div className="cta-glow" />
+
+          <div className="cta-content">
+            <span className="section-label">
+              YOUR PROFESSIONAL PROFILE
+            </span>
+
+            <h2>
+              Make your skills
+              <span> visible.</span>
             </h2>
-            <p style={{ fontSize: "15.5px", color: "#64748b", lineHeight: "1.6", margin: "0 0 30px" }}>
-              Join thousands of learners and professionals worldwide using SOLO's Lifelong Skills Portfolio to showcase their real capabilities, unlock new opportunities, and build long-term success.
+
+            <p>
+              Build a profile that brings together your education, skills,
+              experience, projects, learning activities, and achievements.
             </p>
-            <Link href="/signup" style={{
-              display: "inline-block",
-              background: "var(--orange)",
-              color: "#ffffff",
-              padding: "14px 34px",
-              borderRadius: "9px",
-              fontFamily: "var(--font-montserrat), sans-serif",
-              fontSize: "14.5px",
-              fontWeight: "700",
-              textDecoration: "none",
-              boxShadow: "0 8px 24px rgba(249, 115, 22, 0.25)"
-            }}>
-              Start Your Journey Now
+
+            <Link href="/signup" className="cta-button">
+              Start Building Your Profile
             </Link>
           </div>
         </section>
       </FadeInSection>
 
-      {/* MODAL: SELECT RESUME TEMPLATE */}
-      {showTemplateModal && (
-        <div style={{ position: "fixed", inset: 0, background: "rgba(15, 23, 42, 0.65)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1100, padding: "20px" }}>
-          <div style={{ background: "#ffffff", borderRadius: "14px", maxWidth: "880px", width: "100%", maxHeight: "92vh", overflowY: "auto", padding: "28px", boxShadow: "0 25px 60px rgba(0,0,0,0.2)" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-              <h2 style={{ margin: 0, fontSize: "22px", fontWeight: "800", fontFamily: "var(--font-montserrat), sans-serif", color: "#1e293b" }}>
-                Select Resume Template
-              </h2>
-              <button onClick={() => setShowTemplateModal(false)} style={{ background: "transparent", border: "none", fontSize: "20px", cursor: "pointer", color: "#64748b" }}>✕</button>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "20px", marginBottom: "26px" }}>
-              {[
-                { id: "classic", name: "Modern Single-Column", sub: "Clean serif header with chronological experience and hyperlinked badges" },
-                { id: "split", name: "Two-Tone Sidebar", sub: "Left identity panel with skill chips, right column for education and work" },
-                { id: "technical", name: "Skills-First Technical", sub: "Prominent top skill matrix categorized by framework, followed by projects" },
-                { id: "executive", name: "Compact Executive Format", sub: "Dense typography optimized for high-volume automated corporate ATS parsers" }
-              ].map((tpl) => (
-                <div
-                  key={tpl.id}
-                  className={`template-picker-card ${selectedTemplate === tpl.id ? "active" : ""}`}
-                  onClick={() => setSelectedTemplate(tpl.id)}
-                >
-                  <div style={{ width: "100%", height: "180px", background: "#f1f5f9", borderRadius: "8px", marginBottom: "12px", border: "1px solid #e2e8f0", overflow: "hidden", display: "flex", flexDirection: "column", padding: "12px" }}>
-                    <div style={{ height: "12px", width: "40%", background: "#cbd5e1", borderRadius: "3px", marginBottom: "8px" }}></div>
-                    <div style={{ height: "6px", width: "80%", background: "#e2e8f0", borderRadius: "2px", marginBottom: "6px" }}></div>
-                    <div style={{ height: "6px", width: "60%", background: "#e2e8f0", borderRadius: "2px", marginBottom: "12px" }}></div>
-                    <div style={{ height: "8px", width: "30%", background: "#ff7a32", borderRadius: "2px", marginBottom: "6px" }}></div>
-                    <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
-                      <span style={{ width: "30px", height: "12px", background: "#fed7aa", borderRadius: "3px" }}></span>
-                      <span style={{ width: "45px", height: "12px", background: "#fed7aa", borderRadius: "3px" }}></span>
-                      <span style={{ width: "35px", height: "12px", background: "#fed7aa", borderRadius: "3px" }}></span>
-                    </div>
-                  </div>
-                  <strong style={{ fontSize: "14.5px", color: "#0f172a", display: "block", marginBottom: "4px" }}>{tpl.name}</strong>
-                  <p style={{ margin: 0, fontSize: "12px", color: "#64748b", lineHeight: "1.5" }}>{tpl.sub}</p>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
-              <button onClick={() => setShowTemplateModal(false)} style={{ background: "#f1f5f9", border: "none", borderRadius: "8px", padding: "10px 20px", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}>
-                Cancel
-              </button>
-              <button
-                onClick={() => {
-                  alert(`Generating ${selectedTemplate} ATS resume with clickable credential verification links.`);
-                  setShowTemplateModal(false);
-                }}
-                style={{ background: "#ff5500", color: "#ffffff", border: "none", borderRadius: "8px", padding: "10px 24px", fontSize: "13px", fontWeight: "750", cursor: "pointer", boxShadow: "0 6px 20px rgba(255, 85, 0, 0.28)" }}
-              >
-                Download ATS Resume
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL: IMPORT RESUME */}
-      {showImportModal && (
-        <div style={{ position: "fixed", inset: 0, background: "rgba(15, 23, 42, 0.65)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1100, padding: "20px" }}>
-          <div style={{ background: "#ffffff", borderRadius: "14px", maxWidth: "500px", width: "100%", padding: "26px", boxShadow: "0 25px 60px rgba(0,0,0,0.2)" }}>
-            <h3 style={{ margin: "0 0 6px", fontSize: "18px", fontWeight: "800", fontFamily: "var(--font-montserrat), sans-serif", color: "#1e293b" }}>
-              Import from Resume
-            </h3>
-            <p style={{ margin: "0 0 20px", fontSize: "13px", color: "#64748b", lineHeight: "1.5" }}>
-              Upload your resume in PDF or DOCX format. The parser extracts your coursework, skills, and projects automatically.
-            </p>
-
-            <div style={{ border: "2px dashed #cbd5e1", borderRadius: "10px", padding: "30px 20px", textAlign: "center", background: "#f8fafc", marginBottom: "20px" }}>
-              <input type="file" accept=".pdf,.docx" id="resume-file" style={{ display: "none" }} onChange={() => alert("Resume parsed! Extracted education, coursework, and 14 verified skills.")} />
-              <label htmlFor="resume-file" style={{ cursor: "pointer" }}>
-                <strong style={{ fontSize: "14px", color: "#0f172a", display: "block" }}>Click to select your PDF/DOCX file</strong>
-                <small style={{ color: "#94a3b8" }}>Max file size 10MB</small>
-              </label>
-            </div>
-
-            <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px" }}>
-              <button onClick={() => setShowImportModal(false)} style={{ background: "#f1f5f9", border: "none", borderRadius: "7px", padding: "8px 18px", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}>
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       <Footer />
       <BackToTop />
 
+      {/* =========================================================
+          STYLES
+      ========================================================= */}
       <style jsx global>{`
-        .svg-action-btn {
+        * {
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          margin: 0;
+        }
+
+        .portfolio-page {
+          color: #0f172a;
+          font-family: Arial, sans-serif;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .profile-hero {
+          min-height: calc(100vh - 65px);
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          background:
+            radial-gradient(
+              circle at 80% 20%,
+              rgba(245, 158, 11, 0.2),
+              transparent 28%
+            ),
+            radial-gradient(
+              circle at 10% 80%,
+              rgba(239, 68, 68, 0.12),
+              transparent 28%
+            ),
+            radial-gradient(
+              circle at 50% 0%,
+              rgba(37, 99, 235, 0.1),
+              transparent 24%
+            ),
+            linear-gradient(
+              120deg,
+              #fff7ed 0%,
+              #fffaf5 45%,
+              #eff6ff 70%,
+              #fff7ed 100%
+            );
+        }
+
+        .profile-hero-inner {
+          width: 100%;
+          max-width: 1500px;
+          margin: 0 auto;
+          padding: 90px 70px;
+          position: relative;
+          z-index: 3;
+        }
+
+        .hero-copy {
+          max-width: 850px;
+          margin-left: 0;
+          text-align: left;
+        }
+
+        .hero-label,
+        .section-label {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 2px;
+          color: #f97316;
+          margin: 0 0 18px;
+          text-transform: uppercase;
+        }
+
+        .hero-copy h1 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(44px, 5vw, 76px);
+          line-height: 1.03;
+          letter-spacing: -3.5px;
+          margin: 0;
+          font-weight: 800;
+          color: #171717;
+        }
+
+        .hero-copy h1 span {
+          color: #f97316;
+        }
+
+        .hero-copy h1 .orange-text {
+          display: inline;
+          color: #f97316;
+        }
+
+        .hero-description {
+          max-width: 720px;
+          margin: 30px 0 32px;
+          font-size: 16px;
+          line-height: 1.75;
+          color: #5d6470;
+        }
+
+        .hero-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-bottom: 42px;
+        }
+
+        .hero-primary,
+        .hero-secondary {
+          padding: 13px 24px;
+          border-radius: 9px;
+          text-decoration: none;
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          transition: all 0.25s ease;
+        }
+
+        .hero-primary {
+          background: #f97316;
+          color: #fff;
+          border: 2px solid #f97316;
+          box-shadow: 0 10px 25px rgba(249, 115, 22, 0.2);
+        }
+
+        .hero-primary:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 30px rgba(249, 115, 22, 0.28);
+        }
+
+        .hero-secondary {
+          background: rgba(255, 255, 255, 0.7);
+          color: #334155;
+          border: 2px solid #e2e8f0;
+        }
+
+        .hero-secondary:hover {
+          transform: translateY(-3px);
+          border-color: #f97316;
+          color: #f97316;
+        }
+
+        .hero-points {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 25px;
+          padding-top: 25px;
+          border-top: 1px solid rgba(226, 232, 240, 0.85);
+        }
+
+        .hero-points > div {
+          display: flex;
+          gap: 8px;
+          align-items: flex-start;
+        }
+
+        .check-icon {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: #ecfdf5;
+          color: #059669;
+          font-size: 12px;
+          font-weight: 800;
+        }
+
+        .hero-points strong {
+          display: block;
+          font-size: 13px;
+          color: #1e293b;
+        }
+
+        .hero-points small {
+          display: block;
+          margin-top: 2px;
+          color: #64748b;
+          font-size: 11px;
+        }
+
+        .hero-background-glow {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          pointer-events: none;
+        }
+
+        .glow-one {
+          width: 450px;
+          height: 450px;
+          right: 3%;
+          top: 5%;
+          background: rgba(37, 99, 235, 0.12);
+        }
+
+        .glow-two {
+          width: 360px;
+          height: 360px;
+          left: 35%;
+          bottom: -180px;
+          background: rgba(249, 115, 22, 0.1);
+        }
+
+        .glow-three {
+          width: 260px;
+          height: 260px;
+          right: 35%;
+          bottom: 10%;
+          background: rgba(245, 158, 11, 0.08);
+        }
+
+        /* =====================================================
+           GENERAL SECTIONS
+        ===================================================== */
+
+        .section-container {
+          width: 100%;
+          max-width: 1240px;
+          margin: 0 auto;
+        }
+
+        .section-heading {
+          max-width: 850px;
+          margin-bottom: 50px;
+        }
+
+        .section-heading.center {
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .section-heading h2 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(30px, 3.5vw, 46px);
+          line-height: 1.1;
+          letter-spacing: -1.8px;
+          font-weight: 800;
+          color: #0f172a;
+          margin: 8px 0 16px;
+        }
+
+        .section-heading h2 span {
+          color: #f97316;
+        }
+
+        .section-heading p {
+          max-width: 760px;
+          margin: 0;
+          color: #64748b;
+          font-size: 15px;
+          line-height: 1.75;
+        }
+
+        .section-heading.center p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        .intro-section {
+          padding: 100px 20px;
+          background: #ffffff;
+        }
+
+        .profile-purpose-grid {
+          display: grid;
+          grid-template-columns: 1.4fr 1fr 1fr;
+          gap: 18px;
+        }
+
+        .purpose-card {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 28px;
+          min-height: 210px;
+          transition: all 0.3s ease;
+        }
+
+        .purpose-card:hover {
+          transform: translateY(-7px);
+          border-color: rgba(249, 115, 22, 0.35);
+          box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+        }
+
+        .purpose-number {
+          font-size: 13px;
+          font-weight: 800;
+          color: #f97316;
+          margin-bottom: 35px;
+        }
+
+        .purpose-card h3 {
+          font-size: 18px;
+          margin: 0 0 9px;
+          color: #0f172a;
+        }
+
+        .purpose-card p {
+          color: #64748b;
+          font-size: 13.5px;
+          line-height: 1.65;
+          margin: 0;
+        }
+
+        /* =====================================================
+           PROFILE SHOWCASE
+        ===================================================== */
+
+        .profile-showcase-section {
+          padding: 100px 20px;
+          background: #fffaf5;
+          border-top: 1px solid #f1f5f9;
+          border-bottom: 1px solid #f1f5f9;
+        }
+
+        .profile-browser {
+          background: #eef1f5;
+          border-radius: 18px;
+          border: 1px solid #dbe1e8;
+          box-shadow: 0 25px 70px rgba(15, 23, 42, 0.1);
+          overflow: hidden;
+          transform: translateY(0);
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-browser:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 30px 80px rgba(15, 23, 42, 0.14);
+        }
+
+        .browser-top {
+          height: 42px;
+          background: #f8fafc;
+          border-bottom: 1px solid #dbe1e8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+
+        .browser-dots {
+          display: flex;
+          gap: 7px;
+          position: absolute;
+          left: 18px;
+        }
+
+        .browser-dots span {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #f97316;
+          opacity: 0.7;
+        }
+
+        .browser-title {
+          font-size: 11px;
+          color: #94a3b8;
+          font-weight: 700;
+        }
+
+        .profile-browser-body {
+          padding: 26px;
+          display: grid;
+          grid-template-columns: 300px 1fr;
+          gap: 20px;
+        }
+
+        .about-panel {
+          background: #ffffff;
+          border-radius: 12px;
+          padding: 24px;
+          min-height: 280px;
+          border: 1px solid #e2e8f0;
+        }
+
+        .about-heading {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .about-heading h3 {
+          font-size: 20px;
+          margin: 0;
+          color: #172033;
+        }
+
+        .about-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 18px;
+          font-size: 14px;
+          color: #334155;
+        }
+
+        .icon-button {
           background: transparent;
           border: none;
-          padding: 0;
-          cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          transition: transform 0.2s ease;
-        }
-        .svg-action-btn:hover {
-          transform: scale(1.15);
-        }
-
-        .platform-action-pill {
-          background: #ffffff;
-          border: 1.5px solid #ff7a32;
           color: #ff5500;
-          border-radius: 999px;
-          padding: 7px 18px;
-          font-size: 13px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .platform-action-pill:hover {
-          background: #ff5500;
-          color: #ffffff;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 18px rgba(255, 85, 0, 0.22);
-        }
-
-        .interactive-skill-pill {
-          display: inline-flex;
-          align-items: center;
-          padding: 6px 14px;
-          border-radius: 8px;
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          font-size: 12.5px;
-          color: #334155;
-          font-weight: 500;
-          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+          font-size: 16px;
           cursor: default;
         }
-        .interactive-skill-pill:hover {
-          border-color: #ff5500;
-          color: #ff5500;
-          background: #fff7ed;
-          transform: translateY(-2px);
+
+        .profile-main {
+          min-width: 0;
         }
 
-        .platform-tab-button {
-          background: #ffffff;
-          border: 1px solid #e2e8f0;
-          border-radius: 10px;
-          padding: 10px 8px;
-          font-size: 12.5px;
-          font-weight: 600;
+        .profile-cover {
+          min-height: 280px;
+          border-radius: 12px;
+          position: relative;
+          overflow: hidden;
+          background:
+            linear-gradient(
+              145deg,
+              #22c8df 0%,
+              #4387f5 48%,
+              #6436c6 100%
+            );
+          color: white;
+        }
+
+        .profile-handle {
+          position: absolute;
+          top: 22px;
+          left: 25px;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          gap: 7px;
+        }
+
+        .profile-symbol {
+          width: 23px;
+          height: 23px;
+          border: 2px solid white;
+          border-radius: 50%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .edit-white {
+          background: transparent;
+          border: none;
+          color: #ff5500;
+          cursor: default;
+          font-size: 15px;
+        }
+
+        .profile-handle .edit-white,
+        .identity-name .edit-white,
+        .identity-bio .edit-white {
+          color: #ff5500;
+        }
+
+        .cover-button {
+          position: absolute;
+          right: 24px;
+          top: 18px;
+          border: none;
+          background: white;
           color: #475569;
-          cursor: pointer;
+          padding: 9px 14px;
+          border-radius: 9px;
+          font-size: 12px;
+          cursor: default;
+        }
+
+        .profile-identity {
+          position: absolute;
+          left: 25px;
+          right: 25px;
+          bottom: 22px;
+          display: flex;
+          align-items: flex-end;
+          gap: 14px;
+        }
+
+        .avatar {
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+          background: white;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 6px;
-          transition: all 0.2s ease;
-        }
-        .platform-tab-button:hover {
-          border-color: #cbd5e1;
-          background: #f8fafc;
-          transform: translateY(-2px);
-        }
-        .platform-tab-button.active {
-          border-color: #ff5500;
-          color: #ff5500;
-          background: #ffffff;
-          box-shadow: 0 4px 14px rgba(255, 85, 0, 0.12);
-          border-bottom: 2.5px solid #ff5500;
+          border: 3px solid rgba(255, 255, 255, 0.85);
         }
 
-        .live-record-card {
-          background: #ffffff;
-          border: 1px solid #dfe3e8;
-          border-radius: 14px;
-          padding: 22px;
+        .avatar-inner {
+          font-size: 25px;
+        }
+
+        .identity-text {
+          flex: 1;
+        }
+
+        .identity-name {
+          font-weight: 800;
+          font-size: 17px;
+          margin-bottom: 5px;
+        }
+
+        .identity-bio {
+          font-size: 13px;
+        }
+
+        .profile-stats {
+          display: flex;
+          gap: 32px;
+        }
+
+        .profile-stats div {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-          position: relative;
-        }
-        .live-record-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(255, 85, 0, 0.4);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+          align-items: center;
         }
 
-        .credential-star-badge {
-          width: 76px;
-          height: 76px;
-          border-radius: 50%;
-          border: 3.5px solid #ff7a32;
-          position: relative;
+        .profile-stats strong {
+          font-size: 16px;
+        }
+
+        .profile-stats span {
+          font-size: 11px;
+          margin-top: 4px;
+        }
+
+        .skills-panel {
+          grid-column: 1 / -1;
+          background: white;
+          border-radius: 12px;
+          padding: 25px;
+          border: 1px solid #e2e8f0;
+        }
+
+        .skills-heading {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 18px;
+        }
+
+        .skills-heading h3 {
+          margin: 0;
+          font-size: 18px;
+        }
+
+        .skill-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 9px;
+        }
+
+        .skill-chip {
+          padding: 7px 14px;
+          border: 1px solid #d9e0e8;
+          border-radius: 8px;
+          color: #526173;
+          background: #ffffff;
+          font-size: 12.5px;
+          transition: all 0.25s ease;
+        }
+
+        .skill-chip:hover {
+          border-color: #f97316;
+          color: #f97316;
+          transform: translateY(-2px);
+        }
+
+        .skill-chip.more {
+          background: #f8fafc;
+          font-weight: 700;
+        }
+
+        .profile-actions {
+          grid-column: 1 / -1;
+          display: flex;
+          justify-content: flex-end;
+          flex-wrap: wrap;
+          gap: 9px;
+        }
+
+        .profile-actions button {
+          background: white;
+          border: 1.5px solid #ff6b2c;
+          color: #ff5b1a;
+          border-radius: 8px;
+          padding: 8px 13px;
+          font-size: 12px;
+          cursor: default;
+          transition: none;
+        }
+
+        .profile-actions button:hover {
+          background: white;
+          transform: none;
+        }
+
+        /* =====================================================
+           PROFILE SECTIONS
+        ===================================================== */
+
+        .sections-section {
+          padding: 100px 20px;
+          background: #ffffff;
+        }
+
+        .profile-tabs-demo {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 12px;
+        }
+
+        .profile-tab {
+          background: #f8fafc;
+          border-radius: 13px;
+          padding: 16px 12px;
+          min-height: 58px;
           display: flex;
           align-items: center;
           justify-content: center;
+          gap: 7px;
+          color: #64748b;
+          font-size: 13px;
+          border: 1px solid transparent;
+          transition: none;
+          cursor: default;
+        }
+
+        .profile-tab:hover {
+          transform: none;
+          background: #f8fafc;
+          border-color: transparent;
+          box-shadow: none;
+        }
+
+        .profile-tab-active {
+          color: #ff5500;
+          background: #fff;
+          border-bottom: 3px solid #ff7a32;
+          box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+        }
+
+        .profile-tab-active:hover {
+          background: #fff;
+          border-bottom: 3px solid #ff7a32;
+          border-color: transparent;
+          box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+          transform: none;
+        }
+
+        .tab-count {
+          background: #d9dce0;
+          color: #fff;
+          width: 21px;
+          height: 21px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          font-size: 10px;
+          font-weight: 800;
+        }
+
+        .profile-tab-active .tab-count {
+          background: #ff6b35;
+        }
+
+        .section-explanation {
+          display: flex;
+          gap: 20px;
+          max-width: 850px;
+          margin: 45px auto 0;
+          align-items: flex-start;
+        }
+
+        .explanation-line {
+          width: 4px;
+          min-height: 75px;
+          background: #f97316;
+          border-radius: 4px;
+        }
+
+        .section-explanation h3 {
+          margin: 0 0 7px;
+          font-size: 18px;
+        }
+
+        .section-explanation p {
+          margin: 0;
+          color: #64748b;
+          font-size: 13.5px;
+          line-height: 1.7;
+        }
+
+        /* =====================================================
+           EDUCATION RECORDS
+        ===================================================== */
+
+        .records-section {
+          padding: 100px 20px;
+          background: #f8fafc;
+          border-top: 1px solid #e2e8f0;
+          border-bottom: 1px solid #e2e8f0;
+        }
+
+        .education-interface {
           background: #ffffff;
-          flex-shrink: 0;
-          transition: transform 0.35s ease;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 30px;
+          box-shadow: 0 15px 40px rgba(15, 23, 42, 0.05);
         }
-        .live-record-card:hover .credential-star-badge {
-          transform: rotate(10deg) scale(1.05);
+
+        .education-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 25px;
         }
-        .credential-star-badge::before {
+
+        .education-header h3 {
+          font-size: 21px;
+          margin: 0;
+        }
+
+        .education-actions {
+          display: flex;
+          gap: 10px;
+        }
+
+        .education-actions button {
+          background: white;
+          border: 1.5px solid #ff5b1a;
+          color: #ff5b1a;
+          padding: 8px 14px;
+          border-radius: 8px;
+          font-size: 12px;
+          cursor: default;
+          transition: none;
+        }
+
+        .education-actions button:hover {
+          background: white;
+          transform: none;
+        }
+
+        .education-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+        }
+
+        .education-card {
+          background: #ffffff;
+          border: 1px solid #dce2e8;
+          border-radius: 11px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+          animation: cardReveal 0.65s ease both;
+          transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 18px 35px rgba(15, 23, 42, 0.1);
+        }
+
+        .education-card-top {
+          padding: 20px;
+          display: flex;
+          gap: 16px;
+        }
+
+        .credential-badge {
+          width: 78px;
+          height: 78px;
+          flex: 0 0 78px;
+          border-radius: 50%;
+          border: 3px solid #ff8500;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          background: #fff;
+        }
+
+        .credential-badge::before {
           content: "";
           position: absolute;
-          inset: 4px;
+          inset: 5px;
+          border: 1px dashed #ffae5b;
           border-radius: 50%;
-          border: 1.5px dashed #ff9e66;
         }
 
-        .interactive-feature-card {
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          border-radius: 14px;
-          padding: 26px 20px;
+        .badge-inner {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #ff9900;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 19px;
+          position: relative;
+        }
+
+        .education-info {
+          min-width: 0;
+        }
+
+        .education-info h4 {
+          margin: 0 0 4px;
+          font-size: 16px;
+          color: #23334a;
+        }
+
+        .education-info p {
+          margin: 3px 0;
+        }
+
+        .institution {
+          font-size: 13px;
+          color: #526173;
+        }
+
+        .period {
+          font-size: 11px;
+          color: #64748b;
+        }
+
+        .record-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          margin-top: 9px;
+        }
+
+        .record-tags span {
+          background: #fff0df;
+          color: #ff6800;
+          padding: 5px 8px;
+          border-radius: 7px;
+          font-size: 10px;
+          font-weight: 700;
+        }
+
+        .education-description {
+          padding: 0 20px 18px;
+          margin: 0;
+          min-height: 72px;
+          font-size: 12.5px;
+          color: #64748b;
+          line-height: 1.5;
+        }
+
+        .education-description span {
+          color: #ff5500;
+        }
+
+        .education-card-footer {
+          background: #f5f5f5;
+          border-top: 1px solid #edf0f2;
+          padding: 12px 18px;
+          display: flex;
+          align-items: center;
+          gap: 13px;
+          flex-wrap: wrap;
+        }
+
+        .footer-icon {
+          background: transparent;
+          border: none;
+          color: #ff5b1a;
+          cursor: default;
+          transition: none;
+        }
+
+        .footer-icon:hover {
+          transform: none;
+          color: #ff5b1a;
+        }
+
+        .open-badge {
+          border: none;
+          background: #ff9900;
+          color: white;
+          border-radius: 7px;
+          padding: 7px 10px;
+          font-size: 10px;
+          font-weight: 700;
+          cursor: default;
+          transition: none;
+        }
+
+        .open-badge:hover {
+          background: #ff9900;
+          transform: none;
+        }
+
+        .credential-link {
+          background: transparent;
+          border: none;
+          color: #ff5b1a;
+          font-size: 11px;
+          font-weight: 600;
+          cursor: default;
+          transition: none;
+        }
+
+        .credential-link:hover {
+          color: #ff5b1a;
+          transform: none;
+        }
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills-explanation-section {
+          padding: 110px 20px;
+          background: #ffffff;
+        }
+
+        .skills-content {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 80px;
+          align-items: center;
+        }
+
+        .skills-copy h2 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(30px, 3.5vw, 46px);
+          line-height: 1.1;
+          letter-spacing: -1.8px;
+          margin: 8px 0 18px;
+        }
+
+        .skills-copy h2 span {
+          color: #f97316;
+        }
+
+        .skills-copy > p {
+          color: #64748b;
+          font-size: 15px;
+          line-height: 1.75;
+          max-width: 580px;
+        }
+
+        .skills-benefits {
+          margin-top: 35px;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
-          transition: all 0.25s ease;
-        }
-        .interactive-feature-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-          border-color: rgba(249, 115, 22, 0.3);
+          gap: 18px;
         }
 
-        .template-selector-card {
-          background: #ffffff;
-          border: 2px solid #e2e8f0;
-          border-radius: 12px;
-          padding: 20px;
-          cursor: pointer;
-          transition: all 0.2s ease;
+        .benefit {
+          display: flex;
+          gap: 15px;
         }
-        .template-selector-card:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+
+        .benefit > span {
+          color: #f97316;
+          font-size: 12px;
+          font-weight: 800;
+          min-width: 24px;
         }
-        .template-selector-card.active {
-          border-color: #ff5500;
+
+        .benefit strong {
+          font-size: 14px;
+          color: #1e293b;
+        }
+
+        .benefit p {
+          margin: 4px 0 0;
+          color: #64748b;
+          font-size: 12.5px;
+          line-height: 1.5;
+        }
+
+        .skills-visual {
+          position: relative;
+          min-height: 470px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .skill-card-large {
+          width: 100%;
+          max-width: 500px;
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 28px;
+          box-shadow: 0 25px 60px rgba(15, 23, 42, 0.1);
+          position: relative;
+          z-index: 2;
+        }
+
+        .skill-card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid #edf0f3;
+          padding-bottom: 17px;
+          margin-bottom: 18px;
+        }
+
+        .skill-card-header small {
+          color: #f97316;
+          font-weight: 800;
+          font-size: 9px;
+          letter-spacing: 1.5px;
+        }
+
+        .skill-card-header h3 {
+          margin: 4px 0 0;
+          font-size: 18px;
+        }
+
+        .skill-card-header button {
+          background: transparent;
+          border: none;
+          color: #f97316;
+          cursor: default;
+        }
+
+        .large-skill-list {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .large-skill {
+          padding: 11px 13px;
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          font-size: 12.5px;
+          color: #475569;
+          display: flex;
+          gap: 9px;
+          animation: skillSlide 0.5s ease both;
+        }
+
+        .large-skill span {
+          color: #10b981;
+          font-weight: 800;
+        }
+
+        .skills-more {
+          margin-top: 15px;
+          display: inline-block;
+          padding: 7px 13px;
+          border-radius: 20px;
           background: #fff7ed;
-          box-shadow: 0 6px 20px rgba(255, 85, 0, 0.15);
+          border: 1px solid #fed7aa;
+          color: #f97316;
+          font-size: 11px;
+          font-weight: 700;
         }
 
-        .template-picker-card {
-          border: 2px solid #e2e8f0;
-          border-radius: 12px;
-          padding: 16px;
+        .floating-label {
+          position: absolute;
+          z-index: 3;
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 9px;
+          padding: 10px 13px;
+          font-size: 11px;
+          font-weight: 700;
+          box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+          animation: floating 3s ease-in-out infinite;
+        }
+
+        .floating-label span {
+          color: #10b981;
+          margin-right: 5px;
+        }
+
+        .label-one {
+          top: 20px;
+          right: 0;
+        }
+
+        .label-two {
+          bottom: 25px;
+          left: 0;
+          animation-delay: 1.2s;
+        }
+
+        /* =====================================================
+           CREDENTIALS
+        ===================================================== */
+
+        .credentials-section {
+          padding: 100px 20px;
+          background: #fffaf5;
+          border-top: 1px solid #f1f5f9;
+          border-bottom: 1px solid #f1f5f9;
+        }
+
+        .credential-flow {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr auto 1fr;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .credential-step {
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 28px;
+          text-align: center;
+          min-height: 240px;
+          position: relative;
+          transition: all 0.3s ease;
+        }
+
+        .credential-step:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        .credential-number {
+          position: absolute;
+          top: 16px;
+          right: 18px;
+          font-size: 10px;
+          font-weight: 800;
+          color: #f97316;
+        }
+
+        .credential-icon {
+          width: 55px;
+          height: 55px;
+          border-radius: 50%;
+          background: #fff7ed;
+          color: #f97316;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 10px auto 20px;
+          font-size: 21px;
+        }
+
+        .credential-step h3 {
+          font-size: 17px;
+          margin: 0 0 8px;
+        }
+
+        .credential-step p {
+          color: #64748b;
+          font-size: 12.5px;
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        .flow-arrow {
+          font-size: 26px;
+          color: #f97316;
+        }
+
+        /* =====================================================
+           WHY
+        ===================================================== */
+
+        .why-section {
+          padding: 110px 20px;
           background: #ffffff;
-          cursor: pointer;
+        }
+
+        .why-grid {
+          display: grid;
+          grid-template-columns: 0.8fr 1.2fr;
+          gap: 80px;
+          align-items: start;
+        }
+
+        .why-grid h2 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(30px, 3.5vw, 45px);
+          line-height: 1.1;
+          letter-spacing: -1.5px;
+          margin: 8px 0 18px;
+        }
+
+        .why-grid h2 span {
+          color: #f97316;
+        }
+
+        .why-grid > div:first-child p {
+          color: #64748b;
+          font-size: 14px;
+          line-height: 1.75;
+        }
+
+        .why-cards {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 15px;
+        }
+
+        .why-card {
+          border: 1px solid #e2e8f0;
+          border-radius: 13px;
+          padding: 23px;
+          background: #f8fafc;
+          transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+          background: white;
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(15, 23, 42, 0.07);
+        }
+
+        .why-card > span {
+          font-size: 11px;
+          color: #f97316;
+          font-weight: 800;
+        }
+
+        .why-card h3 {
+          margin: 17px 0 7px;
+          font-size: 15px;
+        }
+
+        .why-card p {
+          margin: 0;
+          color: #64748b;
+          font-size: 12.5px;
+          line-height: 1.6;
+        }
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .final-cta {
+          padding: 100px 20px;
+          text-align: center;
+          background:
+            radial-gradient(
+              circle at 50% 20%,
+              rgba(249, 115, 22, 0.13),
+              transparent 35%
+            ),
+            #fffaf5;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .cta-content {
+          position: relative;
+          z-index: 2;
+          max-width: 760px;
+          margin: 0 auto;
+        }
+
+        .cta-content h2 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(32px, 4vw, 50px);
+          line-height: 1.05;
+          letter-spacing: -2px;
+          margin: 8px 0 15px;
+        }
+
+        .cta-content h2 span {
+          color: #f97316;
+        }
+
+        .cta-content p {
+          max-width: 650px;
+          margin: 0 auto 30px;
+          color: #64748b;
+          line-height: 1.7;
+          font-size: 15px;
+        }
+
+        .cta-button {
+          display: inline-block;
+          background: #f97316;
+          color: white;
+          text-decoration: none;
+          padding: 14px 28px;
+          border-radius: 9px;
+          font-size: 14px;
+          font-weight: 700;
+          box-shadow: 0 10px 25px rgba(249, 115, 22, 0.22);
           transition: all 0.25s ease;
         }
-        .template-picker-card:hover {
+
+        .cta-button:hover {
           transform: translateY(-3px);
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-        }
-        .template-picker-card.active {
-          border-color: #ff5500;
-          background: #fffaf5;
-          box-shadow: 0 6px 20px rgba(255, 85, 0, 0.15);
+          box-shadow: 0 15px 30px rgba(249, 115, 22, 0.3);
         }
 
-        @keyframes slideUp {
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes cardReveal {
           from {
             opacity: 0;
-            transform: translateY(8px);
+            transform: translateY(25px);
           }
+
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+
+        @keyframes skillSlide {
+          from {
+            opacity: 0;
+            transform: translateX(15px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes floating {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(-7px);
+          }
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+          .profile-hero-inner {
+            padding: 80px 40px;
+          }
+
+          .profile-purpose-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .purpose-large {
+            grid-column: 1 / -1;
+          }
+
+          .profile-browser-body {
+            grid-template-columns: 1fr;
+          }
+
+          .about-panel {
+            min-height: auto;
+          }
+
+          .education-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .skills-content,
+          .why-grid {
+            grid-template-columns: 1fr;
+            gap: 50px;
+          }
+
+          .profile-tabs-demo {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        @media (max-width: 760px) {
+          .profile-hero {
+            min-height: auto;
+          }
+
+          .profile-hero-inner {
+            padding: 70px 22px;
+          }
+
+          .hero-copy h1 {
+            font-size: 42px;
+            letter-spacing: -2px;
+          }
+
+          .hero-description {
+            font-size: 14px;
+          }
+
+          .hero-points {
+            flex-direction: column;
+          }
+
+          .intro-section,
+          .profile-showcase-section,
+          .sections-section,
+          .records-section,
+          .skills-explanation-section,
+          .credentials-section,
+          .why-section,
+          .final-cta {
+            padding: 75px 18px;
+          }
+
+          .profile-purpose-grid,
+          .education-grid,
+          .why-cards {
+            grid-template-columns: 1fr;
+          }
+
+          .purpose-large {
+            grid-column: auto;
+          }
+
+          .profile-browser-body {
+            padding: 12px;
+          }
+
+          .profile-identity {
+            align-items: flex-start;
+          }
+
+          .profile-stats {
+            display: none;
+          }
+
+          .profile-handle {
+            font-size: 11px;
+          }
+
+          .cover-button {
+            display: none;
+          }
+
+          .profile-tabs-demo {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .education-interface {
+            padding: 18px;
+          }
+
+          .education-header {
+            align-items: flex-start;
+            gap: 15px;
+            flex-direction: column;
+          }
+
+          .credential-flow {
+            grid-template-columns: 1fr;
+          }
+
+          .flow-arrow {
+            transform: rotate(90deg);
+            text-align: center;
+          }
+
+          .skills-visual {
+            min-height: 400px;
+          }
+
+          .floating-label {
+            display: none;
+          }
+
+          .section-heading h2 {
+            font-size: 32px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-copy h1 {
+            font-size: 36px;
+          }
+
+          .hero-buttons {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          .hero-primary,
+          .hero-secondary {
+            text-align: center;
+          }
+
+          .profile-tabs-demo {
+            grid-template-columns: 1fr;
+          }
+
+          .skill-card-large {
+            padding: 20px;
+          }
+
+          .profile-actions {
+            justify-content: flex-start;
           }
         }
       `}</style>
