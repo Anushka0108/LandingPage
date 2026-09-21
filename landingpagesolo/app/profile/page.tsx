@@ -102,32 +102,6 @@ export default function LifelongSkillsPortfolioPage() {
                   See What You Can Showcase
                 </a>
               </div>
-
-              <div className="hero-points">
-                <div>
-                  <span className="check-icon">✓</span>
-                  <div>
-                    <strong>Professional Profile</strong>
-                    <small>Skills, experience & achievements</small>
-                  </div>
-                </div>
-
-                <div>
-                  <span className="check-icon">✓</span>
-                  <div>
-                    <strong>Skills & Interests</strong>
-                    <small>Help personalize your experience</small>
-                  </div>
-                </div>
-
-                <div>
-                  <span className="check-icon">✓</span>
-                  <div>
-                    <strong>Verifiable Achievements</strong>
-                    <small>Credentials and badges</small>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -894,7 +868,7 @@ export default function LifelongSkillsPortfolioPage() {
 
         .hero-copy h1 {
           font-family: var(--font-montserrat), sans-serif;
-          font-size: clamp(44px, 5vw, 76px);
+          font-size: clamp(43px, 4vw, 75px);
           line-height: 1.03;
           letter-spacing: -3.5px;
           margin: 0;
@@ -2311,7 +2285,7 @@ export default function LifelongSkillsPortfolioPage() {
 
         @media (max-width: 480px) {
           .hero-copy h1 {
-            font-size: 36px;
+            font-size: 34px;
           }
 
           .hero-buttons {
