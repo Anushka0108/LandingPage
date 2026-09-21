@@ -76,7 +76,7 @@ export default function Home() {
                   letterSpacing: "-1px",
                 }}
               >
-                Your Complete Learning-to-Employment Flywheel
+                From Learning to Career Readiness
               </h2>
 
               <p
