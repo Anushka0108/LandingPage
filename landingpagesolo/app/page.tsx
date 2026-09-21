@@ -361,7 +361,7 @@ export default function Home() {
               <span>Share</span>
             </div>
             <div style={{ marginTop: "24px" }}>
-              <Link href="/credentials" className="section-button">
+              <Link href="/credential" className="section-button">
                 Learn More
               </Link>
             </div>
