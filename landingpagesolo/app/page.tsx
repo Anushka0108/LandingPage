@@ -188,7 +188,7 @@ export default function Home() {
           </div>
 
           <div style={{ textAlign: "center", marginTop: "35px" }}>
-            <Link href="/signin" className="hero-primary" style={{
+            <Link href="/explore" className="hero-primary" style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
@@ -198,7 +198,7 @@ export default function Home() {
               fontSize: "14px",
               fontWeight: "700"
             }}>
-              Login to Explore More
+              Explore More
             </Link>
           </div>
         </FadeInSection>
