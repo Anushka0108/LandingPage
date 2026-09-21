@@ -645,7 +645,7 @@ export default function LifelongSkillsPortfolioPage() {
           CREDENTIALS
       ========================================================= */}
       <FadeInSection>
-        <section className="credentials-section">
+        <section className="credentials-sections">
           <div className="section-container">
             <div className="section-heading center">
               <span className="section-label">
@@ -1927,7 +1927,7 @@ export default function LifelongSkillsPortfolioPage() {
            CREDENTIALS
         ===================================================== */
 
-        .credentials-section {
+        .credentials-sections {
           padding: 100px 20px;
           background: #fffaf5;
           border-top: 1px solid #f1f5f9;
@@ -2237,7 +2237,7 @@ export default function LifelongSkillsPortfolioPage() {
           .sections-section,
           .records-section,
           .skills-explanation-section,
-          .credentials-section,
+          .credentials-sections,
           .why-section,
           .final-cta {
             padding: 75px 18px;
