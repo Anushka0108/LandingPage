@@ -9,69 +9,216 @@ import BackToTop from "../components/BackToTop";
 
 export default function CareerPathwaysPage() {
   const [viewMode, setViewMode] = useState("standard");
+  const [selectedTrack, setSelectedTrack] = useState("react");
+  const [expandedId, setExpandedId] = useState(null);
 
-  const pathwayItems = [
+  const pathwayTracks = [
     {
-      id: "C-760",
-      step: 1,
-      type: "CREDENTIAL",
-      title: "ReactJS",
-      badgeType: "Coursework",
-      badgeColor: "#0099b8",
-      code: "C-760",
-      earned: true
+      id: "react",
+      name: "React & Frontend Engineering",
+      items: [
+        {
+          id: "C-760",
+          step: 1,
+          type: "CREDENTIAL",
+          title: "ReactJS",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-760",
+          earned: true,
+          description:
+            "Learn component-based UI architecture and build interactive interfaces with React."
+        },
+        {
+          id: "C-779",
+          step: 2,
+          type: "CREDENTIAL",
+          title: "React Fundamentals",
+          badgeType: "Skills Validation",
+          badgeColor: "#7c3aed",
+          code: "C-779",
+          earned: true,
+          description:
+            "A hands-on assessment validating your core React skills — hooks, state, and props."
+        },
+        {
+          id: "C-782",
+          step: 3,
+          type: "CREDENTIAL",
+          title: "React Redux Toolkit",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-782",
+          earned: true,
+          description:
+            "Manage complex application state using Redux Toolkit's modern patterns."
+        },
+        {
+          id: "C-790",
+          step: 4,
+          type: "CREDENTIAL",
+          title: "RTK Query Basics",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-790",
+          earned: true,
+          description:
+            "Fetch, cache, and sync server data efficiently using RTK Query."
+        },
+        {
+          id: "C-795",
+          step: 5,
+          type: "CREDENTIAL",
+          title: "Redux & RTK Query",
+          badgeType: "Skills Validation",
+          badgeColor: "#7c3aed",
+          code: "C-795",
+          earned: false,
+          description:
+            "Prove you can combine Redux state management with RTK Query in a real app."
+        },
+        {
+          id: "C-801",
+          step: 6,
+          type: "CREDENTIAL",
+          title: "NextJS",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-801",
+          earned: false,
+          description:
+            "Build fast, server-rendered, production-ready React apps with Next.js."
+        }
+      ]
     },
     {
-      id: "C-779",
-      step: 2,
-      type: "CREDENTIAL",
-      title: "React Fundamentals",
-      badgeType: "Skills Validation",
-      badgeColor: "#7c3aed",
-      code: "C-779",
-      earned: false
+      id: "data",
+      name: "Data Analytics Foundation",
+      items: [
+        {
+          id: "C-410",
+          step: 1,
+          type: "CREDENTIAL",
+          title: "Python for Data Analysis",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-410",
+          earned: true,
+          description:
+            "Work with real datasets using Python, Pandas, and NumPy."
+        },
+        {
+          id: "C-418",
+          step: 2,
+          type: "CREDENTIAL",
+          title: "Statistics Fundamentals",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-418",
+          earned: true,
+          description:
+            "Build the statistical foundation every analyst needs — distributions, correlation, and inference."
+        },
+        {
+          id: "C-425",
+          step: 3,
+          type: "CREDENTIAL",
+          title: "SQL for Analysts",
+          badgeType: "Skills Validation",
+          badgeColor: "#7c3aed",
+          code: "C-425",
+          earned: false,
+          description:
+            "Query, join, and shape relational data confidently with SQL."
+        },
+        {
+          id: "C-431",
+          step: 4,
+          type: "CREDENTIAL",
+          title: "Data Visualization Basics",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-431",
+          earned: false,
+          description:
+            "Turn raw numbers into charts and dashboards people can actually understand."
+        }
+      ]
     },
     {
-      id: "C-782",
-      step: 3,
-      type: "CREDENTIAL",
-      title: "React Redux Toolkit",
-      badgeType: "Coursework",
-      badgeColor: "#0099b8",
-      code: "C-782",
-      earned: true
-    },
-    {
-      id: "C-790",
-      step: 4,
-      type: "CREDENTIAL",
-      title: "RTK Query Basics",
-      badgeType: "Coursework",
-      badgeColor: "#0099b8",
-      code: "C-790",
-      earned: false
-    },
-    {
-      id: "C-795",
-      step: 5,
-      type: "CREDENTIAL",
-      title: "Redux & RTK Query",
-      badgeType: "Skills Validation",
-      badgeColor: "#7c3aed",
-      code: "C-795",
-      earned: false
-    },
-    {
-      id: "C-801",
-      step: 6,
-      type: "CREDENTIAL",
-      title: "NextJS",
-      badgeType: "Coursework",
-      badgeColor: "#0099b8",
-      code: "C-801",
-      earned: false
+      id: "design",
+      name: "UI/UX Design Pathway",
+      items: [
+        {
+          id: "C-510",
+          step: 1,
+          type: "CREDENTIAL",
+          title: "Design Thinking Basics",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-510",
+          earned: true,
+          description:
+            "Learn the problem-first mindset behind every great product design."
+        },
+        {
+          id: "C-517",
+          step: 2,
+          type: "CREDENTIAL",
+          title: "Figma Essentials",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-517",
+          earned: true,
+          description:
+            "Design and prototype real interfaces using Figma's core tools."
+        },
+        {
+          id: "C-524",
+          step: 3,
+          type: "CREDENTIAL",
+          title: "Wireframing & Prototyping",
+          badgeType: "Skills Validation",
+          badgeColor: "#7c3aed",
+          code: "C-524",
+          earned: false,
+          description:
+            "Turn a rough idea into a clickable, testable prototype."
+        },
+        {
+          id: "C-531",
+          step: 4,
+          type: "CREDENTIAL",
+          title: "User Research Methods",
+          badgeType: "Coursework",
+          badgeColor: "#0099b8",
+          code: "C-531",
+          earned: false,
+          description:
+            "Learn to run interviews and usability tests that actually improve a product."
+        },
+        {
+          id: "C-538",
+          step: 5,
+          type: "CREDENTIAL",
+          title: "Portfolio Capstone",
+          badgeType: "Skills Validation",
+          badgeColor: "#7c3aed",
+          code: "C-538",
+          earned: false,
+          description:
+            "Bring everything together into a polished, employer-ready design portfolio piece."
+        }
+      ]
     }
   ];
+
+  const activeTrack =
+    pathwayTracks.find((t) => t.id === selectedTrack) || pathwayTracks[0];
+  const pathwayItems = activeTrack.items;
+  const totalBadges = pathwayItems.length;
+  const earnedBadges = pathwayItems.filter((i) => i.earned).length;
+  const progressPercent = Math.round((earnedBadges / totalBadges) * 100);
 
   return (
     <main
@@ -147,10 +294,10 @@ export default function CareerPathwaysPage() {
                 lineHeight: "1.7"
               }}
             >
-              Follow structured roadmaps combining micro-courses, applied
-              projects, and assessments. Track your journey step by step and
-              collect industry-aligned credentials backed by Open Badges and
-              Comprehensive Learner Records.
+              Follow a clear, step-by-step roadmap of courses, real
+              projects, and assessments — built for the job you actually
+              want. Track your progress and earn verified badges you can
+              proudly show employers.
             </p>
 
             <div
@@ -361,37 +508,67 @@ export default function CareerPathwaysPage() {
               {[
                 {
                   step: "01",
-                  title: "Target Role Discovery",
-                  desc: "Select pathways matching your career goals. View required hours, competencies, and badge milestones before enrolling."
+                  title: "Pick Your Goal",
+                  desc: "Choose a pathway that matches the career you want. See what you'll learn, how long it takes, and which badges you'll earn — before you commit.",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="9" />
+                      <circle cx="12" cy="12" r="4.5" />
+                      <circle cx="12" cy="12" r="0.6" fill="currentColor" />
+                    </svg>
+                  )
                 },
                 {
                   step: "02",
-                  title: "Step-by-Step Learning",
-                  desc: "Progress through connected courses, virtual labs, and interactive assessments organized in sequential learning stages."
+                  title: "Learn, One Step at a Time",
+                  desc: "Move through courses and mini-lessons in order, each one building on the last, so nothing feels overwhelming.",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    </svg>
+                  )
                 },
                 {
                   step: "03",
-                  title: "Hands-on Experience",
-                  desc: "Reinforce theory with live assignments, code repositories, and capstones that turn knowledge into visible proof of work."
+                  title: "Build Real Work",
+                  desc: "Practice on real assignments and projects — proof you can actually show, not just a certificate that says you 'know' something.",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="16 18 22 12 16 6" />
+                      <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                  )
                 },
                 {
                   step: "04",
-                  title: "Portable Micro-Credentials",
-                  desc: "Earn tamper-proof badges at each stage. Completed pathways assemble into verifiable records accepted across registries."
+                  title: "Earn Your Badges",
+                  desc: "Get a verified badge every time you complete a stage. Finish the pathway and all your badges combine into one shareable record.",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="8" r="6" />
+                      <path d="M9 13.5 7 22l5-3 5 3-2-8.5" />
+                    </svg>
+                  )
                 }
               ].map((item, idx) => (
                 <div key={idx} className="pathway-feature-card">
+                  <div className="pathway-icon-circle">
+                    {item.icon}
+                  </div>
+
                   <span
                     style={{
-                      fontSize: "14px",
+                      fontSize: "12.5px",
                       fontWeight: "800",
                       color: "var(--orange)",
                       fontFamily: "var(--font-montserrat), sans-serif",
-                      marginBottom: "12px",
-                      display: "block"
+                      marginBottom: "10px",
+                      display: "block",
+                      letterSpacing: "1px"
                     }}
                   >
-                    {item.step}
+                    STEP {item.step}
                   </span>
 
                   <h3
@@ -469,13 +646,11 @@ export default function CareerPathwaysPage() {
                   lineHeight: "1.6"
                 }}
               >
-                Career pathways break target job profiles down into progressive
-                competency milestones. Switch between the{" "}
-                <strong>Standard View</strong> to inspect individual credential
-                modules and completion states, or the{" "}
-                <strong>Pathway View</strong> to visualize how skills connect
-                sequentially from foundational coursework to advanced
-                capstones.
+                Every pathway breaks your target job down into simple,
+                ordered milestones. Switch to <strong>Standard View</strong>{" "}
+                to see each credential and where you stand, or{" "}
+                <strong>Pathway View</strong> to see how everything connects —
+                from your first lesson to your final project.
               </p>
             </div>
 
@@ -488,104 +663,115 @@ export default function CareerPathwaysPage() {
                 marginBottom: "40px"
               }}
             >
-              <div
+              {[
+                {
+                  n: "1",
+                  title: "Built Around Real Jobs",
+                  desc: "Every pathway is mapped to what employers actually look for. Each badge you earn lines up directly with the skills a real job needs — no guesswork.",
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="7" width="18" height="13" rx="2" />
+                      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                      <path d="M3 12h18" />
+                    </svg>
+                  )
+                },
+                {
+                  n: "2",
+                  title: "Badges You Can Prove",
+                  desc: "Every badge is digitally verified. Anyone — a recruiter, a college, an employer — can check it's real and see exactly what you did to earn it.",
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m9 12 2 2 4-4" />
+                      <circle cx="12" cy="12" r="9" />
+                    </svg>
+                  )
+                },
+                {
+                  n: "3",
+                  title: "Your Profile Updates Itself",
+                  desc: "Finish a stage, and your skills, resume, and profile update automatically — no forms to fill out, your progress just shows up where it matters.",
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 12a9 9 0 1 1-3-6.7" />
+                      <polyline points="21 3 21 9 15 9" />
+                    </svg>
+                  )
+                }
+              ].map((card) => (
+                <div
+                  key={card.n}
+                  className="navigator-mini-card"
+                >
+                  <div className="navigator-mini-icon">
+                    {card.icon}
+                  </div>
+
+                  <h4
+                    style={{
+                      margin: "0 0 6px",
+                      fontSize: "15px",
+                      fontWeight: "800",
+                      color: "#1e293b"
+                    }}
+                  >
+                    {card.title}
+                  </h4>
+
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: "13px",
+                      color: "#64748b",
+                      lineHeight: "1.55"
+                    }}
+                  >
+                    {card.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                flexWrap: "wrap",
+                marginBottom: "18px"
+              }}
+            >
+              <span
                 style={{
-                  background: "#ffffff",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "12px",
-                  padding: "20px"
+                  fontSize: "12.5px",
+                  fontWeight: "700",
+                  color: "#64748b"
                 }}
               >
-                <h4
-                  style={{
-                    margin: "0 0 6px",
-                    fontSize: "15px",
-                    fontWeight: "800",
-                    color: "#1e293b"
-                  }}
-                >
-                  1. Role-Aligned Sequences
-                </h4>
+                Preview a pathway:
+              </span>
 
-                <p
+              {pathwayTracks.map((track) => (
+                <button
+                  key={track.id}
+                  onClick={() => {
+                    setSelectedTrack(track.id);
+                    setExpandedId(null);
+                  }}
+                  className="track-switch-pill"
                   style={{
-                    margin: 0,
-                    fontSize: "13px",
-                    color: "#64748b",
-                    lineHeight: "1.5"
+                    background:
+                      selectedTrack === track.id ? "var(--orange)" : "#ffffff",
+                    color: selectedTrack === track.id ? "#ffffff" : "#475569",
+                    border:
+                      selectedTrack === track.id
+                        ? "1.5px solid var(--orange)"
+                        : "1.5px solid #e2e8f0"
                   }}
                 >
-                  Each pathway aligns with global occupation frameworks (such
-                  as O*NET and ESCO), ensuring that every badge you earn
-                  corresponds directly to employer job requirements.
-                </p>
-              </div>
-
-              <div
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "12px",
-                  padding: "20px"
-                }}
-              >
-                <h4
-                  style={{
-                    margin: "0 0 6px",
-                    fontSize: "15px",
-                    fontWeight: "800",
-                    color: "#1e293b"
-                  }}
-                >
-                  2. Verifiable Micro-Credentials
-                </h4>
-
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: "13px",
-                    color: "#64748b",
-                    lineHeight: "1.5"
-                  }}
-                >
-                  Milestones award tamper-proof digital credentials and Open
-                  Badges. These contain embedded metadata verifying your
-                  coursework, assessment rubrics, and project evidence.
-                </p>
-              </div>
-
-              <div
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "12px",
-                  padding: "20px"
-                }}
-              >
-                <h4
-                  style={{
-                    margin: "0 0 6px",
-                    fontSize: "15px",
-                    fontWeight: "800",
-                    color: "#1e293b"
-                  }}
-                >
-                  3. Dynamic Profile Synchronization
-                </h4>
-
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: "13px",
-                    color: "#64748b",
-                    lineHeight: "1.5"
-                  }}
-                >
-                  As you complete milestones, acquired skills automatically
-                  sync to your Lifelong Skills Portfolio, updating your
-                  ATS-ready resume and skill gap matches in real time.
-                </p>
-              </div>
+                  {track.name}
+                </button>
+              ))}
             </div>
 
             <div
@@ -627,8 +813,8 @@ export default function CareerPathwaysPage() {
                       color: "#64748b"
                     }}
                   >
-                    Track your accumulated badges and milestones across the
-                    React & Frontend Engineering track.
+                    Track your accumulated badges and milestones across the{" "}
+                    {activeTrack.name} track.
                   </p>
                 </div>
 
@@ -695,10 +881,11 @@ export default function CareerPathwaysPage() {
               >
                 <div
                   style={{
-                    width: "40%",
+                    width: `${progressPercent}%`,
                     height: "100%",
                     background: "#22c55e",
-                    borderRadius: "999px"
+                    borderRadius: "999px",
+                    transition: "width 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
                   }}
                 ></div>
               </div>
@@ -738,7 +925,7 @@ export default function CareerPathwaysPage() {
                       color: "#0f172a"
                     }}
                   >
-                    10
+                    {totalBadges}
                   </strong>
                 </div>
 
@@ -769,7 +956,7 @@ export default function CareerPathwaysPage() {
                       color: "#0f172a"
                     }}
                   >
-                    4
+                    {earnedBadges}
                   </strong>
                 </div>
 
@@ -800,7 +987,7 @@ export default function CareerPathwaysPage() {
                       color: "#0f172a"
                     }}
                   >
-                    40%
+                    {progressPercent}%
                   </strong>
                 </div>
               </div>
@@ -826,7 +1013,7 @@ export default function CareerPathwaysPage() {
                     gap: "22px"
                   }}
                 >
-                  {pathwayItems.slice(0, 3).map((item) => (
+                  {pathwayItems.map((item) => (
                     <div key={item.id} style={{ position: "relative" }}>
                       <div
                         style={{
@@ -865,11 +1052,18 @@ export default function CareerPathwaysPage() {
                           borderRadius: "12px",
                           padding: "18px 24px",
                           display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          gap: "20px",
+                          flexDirection: "column",
+                          gap: "0",
                           boxShadow:
                             "0 2px 8px rgba(0, 0, 0, 0.02)"
+                        }}
+                      >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: "20px"
                         }}
                       >
                         <div
@@ -972,29 +1166,45 @@ export default function CareerPathwaysPage() {
                             >
                               <span>{item.code}</span>
 
-                              <a
-                                href="#details"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  alert(
-                                    `Viewing details for ${item.title} (${item.code})`
-                                  );
-                                }}
+                              <button
+                                onClick={() =>
+                                  setExpandedId(
+                                    expandedId === item.id ? null : item.id
+                                  )
+                                }
                                 style={{
                                   color: "#475569",
                                   fontWeight: "600",
-                                  textDecoration: "none"
+                                  background: "transparent",
+                                  border: "none",
+                                  padding: 0,
+                                  cursor: "pointer",
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  gap: "4px"
                                 }}
-                                onMouseEnter={(e) =>
-                                  (e.target.style.textDecoration =
-                                    "underline")
-                                }
-                                onMouseLeave={(e) =>
-                                  (e.target.style.textDecoration = "none")
-                                }
                               >
-                                View details
-                              </a>
+                                {expandedId === item.id
+                                  ? "Hide details"
+                                  : "View details"}
+                                <svg
+                                  width="11"
+                                  height="11"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="3"
+                                  style={{
+                                    transform:
+                                      expandedId === item.id
+                                        ? "rotate(180deg)"
+                                        : "rotate(0deg)",
+                                    transition: "transform 0.2s ease"
+                                  }}
+                                >
+                                  <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -1007,13 +1217,30 @@ export default function CareerPathwaysPage() {
                               fontSize: "11.5px",
                               fontWeight: "700",
                               padding: "4px 12px",
-                              borderRadius: "999px"
+                              borderRadius: "999px",
+                              flexShrink: 0
                             }}
                           >
                             Earned
                           </span>
                         )}
                       </div>
+
+                      {expandedId === item.id && (
+                        <div
+                          style={{
+                            marginTop: "16px",
+                            paddingTop: "16px",
+                            borderTop: "1px solid #f1f5f9",
+                            fontSize: "13px",
+                            color: "#64748b",
+                            lineHeight: "1.6"
+                          }}
+                        >
+                          {item.description}
+                        </div>
+                      )}
+                    </div>
                     </div>
                   ))}
                 </div>
@@ -1203,9 +1430,9 @@ export default function CareerPathwaysPage() {
                   margin: "0 auto"
                 }}
               >
-                SOLO pathways combine traditional subjects with real-world
-                application, ensuring every module counts toward recognized
-                outcomes.
+                Every SOLO pathway mixes solid fundamentals with real-world
+                practice — so what you learn actually counts toward
+                something employers recognize.
               </p>
             </div>
 
@@ -1233,7 +1460,7 @@ export default function CareerPathwaysPage() {
                     margin: "0 0 10px"
                   }}
                 >
-                  Academic & Technical Foundations
+                  Strong Fundamentals
                 </h3>
 
                 <p
@@ -1244,9 +1471,8 @@ export default function CareerPathwaysPage() {
                     margin: "0 0 16px"
                   }}
                 >
-                  Rigorous theoretical modules covering programming
-                  principles, mathematics, statistics, and system architectures
-                  required for long-term competence.
+                  Solid grounding in programming, math, and system design —
+                  the core skills every tech career is built on.
                 </p>
 
                 <div
@@ -1295,7 +1521,7 @@ export default function CareerPathwaysPage() {
                     margin: "0 0 10px"
                   }}
                 >
-                  Experiential & Project Learning
+                  Learn by Doing
                 </h3>
 
                 <p
@@ -1306,9 +1532,8 @@ export default function CareerPathwaysPage() {
                     margin: "0 0 16px"
                   }}
                 >
-                  Applied assignments, collaborative hackathons, live lab
-                  sessions, and capstones where learners produce tangible
-                  artifacts.
+                  Real assignments, hackathons, and capstone projects where
+                  you build things you can actually show off.
                 </p>
 
                 <div
@@ -1357,7 +1582,7 @@ export default function CareerPathwaysPage() {
                     margin: "0 0 10px"
                   }}
                 >
-                  Interoperable Standards
+                  Recognized Everywhere
                 </h3>
 
                 <p
@@ -1368,9 +1593,9 @@ export default function CareerPathwaysPage() {
                     margin: "0 0 16px"
                   }}
                 >
-                  Aligns directly with CTDL, Open Badges v3.0, and CLR v2.0
-                  standards, ensuring records are recognized globally by
-                  institutions and hiring teams.
+                  Your badges follow global education standards, so colleges,
+                  recruiters, and employers anywhere can trust and verify
+                  them instantly.
                 </p>
 
                 <div
@@ -1483,6 +1708,59 @@ export default function CareerPathwaysPage() {
           border-color: rgba(249, 115, 22, 0.3);
         }
 
+        .pathway-icon-circle {
+          width: 46px;
+          height: 46px;
+          border-radius: 12px;
+          background: linear-gradient(135deg, #fff1e6 0%, #ffe0c7 100%);
+          color: var(--orange);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 16px;
+          flex-shrink: 0;
+          transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .pathway-feature-card:hover .pathway-icon-circle {
+          transform: scale(1.08) rotate(-4deg);
+          background: linear-gradient(135deg, var(--orange) 0%, #ea580c 100%);
+          color: #ffffff;
+        }
+
+        .navigator-mini-card {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 14px;
+          padding: 22px;
+          transition: all 0.25s ease;
+        }
+
+        .navigator-mini-card:hover {
+          transform: translateY(-3px);
+          border-color: rgba(37, 99, 235, 0.3);
+          box-shadow: 0 14px 32px rgba(37, 99, 235, 0.08);
+        }
+
+        .navigator-mini-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+          background: #eff6ff;
+          color: var(--blue);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 14px;
+          transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .navigator-mini-card:hover .navigator-mini-icon {
+          transform: scale(1.08);
+          background: var(--blue);
+          color: #ffffff;
+        }
+
         .platform-pathway-card {
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -1490,6 +1768,21 @@ export default function CareerPathwaysPage() {
         .platform-pathway-card:hover {
           transform: translateY(-2px);
           box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+        }
+
+        .track-switch-pill {
+          padding: 8px 16px;
+          border-radius: 999px;
+          font-size: 12.5px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          font-family: var(--font-montserrat), sans-serif;
+        }
+
+        .track-switch-pill:hover {
+          border-color: var(--orange) !important;
+          transform: translateY(-1px);
         }
       `}</style>
     </main>
