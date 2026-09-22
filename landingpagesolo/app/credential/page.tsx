@@ -820,7 +820,7 @@ export default function CredentialsInformationPage() {
                 className="cta-button"
               >
                 Get Started Now
-                <span>→</span>
+
               </Link>
             </div>
           </div>
