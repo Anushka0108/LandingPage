@@ -177,7 +177,7 @@ export default function Home() {
                   letterSpacing: "-1px",
                 }}
               >
-                From Learning to Career Readiness
+               Your Path From Learner to Professional
               </h2>
 
               <p
@@ -187,8 +187,7 @@ export default function Home() {
                   margin: 0,
                 }}
               >
-                From curiosity to verified hiring readiness across six unified
-                steps.
+               A structured six-step journey from exploring interests to becoming hire-ready
               </p>
             </div>
 
