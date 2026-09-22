@@ -85,7 +85,7 @@ export default function OpportunityCard({
 
         </div>
        <Link
-          href={`/explore/opportunity/${item.id}`}
+          href={"/signup"}
           className="view-opportunity"
         >
           View more

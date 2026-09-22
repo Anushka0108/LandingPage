@@ -284,7 +284,7 @@ export default function Home() {
 
                     <div className="compact-action-row">
                       <Link
-                        href={`/explore/opportunity/${item.id}`}
+                        href={"/signup"}
                         className="view-btn"
                       >
                         View more

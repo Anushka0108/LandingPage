@@ -201,7 +201,7 @@ export default function LifelongSkillsPortfolioPage() {
                   <span />
                 </div>
 
-                <div className="browser-title">SOLO · My Profile</div>
+                <div className="browser-title">My Profile | SOLO</div>
               </div>
 
               <div className="profile-browser-body">
@@ -469,14 +469,22 @@ export default function LifelongSkillsPortfolioPage() {
                         className="footer-icon"
                         type="button"
                       >
-                        ▢
+                        <svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} 
+                        fill={"currentColor"} viewBox={"0 0 28 28"}>
+                        {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
+                        <path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
+                        </svg>
                       </button>
 
                       <button
                         className="footer-icon"
                         type="button"
                       >
-                        ◉
+                        <svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} 
+                        fill={"currentColor"} viewBox={"0 0 28 28"}>
+                        {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
+                        <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2M4 12c0-.9.16-1.76.43-2.57L6 11l2 2v2l2 2 1 1v1.93c-3.94-.49-7-3.86-7-7.93m14.33 4.87c-.65-.53-1.64-.87-2.33-.87v-1c0-1.1-.9-2-2-2h-4v-3c1.1 0 2-.9 2-2V7h1c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 1.83-.63 3.52-1.67 4.87"></path>
+                        </svg>
                       </button>
 
                       <button
@@ -679,78 +687,151 @@ export default function LifelongSkillsPortfolioPage() {
         </section>
       </FadeInSection>
 
-      {/* =========================================================
-          WHY PROFILE MATTERS
-      ========================================================= */}
-      <FadeInSection>
-        <section className="why-section">
-          <div className="section-container">
-            <div className="why-grid">
-              <div>
-                <span className="section-label">WHY IT MATTERS</span>
+        {/* =========================================================
+            RESUME IMPORT & GENERATION
+        ========================================================= */}
+        <FadeInSection>
+        <section className="resume-section">
+            <div className="section-container">
+
+            <div className="section-heading center">
+                <span className="section-label">RESUME TO PROFILE & BACK</span>
 
                 <h2>
-                  Keep your
-                  <span> capabilities visible.</span>
+                Turn your resume into a profile,
+                <span> and your profile into a resume.</span>
                 </h2>
 
                 <p>
-                  SOLO is designed to help learners move beyond scattered
-                  certificates and disconnected records by maintaining a
-                  professional profile containing their skills, experiences,
-                  and achievements.
+                SOLO makes it easier to build and maintain your professional
+                information. Import an existing resume to populate your profile,
+                or generate an updated, ATS-ready resume using the information
+                already stored in your SOLO profile.
                 </p>
-              </div>
-
-              <div className="why-cards">
-                <div className="why-card">
-                  <span>01</span>
-
-                  <h3>One professional profile</h3>
-
-                  <p>
-                    Bring your education, experience, skills and achievements
-                    together.
-                  </p>
-                </div>
-
-                <div className="why-card">
-                  <span>02</span>
-
-                  <h3>Evidence of your learning</h3>
-
-                  <p>
-                    Showcase projects, achievements, credentials and badges
-                    connected to your learning.
-                  </p>
-                </div>
-
-                <div className="why-card">
-                  <span>03</span>
-
-                  <h3>Professional visibility</h3>
-
-                  <p>
-                    Share your profile and achievements with employers,
-                    institutions, mentors, and your professional network.
-                  </p>
-                </div>
-
-                <div className="why-card">
-                  <span>04</span>
-
-                  <h3>A profile that grows</h3>
-
-                  <p>
-                    Continue adding new skills, experiences, learning
-                    activities and achievements as you progress.
-                  </p>
-                </div>
-              </div>
             </div>
-          </div>
+
+            <div className="resume-flow">
+
+                {/* IMPORT RESUME */}
+                <div className="resume-feature-card">
+                <div className="resume-card-top">
+                    <span className="resume-number">01</span>
+
+                    <div className="resume-icon">
+                    ↓
+                    </div>
+                </div>
+
+                <span className="resume-card-label">IMPORT RESUME</span>
+
+                <h3>
+                    Start with the information you already have.
+                </h3>
+
+                <p>
+                    Upload an existing resume and SOLO extracts important information
+                    such as your skills, education, work experience, and projects.
+                    You can review and edit the extracted information before saving
+                    it to your profile.
+                </p>
+
+                <div className="resume-steps">
+                    <div>
+                    <span>01</span>
+                    <strong>Upload your resume</strong>
+                    </div>
+
+                    <div>
+                    <span>02</span>
+                    <strong>Review extracted information</strong>
+                    </div>
+
+                    <div>
+                    <span>03</span>
+                    <strong>Edit and confirm your details</strong>
+                    </div>
+
+                    <div>
+                    <span>04</span>
+                    <strong>Save to your profile</strong>
+                    </div>
+                </div>
+                </div>
+
+                {/* CONNECTOR */}
+                <div className="resume-connector">
+                <div className="connector-line" />
+                <span>PROFILE</span>
+                <div className="connector-line" />
+                </div>
+
+                {/* GENERATE RESUME */}
+                <div className="resume-feature-card">
+                <div className="resume-card-top">
+                    <span className="resume-number">02</span>
+
+                    <div className="resume-icon">
+                    ↑
+                    </div>
+                </div>
+
+                <span className="resume-card-label">GENERATE RESUME</span>
+
+                <h3>
+                    Build an updated resume from your profile.
+                </h3>
+
+                <p>
+                    Use your SOLO profile to create a professional, ATS-ready resume.
+                    Select the information and achievements you want to include,
+                    choose a professionally designed template, preview your resume,
+                    and download it when it is ready.
+                </p>
+
+                <div className="resume-steps">
+                    <div>
+                    <span>01</span>
+                    <strong>Complete your learner profile</strong>
+                    </div>
+
+                    <div>
+                    <span>02</span>
+                    <strong>Select the information to include</strong>
+                    </div>
+
+                    <div>
+                    <span>03</span>
+                    <strong>Choose a resume template</strong>
+                    </div>
+
+                    <div>
+                    <span>04</span>
+                    <strong>Preview and download</strong>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+
+            <div className="resume-highlight">
+                <div className="resume-highlight-icon">✓</div>
+
+                <div>
+                <h3>Keep your resume connected to your profile.</h3>
+
+                <p>
+                    As your skills, credentials, experiences, education, and
+                    achievements grow, your profile can provide the information
+                    needed to keep your resume updated. Resumes generated through
+                    SOLO can also include clickable credential links so employers
+                    can verify relevant achievements.
+                </p>
+                </div>
+            </div>
+
+            </div>
         </section>
-      </FadeInSection>
+        </FadeInSection>
 
       {/* =========================================================
           FINAL CTA
@@ -1970,77 +2051,183 @@ export default function LifelongSkillsPortfolioPage() {
           color: #f97316;
         }
 
-        /* =====================================================
-           WHY
-        ===================================================== */
+    /* =====================================================
+    RESUME IMPORT & GENERATION
+    ===================================================== */
 
-        .why-section {
-          padding: 110px 20px;
-          background: #ffffff;
-        }
+    .resume-section {
+    padding: 110px 20px;
+    background: #ffffff;
+    }
 
-        .why-grid {
-          display: grid;
-          grid-template-columns: 0.8fr 1.2fr;
-          gap: 80px;
-          align-items: start;
-        }
+    .resume-flow {
+    display: grid;
+    grid-template-columns: 1fr 90px 1fr;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 55px;
+    }
 
-        .why-grid h2 {
-          font-family: var(--font-montserrat), sans-serif;
-          font-size: clamp(30px, 3.5vw, 45px);
-          line-height: 1.1;
-          letter-spacing: -1.5px;
-          margin: 8px 0 18px;
-        }
+    .resume-feature-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    }
 
-        .why-grid h2 span {
-          color: #f97316;
-        }
+    .resume-feature-card:hover {
+    transform: translateY(-6px);
+    background: #ffffff;
+    border-color: rgba(249, 115, 22, 0.35);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    }
 
-        .why-grid > div:first-child p {
-          color: #64748b;
-          font-size: 14px;
-          line-height: 1.75;
-        }
+    .resume-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    }
 
-        .why-cards {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 15px;
-        }
+    .resume-number {
+    font-size: 11px;
+    font-weight: 800;
+    color: #f97316;
+    }
 
-        .why-card {
-          border: 1px solid #e2e8f0;
-          border-radius: 13px;
-          padding: 23px;
-          background: #f8fafc;
-          transition: all 0.3s ease;
-        }
+    .resume-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #fff7ed;
+    color: #f97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    }
 
-        .why-card:hover {
-          background: white;
-          transform: translateY(-5px);
-          box-shadow: 0 15px 30px rgba(15, 23, 42, 0.07);
-        }
+    .resume-card-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #f97316;
+    margin-bottom: 10px;
+    }
 
-        .why-card > span {
-          font-size: 11px;
-          color: #f97316;
-          font-weight: 800;
-        }
+    .resume-feature-card h3 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    line-height: 1.25;
+    color: #0f172a;
+    }
 
-        .why-card h3 {
-          margin: 17px 0 7px;
-          font-size: 15px;
-        }
+    .resume-feature-card > p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13.5px;
+    line-height: 1.7;
+    }
 
-        .why-card p {
-          margin: 0;
-          color: #64748b;
-          font-size: 12.5px;
-          line-height: 1.6;
-        }
+    .resume-steps {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    }
+
+    .resume-steps div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    }
+
+    .resume-steps span {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    border-radius: 50%;
+    background: #fff7ed;
+    color: #f97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 800;
+    }
+
+    .resume-steps strong {
+    font-size: 12px;
+    color: #334155;
+    }
+
+    .resume-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    }
+
+    .resume-connector span {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #94a3b8;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    }
+
+    .connector-line {
+    width: 1px;
+    flex: 1;
+    min-height: 50px;
+    background: #e2e8f0;
+    }
+
+    .resume-highlight {
+    margin: 30px auto 0;
+    max-width: 950px;
+    padding: 22px 25px;
+    border: 1px solid #fed7aa;
+    background: #fffaf5;
+    border-radius: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    }
+
+    .resume-highlight-icon {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 50%;
+    background: #f97316;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    }
+
+    .resume-highlight h3 {
+    margin: 2px 0 7px;
+    font-size: 15px;
+    color: #0f172a;
+    }
+
+    .resume-highlight p {
+    margin: 0;
+    color: #64748b;
+    font-size: 12.5px;
+    line-height: 1.65;
+    }
 
         /* =====================================================
            CTA
