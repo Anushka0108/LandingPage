@@ -15,36 +15,137 @@ export default function Home() {
       <NavBar />
 
       {/* ========================= HERO ========================= */}
-      <section
-        className="hero hero-fullscreen"
-        style={{
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      <section className="hero">
+        <div className="hero-glow hero-glow-one" />
+        <div className="hero-glow hero-glow-two" />
+
         <FadeInSection>
-          <div className="hero-fullscreen-inner">
-            <div className="hero-pill-badge">
-              <span>●</span> SKILLS-FIRST INFRASTRUCTURE FOR LEARNERS
-            </div>
+          <div className="hero-content">
+            <div className="hero-split">
+              {/* Left: value proposition */}
+              <div className="hero-text">
+                <p className="hero-label">LEARN • PROVE • ADVANCE</p>
 
-            <h1 className="hero-title-compact">
-              Turn What You Learn Into <br />
-              <span>Proof of What You Can Do.</span>
-            </h1>
+                <h1>
+                  Turn What You Learn Into
+                  <span>Proof of What You Can Do.</span>
+                </h1>
 
-            <p className="hero-desc-compact">
-              SOLO bridges learning and employment by turning skills into verified credentials, ATS-ready resumes, and real career opportunities.
-            </p>
+                <p className="hero-description">
+                  SOLO bridges learning and employment by turning your courses,
+                  projects, and certificates into verified credentials,
+                  ATS-ready resumes, and real career opportunities.
+                </p>
 
-            <div className="hero-cta-group">
-              <Link href="/signup" className="hero-btn-primary">
-                Get Started
-              </Link>
+                <div className="hero-buttons">
+                  <Link href="/signup" className="hero-primary">
+                    Get Started
+                  </Link>
+                  <Link href="/contact" className="hero-secondary">
+                    Contact Us
+                  </Link>
+                </div>
+              </div>
 
-              <Link href="/contact" className="hero-btn-contact">
-                Contact Us
-              </Link>
+              {/* Right: how it works, at a glance */}
+              <div className="hero-journey-card">
+                <div className="hero-journey-head">
+                  <p className="hero-journey-label">HOW SOLO WORKS</p>
+                  <h2>
+                    From Learning to <span>Career-Ready</span>
+                  </h2>
+                  <p>Every step becomes verified proof employers can trust.</p>
+                </div>
+
+                <div className="journey-compact">
+                  <div className="journey-item">
+                    <div className="journey-circle">
+                      <div className="journey-icon">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M12 6v14M4 6c2-1 5-1.5 8-1.5s6 .5 8 1.5v13c-2-1-5-1.5-8-1.5s-6 .5-8 1.5V6Z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3>Learn</h3>
+                    <p>Courses, hackathons & live projects.</p>
+                  </div>
+
+                  <div className="journey-line" />
+
+                  <div className="journey-item">
+                    <div className="journey-circle">
+                      <div className="journey-icon">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M12 3 2 9l10 6 10-6-10-6Z" />
+                          <path d="m2 15 10 6 10-6" />
+                          <path d="m2 12 10 6 10-6" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3>Build Skills</h3>
+                    <p>Submit proof of your work.</p>
+                  </div>
+
+                  <div className="journey-line" />
+
+                  <div className="journey-item">
+                    <div className="journey-circle">
+                      <div className="journey-icon">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z" />
+                          <path d="m8.5 12 2.5 2.5L16 9" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3>Get Verified</h3>
+                    <p>Earn credentials & digital badges.</p>
+                  </div>
+
+                  <div className="journey-line" />
+
+                  <div className="journey-item">
+                    <div className="journey-circle">
+                      <div className="journey-icon">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <rect x="3" y="7" width="18" height="13" rx="2" />
+                          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                          <path d="M3 13h18" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3>Get Discovered</h3>
+                    <p>Land internships & jobs.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </FadeInSection>
@@ -86,7 +187,8 @@ export default function Home() {
                   margin: 0,
                 }}
               >
-                From curiosity to verified hiring readiness across six unified steps.
+                From curiosity to verified hiring readiness across six unified
+                steps.
               </p>
             </div>
 
@@ -98,12 +200,36 @@ export default function Home() {
               }}
             >
               {[
-                { num: "1", title: "Discover", desc: "Explore target roles & courses" },
-                { num: "2", title: "Learn", desc: "Enroll in courses, hackathons & projects" },
-                { num: "3", title: "Build Skills", desc: "Work on live projects & assignments" },
-                { num: "4", title: "Prove Skills", desc: "Submit certificates & open evidence" },
-                { num: "5", title: "Grow", desc: "Identify skill gaps against live market roles" },
-                { num: "6", title: "Showcase", desc: "Verifiable credentials & ATS resumes" },
+                {
+                  num: "1",
+                  title: "Discover",
+                  desc: "Explore target roles & courses",
+                },
+                {
+                  num: "2",
+                  title: "Learn",
+                  desc: "Enroll in courses, hackathons & projects",
+                },
+                {
+                  num: "3",
+                  title: "Build Skills",
+                  desc: "Work on live projects & assignments",
+                },
+                {
+                  num: "4",
+                  title: "Prove Skills",
+                  desc: "Submit certificates & open evidence",
+                },
+                {
+                  num: "5",
+                  title: "Grow",
+                  desc: "Identify skill gaps against live market roles",
+                },
+                {
+                  num: "6",
+                  title: "Showcase",
+                  desc: "Verifiable credentials & ATS resumes",
+                },
               ].map((step) => (
                 <div
                   key={step.num}
@@ -196,7 +322,8 @@ export default function Home() {
               </h2>
 
               <p>
-                Discover experiences that help you learn, build, and prepare for your career.
+                Discover experiences that help you learn, build, and prepare for
+                your career.
               </p>
             </div>
           </div>
@@ -204,10 +331,7 @@ export default function Home() {
           <div className="marquee-wrapper">
             <div className="marquee-track">
               {[...opportunities, ...opportunities].map((item, index) => (
-                <div
-                  key={index}
-                  className="opportunity-card-compact"
-                >
+                <div key={index} className="opportunity-card-compact">
                   <div className="compact-card-content">
                     <div className="compact-card-header">
                       <div className="compact-avatar">
@@ -231,9 +355,7 @@ export default function Home() {
                         {item.skills.length} Skills
                       </span>
 
-                      <span className="type-badge">
-                        {item.type}
-                      </span>
+                      <span className="type-badge">{item.type}</span>
 
                       <span className="posted-badge">
                         <svg
@@ -283,10 +405,7 @@ export default function Home() {
                     </div>
 
                     <div className="compact-action-row">
-                      <Link
-                        href={"/signup"}
-                        className="view-btn"
-                      >
+                      <Link href={"/signup"} className="view-btn">
                         View more
                       </Link>
                     </div>
@@ -338,14 +457,26 @@ export default function Home() {
             </h2>
 
             <p>
-              Build a dynamic professional profile that brings together your education, skills, projects, internships, experiences, achievements and credentials.
+              Build a dynamic professional profile that brings together your
+              education, skills, projects, internships, experiences,
+              achievements and credentials.
             </p>
 
             <ul>
-              <li>✓ Import your existing resume or fill your profile manually</li>
-              <li>✓ Add skills and career interests for personalized recommendations</li>
-              <li>✓ Showcase coursework, live projects, internships, and volunteering</li>
-              <li>✓ Submit certificates and receive verifiable digital badges</li>
+              <li>
+                ✓ Import your existing resume or fill your profile manually
+              </li>
+              <li>
+                ✓ Add skills and career interests for personalized
+                recommendations
+              </li>
+              <li>
+                ✓ Showcase coursework, live projects, internships, and
+                volunteering
+              </li>
+              <li>
+                ✓ Submit certificates and receive verifiable digital badges
+              </li>
               <li>✓ Generate an ATS-ready resume with embedded proof</li>
             </ul>
 
@@ -639,7 +770,8 @@ export default function Home() {
                       color: "#6b7280",
                     }}
                   >
-                    Build a resume from your profile or pull in details by uploading a file.
+                    Build a resume from your profile or pull in details by
+                    uploading a file.
                   </p>
                 </div>
 
@@ -903,9 +1035,7 @@ export default function Home() {
               <div className="credential-main">
                 <div className="certificate-badge">
                   <div className="certificate-inner">
-                    <span className="certificate-brand">
-                      ◇ SOLO Network
-                    </span>
+                    <span className="certificate-brand">◇ SOLO Network</span>
 
                     <strong>ReactJS</strong>
 
@@ -925,7 +1055,9 @@ export default function Home() {
                   </div>
 
                   <p className="credential-description">
-                    This badge represents completion of the ReactJS Certification Course. It reflects understanding of component lifecycle, hooks, and verified web development coursework.
+                    This badge represents completion of the ReactJS
+                    Certification Course. It reflects understanding of component
+                    lifecycle, hooks, and verified web development coursework.
                   </p>
                 </div>
               </div>
@@ -966,7 +1098,9 @@ export default function Home() {
             </h2>
 
             <p>
-              Your achievements shouldn&apos;t disappear inside a folder of certificates. SOLO turns learning experiences into verifiable digital credentials and Open Badges that you can showcase.
+              Your achievements shouldn&apos;t disappear inside a folder of
+              certificates. SOLO turns learning experiences into verifiable
+              digital credentials and Open Badges that you can showcase.
             </p>
 
             <div style={{ marginTop: "24px" }}>
@@ -998,14 +1132,15 @@ export default function Home() {
               </h2>
 
               <p>
-                Follow structured learning pathways with interlinked digital course badges to systematically build and verify in-demand competencies.
+                Follow structured learning pathways with interlinked digital
+                course badges to systematically build and verify in-demand
+                competencies.
               </p>
             </div>
 
             <div
               style={{
-                background:
-                  "radial-gradient(#d1d5db 1px, transparent 1px)",
+                background: "radial-gradient(#d1d5db 1px, transparent 1px)",
                 backgroundSize: "20px 20px",
                 backgroundColor: "#fafaf9",
                 border: "1px solid #e5e7eb",
@@ -1207,7 +1342,8 @@ export default function Home() {
             </h2>
 
             <p>
-              Connect with learners, mentors, institutions and employers through the SOLO ecosystem.
+              Connect with learners, mentors, institutions and employers through
+              the SOLO ecosystem.
             </p>
           </div>
 
@@ -1229,7 +1365,9 @@ export default function Home() {
 
             <div>
               <strong>Employers</strong>
-              <p>Discover opportunities and showcase your verified capabilities.</p>
+              <p>
+                Discover opportunities and showcase your verified capabilities.
+              </p>
             </div>
           </div>
         </section>
@@ -1250,10 +1388,7 @@ export default function Home() {
           </div>
 
           <div className="story-grid-wrapper">
-            <Link
-              href="/success-stories"
-              className="story-view-all-link"
-            >
+            <Link href="/success-stories" className="story-view-all-link">
               View All →
             </Link>
 
@@ -1261,13 +1396,9 @@ export default function Home() {
               {successStories.map((story) => (
                 <div className="story-card" key={story.id}>
                   <div className="story-card-top">
-                    <span className="story-name">
-                      {story.partnerName}
-                    </span>
+                    <span className="story-name">{story.partnerName}</span>
 
-                    <span className="story-tag">
-                      {story.category}
-                    </span>
+                    <span className="story-tag">{story.category}</span>
                   </div>
 
                   <h3>{story.cardTitle}</h3>
@@ -1282,9 +1413,7 @@ export default function Home() {
                       Read More
                     </Link>
 
-                    <span className="story-logo">
-                      {story.partnerLogoText}
-                    </span>
+                    <span className="story-logo">{story.partnerLogoText}</span>
                   </div>
                 </div>
               ))}
@@ -1304,7 +1433,8 @@ export default function Home() {
             </h2>
 
             <p>
-              Build your skills. Prove what you can do. Discover where you can go next.
+              Build your skills. Prove what you can do. Discover where you can
+              go next.
             </p>
 
             <Link href="/signup" className="cta-button">
