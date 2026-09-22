@@ -116,4 +116,55 @@ export const opportunities: Opportunity[] = [
     eligibility: "Open to all learners",
     applicationDeadline: "5 October 2026",
   },
+
+  {
+    id: "react-frontend-engineering-pathway",
+    type: "CAREER",
+    title: "React & Frontend Engineering",
+    organization: "SOLO Career Pathways",
+    skills: ["React", "JavaScript", "Redux", "Node.js"],
+    description:
+      "A guided, step-by-step pathway from React fundamentals to advanced state management and production-ready Next.js apps. Earn a verified badge at every stage and build a portfolio employers can check.",
+    location: "Remote",
+    duration: "6 Stages",
+    level: "Beginner to Intermediate",
+    payment: "Free",
+    posted: "Updated recently",
+    eligibility: "Open to all learners",
+    applicationDeadline: "Rolling enrollment",
+  },
+
+  {
+    id: "data-analytics-foundation-pathway",
+    type: "CAREER",
+    title: "Data Analytics Foundation",
+    organization: "SOLO Career Pathways",
+    skills: ["Python", "SQL", "Data", "Statistics"],
+    description:
+      "Build the core skills every data analyst needs — Python, statistics, SQL, and data visualization — through a structured, badge-verified pathway grounded in real datasets.",
+    location: "Remote",
+    duration: "4 Stages",
+    level: "Beginner",
+    payment: "Free",
+    posted: "Updated recently",
+    eligibility: "Open to all learners",
+    applicationDeadline: "Rolling enrollment",
+  },
+
+  {
+    id: "ui-ux-design-pathway",
+    type: "CAREER",
+    title: "UI/UX Design Pathway",
+    organization: "SOLO Career Pathways",
+    skills: ["UI/UX", "Figma", "Prototyping", "User Research"],
+    description:
+      "Go from design thinking fundamentals to a portfolio-ready capstone — covering Figma, wireframing, prototyping, and user research along the way.",
+    location: "Remote",
+    duration: "5 Stages",
+    level: "Beginner",
+    payment: "Free",
+    posted: "Updated recently",
+    eligibility: "Open to all learners",
+    applicationDeadline: "Rolling enrollment",
+  },
 ];
