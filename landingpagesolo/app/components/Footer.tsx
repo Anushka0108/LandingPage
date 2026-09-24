@@ -38,9 +38,9 @@ export default function Footer() {
 
             <div>
               <h4>Get Started</h4>
-              <Link href="/signup">Create Account</Link>
+              <Link href="https://app.thesolo.network/">Create Account</Link>
               <Link href="/explore">Find Your Path</Link>
-              <Link href="/signup">Start Learning</Link>
+              <Link href="https://app.thesolo.network/">Start Learning</Link>
             </div>
           </div>
         </div>

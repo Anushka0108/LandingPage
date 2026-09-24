@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NavBar from "./components/NavBar";
@@ -10,6 +11,8 @@ import { successStories } from "./data/successStories";
 import { opportunities } from "./data/opportunties";
 
 export default function Home() {
+  const [activeJourneyPhase, setActiveJourneyPhase] = useState("profile");
+
   return (
     <main>
       <NavBar />
@@ -38,12 +41,9 @@ export default function Home() {
                 </p>
 
                 <div className="hero-buttons">
-                  <Link href="/signup" className="hero-primary">
+                  <a href="https://app.thesolo.network/" className="hero-primary">
                     Get Started
-                  </Link>
-                  <Link href="/contact" className="hero-secondary">
-                    Contact Us
-                  </Link>
+                  </a>
                 </div>
               </div>
 
@@ -151,53 +151,332 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-      {/* ========================= INTRO: THE SOLO ECOSYSTEM ========================= */}
+      {/* ========================= YOUR JOURNEY (12-STEP ROADMAP) ========================= */}
       <FadeInSection>
-        <section className="intro-section" style={{ padding: "85px 20px", background: "#ffffff" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-            <div className="section-heading center" style={{ margin: "0 auto 48px", textAlign: "center" }}>
-              <p className="section-label">THE SOLO ECOSYSTEM</p>
+        <section className="solo-journey-section" id="journey">
+          <div className="solo-journey-wrapper">
+            <div className="section-heading center solo-journey-heading">
+              <p className="section-label">YOUR JOURNEY</p>
               <h2>
-                Your learning, skills, <span>credentials and career — connected.</span>
+                Your Journey. Your Growth.
+                <span> Your Future.</span>
               </h2>
-              <p style={{ maxWidth: "680px", margin: "0 auto", color: "#64748b" }}>
-                SOLO brings everything you need to build skills, gain experience, earn verified credentials, 
-                and discover meaningful career opportunities into one connected platform.
+              <p>
+                SOLO helps learners build a trusted profile and move toward
+                the right opportunities.
               </p>
             </div>
 
-            <div className="ecosystem-grid">
-              <div className="ecosystem-card">
-                <div className="card-number">01</div>
-                <h3>Learn</h3>
-                <p>
-                  Access structured coursework and training programs from partner colleges, academies, and institutions.
-                </p>
-              </div>
+            <div className="roadmap-progress-rail">
+              {[
+                { id: "profile", num: "01", label: "PROFILE", accent: "orange" },
+                { id: "discover", num: "02", label: "DISCOVER", accent: "blue" },
+                { id: "achieve", num: "03", label: "ACHIEVE", accent: "gold" },
+                { id: "grow", num: "04", label: "GROW", accent: "coral" },
+              ].map((phase, i, arr) => (
+                <span key={phase.id} style={{ display: "flex", alignItems: "flex-start" }}>
+                  <button
+                    type="button"
+                    className={`progress-node accent-${phase.accent} ${
+                      activeJourneyPhase === phase.id ? "active" : ""
+                    } ${
+                      arr.findIndex((p) => p.id === activeJourneyPhase) > i ? "done" : ""
+                    }`}
+                    onClick={() => setActiveJourneyPhase(phase.id)}
+                  >
+                    <span className="progress-node-circle">{phase.num}</span>
+                    <span className="progress-node-label">{phase.label}</span>
+                  </button>
+                  {i < arr.length - 1 && (
+                    <span
+                      className={`progress-connector ${
+                        arr.findIndex((p) => p.id === activeJourneyPhase) > i ? "filled" : ""
+                      }`}
+                    />
+                  )}
+                </span>
+              ))}
+            </div>
 
-              <div className="ecosystem-card">
-                <div className="card-number">02</div>
-                <h3>Build</h3>
-                <p>
-                  Develop skills through real-world experiences, live projects, hackathons, and continuous hands-on learning.
-                </p>
-              </div>
+            <div className="solo-roadmap">
+              {activeJourneyPhase === "profile" && (
+                <div className="solo-roadmap-phase accent-orange phase-open">
+                  <button
+                    type="button"
+                    className="roadmap-phase-header"
+                    onClick={() => setActiveJourneyPhase("profile")}
+                  >
+                    <div className="roadmap-phase-title">
+                      <div className="roadmap-phase-number">01</div>
+                      <div>
+                        <span className="roadmap-phase-label">PROFILE</span>
+                        <h3>Build your foundation</h3>
+                      </div>
+                    </div>
+                    <p className="roadmap-phase-desc">
+                      Create your trusted professional identity.
+                    </p>
+                  </button>
 
-              <div className="ecosystem-card">
-                <div className="card-number">03</div>
-                <h3>Prove</h3>
-                <p>
-                  Turn learning into cryptographic Open Badges, verifiable credentials, and comprehensive achievement records.
-                </p>
-              </div>
+                  <div className="roadmap-steps-wrapper steps-open">
+                    <div className="roadmap-steps">
+                      <div className="roadmap-step">
+                        <span className="step-number">01</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="8" r="3.5" />
+                            <path d="M5 20c.8-3.7 3.1-5.5 7-5.5s6.2 1.8 7 5.5" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Sign Up</h4>
+                          <p>Create your SOLO account and begin your professional journey.</p>
+                        </div>
+                      </div>
 
-              <div className="ecosystem-card">
-                <div className="card-number">04</div>
-                <h3>Grow</h3>
-                <p>
-                  Compare your profile directly to job roles, uncover missing skills, and unlock direct hiring pipelines.
-                </p>
-              </div>
+                      <div className="roadmap-step">
+                        <span className="step-number">02</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M6 3h9l4 4v14H6z" />
+                            <path d="M14 3v5h5" />
+                            <path d="M9 12h6M9 15h5M9 18h4" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Add Profile</h4>
+                          <p>Import your resume or manually build your professional profile.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">03</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="3" />
+                            <circle cx="5" cy="7" r="2" />
+                            <circle cx="19" cy="7" r="2" />
+                            <circle cx="19" cy="18" r="2" />
+                            <path d="M10 10 7 8M14 10l3-2M14 14l3 2" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Understand Skills</h4>
+                          <p>SOLO understands your skills and creates a clearer picture of your capabilities.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">04</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20.5 8.8c0 5-8.5 10-8.5 10s-8.5-5-8.5-10A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.5 2.6Z" />
+                            <path d="M17 13.5v4M15 15.5h4" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Add Interests</h4>
+                          <p>Add your interests and preferences to make your journey more relevant.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeJourneyPhase === "discover" && (
+                <div className="solo-roadmap-phase accent-blue phase-open">
+                  <button
+                    type="button"
+                    className="roadmap-phase-header"
+                    onClick={() => setActiveJourneyPhase("discover")}
+                  >
+                    <div className="roadmap-phase-title">
+                      <div className="roadmap-phase-number">02</div>
+                      <div>
+                        <span className="roadmap-phase-label">DISCOVER</span>
+                        <h3>Find the right opportunities</h3>
+                      </div>
+                    </div>
+                    <p className="roadmap-phase-desc">
+                      Discover opportunities matched to your interests.
+                    </p>
+                  </button>
+
+                  <div className="roadmap-steps-wrapper steps-open">
+                    <div className="roadmap-steps">
+                      <div className="roadmap-step">
+                        <span className="step-number">05</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="3" />
+                            <path d="M8 9h4M8 13h4M8 17h7" />
+                            <circle cx="17" cy="9" r="1.5" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Recommendations</h4>
+                          <p>Discover relevant courses, internships, and jobs based on your profile.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">06</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="3" />
+                            <path d="m8 12 3 3 5-6" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Enroll &amp; Complete</h4>
+                          <p>Enroll in relevant opportunities and complete them to build real experience.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeJourneyPhase === "achieve" && (
+                <div className="solo-roadmap-phase accent-gold phase-open">
+                  <button
+                    type="button"
+                    className="roadmap-phase-header"
+                    onClick={() => setActiveJourneyPhase("achieve")}
+                  >
+                    <div className="roadmap-phase-title">
+                      <div className="roadmap-phase-number">03</div>
+                      <div>
+                        <span className="roadmap-phase-label">ACHIEVE</span>
+                        <h3>Turn your work into proof</h3>
+                      </div>
+                    </div>
+                    <p className="roadmap-phase-desc">
+                      Verify your achievements and showcase your progress.
+                    </p>
+                  </button>
+
+                  <div className="roadmap-steps-wrapper steps-open">
+                    <div className="roadmap-steps">
+                      <div className="roadmap-step">
+                        <span className="step-number">07</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M6 3h9l4 4v14H6z" />
+                            <path d="M14 3v5h5" />
+                            <path d="M9 13h5M9 16h4" />
+                            <circle cx="18" cy="18" r="3" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Submit Certificate</h4>
+                          <p>Submit your certificate so your achievement can be verified.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">08</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 3 20 6v6c0 4.4-3.2 7.8-8 9-4.8-1.2-8-4.6-8-9V6z" />
+                            <path d="m8.5 12 2.2 2.2 4.8-5" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Earn Verified Badge</h4>
+                          <p>Receive a verifiable badge that represents your achievement.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">09</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="6" cy="12" r="2.5" />
+                            <circle cx="18" cy="6" r="2.5" />
+                            <circle cx="18" cy="18" r="2.5" />
+                            <path d="m8.2 10.8 7.5-3.7M8.2 13.2l7.5 3.7" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Share Credentials</h4>
+                          <p>Share your verified credentials and professional profile with others.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">10</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="5" y="3" width="14" height="18" rx="2" />
+                            <circle cx="10" cy="9" r="2" />
+                            <path d="M13 8h3M13 11h3M8 15h8M8 18h5" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Build Resume</h4>
+                          <p>Turn your profile, skills, and achievements into a professional resume.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeJourneyPhase === "grow" && (
+                <div className="solo-roadmap-phase accent-coral phase-open">
+                  <button
+                    type="button"
+                    className="roadmap-phase-header"
+                    onClick={() => setActiveJourneyPhase("grow")}
+                  >
+                    <div className="roadmap-phase-title">
+                      <div className="roadmap-phase-number">04</div>
+                      <div>
+                        <span className="roadmap-phase-label">GROW</span>
+                        <h3>Keep moving forward</h3>
+                      </div>
+                    </div>
+                    <p className="roadmap-phase-desc">
+                      Compare your skills and define your next career goal.
+                    </p>
+                  </button>
+
+                  <div className="roadmap-steps-wrapper steps-open">
+                    <div className="roadmap-steps">
+                      <div className="roadmap-step">
+                        <span className="step-number">11</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M4 19V9M10 19V5M16 19v-8M22 19V3" />
+                            <path d="m5 7 5-3 6 4 5-4" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Compare to Job Roles</h4>
+                          <p>Compare your profile and skills against relevant job roles.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">12</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="8" />
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="m16 8 5-5M21 3h-4M21 3v4" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Set Career Goals</h4>
+                          <p>Set target roles and career goals for your next stage of growth.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -238,18 +517,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-
-          <div className="display-browser-frame frame-wide">
-            <div className="browser-topbar">
-              <div className="browser-dots">
-                <span className="dot-red" />
-                <span className="dot-yellow" />
-                <span className="dot-green" />
-              </div>
-              <div className="browser-url-pill">
-                <span>solo.network/explore/opportunities</span>
-              </div>
-            </div>
 
             <div className="marquee-wrapper" style={{ padding: "20px 0" }}>
               <div className="marquee-track">
@@ -328,16 +595,15 @@ export default function Home() {
                       </div>
 
                       <div className="compact-action-row">
-                        <Link href={"/signup"} className="view-btn">
+                        <a href="https://app.thesolo.network/" className="view-btn">
                           View more
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
 
           <div
             style={{
@@ -364,6 +630,228 @@ export default function Home() {
           </div>
         </FadeInSection>
       </section>
+
+            {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
+      <FadeInSection>
+        <section
+          className="career-pathway-explorer"
+          style={{
+            padding: "80px 20px",
+            background: "#ffffff",
+            borderTop: "1px solid #eef2f6",
+            borderBottom: "1px solid #eef2f6",
+          }}
+        >
+          <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+            <div className="section-heading center">
+              <p className="section-label">STRUCTURED CAREER PATHWAYS</p>
+
+              <h2>
+                Explore guided paths from <span>curiosity to career.</span>
+              </h2>
+
+              <p>
+                Follow structured learning pathways with interlinked digital
+                course badges to systematically build and verify in-demand
+                competencies.
+              </p>
+            </div>
+
+            <div className="display-browser-frame frame-wide">
+              <div className="browser-topbar">
+                <div className="browser-dots">
+                  <span className="dot-standard" />
+                  <span className="dot-standard" />
+                  <span className="dot-standard" />
+                </div>
+              </div>
+
+              <div
+                style={{
+                  background: "radial-gradient(#d1d5db 1px, transparent 1px)",
+                  backgroundSize: "20px 20px",
+                  backgroundColor: "#fafaf9",
+                  padding: "40px 24px",
+                  overflowX: "auto",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    minWidth: "900px",
+                    gap: "12px",
+                    position: "relative",
+                  }}
+                >
+                  {[
+                    {
+                      name: "ReactJS",
+                      badge: "◇ academia",
+                      type: "Coursework",
+                      color: "#0284c7",
+                    },
+                    {
+                      name: "React Fundamentals",
+                      badge: "◇ academia",
+                      type: "Skills Validation",
+                      color: "#7c3aed",
+                    },
+                    {
+                      name: "React Redux Toolkit",
+                      badge: "◇ academia",
+                      type: "Coursework",
+                      color: "#0284c7",
+                    },
+                    {
+                      name: "RTK Query Basics",
+                      badge: "◇ academia",
+                      type: "Coursework",
+                      color: "#0284c7",
+                    },
+                    {
+                      name: "Redux & RTK Query",
+                      badge: "◇ academia",
+                      type: "Skills Validation",
+                      color: "#7c3aed",
+                    },
+                    {
+                      name: "NextJS",
+                      badge: "◇ academia",
+                      type: "Coursework",
+                      color: "#0284c7",
+                    },
+                  ].map((node, i, arr) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        flex: 1,
+                      }}
+                    >
+                      <div
+                        style={{
+                          background: "#ffffff",
+                          border: "1px solid #e2e8f0",
+                          borderRadius: "14px",
+                          padding: "16px 14px",
+                          textAlign: "center",
+                          width: "100%",
+                          minWidth: "135px",
+                          boxShadow: "0 4px 14px rgba(0,0,0,0.03)",
+                          position: "relative",
+                        }}
+                      >
+                        <span
+                          style={{
+                            position: "absolute",
+                            top: "-8px",
+                            right: "10px",
+                            background: "#10b981",
+                            color: "#ffffff",
+                            fontSize: "9px",
+                            fontWeight: "700",
+                            padding: "2px 7px",
+                            borderRadius: "10px",
+                          }}
+                        >
+                          Earned
+                        </span>
+
+                        <div
+                          style={{
+                            width: "52px",
+                            height: "52px",
+                            borderRadius: "50%",
+                            border: `2.5px solid ${node.color}`,
+                            margin: "0 auto 10px",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            background: "#ffffff",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontSize: "6px",
+                              color: node.color,
+                              fontWeight: "700",
+                            }}
+                          >
+                            {node.badge}
+                          </span>
+
+                          <span
+                            style={{
+                              fontSize: "7px",
+                              color: "#1e293b",
+                              fontWeight: "700",
+                            }}
+                          >
+                            Credential
+                          </span>
+
+                          <span
+                            style={{
+                              fontSize: "6px",
+                              background: node.color,
+                              color: "#ffffff",
+                              width: "100%",
+                              textAlign: "center",
+                              marginTop: "2px",
+                            }}
+                          >
+                            {node.type}
+                          </span>
+                        </div>
+
+                        <h4
+                          style={{
+                            margin: 0,
+                            fontSize: "12px",
+                            fontWeight: "700",
+                            color: "#0f172a",
+                          }}
+                        >
+                          {node.name}
+                        </h4>
+                      </div>
+
+                      {i < arr.length - 1 && (
+                        <div
+                          style={{
+                            width: "24px",
+                            height: "2px",
+                            background: "#cbd5e1",
+                            flexShrink: 0,
+                            margin: "0 4px",
+                          }}
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "32px",
+              }}
+            >
+              <Link href="/pathways" className="section-button">
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
 
       {/* ========================= PROFILE (BROWSER FRAMED) ========================= */}
       <FadeInSection>
@@ -409,16 +897,12 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Browser Framed Profile Container */}
           <div className="display-browser-frame">
             <div className="browser-topbar">
               <div className="browser-dots">
-                <span className="dot-red" />
-                <span className="dot-yellow" />
-                <span className="dot-green" />
-              </div>
-              <div className="browser-url-pill">
-                <span>solo.network/profile/@learner</span>
+                <span className="dot-standard" />
+                <span className="dot-standard" />
+                <span className="dot-standard" />
               </div>
             </div>
 
@@ -949,16 +1433,12 @@ export default function Home() {
             borderBottom: "1px solid #eef2f6",
           }}
         >
-          {/* Browser Framed Credential Container */}
           <div className="display-browser-frame">
             <div className="browser-topbar">
               <div className="browser-dots">
-                <span className="dot-red" />
-                <span className="dot-yellow" />
-                <span className="dot-green" />
-              </div>
-              <div className="browser-url-pill">
-                <span>solo.network/credentials/verify/reactjs</span>
+                <span className="dot-standard" />
+                <span className="dot-standard" />
+                <span className="dot-standard" />
               </div>
             </div>
 
@@ -1043,232 +1523,8 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
-      <FadeInSection>
-        <section
-          className="career-pathway-explorer"
-          style={{
-            padding: "80px 20px",
-            background: "#ffffff",
-            borderTop: "1px solid #eef2f6",
-            borderBottom: "1px solid #eef2f6",
-          }}
-        >
-          <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-            <div className="section-heading center">
-              <p className="section-label">STRUCTURED CAREER PATHWAYS</p>
 
-              <h2>
-                Explore guided paths from <span>curiosity to career.</span>
-              </h2>
-
-              <p>
-                Follow structured learning pathways with interlinked digital
-                course badges to systematically build and verify in-demand
-                competencies.
-              </p>
-            </div>
-
-            {/* Browser Framed Pathways Container */}
-            <div className="display-browser-frame frame-wide">
-              <div className="browser-topbar">
-                <div className="browser-dots">
-                  <span className="dot-red" />
-                  <span className="dot-yellow" />
-                  <span className="dot-green" />
-                </div>
-                <div className="browser-url-pill">
-                  <span>solo.network/pathways/react-developer</span>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  background: "radial-gradient(#d1d5db 1px, transparent 1px)",
-                  backgroundSize: "20px 20px",
-                  backgroundColor: "#fafaf9",
-                  padding: "40px 24px",
-                  overflowX: "auto",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    minWidth: "900px",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  {[
-                    {
-                      name: "ReactJS",
-                      badge: "◇ academia",
-                      type: "Coursework",
-                      color: "#0284c7",
-                    },
-                    {
-                      name: "React Fundamentals",
-                      badge: "◇ academia",
-                      type: "Skills Validation",
-                      color: "#7c3aed",
-                    },
-                    {
-                      name: "React Redux Toolkit",
-                      badge: "◇ academia",
-                      type: "Coursework",
-                      color: "#0284c7",
-                    },
-                    {
-                      name: "RTK Query Basics",
-                      badge: "◇ academia",
-                      type: "Coursework",
-                      color: "#0284c7",
-                    },
-                    {
-                      name: "Redux & RTK Query",
-                      badge: "◇ academia",
-                      type: "Skills Validation",
-                      color: "#7c3aed",
-                    },
-                    {
-                      name: "NextJS",
-                      badge: "◇ academia",
-                      type: "Coursework",
-                      color: "#0284c7",
-                    },
-                  ].map((node, i, arr) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        flex: 1,
-                      }}
-                    >
-                      <div
-                        style={{
-                          background: "#ffffff",
-                          border: "1px solid #e2e8f0",
-                          borderRadius: "14px",
-                          padding: "16px 14px",
-                          textAlign: "center",
-                          width: "100%",
-                          minWidth: "135px",
-                          boxShadow: "0 4px 14px rgba(0,0,0,0.03)",
-                          position: "relative",
-                        }}
-                      >
-                        <span
-                          style={{
-                            position: "absolute",
-                            top: "-8px",
-                            right: "10px",
-                            background: "#10b981",
-                            color: "#ffffff",
-                            fontSize: "9px",
-                            fontWeight: "700",
-                            padding: "2px 7px",
-                            borderRadius: "10px",
-                          }}
-                        >
-                          Earned
-                        </span>
-
-                        <div
-                          style={{
-                            width: "52px",
-                            height: "52px",
-                            borderRadius: "50%",
-                            border: `2.5px solid ${node.color}`,
-                            margin: "0 auto 10px",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            background: "#ffffff",
-                          }}
-                        >
-                          <span
-                            style={{
-                              fontSize: "6px",
-                              color: node.color,
-                              fontWeight: "700",
-                            }}
-                          >
-                            {node.badge}
-                          </span>
-
-                          <span
-                            style={{
-                              fontSize: "7px",
-                              color: "#1e293b",
-                              fontWeight: "700",
-                            }}
-                          >
-                            Credential
-                          </span>
-
-                          <span
-                            style={{
-                              fontSize: "6px",
-                              background: node.color,
-                              color: "#ffffff",
-                              width: "100%",
-                              textAlign: "center",
-                              marginTop: "2px",
-                            }}
-                          >
-                            {node.type}
-                          </span>
-                        </div>
-
-                        <h4
-                          style={{
-                            margin: 0,
-                            fontSize: "12px",
-                            fontWeight: "700",
-                            color: "#0f172a",
-                          }}
-                        >
-                          {node.name}
-                        </h4>
-                      </div>
-
-                      {i < arr.length - 1 && (
-                        <div
-                          style={{
-                            width: "24px",
-                            height: "2px",
-                            background: "#cbd5e1",
-                            flexShrink: 0,
-                            margin: "0 4px",
-                          }}
-                        />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "32px",
-              }}
-            >
-              <Link href="/pathways" className="section-button">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      {/* ========================= REAL-TIME SKILL GAP & ROLE ANALYSIS (SIDE-BY-SIDE) ========================= */}
+      {/* ========================= REAL-TIME SKILL GAP & ROLE ANALYSIS ========================= */}
       <FadeInSection>
         <section className="job-skill-gap-section" style={{ padding: "95px 20px", background: "#f8fafc", borderBottom: "1px solid #eef2f6" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
@@ -1283,7 +1539,6 @@ export default function Home() {
             </div>
 
             <div className="gap-side-by-side-grid">
-              {/* Left Column: Descriptive Breakdown of the 3 Match Tiers */}
               <div className="gap-content-column">
                 <div className="role-headline-box">
                   <span className="role-context-badge">Active Benchmark: Javascript Developer</span>
@@ -1294,7 +1549,6 @@ export default function Home() {
                 </div>
 
                 <div className="tier-cards-list">
-                  {/* Tier 1: Matched Skills */}
                   <div className="tier-card tier-matched">
                     <div className="tier-header">
                       <span className="tier-dot green" />
@@ -1309,7 +1563,6 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Tier 2: Partially Matched */}
                   <div className="tier-card tier-partial">
                     <div className="tier-header">
                       <span className="tier-dot yellow" />
@@ -1324,7 +1577,6 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Tier 3: Non-Matched / Missing Skills */}
                   <div className="tier-card tier-missing">
                     <div className="tier-header">
                       <span className="tier-dot red" />
@@ -1339,7 +1591,6 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Readiness Trend Explanation */}
                   <div className="trend-explainer-card">
                     <div className="tier-header">
                       <span className="tier-dot orange" />
@@ -1358,17 +1609,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Column: Compact Screenshot Frame for Skill Match */}
               <div className="gap-image-column">
                 <div className="display-browser-frame compact-side-frame">
                   <div className="browser-topbar">
                     <div className="browser-dots">
-                      <span className="dot-red" />
-                      <span className="dot-yellow" />
-                      <span className="dot-green" />
-                    </div>
-                    <div className="browser-url-pill">
-                      <span>solo.network/dashboard/skill-match</span>
+                      <span className="dot-standard" />
+                      <span className="dot-standard" />
+                      <span className="dot-standard" />
                     </div>
                   </div>
 
@@ -1393,64 +1640,66 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= SOCIAL PLATFORM (COMMUNITY FEED SCREENSHOT) ========================= */}
+      {/* ========================= MERGED: THE SOLO COMMUNITY & SOCIAL PLATFORM ========================= */}
       <FadeInSection>
-        <section className="social-platform-section" style={{ padding: "95px 20px", background: "#ffffff", borderBottom: "1px solid #eef2f6" }}>
+        <section className="merged-community-section" style={{ padding: "95px 20px", background: "#ffffff", borderBottom: "1px solid #eef2f6" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-            <div className="social-split-layout">
-              {/* Left Column: Community Network Descriptions */}
-              <div className="social-text-col">
-                <p className="section-label">PEER RECOGNITION & COMMUNITY</p>
-                <h2>
-                  The SOLO <span>Social Learning Network</span>
-                </h2>
+            <div className="section-heading center" style={{ textAlign: "center", margin: "0 auto 50px" }}>
+              <p className="section-label">PEER RECOGNITION & COLLABORATION</p>
+              <h2>
+                The SOLO Community: <span>Learn Together. Grow Together.</span>
+              </h2>
+              <p style={{ maxWidth: "780px", margin: "0 auto", color: "#64748b", fontSize: "15px", lineHeight: "1.7" }}>
+                Professional development thrives on collaboration. Engage in real-time community feeds, share verified milestones, connect with faculty mentors, and build partnerships across the entire ecosystem.
+              </p>
+            </div>
+
+            <div className="community-showcase-split">
+              <div className="community-showcase-text">
+                <span className="role-context-badge">Interactive Social Feed</span>
+                <h3>Share Milestones & Exchange Proof</h3>
                 <p>
-                  Professional growth is collaborative. SOLO brings peers, faculty mentors, and employers into an active social network designed around authentic learning proof.
+                  Publish your latest projects, earned Open Badges, and course completion updates to your campus and professional peers. Celebrate team achievements, comment on new milestones, and gather verified recommendations.
                 </p>
 
-                <ul className="social-perks-list">
+                <ul className="social-perks-list" style={{ marginTop: "18px" }}>
                   <li>
                     <span>✓</span>
                     <div>
-                      <strong>Interactive Community Feeds:</strong>
-                      <p>Publish project deliverables, new certifications, and career updates to your peers with full social reactions and commentary.</p>
+                      <strong>Verified Milestone Feeds:</strong>
+                      <p>Publish project deliverables, new certifications, and career updates directly from your sovereign wallet.</p>
                     </div>
                   </li>
                   <li>
                     <span>✓</span>
                     <div>
-                      <strong>Faculty & Mentor Recommendations:</strong>
-                      <p>Follow peers, discover study partners across colleges, and receive verifiable skill endorsements from recognized mentors.</p>
+                      <strong>Peer & Mentor Endorsements:</strong>
+                      <p>Request authentic proof recommendations from verified professors and industry evaluators.</p>
                     </div>
                   </li>
                   <li>
                     <span>✓</span>
                     <div>
-                      <strong>Peer Suggestions & Collaboration:</strong>
-                      <p>Connect with suggested learners in your field, share milestone links, and build collaborative teams for upcoming hackathons.</p>
+                      <strong>Collaborative Suggestions:</strong>
+                      <p>Discover fellow students pursuing similar career tracks and recruit talent for upcoming hackathons.</p>
                     </div>
                   </li>
                 </ul>
-
               </div>
 
-              {/* Right Column: Browser Framed Community Feed Screenshot */}
               <div className="display-browser-frame community-feed-frame">
                 <div className="browser-topbar">
                   <div className="browser-dots">
-                    <span className="dot-red" />
-                    <span className="dot-yellow" />
-                    <span className="dot-green" />
-                  </div>
-                  <div className="browser-url-pill">
-                    <span>solo.network/home/community</span>
+                    <span className="dot-standard" />
+                    <span className="dot-standard" />
+                    <span className="dot-standard" />
                   </div>
                 </div>
 
                 <div className="community-screenshot-inner">
                   <Image
                     src="/images/community-feed.png"
-                    alt="SOLO Social Learning Network — Community Posts and Suggestions Interface"
+                    alt="SOLO Social Community Platform and Peer Recommendations Interface"
                     width={1100}
                     height={520}
                     style={{
@@ -1463,52 +1712,27 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </FadeInSection>
 
-      {/* ========================= COMMUNITY STATS ========================= */}
-      <FadeInSection>
-        <section
-          className="community-section"
-          style={{
-            borderBottom: "1px solid #eef2f6",
-          }}
-        >
-          <div className="section-heading center">
-            <p className="section-label">THE SOLO COMMUNITY</p>
+            <div className="community-grid" style={{ marginTop: "55px" }}>
+              <div>
+                <strong>Learners</strong>
+                <p>Connect, share verified credentials, and learn alongside your peers.</p>
+              </div>
 
-            <h2>
-              Learn together. <span>Grow together.</span>
-            </h2>
+              <div>
+                <strong>Mentors</strong>
+                <p>Receive guidance from seasoned industry professionals and academic experts.</p>
+              </div>
 
-            <p>
-              Connect with learners, mentors, institutions and employers through
-              the SOLO ecosystem.
-            </p>
-          </div>
+              <div>
+                <strong>Institutions</strong>
+                <p>Discover tailored academic programs and opportunities from partner universities.</p>
+              </div>
 
-          <div className="community-grid">
-            <div>
-              <strong>Learners</strong>
-              <p>Connect, share credentials, and learn from your peers.</p>
-            </div>
-
-            <div>
-              <strong>Mentors</strong>
-              <p>Learn from professionals and experienced experts.</p>
-            </div>
-
-            <div>
-              <strong>Institutions</strong>
-              <p>Discover programs and opportunities from partner colleges.</p>
-            </div>
-
-            <div>
-              <strong>Employers</strong>
-              <p>
-                Discover opportunities and showcase your verified capabilities.
-              </p>
+              <div>
+                <strong>Employers</strong>
+                <p>Explore opportunities and showcase your verified competencies directly to recruiters.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -1578,9 +1802,9 @@ export default function Home() {
               go next.
             </p>
 
-            <Link href="/signup" className="cta-button">
+            <a href="https://app.thesolo.network/" className="cta-button">
               Get Started →
-            </Link>
+            </a>
           </div>
         </section>
       </FadeInSection>
@@ -1590,7 +1814,6 @@ export default function Home() {
 
       {/* ========================= ENHANCED GLOBAL STYLES ========================= */}
       <style jsx global>{`
-        /* Standardized Browser Frame Across Showcases */
         .display-browser-frame {
           background: #ffffff;
           border: 1px solid #e2e8f0;
@@ -1616,7 +1839,6 @@ export default function Home() {
           display: flex;
           align-items: center;
           padding: 0 16px;
-          position: relative;
         }
 
         .browser-dots {
@@ -1625,31 +1847,13 @@ export default function Home() {
           flex-shrink: 0;
         }
 
-        .browser-dots span {
+        .dot-standard {
           width: 9px;
           height: 9px;
           border-radius: 50%;
+          background: #cbd5e1;
         }
 
-        .dot-red { background: #f87171; }
-        .dot-yellow { background: #fbbf24; }
-        .dot-green { background: #4ade80; }
-
-        .browser-url-pill {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          background: #ffffff;
-          border: 1px solid #e2e8f0;
-          border-radius: 6px;
-          padding: 3px 16px;
-          font-size: 10.5px;
-          color: #64748b;
-          font-family: monospace;
-          white-space: nowrap;
-        }
-
-        /* Ecosystem Grid */
         .ecosystem-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -1696,7 +1900,6 @@ export default function Home() {
           color: #64748b;
         }
 
-        /* Side-by-Side Skill Match Section */
         .gap-side-by-side-grid {
           display: grid;
           grid-template-columns: 1.15fr 0.85fr;
@@ -1815,7 +2018,6 @@ export default function Home() {
           margin-top: 24px;
         }
 
-        /* Compact Side Frame for Skill Match Screenshot */
         .compact-side-frame {
           width: 100%;
           max-width: 480px;
@@ -1840,32 +2042,25 @@ export default function Home() {
           border-radius: 4px;
         }
 
-        /* Social Platform Layout */
-        .social-split-layout {
+        .community-showcase-split {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 45px;
           align-items: center;
         }
 
-        .social-text-col h2 {
-          margin: 10px 0 14px;
-          font-family: var(--font-montserrat), sans-serif;
-          font-size: clamp(28px, 3.5vw, 40px);
+        .community-showcase-text h3 {
+          margin: 0 0 10px;
+          font-size: 26px;
           font-weight: 800;
           color: #0f172a;
-          line-height: 1.15;
         }
 
-        .social-text-col h2 span {
-          color: var(--orange, #ff6500);
-        }
-
-        .social-text-col > p {
+        .community-showcase-text > p {
           color: #64748b;
           font-size: 15px;
           line-height: 1.7;
-          margin: 0 0 24px;
+          margin: 0 0 20px;
         }
 
         .social-perks-list {
@@ -1926,11 +2121,8 @@ export default function Home() {
             grid-template-columns: repeat(2, 1fr);
           }
           .gap-side-by-side-grid,
-          .social-split-layout {
+          .community-showcase-split {
             grid-template-columns: 1fr;
-          }
-          .browser-url-pill {
-            display: none;
           }
           .compact-side-frame {
             max-width: 100%;

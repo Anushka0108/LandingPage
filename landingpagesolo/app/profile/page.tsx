@@ -1004,7 +1004,7 @@ export default function LifelongSkillsPortfolioPage() {
               experience, projects, learning activities, and achievements.
             </p>
 
-            <Link href="/signup" className="cta-button">
+            <Link href="https://app.thesolo.network/" className="cta-button">
               Start Building Your Profile
             </Link>
           </div>

@@ -881,7 +881,7 @@ export default function CredentialsInformationPage() {
               </p> 
  
               <Link 
-                href="/signup" 
+                href="https://app.thesolo.network/" 
                 className="cta-button" 
               > 
                 Get Started Now 

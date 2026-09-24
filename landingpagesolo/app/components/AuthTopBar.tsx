@@ -9,7 +9,7 @@ const LANGUAGES = [
   { code: "AR", label: "Arabic" },
 ];
 
-export default function AuthTopBar({ showBack = false, backHref = "/signup" }: { showBack?: boolean; backHref?: string }) {
+export default function AuthTopBar({ showBack = false, backHref = "https://app.thesolo.network/" }: { showBack?: boolean; backHref?: string }) {
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState(LANGUAGES[0]);
   const menuRef = useRef<HTMLDivElement>(null);
