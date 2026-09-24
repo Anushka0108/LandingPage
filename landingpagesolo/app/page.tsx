@@ -17,139 +17,100 @@ export default function Home() {
     <main>
       <NavBar />
 
-      {/* ========================= HERO ========================= */}
-      <section className="hero">
-        <div className="hero-glow hero-glow-one" />
-        <div className="hero-glow hero-glow-two" />
+     {/* ========================= HERO (SCATTERED FADED TAGS) ========================= */}
+<section className="hero">
+  <div className="hero-glow hero-glow-one" />
+  <div className="hero-glow hero-glow-two" />
 
-        <FadeInSection>
-          <div className="hero-content">
-            <div className="hero-split">
-              {/* Left: value proposition */}
-              <div className="hero-text">
-                <p className="hero-label">LEARN • PROVE • ADVANCE</p>
+  <FadeInSection>
+    <div className="hero-content hero-content-v2">
 
-                <h1>
-                  Turn What You Learn Into
-                  <span> Proof of What You Can Do.</span>
-                </h1>
+      {/* ---------- scattered faded pills ---------- */}
+      <a href="/profile" className="floating-pill pill-learner">
+        <span className="pill-icon pill-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 3 2 9l10 6 10-6-10-6Z" /><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+          </svg>
+        </span>
+        <span className="pill-text"><strong>Learner</strong><small>Build your profile</small></span>
+        <span className="pill-chevron">›</span>
+      </a>
 
-                <p className="hero-description">
-                  SOLO bridges learning and employment by turning your courses,
-                  projects, and certificates into verified credentials,
-                  ATS-ready resumes, and real career opportunities.
-                </p>
+      <a href="/credential" className="floating-pill pill-verified">
+        <span className="pill-icon pill-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z" /><path d="m8.5 12 2.5 2.5L16 9" />
+          </svg>
+        </span>
+        <span className="pill-text"><strong>Verified Profile</strong><small>Get verified credentials</small></span>
+        <span className="pill-chevron">›</span>
+      </a>
 
-                <div className="hero-buttons">
-                  <a href="https://app.thesolo.network/" className="hero-primary">
-                    Get Started
-                  </a>
-                </div>
-              </div>
+      <a href="#" className="floating-pill pill-community">
+        <span className="pill-icon pill-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="9" cy="8" r="3" /><path d="M2 20c.6-3.2 2.7-5 7-5s6.4 1.8 7 5" />
+            <circle cx="17" cy="9" r="2.3" /><path d="M16 14.2c2.9.4 4.3 1.8 4.8 4" />
+          </svg>
+        </span>
+        <span className="pill-text"><strong>Community</strong><small>Learn &amp; grow</small></span>
+        <span className="pill-chevron">›</span>
+      </a>
 
-              {/* Right: how it works, at a glance */}
-              <div className="hero-journey-card">
-                <div className="hero-journey-head">
-                  <p className="hero-journey-label">HOW SOLO WORKS</p>
-                  <h2>
-                    From Learning to <span>Career-Ready</span>
-                  </h2>
-                  <p>Every step becomes verified proof employers can trust.</p>
-                </div>
+      <a href="#" className="floating-pill pill-institutions">
+        <span className="pill-icon pill-indigo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 21h16M4 21V9l8-5 8 5v12M9 21v-7h6v7" />
+          </svg>
+        </span>
+        <span className="pill-text"><strong>Institutions</strong><small>Manage your programs</small></span>
+        <span className="pill-chevron">›</span>
+      </a>
 
-                <div className="journey-compact">
-                  <div className="journey-item">
-                    <div className="journey-circle">
-                      <div className="journey-icon">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M12 6v14M4 6c2-1 5-1.5 8-1.5s6 .5 8 1.5v13c-2-1-5-1.5-8-1.5s-6 .5-8 1.5V6Z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <h3>Learn</h3>
-                    <p>Courses, hackathons & live projects.</p>
-                  </div>
+      <a href="/explore?type=Jobs" className="floating-pill pill-opportunities">
+        <span className="pill-icon pill-coral">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><path d="M3 13h18" />
+          </svg>
+        </span>
+        <span className="pill-text"><strong>Opportunities</strong><small>Hire top talent</small></span>
+        <span className="pill-chevron">›</span>
+      </a>
 
-                  <div className="journey-line" />
+      <a href="#" className="floating-pill pill-collaborate">
+        <span className="pill-icon pill-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m12 3 2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.3l6-.8L12 3Z" />
+          </svg>
+        </span>
+        <span className="pill-text"><strong>Collaborate</strong><small>Build together</small></span>
+        <span className="pill-chevron">›</span>
+      </a>
+     
+      {/* ---------- YOUR EXISTING HERO TEXT — UNCHANGED ---------- */}
+      <div className="hero-text hero-text-centered">
+        <p className="hero-label">LEARN • PROVE • ADVANCE</p>
 
-                  <div className="journey-item">
-                    <div className="journey-circle">
-                      <div className="journey-icon">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M12 3 2 9l10 6 10-6-10-6Z" />
-                          <path d="m2 15 10 6 10-6" />
-                          <path d="m2 12 10 6 10-6" />
-                        </svg>
-                      </div>
-                    </div>
-                    <h3>Build Skills</h3>
-                    <p>Submit proof of your work.</p>
-                  </div>
+        <h1>
+          Turn What You Learn Into
+          <span> Proof of What You Can Do.</span>
+        </h1>
 
-                  <div className="journey-line" />
+        <p className="hero-description">
+          SOLO bridges learning and employment by turning your courses,
+          projects, and certificates into verified credentials,
+          ATS-ready resumes, and real career opportunities.
+        </p>
 
-                  <div className="journey-item">
-                    <div className="journey-circle">
-                      <div className="journey-icon">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z" />
-                          <path d="m8.5 12 2.5 2.5L16 9" />
-                        </svg>
-                      </div>
-                    </div>
-                    <h3>Get Verified</h3>
-                    <p>Earn credentials & digital badges.</p>
-                  </div>
-
-                  <div className="journey-line" />
-
-                  <div className="journey-item">
-                    <div className="journey-circle">
-                      <div className="journey-icon">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <rect x="3" y="7" width="18" height="13" rx="2" />
-                          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                          <path d="M3 13h18" />
-                        </svg>
-                      </div>
-                    </div>
-                    <h3>Get Discovered</h3>
-                    <p>Land internships & jobs.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </FadeInSection>
-      </section>
+        <div className="hero-buttons">
+          <a href="/signup" className="hero-primary">
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </FadeInSection>
+</section>
 
       {/* ========================= YOUR JOURNEY (12-STEP ROADMAP) ========================= */}
       <FadeInSection>
@@ -631,7 +592,7 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-           {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
+            {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
       <FadeInSection>
         <section
           className="career-pathway-explorer"
@@ -851,6 +812,7 @@ export default function Home() {
           </div>
         </section>
       </FadeInSection>
+
 
       {/* ========================= PROFILE (BROWSER FRAMED) ========================= */}
       <FadeInSection>
@@ -1522,6 +1484,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
+
       {/* ========================= REAL-TIME SKILL GAP & ROLE ANALYSIS ========================= */}
       <FadeInSection>
         <section className="job-skill-gap-section" style={{ padding: "95px 20px", background: "#f8fafc", borderBottom: "1px solid #eef2f6" }}>
@@ -1529,7 +1492,7 @@ export default function Home() {
             <div className="section-heading center" style={{ textAlign: "center", margin: "0 auto 50px" }}>
               <p className="section-label">GROWTH & CAREER READINESS</p>
               <h2>
-                Target Opportunities with <span>Real-Time Skill Gap Analysis</span>
+                Target Opportunities with <span>Skill Gap Analysis</span>
               </h2>
               <p style={{ maxWidth: "760px", margin: "0 auto", color: "#64748b", fontSize: "15px", lineHeight: "1.7" }}>
                 SOLO benchmarks your sovereign profile directly against live employer requirements. Review the three evaluation tiers and your qualification curve before hitting apply.
@@ -1659,6 +1622,10 @@ export default function Home() {
                 <p>
                   Publish your latest projects, earned Open Badges, and course completion updates to your campus and professional peers. Celebrate team achievements, comment on new milestones, and gather verified recommendations.
                 </p>
+
+                <ul className="social-perks-list" style={{ marginTop: "18px" }}>
+                 
+                </ul>
               </div>
 
               <div className="display-browser-frame community-feed-frame">

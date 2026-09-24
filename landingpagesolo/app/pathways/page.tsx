@@ -8,1680 +8,418 @@ import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
 
 export default function CareerPathwaysPage() {
-  const [viewMode, setViewMode] = useState("standard");
-  const [selectedTrack, setSelectedTrack] = useState("react");
-  const [expandedId, setExpandedId] = useState(null);
+  const [activeEnrollStep, setActiveEnrollStep] = useState(0);
+  const [activeViewTab, setActiveViewTab] = useState<"standard" | "pathway">("standard");
+  const [activeCompletionStep, setActiveCompletionStep] = useState(0);
 
-  const pathwayTracks = [
+  const enrollPathwaySteps = [
     {
-      id: "react",
-      name: "React & Frontend Engineering",
-      items: [
-        {
-          id: "C-760",
-          step: 1,
-          type: "CREDENTIAL",
-          title: "ReactJS",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-760",
-          earned: true,
-          description:
-            "Learn component-based UI architecture and build interactive interfaces with React."
-        },
-        {
-          id: "C-779",
-          step: 2,
-          type: "CREDENTIAL",
-          title: "React Fundamentals",
-          badgeType: "Skills Validation",
-          badgeColor: "#7c3aed",
-          code: "C-779",
-          earned: true,
-          description:
-            "A hands-on assessment validating your core React skills — hooks, state, and props."
-        },
-        {
-          id: "C-782",
-          step: 3,
-          type: "CREDENTIAL",
-          title: "React Redux Toolkit",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-782",
-          earned: true,
-          description:
-            "Manage complex application state using Redux Toolkit's modern patterns."
-        },
-        {
-          id: "C-790",
-          step: 4,
-          type: "CREDENTIAL",
-          title: "RTK Query Basics",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-790",
-          earned: true,
-          description:
-            "Fetch, cache, and sync server data efficiently using RTK Query."
-        },
-        {
-          id: "C-795",
-          step: 5,
-          type: "CREDENTIAL",
-          title: "Redux & RTK Query",
-          badgeType: "Skills Validation",
-          badgeColor: "#7c3aed",
-          code: "C-795",
-          earned: false,
-          description:
-            "Prove you can combine Redux state management with RTK Query in a real app."
-        },
-        {
-          id: "C-801",
-          step: 6,
-          type: "CREDENTIAL",
-          title: "NextJS",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-801",
-          earned: false,
-          description:
-            "Build fast, server-rendered, production-ready React apps with Next.js."
-        }
-      ]
+      step: "01",
+      title: "Explore Career Pathways",
+      path: "Explore > Opportunities > Career Pathways",
+      desc: "Search for a pathway using filters such as name, source, skills, or institution, or scroll through the available opportunities to find one that interests you.",
+      image: "/images/pathways/enroll-step-1.png",
+      caption: "Search and filter Career Pathways under Opportunities"
     },
     {
-      id: "data",
-      name: "Data Analytics Foundation",
-      items: [
-        {
-          id: "C-410",
-          step: 1,
-          type: "CREDENTIAL",
-          title: "Python for Data Analysis",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-410",
-          earned: true,
-          description:
-            "Work with real datasets using Python, Pandas, and NumPy."
-        },
-        {
-          id: "C-418",
-          step: 2,
-          type: "CREDENTIAL",
-          title: "Statistics Fundamentals",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-418",
-          earned: true,
-          description:
-            "Build the statistical foundation every analyst needs — distributions, correlation, and inference."
-        },
-        {
-          id: "C-425",
-          step: 3,
-          type: "CREDENTIAL",
-          title: "SQL for Analysts",
-          badgeType: "Skills Validation",
-          badgeColor: "#7c3aed",
-          code: "C-425",
-          earned: false,
-          description:
-            "Query, join, and shape relational data confidently with SQL."
-        },
-        {
-          id: "C-431",
-          step: 4,
-          type: "CREDENTIAL",
-          title: "Data Visualization Basics",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-431",
-          earned: false,
-          description:
-            "Turn raw numbers into charts and dashboards people can actually understand."
-        }
-      ]
+      step: "02",
+      title: "View Details & Take Pathway",
+      path: "Career Pathway Details > Take Pathway",
+      desc: "Click on 'View More' to view the pathway and its complete details, then click on 'Take Pathway' to register.",
+      image: "/images/pathways/enroll-step-2.png",
+      caption: "Inspect role competencies and click Take Pathway"
     },
     {
-      id: "design",
-      name: "UI/UX Design Pathway",
-      items: [
-        {
-          id: "C-510",
-          step: 1,
-          type: "CREDENTIAL",
-          title: "Design Thinking Basics",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-510",
-          earned: true,
-          description:
-            "Learn the problem-first mindset behind every great product design."
-        },
-        {
-          id: "C-517",
-          step: 2,
-          type: "CREDENTIAL",
-          title: "Figma Essentials",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-517",
-          earned: true,
-          description:
-            "Design and prototype real interfaces using Figma's core tools."
-        },
-        {
-          id: "C-524",
-          step: 3,
-          type: "CREDENTIAL",
-          title: "Wireframing & Prototyping",
-          badgeType: "Skills Validation",
-          badgeColor: "#7c3aed",
-          code: "C-524",
-          earned: false,
-          description:
-            "Turn a rough idea into a clickable, testable prototype."
-        },
-        {
-          id: "C-531",
-          step: 4,
-          type: "CREDENTIAL",
-          title: "User Research Methods",
-          badgeType: "Coursework",
-          badgeColor: "#0099b8",
-          code: "C-531",
-          earned: false,
-          description:
-            "Learn to run interviews and usability tests that actually improve a product."
-        },
-        {
-          id: "C-538",
-          step: 5,
-          type: "CREDENTIAL",
-          title: "Portfolio Capstone",
-          badgeType: "Skills Validation",
-          badgeColor: "#7c3aed",
-          code: "C-538",
-          earned: false,
-          description:
-            "Bring everything together into a polished, employer-ready design portfolio piece."
-        }
-      ]
+      step: "03",
+      title: "Access via Dashboard",
+      path: "User Dashboard > Manage > My Career Pathways",
+      desc: "Select the pathway you want to proceed with and click on 'View More' to open your registered pathway details.",
+      image: "/images/pathways/enroll-step-3.png",
+      caption: "Manage registered tracks in My Career Pathways"
+    },
+    {
+      step: "04",
+      title: "Select Course Badge & Enroll",
+      path: "Pathway Section > Interlinked Course Badges > Enroll",
+      desc: "Scroll down to the Pathway section to locate the interlinked course badges. Click the chosen badge to view opportunities, click 'View More' on the course, and click 'Enroll'.",
+      image: "/images/pathways/enroll-step-4.png",
+      caption: "Select milestone badges to start learning"
     }
   ];
 
-  const activeTrack =
-    pathwayTracks.find((t) => t.id === selectedTrack) || pathwayTracks[0];
-  const pathwayItems = activeTrack.items;
-  const totalBadges = pathwayItems.length;
-  const earnedBadges = pathwayItems.filter((i) => i.earned).length;
-  const progressPercent = Math.round((earnedBadges / totalBadges) * 100);
+  const completionWorkflowSteps = [
+    {
+      step: "01",
+      tag: "Step 1",
+      title: "Complete the Course",
+      action: "External Learning Platform (ScholarHat / IBM)",
+      desc: "Complete all required Modules, Assignments, Quizzes, Assessments, and Exercises on the external learning platform using your registered SOLO email ID.",
+      image: "/images/pathways/completion-step-1.png",
+      caption: "Complete modules and generate completion certificate on external platform"
+    },
+    {
+      step: "02",
+      tag: "Step 2",
+      title: "Return to SOLO & Request Completion",
+      path: "SOLO Dashboard > Manage > Enrollments > More",
+      desc: "Return to SOLO, navigate to Manage > Enrollments, locate your course, click the 'More' options button, and choose 'Request Completion'.",
+      image: "/images/pathways/completion-step-2.png",
+      caption: "Select Request Completion under Course Enrollment action dropdown"
+    },
+    {
+      step: "03",
+      tag: "Step 3",
+      title: "Submit Evidence & Verify",
+      path: "Request Completion Modal > Submit",
+      desc: "Upload verifiable evidence of your course completion (certificate, badge, or summary of work), provide a concise description of your work, and click Submit.",
+      image: "/images/pathways/completion-step-3.png",
+      caption: "Attach verification certificate document and submit completion request"
+    }
+  ];
 
   return (
     <main
       className="career-pathway-page"
-      style={{ background: "#ffffff", minHeight: "100vh", overflow: "visible", }}
+      style={{ background: "#ffffff", minHeight: "100vh", overflowX: "visible" }}
     >
       <NavBar />
 
+      {/* =========================================================
+          HERO SECTION
+      ========================================================= */}
       <FadeInSection>
-        <section
-          className="explore-hero"
-          style={{
-            minHeight: "calc(100vh - 65px)",
-            display: "flex",
-            alignItems: "center",
-            position: "relative",
-            overflow: "hidden",
-            background:
-              "radial-gradient(circle at 75% 25%, rgba(245, 158, 11, 0.22), transparent 30%), radial-gradient(circle at 15% 75%, rgba(239, 68, 68, 0.12), transparent 28%), radial-gradient(circle at 50% 5%, rgba(37, 99, 235, 0.10), transparent 22%), linear-gradient(120deg, #fff7ed 0%, #fffaf5 40%, #eff6ff 65%, #fff7ed 100%)"
-          }}
-        >
-          <div
-            className="explore-hero-content"
-            style={{
-              width: "100%",
-              maxWidth: "1400px",
-              margin: "0 auto",
-              padding: "80px 58px",
-              position: "relative",
-              zIndex: 2,
-              boxSizing: "border-box"
-            }}
-          >
-            <p
-              className="explore-label"
-              style={{
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "12px",
-                fontWeight: "800",
-                letterSpacing: "2px",
-                color: "var(--coral)",
-                margin: "0 0 20px"
-              }}
-            >
-              STRUCTURED CAREER PATHWAYS
-            </p>
+        <section className="pathway-hero">
+          <div className="hero-background-glow glow-one" />
+          <div className="hero-background-glow glow-two" />
+          <div className="hero-background-glow glow-three" />
 
-            <h1
-              style={{
-                margin: "0",
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "clamp(44px, 3.8vw, 75px)",
-                lineHeight: "1.04",
-                letterSpacing: "-3px",
-                fontWeight: "800",
-                color: "#171717",
-                maxWidth: "920px"
-              }}
-            >
-              Turn what you learn into
-              <span style={{ display: "block", color: "var(--orange)" }}>
-                a guided path to employment.
-              </span>
-            </h1>
+          <div className="pathway-hero-inner">
+            <div className="hero-copy">
+              <p className="hero-label">CAREER PATHWAYS</p>
 
-            <p
-              className="explore-hero-description"
-              style={{
-                maxWidth: "680px",
-                margin: "28px 0 35px",
-                color: "#5d6470",
-                fontSize: "16px",
-                lineHeight: "1.7"
-              }}
-            >
-              Follow a clear, step-by-step roadmap of courses, real
-              projects, and assessments — built for the job you actually
-              want. Track your progress and earn verified badges you can
-              proudly show employers.
-            </p>
+              <h1>
+                Follow a guided sequence of courses
+                <span className="orange-text"> designed for a specific role or domain.</span>
+              </h1>
 
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                flexWrap: "wrap",
-                marginBottom: "40px"
-              }}
-            >
-              <a
-                href="#interactive-pathway"
-                className="hero-primary"
-                style={{
-                  display: "inline-block",
-                  background: "var(--orange)",
-                  color: "#ffffff",
-                  border: "2px solid var(--orange)",
-                  padding: "14px 28px",
-                  borderRadius: "9px",
-                  fontFamily: "var(--font-montserrat), sans-serif",
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  textDecoration: "none",
-                  boxShadow: "0 10px 25px rgba(249, 115, 22, 0.25)"
-                }}
-              >
-                Explore Pathway Roadmaps
-              </a>
+              <p className="hero-description">
+                Career pathways help learners build skills in a structured manner and
+                progress toward long-term career goals. Learn, build credentials,
+                track progress via badges and pathways, and showcase your work.
+              </p>
 
-              <a
-                href="#pathway-benefits"
-                className="hero-secondary"
-                style={{
-                  display: "inline-block",
-                  background: "rgba(255, 255, 255, 0.85)",
-                  color: "var(--blue)",
-                  border: "2px solid #dbe5f8",
-                  padding: "14px 28px",
-                  borderRadius: "9px",
-                  fontFamily: "var(--font-montserrat), sans-serif",
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  textDecoration: "none"
-                }}
-              >
-                How Pathways Work
-              </a>
-            </div>
+              <div className="hero-buttons">
+                <a href="#how-to-enroll" className="hero-primary">
+                  How to Enroll in a Pathway
+                </a>
+                <a href="#interactive-pathway" className="hero-secondary">
+                  View Pathway Progress
+                </a>
+              </div>
 
-            <div
-              style={{
-                display: "flex",
-                gap: "24px",
-                flexWrap: "wrap",
-                borderTop: "1px solid rgba(226, 232, 240, 0.8)",
-                paddingTop: "24px"
-              }}
-            >
-              {[
-                {
-                  title: "Milestone Tracking",
-                  sub: "Clear stage-by-stage visibility"
-                },
-                {
-                  title: "Credentials",
-                  sub: "Open Badges 3.0 compliant"
-                },
-                {
-                  title: "Applied Learning",
-                  sub: "Live projects and capstones"
-                },
-                {
-                  title: "Career Discovery",
-                  sub: "Direct skill gap alignment"
-                }
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "2px"
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "13.5px",
-                      fontWeight: "700",
-                      color: "#1e293b",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px"
-                    }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="#10b981"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z" />
-                    </svg>
-                    {item.title}
-                  </span>
-
-                  <small
-                    style={{
-                      fontSize: "11px",
-                      color: "#64748b",
-                      paddingLeft: "22px"
-                    }}
-                  >
-                    {item.sub}
-                  </small>
-                </div>
-              ))}
             </div>
           </div>
-
-          <div
-            className="hero-glow hero-glow-one"
-            style={{
-              position: "absolute",
-              borderRadius: "50%",
-              filter: "blur(80px)",
-              pointerEvents: "none",
-              width: "450px",
-              height: "450px",
-              right: "5%",
-              top: "10%",
-              background: "rgba(18, 85, 255, 0.12)"
-            }}
-          ></div>
-
-          <div
-            className="hero-glow hero-glow-two"
-            style={{
-              position: "absolute",
-              borderRadius: "50%",
-              filter: "blur(80px)",
-              pointerEvents: "none",
-              width: "350px",
-              height: "350px",
-              left: "30%",
-              bottom: "-150px",
-              background: "rgba(253, 67, 34, 0.10)"
-            }}
-          ></div>
         </section>
       </FadeInSection>
 
+      {/* =========================================================
+          HOW TO ENROLL IN A CAREER PATHWAY (SECTION 8.2.2.1)
+      ========================================================= */}
       <FadeInSection>
-        <section
-          id="pathway-benefits"
-          style={{ padding: "90px 20px", background: "#ffffff" }}
-        >
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <span
-                style={{
-                  fontSize: "12px",
-                  fontWeight: "800",
-                  color: "#ff5500",
-                  letterSpacing: "1.5px",
-                  textTransform: "uppercase"
-                }}
-              >
-                LEARNER PATHWAY WORKFLOW
-              </span>
-
-              <h2
-                style={{
-                  fontFamily: "var(--font-montserrat), sans-serif",
-                  fontSize: "clamp(26px, 3vw, 38px)",
-                  fontWeight: "800",
-                  color: "#0f172a",
-                  margin: "8px 0 12px",
-                  letterSpacing: "-1px"
-                }}
-              >
-                From Curiosity to Hiring Readiness
+        <section id="how-to-enroll" className="enrollment-section">
+          <div className="section-container">
+            <div className="section-heading center">
+              <span className="section-label">ENROLLING IN A PATHWAY</span>
+              <h2>
+                How to Enroll
+                <span> in a Career Pathway.</span>
               </h2>
-
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "#64748b",
-                  maxWidth: "720px",
-                  margin: "0 auto"
-                }}
-              >
-                Career pathways map your target job role into ordered modules,
-                making skill progression transparent and verifiable.
+              <p>
+                Follow these exact steps from the SOLO documentation to discover,
+                register for, and begin working through your pathway course badges.
               </p>
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns:
-                  "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: "20px"
-              }}
-            >
-              {[
-                {
-                  step: "01",
-                  title: "Pick Your Goal",
-                  desc: "Choose a pathway that matches the career you want. See what you'll learn, how long it takes, and which badges you'll earn — before you commit.",
-                  icon: (
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="4.5" />
-                      <circle cx="12" cy="12" r="0.6" fill="currentColor" />
-                    </svg>
-                  )
-                },
-                {
-                  step: "02",
-                  title: "Learn, One Step at a Time",
-                  desc: "Move through courses and mini-lessons in order, each one building on the last, so nothing feels overwhelming.",
-                  icon: (
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                    </svg>
-                  )
-                },
-                {
-                  step: "03",
-                  title: "Build Real Work",
-                  desc: "Practice on real assignments and projects — proof you can actually show, not just a certificate that says you 'know' something.",
-                  icon: (
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="16 18 22 12 16 6" />
-                      <polyline points="8 6 2 12 8 18" />
-                    </svg>
-                  )
-                },
-                {
-                  step: "04",
-                  title: "Earn Your Badges",
-                  desc: "Get a verified badge every time you complete a stage. Finish the pathway and all your badges combine into one shareable record.",
-                  icon: (
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="8" r="6" />
-                      <path d="M9 13.5 7 22l5-3 5 3-2-8.5" />
-                    </svg>
-                  )
-                }
-              ].map((item, idx) => (
-                <div key={idx} className="pathway-feature-card">
-                  <div className="pathway-icon-circle">
-                    {item.icon}
+            <div className="enrollment-interactive-grid">
+              <div className="enroll-step-list">
+                {enrollPathwaySteps.map((item, index) => (
+                  <button
+                    type="button"
+                    key={item.step}
+                    className={`enroll-step-button ${activeEnrollStep === index ? "active" : ""}`}
+                    onClick={() => setActiveEnrollStep(index)}
+                  >
+                    <div className="enroll-step-num">{item.step}</div>
+                    <div className="enroll-step-details">
+                      <h3>{item.title}</h3>
+                      <code className="enroll-route">{item.path}</code>
+                      <p>{item.desc}</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              <div className="enroll-image-column">
+                <div className="pathway-browser wide-browser">
+                  <div className="browser-top">
+                    <div className="browser-dots">
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+                    <div className="browser-title">
+                      SOLO | {enrollPathwaySteps[activeEnrollStep].path}
+                    </div>
                   </div>
 
-                  <span
-                    style={{
-                      fontSize: "12.5px",
-                      fontWeight: "800",
-                      color: "var(--orange)",
-                      fontFamily: "var(--font-montserrat), sans-serif",
-                      marginBottom: "10px",
-                      display: "block",
-                      letterSpacing: "1px"
-                    }}
-                  >
-                    STEP {item.step}
-                  </span>
-
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-montserrat), sans-serif",
-                      fontSize: "17px",
-                      fontWeight: "750",
-                      color: "#1e293b",
-                      margin: "0 0 8px"
-                    }}
-                  >
-                    {item.title}
-                  </h3>
-
-                  <p
-                    style={{
-                      fontSize: "13.5px",
-                      color: "#64748b",
-                      lineHeight: "1.6",
-                      margin: 0
-                    }}
-                  >
-                    {item.desc}
-                  </p>
+                  <div className="browser-screenshot-wrapper">
+                    <img
+                      key={enrollPathwaySteps[activeEnrollStep].image}
+                      src={enrollPathwaySteps[activeEnrollStep].image}
+                      alt={enrollPathwaySteps[activeEnrollStep].title}
+                      className="browser-screenshot-image"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLElement).style.display = "none";
+                      }}
+                    />
+                    <div className="screenshot-placeholder">
+                      <span>ADD SCREENSHOT</span>
+                      <strong>{enrollPathwaySteps[activeEnrollStep].title}</strong>
+                      <p>{enrollPathwaySteps[activeEnrollStep].caption}</p>
+                      <small>{enrollPathwaySteps[activeEnrollStep].image}</small>
+                    </div>
+                  </div>
                 </div>
-              ))}
+                <div className="screenshot-caption-row">
+                  <span>STEP {enrollPathwaySteps[activeEnrollStep].step}</span>
+                  <strong>{enrollPathwaySteps[activeEnrollStep].caption}</strong>
+                </div>
+              </div>
+            </div>
+
+            <div className="pathway-bottom-note" style={{ marginTop: "40px" }}>
+              <div className="pathway-bottom-icon">!</div>
+              <div>
+                <h3>Pathway Status Guidance</h3>
+                <p>
+                  If the status shows <strong>Pending</strong>, kindly contact the SPARK+ Team and they will give you access to enroll yourself in that opportunity.
+                  If the status shows <strong>Enrolled</strong>, click on View More and take the course.
+                </p>
+              </div>
             </div>
           </div>
         </section>
       </FadeInSection>
 
+      {/* =========================================================
+          VIEW PATHWAY PROGRESS & INTERLINKED BADGES (SECTION 8.2.2.2)
+      ========================================================= */}
       <FadeInSection>
-        <section
-          id="interactive-pathway"
-          style={{
-            padding: "80px 20px 100px",
-            background: "#f8fafc",
-            borderTop: "1px solid #e2e8f0",
-            borderBottom: "1px solid #e2e8f0"
-          }}
-        >
-          <div style={{ maxWidth: "1180px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "40px" }}>
-              <span
-                style={{
-                  fontSize: "12px",
-                  fontWeight: "800",
-                  color: "#ff5500",
-                  letterSpacing: "1.5px",
-                  textTransform: "uppercase"
-                }}
-              >
-                CURATED LEARNING ROADMAP
-              </span>
-
-              <h2
-                style={{
-                  fontFamily: "var(--font-montserrat), sans-serif",
-                  fontSize: "clamp(26px, 3vw, 38px)",
-                  fontWeight: "800",
-                  color: "#0f172a",
-                  margin: "8px 0 12px",
-                  letterSpacing: "-1px"
-                }}
-              >
-                Interactive Career Pathway Navigator
+        <section id="interactive-pathway" className="showcase-section">
+          <div className="section-container">
+            <div className="section-heading center">
+              <span className="section-label">HOW DO YOU VIEW YOUR PATHWAY PROGRESS</span>
+              <h2>
+                Tracking Progress &
+                <span> Interlinked Course Badges.</span>
               </h2>
-
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "#64748b",
-                  maxWidth: "780px",
-                  margin: "0 auto",
-                  lineHeight: "1.6"
-                }}
-              >
-                Every pathway breaks your target job down into simple,
-                ordered milestones. Switch to <strong>Standard View</strong>{" "}
-                to see each credential and where you stand, or{" "}
-                <strong>Pathway View</strong> to see how everything connects —
-                from your first lesson to your final project.
+              <p>
+                Once you have completed any course (or all courses), go to Manage &gt; Career Pathway and scroll down to view your progress.
+                A green <strong>&ldquo;Earned&rdquo;</strong> highlight will appear once the course is completed and the credential has been issued.
               </p>
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns:
-                  "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "16px",
-                marginBottom: "40px"
-              }}
-            >
-              {[
-                {
-                  n: "1",
-                  title: "Built Around Real Jobs",
-                  desc: "Every pathway is mapped to what employers actually look for. Each badge you earn lines up directly with the skills a real job needs — no guesswork.",
-                  icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="3" y="7" width="18" height="13" rx="2" />
-                      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                      <path d="M3 12h18" />
-                    </svg>
-                  )
-                },
-                {
-                  n: "2",
-                  title: "Badges You Can Prove",
-                  desc: "Every badge is digitally verified. Anyone — a recruiter, a college, an employer — can check it's real and see exactly what you did to earn it.",
-                  icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="m9 12 2 2 4-4" />
-                      <circle cx="12" cy="12" r="9" />
-                    </svg>
-                  )
-                },
-                {
-                  n: "3",
-                  title: "Your Profile Updates Itself",
-                  desc: "Finish a stage, and your skills, resume, and profile update automatically — no forms to fill out, your progress just shows up where it matters.",
-                  icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 12a9 9 0 1 1-3-6.7" />
-                      <polyline points="21 3 21 9 15 9" />
-                    </svg>
-                  )
-                }
-              ].map((card) => (
-                <div
-                  key={card.n}
-                  className="navigator-mini-card"
-                >
-                  <div className="navigator-mini-icon">
-                    {card.icon}
+            <div className="view-mode-tabs">
+              <button
+                type="button"
+                className={`view-mode-button ${activeViewTab === "standard" ? "active" : ""}`}
+                onClick={() => setActiveViewTab("standard")}
+              >
+                <span>01</span>
+                Standard Milestone View
+              </button>
+              <button
+                type="button"
+                className={`view-mode-button ${activeViewTab === "pathway" ? "active" : ""}`}
+                onClick={() => setActiveViewTab("pathway")}
+              >
+                <span>02</span>
+                Connected Pathway View
+              </button>
+            </div>
+
+            <div className="pathway-browser wide-browser">
+              <div className="browser-top">
+                <div className="browser-dots">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <div className="browser-title">
+                  SOLO | Manage &gt; Career Pathway &gt; {activeViewTab === "standard" ? "Standard View" : "Pathway View"}
+                </div>
+              </div>
+
+              <div className="browser-screenshot-wrapper showcase-wrapper">
+                {activeViewTab === "standard" ? (
+                  <>
+                    <img
+                      src="/images/pathways/standard-view.png"
+                      alt="SOLO Standard Pathway View Screenshot"
+                      className="browser-screenshot-image"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLElement).style.display = "none";
+                      }}
+                    />
+                    <div className="screenshot-placeholder">
+                      <span>ADD SCREENSHOT</span>
+                      <strong>Standard Pathway Milestone View</strong>
+                      <p>
+                        Place your screenshot of the vertical milestone list showing course codes,
+                        types (Coursework vs Skills Validation), and the green &lsquo;Earned&rsquo; highlights.
+                      </p>
+                      <small>/images/pathways/standard-view.png</small>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <img
+                      src="/images/pathways/pathway-view.png"
+                      alt="SOLO Pathway Connected View Screenshot"
+                      className="browser-screenshot-image"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLElement).style.display = "none";
+                      }}
+                    />
+                    <div className="screenshot-placeholder">
+                      <span>ADD SCREENSHOT</span>
+                      <strong>Pathway View (Interlinked Course Badges)</strong>
+                      <p>
+                        Place the screenshot from Section 8.2.2.2 showing the connected dot-grid sequence:
+                        ReactJS &rarr; React Fundamentals &rarr; React Redux Toolkit &rarr; RTK Query Basics &rarr; Redux & RTK Query &rarr; NextJS.
+                      </p>
+                      <small>/images/pathways/pathway-view.png</small>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* =========================================================
+          COURSE COMPLETION & EVIDENCE SUBMISSION (SECTION 8.4)
+      ========================================================= */}
+      <FadeInSection>
+        <section className="completion-section">
+          <div className="section-container">
+            <div className="section-heading center">
+              <span className="section-label">HOW TO REQUEST COMPLETION ON SOLO</span>
+              <h2>
+                Course Completion
+                <span> & Submitting Evidence.</span>
+              </h2>
+              <p>
+                After finishing external coursework, return to SOLO to verify your learning and have your credential issued.
+              </p>
+            </div>
+
+            <div className="completion-interactive-grid">
+              <div className="completion-steps-selector">
+                {completionWorkflowSteps.map((item, index) => (
+                  <button
+                    type="button"
+                    key={item.step}
+                    className={`completion-step-btn ${activeCompletionStep === index ? "active" : ""}`}
+                    onClick={() => setActiveCompletionStep(index)}
+                  >
+                    <div className="completion-step-top">
+                      <span className="completion-badge">{item.tag}</span>
+                      <span className="completion-indicator">
+                        {activeCompletionStep === index ? "Viewing Screenshot" : "Click to view"}
+                      </span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    {item.path ? (
+                      <code className="enroll-route">{item.path}</code>
+                    ) : (
+                      <span className="platform-tag">{item.action}</span>
+                    )}
+                    <p>{item.desc}</p>
+                  </button>
+                ))}
+              </div>
+
+              <div className="completion-screenshot-panel">
+                <div className="pathway-browser wide-browser">
+                  <div className="browser-top">
+                    <div className="browser-dots">
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+                    <div className="browser-title">
+                      SOLO | {completionWorkflowSteps[activeCompletionStep].tag} — {completionWorkflowSteps[activeCompletionStep].title}
+                    </div>
                   </div>
 
-                  <h4
-                    style={{
-                      margin: "0 0 6px",
-                      fontSize: "15px",
-                      fontWeight: "800",
-                      color: "#1e293b"
-                    }}
-                  >
-                    {card.title}
-                  </h4>
-
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: "13px",
-                      color: "#64748b",
-                      lineHeight: "1.55"
-                    }}
-                  >
-                    {card.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                flexWrap: "wrap",
-                marginBottom: "18px"
-              }}
-            >
-              <span
-                style={{
-                  fontSize: "12.5px",
-                  fontWeight: "700",
-                  color: "#64748b"
-                }}
-              >
-                Preview a pathway:
-              </span>
-
-              {pathwayTracks.map((track) => (
-                <button
-                  key={track.id}
-                  onClick={() => {
-                    setSelectedTrack(track.id);
-                    setExpandedId(null);
-                  }}
-                  className="track-switch-pill"
-                  style={{
-                    background:
-                      selectedTrack === track.id ? "var(--orange)" : "#ffffff",
-                    color: selectedTrack === track.id ? "#ffffff" : "#475569",
-                    border:
-                      selectedTrack === track.id
-                        ? "1.5px solid var(--orange)"
-                        : "1.5px solid #e2e8f0"
-                  }}
-                >
-                  {track.name}
-                </button>
-              ))}
-            </div>
-
-            <div
-              style={{
-                marginBottom: "35px",
-                background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                borderRadius: "14px",
-                padding: "24px"
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "12px",
-                  flexWrap: "wrap",
-                  gap: "10px"
-                }}
-              >
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-montserrat), sans-serif",
-                      fontSize: "18px",
-                      fontWeight: "800",
-                      color: "#1e293b",
-                      margin: "0 0 4px"
-                    }}
-                  >
-                    Pathway Completion Progress
-                  </h3>
-
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: "13px",
-                      color: "#64748b"
-                    }}
-                  >
-                    Track your accumulated badges and milestones across the{" "}
-                    {activeTrack.name} track.
-                  </p>
-                </div>
-
-                <div
-                  style={{
-                    display: "inline-flex",
-                    background: "#f8fafc",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: "8px",
-                    padding: "3px"
-                  }}
-                >
-                  <button
-                    onClick={() => setViewMode("standard")}
-                    style={{
-                      background:
-                        viewMode === "standard"
-                          ? "#fff1ed"
-                          : "transparent",
-                      color:
-                        viewMode === "standard" ? "#ea580c" : "#64748b",
-                      border: "none",
-                      borderRadius: "6px",
-                      padding: "6px 14px",
-                      fontSize: "13px",
-                      fontWeight: "700",
-                      cursor: "pointer",
-                      transition: "all 0.2s ease"
-                    }}
-                  >
-                    Standard View
-                  </button>
-
-                  <button
-                    onClick={() => setViewMode("pathway")}
-                    style={{
-                      background:
-                        viewMode === "pathway" ? "#fff1ed" : "transparent",
-                      color:
-                        viewMode === "pathway" ? "#ea580c" : "#64748b",
-                      border: "none",
-                      borderRadius: "6px",
-                      padding: "6px 14px",
-                      fontSize: "13px",
-                      fontWeight: "700",
-                      cursor: "pointer",
-                      transition: "all 0.2s ease"
-                    }}
-                  >
-                    Pathway View
-                  </button>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  width: "100%",
-                  height: "10px",
-                  background: "#f1f5f9",
-                  borderRadius: "999px",
-                  overflow: "hidden",
-                  marginBottom: "18px"
-                }}
-              >
-                <div
-                  style={{
-                    width: `${progressPercent}%`,
-                    height: "100%",
-                    background: "#22c55e",
-                    borderRadius: "999px",
-                    transition: "width 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
-                  }}
-                ></div>
-              </div>
-
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns:
-                    "repeat(auto-fit, minmax(180px, 1fr))",
-                  gap: "14px"
-                }}
-              >
-                <div
-                  style={{
-                    background: "#f8fafc",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: "10px",
-                    padding: "14px 18px"
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "12px",
-                      color: "#64748b",
-                      fontWeight: "600",
-                      display: "block",
-                      marginBottom: "4px"
-                    }}
-                  >
-                    Total badges
-                  </span>
-
-                  <strong
-                    style={{
-                      fontSize: "22px",
-                      fontWeight: "800",
-                      color: "#0f172a"
-                    }}
-                  >
-                    {totalBadges}
-                  </strong>
-                </div>
-
-                <div
-                  style={{
-                    background: "#f8fafc",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: "10px",
-                    padding: "14px 18px"
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "12px",
-                      color: "#64748b",
-                      fontWeight: "600",
-                      display: "block",
-                      marginBottom: "4px"
-                    }}
-                  >
-                    Badges earned
-                  </span>
-
-                  <strong
-                    style={{
-                      fontSize: "22px",
-                      fontWeight: "800",
-                      color: "#0f172a"
-                    }}
-                  >
-                    {earnedBadges}
-                  </strong>
-                </div>
-
-                <div
-                  style={{
-                    background: "#f8fafc",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: "10px",
-                    padding: "14px 18px"
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "12px",
-                      color: "#64748b",
-                      fontWeight: "600",
-                      display: "block",
-                      marginBottom: "4px"
-                    }}
-                  >
-                    Progress
-                  </span>
-
-                  <strong
-                    style={{
-                      fontSize: "22px",
-                      fontWeight: "800",
-                      color: "#0f172a"
-                    }}
-                  >
-                    {progressPercent}%
-                  </strong>
-                </div>
-              </div>
-            </div>
-
-            {viewMode === "standard" ? (
-              <div style={{ position: "relative", paddingLeft: "55px" }}>
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "17px",
-                    top: "20px",
-                    bottom: "40px",
-                    width: "2px",
-                    background: "#ff7a45"
-                  }}
-                ></div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "22px"
-                  }}
-                >
-                  {pathwayItems.map((item) => (
-                    <div key={item.id} style={{ position: "relative" }}>
-                      <div
-                        style={{
-                          position: "absolute",
-                          left: "-55px",
-                          top: "50%",
-                          transform: "translateY(-50%)",
-                          width: "36px",
-                          height: "36px",
-                          borderRadius: "50%",
-                          background:
-                            "linear-gradient(135deg, #ff6b3d 0%, #ff521d 100%)",
-                          color: "#ffffff",
-                          fontFamily:
-                            "var(--font-montserrat), sans-serif",
-                          fontWeight: "800",
-                          fontSize: "14px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          boxShadow:
-                            "0 4px 12px rgba(255, 85, 0, 0.25)",
-                          zIndex: 2
-                        }}
-                      >
-                        {item.step}
-                      </div>
-
-                      <div
-                        className="platform-pathway-card"
-                        style={{
-                          background: "#ffffff",
-                          border: item.earned
-                            ? "1.5px solid #a7f3d0"
-                            : "1.5px solid #e2e8f0",
-                          borderRadius: "12px",
-                          padding: "18px 24px",
-                          display: "flex",
-                          flexDirection: "column",
-                          gap: "0",
-                          boxShadow:
-                            "0 2px 8px rgba(0, 0, 0, 0.02)"
-                        }}
-                      >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          gap: "20px"
-                        }}
-                      >
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "20px"
-                          }}
-                        >
-                          <div
-                            style={{
-                              width: "68px",
-                              height: "68px",
-                              borderRadius: "50%",
-                              border: `2px solid ${item.badgeColor}`,
-                              background: "#ffffff",
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              textAlign: "center",
-                              padding: "4px",
-                              boxSizing: "border-box",
-                              flexShrink: 0
-                            }}
-                          >
-                            <span
-                              style={{
-                                fontSize: "7px",
-                                fontWeight: "700",
-                                color: item.badgeColor,
-                                letterSpacing: "0.5px"
-                              }}
-                            >
-                              ◇ academia
-                            </span>
-
-                            <span
-                              style={{
-                                fontSize: "8px",
-                                fontWeight: "800",
-                                color: "#1e293b",
-                                margin: "2px 0"
-                              }}
-                            >
-                              Credential
-                            </span>
-
-                            <span
-                              style={{
-                                fontSize: "6.5px",
-                                fontWeight: "700",
-                                background: item.badgeColor,
-                                color: "#ffffff",
-                                width: "100%",
-                                textAlign: "center",
-                                borderRadius: "2px",
-                                padding: "1px 0"
-                              }}
-                            >
-                              {item.badgeType}
-                            </span>
-                          </div>
-
-                          <div>
-                            <span
-                              style={{
-                                fontSize: "11px",
-                                fontWeight: "700",
-                                color: "#64748b",
-                                letterSpacing: "0.5px",
-                                display: "block",
-                                marginBottom: "3px"
-                              }}
-                            >
-                              {item.type}
-                            </span>
-
-                            <h3
-                              style={{
-                                margin: "0 0 6px",
-                                fontSize: "17px",
-                                fontWeight: "800",
-                                color: "#0f172a",
-                                fontFamily:
-                                  "var(--font-montserrat), sans-serif"
-                              }}
-                            >
-                              {item.title}
-                            </h3>
-
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "14px",
-                                fontSize: "12px",
-                                color: "#64748b"
-                              }}
-                            >
-                              <span>{item.code}</span>
-
-                              <button
-                                onClick={() =>
-                                  setExpandedId(
-                                    expandedId === item.id ? null : item.id
-                                  )
-                                }
-                                style={{
-                                  color: "#475569",
-                                  fontWeight: "600",
-                                  background: "transparent",
-                                  border: "none",
-                                  padding: 0,
-                                  cursor: "pointer",
-                                  display: "inline-flex",
-                                  alignItems: "center",
-                                  gap: "4px"
-                                }}
-                              >
-                                {expandedId === item.id
-                                  ? "Hide details"
-                                  : "View details"}
-                                <svg
-                                  width="11"
-                                  height="11"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="3"
-                                  style={{
-                                    transform:
-                                      expandedId === item.id
-                                        ? "rotate(180deg)"
-                                        : "rotate(0deg)",
-                                    transition: "transform 0.2s ease"
-                                  }}
-                                >
-                                  <polyline points="6 9 12 15 18 9" />
-                                </svg>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-
-                        {item.earned && (
-                          <span
-                            style={{
-                              background: "#166534",
-                              color: "#ffffff",
-                              fontSize: "11.5px",
-                              fontWeight: "700",
-                              padding: "4px 12px",
-                              borderRadius: "999px",
-                              flexShrink: 0
-                            }}
-                          >
-                            Earned
-                          </span>
-                        )}
-                      </div>
-
-                      {expandedId === item.id && (
-                        <div
-                          style={{
-                            marginTop: "16px",
-                            paddingTop: "16px",
-                            borderTop: "1px solid #f1f5f9",
-                            fontSize: "13px",
-                            color: "#64748b",
-                            lineHeight: "1.6"
-                          }}
-                        >
-                          {item.description}
-                        </div>
-                      )}
+                  <div className="browser-screenshot-wrapper">
+                    <img
+                      key={completionWorkflowSteps[activeCompletionStep].image}
+                      src={completionWorkflowSteps[activeCompletionStep].image}
+                      alt={completionWorkflowSteps[activeCompletionStep].title}
+                      className="browser-screenshot-image"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLElement).style.display = "none";
+                      }}
+                    />
+                    <div className="screenshot-placeholder">
+                      <span>ADD STEP SCREENSHOT</span>
+                      <strong>{completionWorkflowSteps[activeCompletionStep].tag}: {completionWorkflowSteps[activeCompletionStep].title}</strong>
+                      <p>{completionWorkflowSteps[activeCompletionStep].caption}</p>
+                      <small>{completionWorkflowSteps[activeCompletionStep].image}</small>
                     </div>
-                    </div>
-                  ))}
+                  </div>
+                </div>
+                <div className="screenshot-caption-row">
+                  <span>{completionWorkflowSteps[activeCompletionStep].tag}</span>
+                  <strong>{completionWorkflowSteps[activeCompletionStep].caption}</strong>
                 </div>
               </div>
-            ) : (
-              <div
-                style={{
-                  background:
-                    "radial-gradient(#d1d5db 1px, transparent 1px)",
-                  backgroundSize: "20px 20px",
-                  backgroundColor: "#fafaf9",
-                  border: "1px solid #e5e7eb",
-                  borderRadius: "18px",
-                  padding: "40px 24px",
-                  overflowX: "auto"
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    minWidth: "920px",
-                    gap: "12px"
-                  }}
-                >
-                  {pathwayItems.map((node, i, arr) => (
-                    <div
-                      key={node.id}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        flex: 1
-                      }}
-                    >
-                      <div
-                        style={{
-                          background: "#ffffff",
-                          border: "1px solid #e2e8f0",
-                          borderRadius: "14px",
-                          padding: "16px 14px",
-                          textAlign: "center",
-                          width: "100%",
-                          minWidth: "135px",
-                          boxShadow: "0 4px 14px rgba(0,0,0,0.03)",
-                          position: "relative"
-                        }}
-                      >
-                        {node.earned && (
-                          <span
-                            style={{
-                              position: "absolute",
-                              top: "-8px",
-                              right: "10px",
-                              background: "#10b981",
-                              color: "#ffffff",
-                              fontSize: "9px",
-                              fontWeight: "700",
-                              padding: "2px 7px",
-                              borderRadius: "10px"
-                            }}
-                          >
-                            Earned
-                          </span>
-                        )}
-
-                        <div
-                          style={{
-                            width: "52px",
-                            height: "52px",
-                            borderRadius: "50%",
-                            border: `2.5px solid ${node.badgeColor}`,
-                            margin: "0 auto 10px",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            background: "#ffffff"
-                          }}
-                        >
-                          <span
-                            style={{
-                              fontSize: "6px",
-                              color: node.badgeColor,
-                              fontWeight: "700"
-                            }}
-                          >
-                            ◇ academia
-                          </span>
-
-                          <span
-                            style={{
-                              fontSize: "6.5px",
-                              color: "#1e293b",
-                              fontWeight: "700",
-                              margin: "1px 0"
-                            }}
-                          >
-                            Credential
-                          </span>
-
-                          <span
-                            style={{
-                              fontSize: "6px",
-                              background: node.badgeColor,
-                              color: "#ffffff",
-                              width: "100%",
-                              textAlign: "center",
-                              marginTop: "1px"
-                            }}
-                          >
-                            {node.badgeType}
-                          </span>
-                        </div>
-
-                        <h4
-                          style={{
-                            margin: 0,
-                            fontSize: "12px",
-                            fontWeight: "700",
-                            color: "#0f172a"
-                          }}
-                        >
-                          {node.title}
-                        </h4>
-                      </div>
-
-                      {i < arr.length - 1 && (
-                        <div
-                          style={{
-                            width: "24px",
-                            height: "2px",
-                            background: "#cbd5e1",
-                            flexShrink: 0,
-                            margin: "0 4px"
-                          }}
-                        />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection>
-        <section
-          style={{
-            padding: "90px 20px",
-            background: "#ffffff"
-          }}
-        >
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <span
-                style={{
-                  fontSize: "12px",
-                  fontWeight: "800",
-                  color: "#ff5500",
-                  letterSpacing: "1.5px",
-                  textTransform: "uppercase"
-                }}
-              >
-                STANDARDS & EVIDENCE
-              </span>
-
-              <h2
-                style={{
-                  fontFamily: "var(--font-montserrat), sans-serif",
-                  fontSize: "clamp(26px, 3vw, 38px)",
-                  fontWeight: "800",
-                  color: "#0f172a",
-                  margin: "8px 0 12px",
-                  letterSpacing: "-1px"
-                }}
-              >
-                Curriculum Design That Employers Value
-              </h2>
-
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "#64748b",
-                  maxWidth: "750px",
-                  margin: "0 auto"
-                }}
-              >
-                Every SOLO pathway mixes solid fundamentals with real-world
-                practice — so what you learn actually counts toward
-                something employers recognize.
-              </p>
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns:
-                  "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "24px"
-              }}
-            >
-              <div
-                style={{
-                  background: "#f8fafc",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "14px",
-                  padding: "26px"
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "17px",
-                    fontWeight: "750",
-                    color: "#0f172a",
-                    margin: "0 0 10px"
-                  }}
-                >
-                  Strong Fundamentals
-                </h3>
-
-                <p
-                  style={{
-                    fontSize: "13.5px",
-                    color: "#64748b",
-                    lineHeight: "1.6",
-                    margin: "0 0 16px"
-                  }}
-                >
-                  Solid grounding in programming, math, and system design —
-                  the core skills every tech career is built on.
+            <div className="pathway-bottom-note" style={{ marginTop: "40px" }}>
+              <div className="pathway-bottom-icon">✓</div>
+              <div>
+                <h3>External Courses & Automated Synchronization</h3>
+                <p>
+                  For external platforms like ScholarHat or IBM, sign up or log in using the same email ID registered on SOLO.
+                  Once verified, your acquired credentials immediately update your profile records and ATS resume.
                 </p>
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "6px"
-                  }}
-                >
-                  {[
-                    "Mathematics",
-                    "Computer Science",
-                    "Algorithms",
-                    "System Design"
-                  ].map((item, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        fontSize: "11.5px",
-                        padding: "4px 10px",
-                        background: "#ffffff",
-                        border: "1px solid #cbd5e1",
-                        borderRadius: "6px",
-                        color: "#334155"
-                      }}
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div
-                style={{
-                  background: "#f8fafc",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "14px",
-                  padding: "26px"
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "17px",
-                    fontWeight: "750",
-                    color: "#0f172a",
-                    margin: "0 0 10px"
-                  }}
-                >
-                  Learn by Doing
-                </h3>
-
-                <p
-                  style={{
-                    fontSize: "13.5px",
-                    color: "#64748b",
-                    lineHeight: "1.6",
-                    margin: "0 0 16px"
-                  }}
-                >
-                  Real assignments, hackathons, and capstone projects where
-                  you build things you can actually show off.
-                </p>
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "6px"
-                  }}
-                >
-                  {[
-                    "Live Projects",
-                    "Hackathons",
-                    "Capstone Builds",
-                    "Code Audits"
-                  ].map((item, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        fontSize: "11.5px",
-                        padding: "4px 10px",
-                        background: "#ffffff",
-                        border: "1px solid #cbd5e1",
-                        borderRadius: "6px",
-                        color: "#334155"
-                      }}
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div
-                style={{
-                  background: "#f8fafc",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "14px",
-                  padding: "26px"
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "17px",
-                    fontWeight: "750",
-                    color: "#0f172a",
-                    margin: "0 0 10px"
-                  }}
-                >
-                  Recognized Everywhere
-                </h3>
-
-                <p
-                  style={{
-                    fontSize: "13.5px",
-                    color: "#64748b",
-                    lineHeight: "1.6",
-                    margin: "0 0 16px"
-                  }}
-                >
-                  Your badges follow global education standards, so colleges,
-                  recruiters, and employers anywhere can trust and verify
-                  them instantly.
-                </p>
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "6px"
-                  }}
-                >
-                  {[
-                    "Open Badges 3.0",
-                    "CLR v2.0",
-                    "W3C Standards",
-                    "CTDL Alignment"
-                  ].map((item, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        fontSize: "11.5px",
-                        padding: "4px 10px",
-                        background: "#ffffff",
-                        border: "1px solid #cbd5e1",
-                        borderRadius: "6px",
-                        color: "#334155"
-                      }}
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
         </section>
       </FadeInSection>
 
+      {/* =========================================================
+          FINAL CTA
+      ========================================================= */}
       <FadeInSection>
-        <section
-          style={{
-            padding: "90px 20px",
-            textAlign: "center",
-            background: "#ffffff"
-          }}
-        >
-          <div style={{ maxWidth: "750px", margin: "0 auto" }}>
-            <h2
-              style={{
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "clamp(28px, 3.5vw, 42px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                margin: "0 0 14px",
-                letterSpacing: "-1px"
-              }}
-            >
-              Ready to Follow Your Target Career Roadmap?
+        <section className="final-cta">
+          <div className="cta-glow" />
+          <div className="cta-content">
+            <span className="section-label">YOUR CAREER ROADMAP</span>
+            <h2>
+              Ready to Follow Your
+              <span> Target Career Roadmap?</span>
             </h2>
-
-            <p
-              style={{
-                fontSize: "15.5px",
-                color: "#64748b",
-                lineHeight: "1.6",
-                margin: "0 0 30px"
-              }}
-            >
-              Choose a pathway, verify your skills with measurable outcomes,
-              and showcase portable proof directly to employers.
+            <p>
+              Choose a pathway, verify your skills with measurable outcomes, and showcase portable proof directly to employers.
             </p>
-
-            <Link
-              href="/explore?type=Career+Pathways#opportunity"
-              style={{
-                display: "inline-block",
-                background: "var(--orange)",
-                color: "#ffffff",
-                padding: "14px 34px",
-                borderRadius: "9px",
-                fontFamily: "var(--font-montserrat), sans-serif",
-                fontSize: "14.5px",
-                fontWeight: "700",
-                textDecoration: "none",
-                boxShadow: "0 8px 24px rgba(249, 115, 22, 0.25)"
-              }}
-            >
-              Browse Career Pathways
+            <Link href="https://app.thesolo.network/" className="cta-button">
+              Explore Career Pathways
             </Link>
           </div>
         </section>
@@ -1690,99 +428,777 @@ export default function CareerPathwaysPage() {
       <Footer />
       <BackToTop />
 
+      {/* =========================================================
+          STYLES
+      ========================================================= */}
       <style jsx global>{`
-        .pathway-feature-card {
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          border-radius: 14px;
-          padding: 26px 20px;
+        * {
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          margin: 0;
+        }
+
+        .career-pathway-page {
+          color: #0f172a;
+          font-family: Arial, sans-serif;
+        }
+
+        /* HERO */
+        .pathway-hero {
+          min-height: calc(100vh - 65px);
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          background:
+            radial-gradient(circle at 75% 25%, rgba(245, 158, 11, 0.22), transparent 30%),
+            radial-gradient(circle at 15% 75%, rgba(239, 68, 68, 0.12), transparent 28%),
+            radial-gradient(circle at 50% 5%, rgba(37, 99, 235, 0.10), transparent 22%),
+            linear-gradient(120deg, #fff7ed 0%, #fffaf5 40%, #eff6ff 65%, #fff7ed 100%);
+        }
+
+        .pathway-hero-inner {
+          width: 100%;
+          max-width: 1500px;
+          margin: 0 auto;
+          padding: 90px 70px;
+          position: relative;
+          z-index: 3;
+        }
+
+        .hero-copy {
+          max-width: 860px;
+          text-align: left;
+        }
+
+        .hero-label,
+        .section-label {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 2px;
+          color: #f97316;
+          margin: 0 0 18px;
+          text-transform: uppercase;
+        }
+
+        .hero-copy h1 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(43px, 4vw, 75px);
+          line-height: 1.04;
+          letter-spacing: -3px;
+          margin: 0;
+          font-weight: 800;
+          color: #171717;
+        }
+
+        .hero-copy h1 .orange-text {
+          color: #f97316;
+          display: block;
+        }
+
+        .hero-description {
+          max-width: 720px;
+          margin: 28px 0 34px;
+          font-size: 16px;
+          line-height: 1.75;
+          color: #5d6470;
+        }
+
+        .hero-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 14px;
+          margin-bottom: 42px;
+        }
+
+        .hero-primary,
+        .hero-secondary {
+          padding: 13px 26px;
+          border-radius: 9px;
+          text-decoration: none;
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          transition: all 0.25s ease;
+        }
+
+        .hero-primary {
+          background: #f97316;
+          color: #fff;
+          border: 2px solid #f97316;
+          box-shadow: 0 10px 25px rgba(249, 115, 22, 0.2);
+        }
+
+        .hero-primary:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 30px rgba(249, 115, 22, 0.28);
+        }
+
+        .hero-secondary {
+          background: rgba(255, 255, 255, 0.85);
+          color: #2563eb;
+          border: 2px solid #dbe5f8;
+        }
+
+        .hero-secondary:hover {
+          transform: translateY(-3px);
+          border-color: #f97316;
+          color: #f97316;
+        }
+
+        .hero-points {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 25px;
+          padding-top: 25px;
+          border-top: 1px solid rgba(226, 232, 240, 0.85);
+        }
+
+        .hero-points > div {
+          display: flex;
+          gap: 8px;
+          align-items: flex-start;
+        }
+
+        .check-icon {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: #ecfdf5;
+          color: #059669;
+          font-size: 12px;
+          font-weight: 800;
+        }
+
+        .hero-points strong {
+          display: block;
+          font-size: 13.5px;
+          color: #1e293b;
+        }
+
+        .hero-points small {
+          display: block;
+          margin-top: 2px;
+          color: #64748b;
+          font-size: 11px;
+        }
+
+        .hero-background-glow {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          pointer-events: none;
+        }
+
+        .glow-one {
+          width: 450px;
+          height: 450px;
+          right: 5%;
+          top: 10%;
+          background: rgba(18, 85, 255, 0.12);
+        }
+
+        .glow-two {
+          width: 350px;
+          height: 350px;
+          left: 30%;
+          bottom: -150px;
+          background: rgba(253, 67, 34, 0.1);
+        }
+
+        .glow-three {
+          width: 260px;
+          height: 260px;
+          right: 35%;
+          bottom: 10%;
+          background: rgba(245, 158, 11, 0.08);
+        }
+
+        /* SECTION BASE */
+        .section-container {
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+
+        .section-heading {
+          max-width: 850px;
+          margin-bottom: 50px;
+        }
+
+        .section-heading.center {
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .section-heading h2 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(30px, 3.5vw, 44px);
+          line-height: 1.1;
+          letter-spacing: -1.5px;
+          font-weight: 800;
+          color: #0f172a;
+          margin: 8px 0 14px;
+        }
+
+        .section-heading h2 span {
+          color: #f97316;
+        }
+
+        .section-heading p {
+          max-width: 760px;
+          margin: 0 auto;
+          color: #64748b;
+          font-size: 15px;
+          line-height: 1.7;
+        }
+
+        /* ENROLLMENT INTERACTIVE SECTION */
+        .enrollment-section {
+          padding: 100px 20px;
+          background: #ffffff;
+        }
+
+        .enrollment-interactive-grid {
+          display: grid;
+          grid-template-columns: 430px 1fr;
+          gap: 40px;
+          align-items: center;
+        }
+
+        .enroll-step-list {
           display: flex;
           flex-direction: column;
+          gap: 12px;
+        }
+
+        .enroll-step-button {
+          width: 100%;
+          display: flex;
           align-items: flex-start;
-          transition: all 0.25s ease;
-        }
-
-        .pathway-feature-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-          border-color: rgba(249, 115, 22, 0.3);
-        }
-
-        .pathway-icon-circle {
-          width: 46px;
-          height: 46px;
-          border-radius: 12px;
-          background: linear-gradient(135deg, #fff1e6 0%, #ffe0c7 100%);
-          color: var(--orange);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 16px;
-          flex-shrink: 0;
-          transition: transform 0.25s ease, background 0.25s ease;
-        }
-
-        .pathway-feature-card:hover .pathway-icon-circle {
-          transform: scale(1.08) rotate(-4deg);
-          background: linear-gradient(135deg, var(--orange) 0%, #ea580c 100%);
-          color: #ffffff;
-        }
-
-        .navigator-mini-card {
-          background: #ffffff;
-          border: 1px solid #e2e8f0;
+          gap: 16px;
+          background: #f8fafc;
+          border: 1.5px solid #e2e8f0;
           border-radius: 14px;
-          padding: 22px;
+          padding: 18px;
+          text-align: left;
+          cursor: pointer;
           transition: all 0.25s ease;
         }
 
-        .navigator-mini-card:hover {
-          transform: translateY(-3px);
-          border-color: rgba(37, 99, 235, 0.3);
-          box-shadow: 0 14px 32px rgba(37, 99, 235, 0.08);
+        .enroll-step-button:hover {
+          background: #ffffff;
+          border-color: #cbd5e1;
         }
 
-        .navigator-mini-icon {
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-          background: #eff6ff;
-          color: var(--blue);
+        .enroll-step-button.active {
+          background: #fffaf5;
+          border-color: #f97316;
+          box-shadow: 0 10px 25px rgba(249, 115, 22, 0.08);
+        }
+
+        .enroll-step-num {
+          width: 34px;
+          height: 34px;
+          flex: 0 0 34px;
+          border-radius: 50%;
+          background: #f1f5f9;
+          color: #64748b;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 14px;
-          transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+          font-size: 12px;
+          font-weight: 800;
+          transition: all 0.25s ease;
         }
 
-        .navigator-mini-card:hover .navigator-mini-icon {
-          transform: scale(1.08);
-          background: var(--blue);
+        .enroll-step-button.active .enroll-step-num {
+          background: #f97316;
           color: #ffffff;
         }
 
-        .platform-pathway-card {
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .enroll-step-details {
+          flex: 1;
+          min-width: 0;
         }
 
-        .platform-pathway-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+        .enroll-step-details h3 {
+          margin: 0 0 4px;
+          font-size: 15px;
+          font-weight: 750;
+          color: #1e293b;
         }
 
-        .track-switch-pill {
-          padding: 8px 16px;
-          border-radius: 999px;
+        .enroll-step-button.active .enroll-step-details h3 {
+          color: #0f172a;
+        }
+
+        .enroll-route {
+          display: inline-block;
+          font-family: monospace;
+          font-size: 11px;
+          background: #ffffff;
+          border: 1px solid #cbd5e1;
+          padding: 2px 7px;
+          border-radius: 5px;
+          color: #475569;
+          margin-bottom: 6px;
+          word-break: break-word;
+        }
+
+        .enroll-step-details p {
+          color: #64748b;
           font-size: 12.5px;
+          line-height: 1.55;
+          margin: 0;
+        }
+
+        .enroll-image-column {
+          min-width: 0;
+        }
+
+        /* BROWSER MOCKUP FRAMES ADJUSTED FOR SCREENSHOTS */
+        .pathway-browser {
+          background: #f8fafc;
+          border-radius: 16px;
+          border: 1px solid #dbe1e8;
+          box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pathway-browser:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+        }
+
+        .wide-browser {
+          width: 100%;
+        }
+
+        .browser-top {
+          height: 44px;
+          background: #f1f5f9;
+          border-bottom: 1px solid #dbe1e8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+
+        .browser-dots {
+          display: flex;
+          gap: 7px;
+          position: absolute;
+          left: 18px;
+        }
+
+        .browser-dots span {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #cbd5e1;
+        }
+
+        .browser-title {
+          font-size: 11.5px;
+          color: #64748b;
+          font-weight: 700;
+          letter-spacing: 0.3px;
+        }
+
+        .browser-screenshot-wrapper {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          min-height: 400px;
+          background: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .showcase-wrapper {
+          aspect-ratio: 16 / 8.5;
+          min-height: 480px;
+        }
+
+        .browser-screenshot-image {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top center;
+        }
+
+        .screenshot-placeholder {
+          position: absolute;
+          inset: 20px;
+          border: 2px dashed #cbd5e1;
+          border-radius: 12px;
+          background: rgba(248, 250, 252, 0.95);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 24px;
+        }
+
+        .screenshot-placeholder span {
+          font-size: 10px;
+          font-weight: 800;
+          letter-spacing: 1.5px;
+          color: #f97316;
+        }
+
+        .screenshot-placeholder strong {
+          margin-top: 8px;
+          font-size: 17px;
+          color: #1e293b;
+        }
+
+        .screenshot-placeholder p {
+          max-width: 440px;
+          margin: 6px 0 10px;
+          font-size: 13px;
+          color: #64748b;
+          line-height: 1.55;
+        }
+
+        .screenshot-placeholder small {
+          color: #94a3b8;
+          font-family: monospace;
+          background: #ffffff;
+          padding: 4px 10px;
+          border-radius: 6px;
+          border: 1px solid #e2e8f0;
+          font-size: 11px;
+        }
+
+        .browser-screenshot-image[src] + .screenshot-placeholder {
+          display: none;
+        }
+
+        .screenshot-caption-row {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-top: 14px;
+        }
+
+        .screenshot-caption-row span {
+          font-size: 10px;
+          font-weight: 800;
+          color: #f97316;
+        }
+
+        .screenshot-caption-row strong {
+          font-size: 13px;
+          color: #334155;
+        }
+
+        /* SHOWCASE TAB SECTION */
+        .showcase-section {
+          padding: 100px 20px;
+          background: #fffaf5;
+          border-top: 1px solid #f1f5f9;
+          border-bottom: 1px solid #f1f5f9;
+        }
+
+        .view-mode-tabs {
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+          margin-bottom: 36px;
+        }
+
+        .view-mode-button {
+          border: 1.5px solid #e2e8f0;
+          background: #f8fafc;
+          color: #64748b;
+          border-radius: 10px;
+          padding: 12px 22px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 13px;
           font-weight: 700;
           cursor: pointer;
-          transition: all 0.2s ease;
-          font-family: var(--font-montserrat), sans-serif;
+          transition: all 0.25s ease;
         }
 
-        .track-switch-pill:hover {
-          border-color: var(--orange) !important;
-          transform: translateY(-1px);
+        .view-mode-button span {
+          font-size: 10px;
+          color: #94a3b8;
+        }
+
+        .view-mode-button:hover {
+          border-color: #f97316;
+          color: #f97316;
+        }
+
+        .view-mode-button.active {
+          background: #fff7ed;
+          border-color: #f97316;
+          color: #f97316;
+          box-shadow: 0 8px 20px rgba(249, 115, 22, 0.1);
+        }
+
+        .view-mode-button.active span {
+          color: #f97316;
+        }
+
+        /* COMPLETION WORKFLOW SECTION WITH STEP SELECTOR */
+        .completion-section {
+          padding: 100px 20px;
+          background: #ffffff;
+        }
+
+        .completion-interactive-grid {
+          display: grid;
+          grid-template-columns: 440px 1fr;
+          gap: 40px;
+          align-items: center;
+        }
+
+        .completion-steps-selector {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .completion-step-btn {
+          width: 100%;
+          text-align: left;
+          background: #f8fafc;
+          border: 1.5px solid #e2e8f0;
+          border-radius: 14px;
+          padding: 20px;
+          cursor: pointer;
+          transition: all 0.25s ease;
+        }
+
+        .completion-step-btn:hover {
+          background: #ffffff;
+          border-color: #cbd5e1;
+        }
+
+        .completion-step-btn.active {
+          background: #fffaf5;
+          border-color: #f97316;
+          box-shadow: 0 10px 25px rgba(249, 115, 22, 0.08);
+        }
+
+        .completion-step-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+        }
+
+        .completion-badge {
+          font-size: 11px;
+          font-weight: 800;
+          color: #f97316;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        .completion-indicator {
+          font-size: 11px;
+          color: #94a3b8;
+          font-weight: 600;
+        }
+
+        .completion-step-btn.active .completion-indicator {
+          color: #f97316;
+          font-weight: 700;
+        }
+
+        .completion-step-btn h3 {
+          font-size: 16px;
+          font-weight: 750;
+          color: #0f172a;
+          margin: 0 0 6px;
+        }
+
+        .platform-tag {
+          display: inline-block;
+          font-size: 11px;
+          font-weight: 700;
+          color: #2563eb;
+          background: #eff6ff;
+          padding: 2px 8px;
+          border-radius: 5px;
+          margin-bottom: 8px;
+        }
+
+        .completion-step-btn p {
+          font-size: 12.5px;
+          color: #64748b;
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        .completion-screenshot-panel {
+          min-width: 0;
+        }
+
+        /* BOTTOM CALLOUT NOTE */
+        .pathway-bottom-note {
+          max-width: 100%;
+          margin: 35px auto 0;
+          padding: 22px 25px;
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
+          border: 1px solid #fed7aa;
+          background: #ffffff;
+          border-radius: 14px;
+        }
+
+        .pathway-bottom-icon {
+          width: 32px;
+          height: 32px;
+          flex: 0 0 32px;
+          border-radius: 50%;
+          background: #f97316;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          font-weight: 800;
+        }
+
+        .pathway-bottom-note h3 {
+          margin: 2px 0 7px;
+          font-size: 15px;
+          color: #0f172a;
+        }
+
+        .pathway-bottom-note p {
+          margin: 0;
+          color: #64748b;
+          font-size: 12.5px;
+          line-height: 1.65;
+        }
+
+        /* FINAL CTA */
+        .final-cta {
+          padding: 100px 20px;
+          text-align: center;
+          background:
+            radial-gradient(circle at 50% 20%, rgba(249, 115, 22, 0.13), transparent 35%),
+            #fffaf5;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .cta-content {
+          position: relative;
+          z-index: 2;
+          max-width: 760px;
+          margin: 0 auto;
+        }
+
+        .cta-content h2 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(32px, 4vw, 50px);
+          line-height: 1.05;
+          letter-spacing: -2px;
+          margin: 8px 0 15px;
+          font-weight: 800;
+        }
+
+        .cta-content h2 span {
+          color: #f97316;
+        }
+
+        .cta-content p {
+          max-width: 650px;
+          margin: 0 auto 30px;
+          color: #64748b;
+          line-height: 1.7;
+          font-size: 15px;
+        }
+
+        .cta-button {
+          display: inline-block;
+          background: #f97316;
+          color: white;
+          text-decoration: none;
+          padding: 14px 30px;
+          border-radius: 9px;
+          font-size: 14px;
+          font-weight: 700;
+          box-shadow: 0 10px 25px rgba(249, 115, 22, 0.22);
+          transition: all 0.25s ease;
+        }
+
+        .cta-button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 30px rgba(249, 115, 22, 0.3);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1050px) {
+          .pathway-hero-inner {
+            padding: 80px 40px;
+          }
+          .enrollment-interactive-grid,
+          .completion-interactive-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+          .enroll-step-list,
+          .enroll-image-column,
+          .completion-steps-selector,
+          .completion-screenshot-panel {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+          }
+        }
+
+        @media (max-width: 760px) {
+          .pathway-hero {
+            min-height: auto;
+          }
+          .pathway-hero-inner {
+            padding: 70px 22px;
+          }
+          .hero-copy h1 {
+            font-size: 40px;
+            letter-spacing: -2px;
+          }
+          .enrollment-section,
+          .showcase-section,
+          .completion-section,
+          .final-cta {
+            padding: 75px 18px;
+          }
+          .view-mode-tabs {
+            flex-direction: column;
+          }
+          .browser-screenshot-wrapper,
+          .showcase-wrapper {
+            min-height: 240px;
+            aspect-ratio: auto;
+          }
         }
       `}</style>
     </main>

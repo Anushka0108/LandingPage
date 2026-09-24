@@ -8,9 +8,7 @@ import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
 
 function ResumeJourney() {
-  const [activeFlow, setActiveFlow] = useState<"import" | "generate">(
-    "import"
-  );
+  const [activeFlow, setActiveFlow] = useState<"import" | "generate">("import");
   const [currentStep, setCurrentStep] = useState(1);
   const [activeStep, setActiveStep] = useState(0);
 
@@ -95,12 +93,10 @@ function ResumeJourney() {
     },
   ];
 
-  const steps =
-    activeFlow === "import" ? importSteps : generateSteps;
+  const steps = activeFlow === "import" ? importSteps : generateSteps;
 
   return (
     <div className="resume-journey">
-
       {/* FLOW SWITCHER */}
       <div className="resume-flow-switcher">
         <button
@@ -132,16 +128,12 @@ function ResumeJourney() {
 
       {/* MAIN JOURNEY */}
       <div className="resume-journey-grid">
-
         {/* LEFT - STEPS */}
         <div className="resume-step-list">
           <div className="resume-step-intro">
             <span>
-              {activeFlow === "import"
-                ? "IMPORT RESUME"
-                : "GENERATE RESUME"}
+              {activeFlow === "import" ? "IMPORT RESUME" : "GENERATE RESUME"}
             </span>
-
             <p>
               {activeFlow === "import"
                 ? "Bring your existing resume into your SOLO profile."
@@ -154,21 +146,15 @@ function ResumeJourney() {
               type="button"
               key={step.number}
               className={
-                index === activeStep
-                  ? "resume-step active"
-                  : "resume-step"
+                index === activeStep ? "resume-step active" : "resume-step"
               }
               onClick={() => setActiveStep(index)}
             >
-              <div className="resume-step-number">
-                {step.number}
-              </div>
+              <div className="resume-step-number">{step.number}</div>
 
               <div className="resume-step-content">
                 <h3>{step.title}</h3>
-
                 <p>{step.description}</p>
-
               </div>
             </button>
           ))}
@@ -176,9 +162,7 @@ function ResumeJourney() {
 
         {/* RIGHT - IMAGE */}
         <div className="resume-image-area">
-
           <div className="resume-image-browser">
-
             <div className="resume-browser-bar">
               <div className="resume-browser-dots">
                 <span />
@@ -194,72 +178,43 @@ function ResumeJourney() {
             </div>
 
             <div className="resume-image-wrapper">
-
-              {/* 
-                ADD YOUR SCREENSHOTS HERE:
-                /public/images/resume/import/step-1.png
-                ...
-                /public/images/resume/generate/step-5.png
-              */}
-
               <img
                 key={steps[activeStep].image}
                 src={steps[activeStep].image}
                 alt={steps[activeStep].title}
                 className="resume-step-image"
+                onError={(e) => {
+                  (e.currentTarget as HTMLElement).style.display = "none";
+                }}
               />
 
               <div className="resume-image-placeholder">
                 <span>ADD SCREENSHOT</span>
-
-                <strong>
-                  {steps[activeStep].title}
-                </strong>
-
-                <small>
-                  {steps[activeStep].image}
-                </small>
+                <strong>{steps[activeStep].title}</strong>
+                <small>{steps[activeStep].image}</small>
               </div>
-
             </div>
-
           </div>
 
           <div className="resume-image-caption">
-            <span>
-              STEP {steps[activeStep].number}
-            </span>
-
-            <strong>
-              {steps[activeStep].title}
-            </strong>
+            <span>STEP {steps[activeStep].number}</span>
+            <strong>{steps[activeStep].title}</strong>
           </div>
-
         </div>
       </div>
 
       {/* BOTTOM SUMMARY */}
       <div className="resume-bottom-note">
-
-        <div className="resume-bottom-icon">
-          ✓
-        </div>
-
+        <div className="resume-bottom-icon">✓</div>
         <div>
-          <h3>
-            One profile. Multiple uses.
-          </h3>
-
+          <h3>One profile. Multiple uses.</h3>
           <p>
-            Information stored in your SOLO profile can be used to support
-            your resume and career applications, helping you keep your
-            professional information current as your skills and achievements
-            grow.
+            Information stored in your SOLO profile can be used to support your
+            resume and career applications, helping you keep your professional
+            information current as your skills and achievements grow.
           </p>
         </div>
-
       </div>
-
     </div>
   );
 }
@@ -276,42 +231,6 @@ export default function LifelongSkillsPortfolioPage() {
     { name: "Other Achievements" },
     { name: "Posts" },
     { name: "Endorsements" },
-  ];
-
-  const skills = [
-    "Software Development",
-    "Information Technology",
-    "Web Development",
-    "Programming",
-    "Database Management",
-    "42 More Skills",
-  ];
-
-  const educationRecords = [
-    {
-      title: "Bachelor's Degree",
-      institution: "Your Institution",
-      period: "Present",
-      skills: "14 Skills",
-      description:
-        "Currently pursuing higher education with a focus on developing technical, professional, and practical skills.",
-    },
-    {
-      title: "Higher Secondary Education",
-      institution: "Your School",
-      period: "Completed",
-      skills: "",
-      description:
-        "Completed higher secondary education with a focus on academic and foundational skills.",
-    },
-    {
-      title: "Secondary Education",
-      institution: "Your School",
-      period: "Completed",
-      skills: "",
-      description:
-        "Completed secondary education and developed a strong foundation across core academic areas.",
-    },
   ];
 
   return (
@@ -348,7 +267,7 @@ export default function LifelongSkillsPortfolioPage() {
 
               <p className="hero-description">
                 Your SOLO profile brings together the information that
-                represents what you have learned, built, and achieved. 
+                represents what you have learned, built, and achieved.
               </p>
 
               <div className="hero-buttons">
@@ -391,7 +310,6 @@ export default function LifelongSkillsPortfolioPage() {
             <div className="profile-purpose-grid">
               <div className="purpose-card purpose-large">
                 <div className="purpose-number">01</div>
-
                 <div>
                   <h3>Build your professional identity</h3>
                   <p>
@@ -404,7 +322,6 @@ export default function LifelongSkillsPortfolioPage() {
 
               <div className="purpose-card">
                 <div className="purpose-number">02</div>
-
                 <div>
                   <h3>Showcase your skills</h3>
                   <p>
@@ -416,7 +333,6 @@ export default function LifelongSkillsPortfolioPage() {
 
               <div className="purpose-card">
                 <div className="purpose-number">03</div>
-
                 <div>
                   <h3>Keep your achievements together</h3>
                   <p>
@@ -432,25 +348,24 @@ export default function LifelongSkillsPortfolioPage() {
       </FadeInSection>
 
       {/* =========================================================
-          PROFILE OVERVIEW
+          PROFILE OVERVIEW (ACTUAL SCREENSHOT CONTAINER)
       ========================================================= */}
       <FadeInSection>
         <section id="profile-overview" className="profile-showcase-section">
           <div className="section-container">
             <div className="section-heading center">
               <span className="section-label">PROFILE OVERVIEW</span>
-
               <h2>
                 See your profile
                 <span> at a glance.</span>
               </h2>
-
               <p>
                 The profile brings your identity, skills, and professional
                 information together in a single view.
               </p>
             </div>
 
+            {/* SCREENSHOT BROWSER FRAME */}
             <div className="profile-browser">
               <div className="browser-top">
                 <div className="browser-dots">
@@ -458,132 +373,31 @@ export default function LifelongSkillsPortfolioPage() {
                   <span />
                   <span />
                 </div>
-
-                <div className="browser-title">My Profile | SOLO</div>
               </div>
 
-              <div className="profile-browser-body">
-                {/* LEFT ABOUT PANEL */}
-                <div className="about-panel">
-                  <div className="about-heading">
-                    <h3>About Me</h3>
+              <div className="profile-screenshot-wrapper">
+                {/* 
+                  Drop your actual full-width profile screenshot at:
+                  /public/images/profile/profile-overview.png
+                */}
+                <img
+                  src="/images/profile/profile-overview.png"
+                  alt="SOLO Lifelong Skills Profile View"
+                  className="profile-actual-image"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLElement).style.display = "none";
+                  }}
+                />
 
-                    <button className="icon-button" type="button">
-                      ✎
-                    </button>
-                  </div>
-
-                  <div className="about-item">
-                    <span>Add social link</span>
-                    <button className="icon-button" type="button">
-                      ✎
-                    </button>
-                  </div>
-
-                  <div className="about-item">
-                    <span>Your Location</span>
-                    <button className="icon-button" type="button">
-                      ✎
-                    </button>
-                  </div>
-                </div>
-
-                {/* MAIN PROFILE HEADER */}
-                <div className="profile-main">
-                  <div className="profile-cover">
-                    <div className="profile-handle">
-                      <span className="profile-symbol">◉</span>
-                      @YourUsername
-                      <button
-                        className="edit-white"
-                        type="button"
-                      >
-                        ✎
-                      </button>
-                    </div>
-
-                    <button className="cover-button" type="button">
-                      📷 Edit cover photo
-                    </button>
-
-                    <div className="profile-identity">
-                      <div className="avatar">
-                        <div className="avatar-inner">👤</div>
-                      </div>
-
-                      <div className="identity-text">
-                        <div className="identity-name">
-                          Your Name
-                          <button
-                            className="edit-white"
-                            type="button"
-                          >
-                            ✎
-                          </button>
-                        </div>
-
-                        <div className="identity-bio">
-                          Learner and aspiring professional
-                          <button
-                            className="edit-white"
-                            type="button"
-                          >
-                            ✎
-                          </button>
-                        </div>
-                      </div>
-
-                      <div className="profile-stats">
-                        <div>
-                          <strong>0</strong>
-                          <span>Posts</span>
-                        </div>
-
-                        <div>
-                          <strong>0</strong>
-                          <span>Followers</span>
-                        </div>
-
-                        <div>
-                          <strong>0</strong>
-                          <span>Following</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* SKILLS PANEL */}
-                <div className="skills-panel">
-                  <div className="skills-heading">
-                    <h3>Acquired Skills</h3>
-                    <button className="icon-button" type="button">
-                      ✎
-                    </button>
-                  </div>
-
-                  <div className="skill-list">
-                    {skills.map((skill, index) => (
-                      <span
-                        key={index}
-                        className={
-                          skill === "42 More Skills"
-                            ? "skill-chip more"
-                            : "skill-chip"
-                        }
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* PROFILE ACTIONS */}
-                <div className="profile-actions">
-                  <button type="button">Verify Government ID</button>
-                  <button type="button">Ask for endorsement</button>
-                  <button type="button">Profile CLR</button>
-                  <button type="button">Copy Profile Link</button>
+                <div className="profile-screenshot-placeholder">
+                  <span>ADD PROFILE SCREENSHOT</span>
+                  <strong>SOLO Profile Overview</strong>
+                  <p>
+                    Replace with full capture of your My Profile view
+                    demonstrating the learner header, acquired skills, and
+                    overview.
+                  </p>
+                  <small>/public/images/profile/profile-overview.png</small>
                 </div>
               </div>
             </div>
@@ -599,12 +413,10 @@ export default function LifelongSkillsPortfolioPage() {
           <div className="section-container">
             <div className="section-heading">
               <span className="section-label">YOUR PROFILE RECORDS</span>
-
               <h2>
                 Everything has
                 <span> its place.</span>
               </h2>
-
               <p>
                 Your profile organizes different types of learning and
                 experience into separate sections, making it easier to present
@@ -621,20 +433,15 @@ export default function LifelongSkillsPortfolioPage() {
                   }`}
                 >
                   <span>{tab.name}</span>
-
-                  {tab.count && (
-                    <span className="tab-count">{tab.count}</span>
-                  )}
+                  {tab.count && <span className="tab-count">{tab.count}</span>}
                 </div>
               ))}
             </div>
 
             <div className="section-explanation">
               <div className="explanation-line" />
-
               <div>
                 <h3>One profile, different types of experience.</h3>
-
                 <p>
                   Depending on what you have completed, your profile can
                   contain education, work experience, internships, courses,
@@ -648,128 +455,56 @@ export default function LifelongSkillsPortfolioPage() {
       </FadeInSection>
 
       {/* =========================================================
-          EDUCATION RECORDS
+          RECORDS (ACTUAL SCREENSHOT CONTAINER)
       ========================================================= */}
       <FadeInSection>
         <section className="records-section">
           <div className="section-container">
             <div className="section-heading center">
-              <span className="section-label">PROFILE RECORD</span>
-
+              <span className="section-label">PROFILE RECORDS</span>
               <h2>
-                Your education,
-                <span> clearly presented.</span>
+                Your achievements,
+                <span> clearly organized.</span>
               </h2>
-
               <p>
-                Profile records can contain details, skills, descriptions, and
-                credential information associated with your achievements.
+                Profile records contain details, skills, descriptions, and
+                credential information associated with each section of your
+                learning journey.
               </p>
             </div>
 
-            <div className="education-interface">
-              <div className="education-header">
-                <h3>Education</h3>
-
-                <div className="education-actions">
-                  <button type="button">⊞ Add</button>
-                  <button type="button">⇩ Import</button>
+            <div className="profile-browser">
+              <div className="browser-top">
+                <div className="browser-dots">
+                  <span />
+                  <span />
+                  <span />
                 </div>
               </div>
 
-              <div className="education-grid">
-                {educationRecords.map((record, index) => (
-                  <div
-                    key={index}
-                    className="education-card"
-                    style={{
-                      animationDelay: `${index * 120}ms`,
-                    }}
-                  >
-                    <div className="education-card-top">
-                      <div className="credential-badge">
-                        <div className="badge-inner">★</div>
-                      </div>
+              <div className="profile-screenshot-wrapper">
+                {/* 
+                  Drop your actual records / education / experience section screenshot at:
+                  /public/images/profile/profile-records.png
+                */}
+                <img
+                  src="/images/profile/profile-records.png"
+                  alt="SOLO Profile Records and Timeline"
+                  className="profile-actual-image"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLElement).style.display = "none";
+                  }}
+                />
 
-                      <div className="education-info">
-                        <h4>{record.title}</h4>
-
-                        <p className="institution">
-                          {record.institution}
-                        </p>
-
-                        <p className="period">{record.period}</p>
-
-                        <div className="record-tags">
-                          {record.skills && (
-                            <span>{record.skills}</span>
-                          )}
-
-                          <span>Self Issued</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="education-description">
-                      {record.description}
-                      <span> see more</span>
-                    </p>
-
-                    <div className="education-card-footer">
-                      <button
-                        className="footer-icon"
-                        type="button"
-                      >
-                        ✎
-                      </button>
-
-                      <button
-                        className="footer-icon"
-                        type="button"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={24}
-                          height={24}
-                          fill={"currentColor"}
-                          viewBox={"0 0 28 28"}
-                        >
-                          <path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path>
-                          <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
-                        </svg>
-                      </button>
-
-                      <button
-                        className="footer-icon"
-                        type="button"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={24}
-                          height={24}
-                          fill={"currentColor"}
-                          viewBox={"0 0 28 28"}
-                        >
-                          <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2M4 12c0-.9.16-1.76.43-2.57L6 11l2 2v2l2 2 1 1v1.93c-3.94-.49-7-3.86-7-7.93m14.33 4.87c-.65-.53-1.64-.87-2.33-.87v-1c0-1.1-.9-2-2-2h-4v-3c1.1 0 2-.9 2-2V7h1c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 1.83-.63 3.52-1.67 4.87"></path>
-                        </svg>
-                      </button>
-
-                      <button
-                        className="open-badge"
-                        type="button"
-                      >
-                        Openbadge
-                      </button>
-
-                      <button
-                        className="credential-link"
-                        type="button"
-                      >
-                        View Credential
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                <div className="profile-screenshot-placeholder">
+                  <span>ADD RECORDS SCREENSHOT</span>
+                  <strong>Records and Timeline Section</strong>
+                  <p>
+                    Capture showing education cards, self-issued credentials,
+                    and badge verification details.
+                  </p>
+                  <small>/public/images/profile/profile-records.png</small>
+                </div>
               </div>
             </div>
           </div>
@@ -785,12 +520,10 @@ export default function LifelongSkillsPortfolioPage() {
             <div className="skills-content">
               <div className="skills-copy">
                 <span className="section-label">ACQUIRED SKILLS</span>
-
                 <h2>
                   Your skills become
                   <span> part of your profile.</span>
                 </h2>
-
                 <p>
                   SOLO allows learners to add relevant skills while building
                   their profile. Keeping your skills updated helps the platform
@@ -801,7 +534,6 @@ export default function LifelongSkillsPortfolioPage() {
                 <div className="skills-benefits">
                   <div className="benefit">
                     <span>01</span>
-
                     <div>
                       <strong>Show what you know</strong>
                       <p>
@@ -813,7 +545,6 @@ export default function LifelongSkillsPortfolioPage() {
 
                   <div className="benefit">
                     <span>02</span>
-
                     <div>
                       <strong>Connect skills to your profile</strong>
                       <p>
@@ -825,7 +556,6 @@ export default function LifelongSkillsPortfolioPage() {
 
                   <div className="benefit">
                     <span>03</span>
-
                     <div>
                       <strong>Keep your profile relevant</strong>
                       <p>
@@ -837,51 +567,36 @@ export default function LifelongSkillsPortfolioPage() {
                 </div>
               </div>
 
-              <div className="skills-visual">
-                <div className="floating-label label-one">
-                  <span>✓</span>
-                  Skill added
-                </div>
-
-                <div className="floating-label label-two">
-                  <span>✓</span>
-                  Profile updated
-                </div>
-
-                <div className="skill-card-large">
-                  <div className="skill-card-header">
-                    <div>
-                      <small>PROFILE</small>
-                      <h3>Acquired Skills</h3>
+              {/* SKILLS SCREENSHOT CONTAINER */}
+              <div className="skills-screenshot-container">
+                <div className="resume-image-browser">
+                  <div className="resume-browser-bar">
+                    <div className="resume-browser-dots">
+                      <span />
+                      <span />
+                      <span />
                     </div>
-
-                    <button type="button">✎</button>
                   </div>
 
-                  <div className="large-skill-list">
-                    {[
-                      "Web Development",
-                      "Software Development",
-                      "Programming",
-                      "Database Management",
-                      "Information Technology",
-                      "Problem Solving",
-                    ].map((skill, index) => (
-                      <div
-                        className="large-skill"
-                        key={index}
-                        style={{
-                          animationDelay: `${index * 100}ms`,
-                        }}
-                      >
-                        <span>✓</span>
-                        {skill}
-                      </div>
-                    ))}
-                  </div>
+                  <div className="resume-image-wrapper">
+                    {/* 
+                      Drop actual skills drawer or profile skills list screenshot at:
+                      /public/images/profile/skills-view.png
+                    */}
+                    <img
+                      src="/images/profile/skills-view.png"
+                      alt="SOLO Acquired Skills Section"
+                      className="resume-step-image"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLElement).style.display = "none";
+                      }}
+                    />
 
-                  <div className="skills-more">
-                    + 42 More Skills
+                    <div className="resume-image-placeholder">
+                      <span>ADD SCREENSHOT</span>
+                      <strong>Acquired Skills Drawer / Widget</strong>
+                      <small>/public/images/profile/skills-view.png</small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -900,12 +615,10 @@ export default function LifelongSkillsPortfolioPage() {
               <span className="section-label">
                 CREDENTIALS & ACHIEVEMENTS
               </span>
-
               <h2>
                 Your achievements can become
                 <span> verifiable proof.</span>
               </h2>
-
               <p>
                 SOLO supports verified credentials and digital badges that can
                 be associated with your learning and achievements.
@@ -916,12 +629,8 @@ export default function LifelongSkillsPortfolioPage() {
               <div className="credential-step">
                 <div className="credential-number">01</div>
                 <div className="credential-icon">🏆</div>
-
                 <h3>Achievement</h3>
-
-                <p>
-                  Complete learning or other eligible activities.
-                </p>
+                <p>Complete learning or other eligible activities.</p>
               </div>
 
               <div className="flow-arrow">→</div>
@@ -929,9 +638,7 @@ export default function LifelongSkillsPortfolioPage() {
               <div className="credential-step">
                 <div className="credential-number">02</div>
                 <div className="credential-icon">✓</div>
-
                 <h3>Credential</h3>
-
                 <p>
                   Receive a credential or badge after assessment and issuance.
                 </p>
@@ -942,12 +649,8 @@ export default function LifelongSkillsPortfolioPage() {
               <div className="credential-step">
                 <div className="credential-number">03</div>
                 <div className="credential-icon">↗</div>
-
                 <h3>Showcase</h3>
-
-                <p>
-                  Share your verified achievements with others.
-                </p>
+                <p>Share your verified achievements with others.</p>
               </div>
             </div>
           </div>
@@ -960,15 +663,12 @@ export default function LifelongSkillsPortfolioPage() {
       <FadeInSection>
         <section className="resume-section">
           <div className="section-container">
-
             <div className="section-heading center">
               <span className="section-label">RESUME TO PROFILE & BACK</span>
-
               <h2>
                 Turn your resume into a profile,
                 <span> and your profile into a resume.</span>
               </h2>
-
               <p>
                 Import an existing resume into your SOLO profile or generate an
                 updated, ATS-ready resume using the information already stored
@@ -977,7 +677,6 @@ export default function LifelongSkillsPortfolioPage() {
             </div>
 
             <ResumeJourney />
-
           </div>
         </section>
       </FadeInSection>
@@ -990,15 +689,11 @@ export default function LifelongSkillsPortfolioPage() {
           <div className="cta-glow" />
 
           <div className="cta-content">
-            <span className="section-label">
-              YOUR PROFESSIONAL PROFILE
-            </span>
-
+            <span className="section-label">YOUR PROFESSIONAL PROFILE</span>
             <h2>
               Make your skills
               <span> visible.</span>
             </h2>
-
             <p>
               Build a profile that brings together your education, skills,
               experience, projects, learning activities, and achievements.
@@ -1038,7 +733,6 @@ export default function LifelongSkillsPortfolioPage() {
         /* =====================================================
            HERO
         ===================================================== */
-
         .profile-hero {
           min-height: calc(100vh - 65px);
           position: relative;
@@ -1106,12 +800,8 @@ export default function LifelongSkillsPortfolioPage() {
           color: #171717;
         }
 
-        .hero-copy h1 span {
-          color: #f97316;
-        }
-
+        .hero-copy h1 span,
         .hero-copy h1 .orange-text {
-          display: inline;
           color: #f97316;
         }
 
@@ -1165,46 +855,6 @@ export default function LifelongSkillsPortfolioPage() {
           color: #f97316;
         }
 
-        .hero-points {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 25px;
-          padding-top: 25px;
-          border-top: 1px solid rgba(226, 232, 240, 0.85);
-        }
-
-        .hero-points > div {
-          display: flex;
-          gap: 8px;
-          align-items: flex-start;
-        }
-
-        .check-icon {
-          width: 20px;
-          height: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          background: #ecfdf5;
-          color: #059669;
-          font-size: 12px;
-          font-weight: 800;
-        }
-
-        .hero-points strong {
-          display: block;
-          font-size: 13px;
-          color: #1e293b;
-        }
-
-        .hero-points small {
-          display: block;
-          margin-top: 2px;
-          color: #64748b;
-          font-size: 11px;
-        }
-
         .hero-background-glow {
           position: absolute;
           border-radius: 50%;
@@ -1239,7 +889,6 @@ export default function LifelongSkillsPortfolioPage() {
         /* =====================================================
            GENERAL SECTIONS
         ===================================================== */
-
         .section-container {
           width: 100%;
           max-width: 1240px;
@@ -1287,7 +936,6 @@ export default function LifelongSkillsPortfolioPage() {
         /* =====================================================
            INTRO
         ===================================================== */
-
         .intro-section {
           padding: 100px 20px;
           background: #ffffff;
@@ -1335,14 +983,19 @@ export default function LifelongSkillsPortfolioPage() {
         }
 
         /* =====================================================
-           PROFILE SHOWCASE
+           SCREENSHOT CONTAINERS (OVERVIEW & RECORDS)
         ===================================================== */
-
-        .profile-showcase-section {
+        .profile-showcase-section,
+        .records-section {
           padding: 100px 20px;
           background: #fffaf5;
           border-top: 1px solid #f1f5f9;
           border-bottom: 1px solid #f1f5f9;
+        }
+
+        .records-section {
+          background: #f8fafc;
+          border-color: #e2e8f0;
         }
 
         .profile-browser {
@@ -1351,7 +1004,6 @@ export default function LifelongSkillsPortfolioPage() {
           border: 1px solid #dbe1e8;
           box-shadow: 0 25px 70px rgba(15, 23, 42, 0.1);
           overflow: hidden;
-          transform: translateY(0);
           transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
@@ -1361,7 +1013,7 @@ export default function LifelongSkillsPortfolioPage() {
         }
 
         .browser-top {
-          height: 42px;
+          height: 44px;
           background: #f8fafc;
           border-bottom: 1px solid #dbe1e8;
           display: flex;
@@ -1389,252 +1041,80 @@ export default function LifelongSkillsPortfolioPage() {
           font-size: 11px;
           color: #94a3b8;
           font-weight: 700;
+          letter-spacing: 0.5px;
         }
 
-        .profile-browser-body {
-          padding: 26px;
-          display: grid;
-          grid-template-columns: 300px 1fr;
-          gap: 20px;
-        }
-
-        .about-panel {
-          background: #ffffff;
-          border-radius: 12px;
-          padding: 24px;
-          min-height: 280px;
-          border: 1px solid #e2e8f0;
-        }
-
-        .about-heading {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .about-heading h3 {
-          font-size: 20px;
-          margin: 0;
-          color: #172033;
-        }
-
-        .about-item {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-top: 18px;
-          font-size: 14px;
-          color: #334155;
-        }
-
-        .icon-button {
-          background: transparent;
-          border: none;
-          color: #ff5500;
-          font-size: 16px;
-          cursor: default;
-        }
-
-        .profile-main {
-          min-width: 0;
-        }
-
-        .profile-cover {
-          min-height: 280px;
-          border-radius: 12px;
+        .profile-screenshot-wrapper {
           position: relative;
+          min-height: 520px;
+          background: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           overflow: hidden;
-          background:
-            linear-gradient(
-              145deg,
-              #22c8df 0%,
-              #4387f5 48%,
-              #6436c6 100%
-            );
-          color: white;
         }
 
-        .profile-handle {
+        .profile-actual-image {
+          display: block;
+          width: 100%;
+          height: auto;
+          max-height: 750px;
+          object-fit: cover;
+          object-position: top center;
+        }
+
+        .profile-screenshot-placeholder {
           position: absolute;
-          top: 22px;
-          left: 25px;
-          font-size: 14px;
-          display: flex;
-          align-items: center;
-          gap: 7px;
-        }
-
-        .profile-symbol {
-          width: 23px;
-          height: 23px;
-          border: 2px solid white;
-          border-radius: 50%;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .edit-white {
-          background: transparent;
-          border: none;
-          color: #ff5500;
-          cursor: default;
-          font-size: 15px;
-        }
-
-        .profile-handle .edit-white,
-        .identity-name .edit-white,
-        .identity-bio .edit-white {
-          color: #ff5500;
-        }
-
-        .cover-button {
-          position: absolute;
-          right: 24px;
-          top: 18px;
-          border: none;
-          background: white;
-          color: #475569;
-          padding: 9px 14px;
-          border-radius: 9px;
-          font-size: 12px;
-          cursor: default;
-        }
-
-        .profile-identity {
-          position: absolute;
-          left: 25px;
-          right: 25px;
-          bottom: 22px;
-          display: flex;
-          align-items: flex-end;
-          gap: 14px;
-        }
-
-        .avatar {
-          width: 58px;
-          height: 58px;
-          border-radius: 50%;
-          background: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 3px solid rgba(255, 255, 255, 0.85);
-        }
-
-        .avatar-inner {
-          font-size: 25px;
-        }
-
-        .identity-text {
-          flex: 1;
-        }
-
-        .identity-name {
-          font-weight: 800;
-          font-size: 17px;
-          margin-bottom: 5px;
-        }
-
-        .identity-bio {
-          font-size: 13px;
-        }
-
-        .profile-stats {
-          display: flex;
-          gap: 32px;
-        }
-
-        .profile-stats div {
+          inset: 30px;
+          border: 2px dashed #cbd5e1;
+          border-radius: 14px;
+          background: rgba(248, 250, 252, 0.9);
           display: flex;
           flex-direction: column;
           align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 30px;
         }
 
-        .profile-stats strong {
-          font-size: 16px;
-        }
-
-        .profile-stats span {
+        .profile-screenshot-placeholder span {
           font-size: 11px;
-          margin-top: 4px;
-        }
-
-        .skills-panel {
-          grid-column: 1 / -1;
-          background: white;
-          border-radius: 12px;
-          padding: 25px;
-          border: 1px solid #e2e8f0;
-        }
-
-        .skills-heading {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 18px;
-        }
-
-        .skills-heading h3 {
-          margin: 0;
-          font-size: 18px;
-        }
-
-        .skill-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 9px;
-        }
-
-        .skill-chip {
-          padding: 7px 14px;
-          border: 1px solid #d9e0e8;
-          border-radius: 8px;
-          color: #526173;
-          background: #ffffff;
-          font-size: 12.5px;
-          transition: all 0.25s ease;
-        }
-
-        .skill-chip:hover {
-          border-color: #f97316;
+          font-weight: 800;
+          letter-spacing: 1.5px;
           color: #f97316;
-          transform: translateY(-2px);
         }
 
-        .skill-chip.more {
-          background: #f8fafc;
-          font-weight: 700;
+        .profile-screenshot-placeholder strong {
+          margin-top: 10px;
+          font-size: 18px;
+          color: #1e293b;
         }
 
-        .profile-actions {
-          grid-column: 1 / -1;
-          display: flex;
-          justify-content: flex-end;
-          flex-wrap: wrap;
-          gap: 9px;
+        .profile-screenshot-placeholder p {
+          max-width: 480px;
+          margin: 8px 0 12px;
+          font-size: 13.5px;
+          color: #64748b;
+          line-height: 1.6;
         }
 
-        .profile-actions button {
-          background: white;
-          border: 1.5px solid #ff6b2c;
-          color: #ff5b1a;
-          border-radius: 8px;
-          padding: 8px 13px;
-          font-size: 12px;
-          cursor: default;
-          transition: none;
+        .profile-screenshot-placeholder small {
+          color: #94a3b8;
+          font-family: monospace;
+          background: #ffffff;
+          padding: 4px 10px;
+          border-radius: 6px;
+          border: 1px solid #e2e8f0;
+          font-size: 11px;
         }
 
-        .profile-actions button:hover {
-          background: white;
-          transform: none;
+        .profile-actual-image[src] + .profile-screenshot-placeholder {
+          display: none;
         }
 
         /* =====================================================
            PROFILE SECTIONS
         ===================================================== */
-
         .sections-section {
           padding: 100px 20px;
           background: #ffffff;
@@ -1658,15 +1138,6 @@ export default function LifelongSkillsPortfolioPage() {
           color: #64748b;
           font-size: 13px;
           border: 1px solid transparent;
-          transition: none;
-          cursor: default;
-        }
-
-        .profile-tab:hover {
-          transform: none;
-          background: #f8fafc;
-          border-color: transparent;
-          box-shadow: none;
         }
 
         .profile-tab-active {
@@ -1674,14 +1145,6 @@ export default function LifelongSkillsPortfolioPage() {
           background: #fff;
           border-bottom: 3px solid #ff7a32;
           box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
-        }
-
-        .profile-tab-active:hover {
-          background: #fff;
-          border-bottom: 3px solid #ff7a32;
-          border-color: transparent;
-          box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
-          transform: none;
         }
 
         .tab-count {
@@ -1729,230 +1192,8 @@ export default function LifelongSkillsPortfolioPage() {
         }
 
         /* =====================================================
-           EDUCATION RECORDS
+           SKILLS SECTION
         ===================================================== */
-
-        .records-section {
-          padding: 100px 20px;
-          background: #f8fafc;
-          border-top: 1px solid #e2e8f0;
-          border-bottom: 1px solid #e2e8f0;
-        }
-
-        .education-interface {
-          background: #ffffff;
-          border: 1px solid #e2e8f0;
-          border-radius: 16px;
-          padding: 30px;
-          box-shadow: 0 15px 40px rgba(15, 23, 42, 0.05);
-        }
-
-        .education-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 25px;
-        }
-
-        .education-header h3 {
-          font-size: 21px;
-          margin: 0;
-        }
-
-        .education-actions {
-          display: flex;
-          gap: 10px;
-        }
-
-        .education-actions button {
-          background: white;
-          border: 1.5px solid #ff5b1a;
-          color: #ff5b1a;
-          padding: 8px 14px;
-          border-radius: 8px;
-          font-size: 12px;
-          cursor: default;
-          transition: none;
-        }
-
-        .education-actions button:hover {
-          background: white;
-          transform: none;
-        }
-
-        .education-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
-        }
-
-        .education-card {
-          background: #ffffff;
-          border: 1px solid #dce2e8;
-          border-radius: 11px;
-          overflow: hidden;
-          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-          animation: cardReveal 0.65s ease both;
-          transition: all 0.3s ease;
-        }
-
-        .education-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 18px 35px rgba(15, 23, 42, 0.1);
-        }
-
-        .education-card-top {
-          padding: 20px;
-          display: flex;
-          gap: 16px;
-        }
-
-        .credential-badge {
-          width: 78px;
-          height: 78px;
-          flex: 0 0 78px;
-          border-radius: 50%;
-          border: 3px solid #ff8500;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          background: #fff;
-        }
-
-        .credential-badge::before {
-          content: "";
-          position: absolute;
-          inset: 5px;
-          border: 1px dashed #ffae5b;
-          border-radius: 50%;
-        }
-
-        .badge-inner {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: #ff9900;
-          color: #ffffff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 19px;
-          position: relative;
-        }
-
-        .education-info {
-          min-width: 0;
-        }
-
-        .education-info h4 {
-          margin: 0 0 4px;
-          font-size: 16px;
-          color: #23334a;
-        }
-
-        .education-info p {
-          margin: 3px 0;
-        }
-
-        .institution {
-          font-size: 13px;
-          color: #526173;
-        }
-
-        .period {
-          font-size: 11px;
-          color: #64748b;
-        }
-
-        .record-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
-          margin-top: 9px;
-        }
-
-        .record-tags span {
-          background: #fff0df;
-          color: #ff6800;
-          padding: 5px 8px;
-          border-radius: 7px;
-          font-size: 10px;
-          font-weight: 700;
-        }
-
-        .education-description {
-          padding: 0 20px 18px;
-          margin: 0;
-          min-height: 72px;
-          font-size: 12.5px;
-          color: #64748b;
-          line-height: 1.5;
-        }
-
-        .education-description span {
-          color: #ff5500;
-        }
-
-        .education-card-footer {
-          background: #f5f5f5;
-          border-top: 1px solid #edf0f2;
-          padding: 12px 18px;
-          display: flex;
-          align-items: center;
-          gap: 13px;
-          flex-wrap: wrap;
-        }
-
-        .footer-icon {
-          background: transparent;
-          border: none;
-          color: #ff5b1a;
-          cursor: default;
-          transition: none;
-        }
-
-        .footer-icon:hover {
-          transform: none;
-          color: #ff5b1a;
-        }
-
-        .open-badge {
-          border: none;
-          background: #ff9900;
-          color: white;
-          border-radius: 7px;
-          padding: 7px 10px;
-          font-size: 10px;
-          font-weight: 700;
-          cursor: default;
-          transition: none;
-        }
-
-        .open-badge:hover {
-          background: #ff9900;
-          transform: none;
-        }
-
-        .credential-link {
-          background: transparent;
-          border: none;
-          color: #ff5b1a;
-          font-size: 11px;
-          font-weight: 600;
-          cursor: default;
-          transition: none;
-        }
-
-        .credential-link:hover {
-          color: #ff5b1a;
-          transform: none;
-        }
-
-        /* =====================================================
-           SKILLS
-        ===================================================== */
-
         .skills-explanation-section {
           padding: 110px 20px;
           background: #ffffff;
@@ -1960,8 +1201,8 @@ export default function LifelongSkillsPortfolioPage() {
 
         .skills-content {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 80px;
+          grid-template-columns: 1fr 1.15fr;
+          gap: 60px;
           align-items: center;
         }
 
@@ -2015,122 +1256,13 @@ export default function LifelongSkillsPortfolioPage() {
           line-height: 1.5;
         }
 
-        .skills-visual {
-          position: relative;
-          min-height: 470px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .skill-card-large {
-          width: 100%;
-          max-width: 500px;
-          background: white;
-          border: 1px solid #e2e8f0;
-          border-radius: 16px;
-          padding: 28px;
-          box-shadow: 0 25px 60px rgba(15, 23, 42, 0.1);
-          position: relative;
-          z-index: 2;
-        }
-
-        .skill-card-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 1px solid #edf0f3;
-          padding-bottom: 17px;
-          margin-bottom: 18px;
-        }
-
-        .skill-card-header small {
-          color: #f97316;
-          font-weight: 800;
-          font-size: 9px;
-          letter-spacing: 1.5px;
-        }
-
-        .skill-card-header h3 {
-          margin: 4px 0 0;
-          font-size: 18px;
-        }
-
-        .skill-card-header button {
-          background: transparent;
-          border: none;
-          color: #f97316;
-          cursor: default;
-        }
-
-        .large-skill-list {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .large-skill {
-          padding: 11px 13px;
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          border-radius: 8px;
-          font-size: 12.5px;
-          color: #475569;
-          display: flex;
-          gap: 9px;
-          animation: skillSlide 0.5s ease both;
-        }
-
-        .large-skill span {
-          color: #10b981;
-          font-weight: 800;
-        }
-
-        .skills-more {
-          margin-top: 15px;
-          display: inline-block;
-          padding: 7px 13px;
-          border-radius: 20px;
-          background: #fff7ed;
-          border: 1px solid #fed7aa;
-          color: #f97316;
-          font-size: 11px;
-          font-weight: 700;
-        }
-
-        .floating-label {
-          position: absolute;
-          z-index: 3;
-          background: white;
-          border: 1px solid #e2e8f0;
-          border-radius: 9px;
-          padding: 10px 13px;
-          font-size: 11px;
-          font-weight: 700;
-          box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-          animation: floating 3s ease-in-out infinite;
-        }
-
-        .floating-label span {
-          color: #10b981;
-          margin-right: 5px;
-        }
-
-        .label-one {
-          top: 20px;
-          right: 0;
-        }
-
-        .label-two {
-          bottom: 25px;
-          left: 0;
-          animation-delay: 1.2s;
+        .skills-screenshot-container {
+          min-width: 0;
         }
 
         /* =====================================================
            CREDENTIALS
         ===================================================== */
-
         .credentials-sections {
           padding: 100px 20px;
           background: #fffaf5;
@@ -2201,9 +1333,8 @@ export default function LifelongSkillsPortfolioPage() {
         }
 
         /* =====================================================
-        RESUME IMPORT & GENERATION
+           RESUME IMPORT & GENERATION
         ===================================================== */
-
         .resume-section {
           padding: 110px 20px;
           background: #ffffff;
@@ -2212,10 +1343,6 @@ export default function LifelongSkillsPortfolioPage() {
         .resume-journey {
           margin-top: 55px;
         }
-
-        /* =====================================================
-        FLOW SWITCHER
-        ===================================================== */
 
         .resume-flow-switcher {
           display: flex;
@@ -2260,20 +1387,12 @@ export default function LifelongSkillsPortfolioPage() {
           color: #f97316;
         }
 
-        /* =====================================================
-        MAIN JOURNEY
-        ===================================================== */
-
         .resume-journey-grid {
           display: grid;
           grid-template-columns: 390px 1fr;
           gap: 60px;
           align-items: center;
         }
-
-        /* =====================================================
-        STEPS
-        ===================================================== */
 
         .resume-step-list {
           display: flex;
@@ -2367,10 +1486,6 @@ export default function LifelongSkillsPortfolioPage() {
           color: #64748b;
         }
 
-        /* =====================================================
-        IMAGE AREA
-        ===================================================== */
-
         .resume-image-area {
           min-width: 0;
         }
@@ -2434,7 +1549,6 @@ export default function LifelongSkillsPortfolioPage() {
           border-radius: 8px;
           background: #ffffff;
           box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
-          animation: resumeImageReveal 0.45s ease;
         }
 
         .resume-image-placeholder {
@@ -2448,7 +1562,6 @@ export default function LifelongSkillsPortfolioPage() {
           align-items: center;
           justify-content: center;
           text-align: center;
-          pointer-events: none;
         }
 
         .resume-image-placeholder span {
@@ -2492,10 +1605,6 @@ export default function LifelongSkillsPortfolioPage() {
           color: #334155;
         }
 
-        /* =====================================================
-        BOTTOM NOTE
-        ===================================================== */
-
         .resume-bottom-note {
           max-width: 950px;
           margin: 35px auto 0;
@@ -2536,89 +1645,8 @@ export default function LifelongSkillsPortfolioPage() {
         }
 
         /* =====================================================
-        ANIMATION
-        ===================================================== */
-
-        @keyframes resumeImageReveal {
-          from {
-            opacity: 0;
-            transform: translateX(15px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        /* =====================================================
-        RESPONSIVE
-        ===================================================== */
-
-        @media (max-width: 1050px) {
-          .resume-journey-grid {
-            grid-template-columns: 1fr;
-            gap: 35px;
-          }
-
-          .resume-step-list {
-            max-width: 700px;
-            margin: 0 auto;
-            width: 100%;
-          }
-
-          .resume-image-area {
-            max-width: 850px;
-            width: 100%;
-            margin: 0 auto;
-          }
-        }
-
-        @media (max-width: 760px) {
-          .resume-section {
-            padding: 75px 18px;
-          }
-
-          .resume-flow-switcher {
-            flex-direction: column;
-          }
-
-          .resume-flow-button {
-            justify-content: center;
-          }
-
-          .resume-image-wrapper {
-            min-height: 330px;
-            padding: 15px;
-          }
-
-          .resume-image-placeholder {
-            inset: 15px;
-          }
-
-          .resume-bottom-note {
-            padding: 18px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .resume-step {
-            padding: 14px 12px;
-          }
-
-          .resume-step-content p {
-            font-size: 11px;
-          }
-
-          .resume-image-wrapper {
-            min-height: 260px;
-          }
-        }
-
-        /* =====================================================
            CTA
         ===================================================== */
-
         .final-cta {
           padding: 100px 20px;
           text-align: center;
@@ -2679,48 +1707,8 @@ export default function LifelongSkillsPortfolioPage() {
         }
 
         /* =====================================================
-           ANIMATIONS
-        ===================================================== */
-
-        @keyframes cardReveal {
-          from {
-            opacity: 0;
-            transform: translateY(25px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes skillSlide {
-          from {
-            opacity: 0;
-            transform: translateX(15px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes floating {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-
-          50% {
-            transform: translateY(-7px);
-          }
-        }
-
-        /* =====================================================
            RESPONSIVE
         ===================================================== */
-
         @media (max-width: 1050px) {
           .profile-hero-inner {
             padding: 80px 40px;
@@ -2734,22 +1722,10 @@ export default function LifelongSkillsPortfolioPage() {
             grid-column: 1 / -1;
           }
 
-          .profile-browser-body {
+          .resume-journey-grid,
+          .skills-content {
             grid-template-columns: 1fr;
-          }
-
-          .about-panel {
-            min-height: auto;
-          }
-
-          .education-grid {
-            grid-template-columns: 1fr 1fr;
-          }
-
-          .skills-content,
-          .why-grid {
-            grid-template-columns: 1fr;
-            gap: 50px;
+            gap: 40px;
           }
 
           .profile-tabs-demo {
@@ -2771,28 +1747,18 @@ export default function LifelongSkillsPortfolioPage() {
             letter-spacing: -2px;
           }
 
-          .hero-description {
-            font-size: 14px;
-          }
-
-          .hero-points {
-            flex-direction: column;
-          }
-
           .intro-section,
           .profile-showcase-section,
           .sections-section,
           .records-section,
           .skills-explanation-section,
           .credentials-sections,
-          .why-section,
+          .resume-section,
           .final-cta {
             padding: 75px 18px;
           }
 
-          .profile-purpose-grid,
-          .education-grid,
-          .why-cards {
+          .profile-purpose-grid {
             grid-template-columns: 1fr;
           }
 
@@ -2800,38 +1766,8 @@ export default function LifelongSkillsPortfolioPage() {
             grid-column: auto;
           }
 
-          .profile-browser-body {
-            padding: 12px;
-          }
-
-          .profile-identity {
-            align-items: flex-start;
-          }
-
-          .profile-stats {
-            display: none;
-          }
-
-          .profile-handle {
-            font-size: 11px;
-          }
-
-          .cover-button {
-            display: none;
-          }
-
           .profile-tabs-demo {
             grid-template-columns: 1fr 1fr;
-          }
-
-          .education-interface {
-            padding: 18px;
-          }
-
-          .education-header {
-            align-items: flex-start;
-            gap: 15px;
-            flex-direction: column;
           }
 
           .credential-flow {
@@ -2840,19 +1776,14 @@ export default function LifelongSkillsPortfolioPage() {
 
           .flow-arrow {
             transform: rotate(90deg);
-            text-align: center;
           }
 
-          .skills-visual {
-            min-height: 400px;
+          .resume-flow-switcher {
+            flex-direction: column;
           }
 
-          .floating-label {
-            display: none;
-          }
-
-          .section-heading h2 {
-            font-size: 32px;
+          .profile-screenshot-wrapper {
+            min-height: 340px;
           }
         }
 
@@ -2873,14 +1804,6 @@ export default function LifelongSkillsPortfolioPage() {
 
           .profile-tabs-demo {
             grid-template-columns: 1fr;
-          }
-
-          .skill-card-large {
-            padding: 20px;
-          }
-
-          .profile-actions {
-            justify-content: flex-start;
           }
         }
       `}</style>
