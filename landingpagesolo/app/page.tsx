@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <NavBar />
 
-      {/* ========================= HERO (UNTOUCHED) ========================= */}
+      {/* ========================= HERO ========================= */}
       <section className="hero">
         <div className="hero-glow hero-glow-one" />
         <div className="hero-glow hero-glow-two" />
@@ -1659,30 +1659,6 @@ export default function Home() {
                 <p>
                   Publish your latest projects, earned Open Badges, and course completion updates to your campus and professional peers. Celebrate team achievements, comment on new milestones, and gather verified recommendations.
                 </p>
-
-                <ul className="social-perks-list" style={{ marginTop: "18px" }}>
-                  <li>
-                    <span>✓</span>
-                    <div>
-                      <strong>Verified Milestone Feeds:</strong>
-                      <p>Publish project deliverables, new certifications, and career updates directly from your sovereign wallet.</p>
-                    </div>
-                  </li>
-                  <li>
-                    <span>✓</span>
-                    <div>
-                      <strong>Peer & Mentor Endorsements:</strong>
-                      <p>Request authentic proof recommendations from verified professors and industry evaluators.</p>
-                    </div>
-                  </li>
-                  <li>
-                    <span>✓</span>
-                    <div>
-                      <strong>Collaborative Suggestions:</strong>
-                      <p>Discover fellow students pursuing similar career tracks and recruit talent for upcoming hackathons.</p>
-                    </div>
-                  </li>
-                </ul>
               </div>
 
               <div className="display-browser-frame community-feed-frame">

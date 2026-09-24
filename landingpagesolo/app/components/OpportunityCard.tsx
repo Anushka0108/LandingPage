@@ -85,7 +85,7 @@ export default function OpportunityCard({
 
         </div>
        <Link
-          href={"/signup"}
+          href={"https://app.thesolo.network/"}
           className="view-opportunity"
         >
           View more
