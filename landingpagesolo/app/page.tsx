@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <NavBar />
 
-      {/* ========================= HERO ========================= */}
+      {/* ========================= HERO (UNTOUCHED) ========================= */}
       <section className="hero">
         <div className="hero-glow hero-glow-one" />
         <div className="hero-glow hero-glow-two" />
@@ -28,7 +28,7 @@ export default function Home() {
 
                 <h1>
                   Turn What You Learn Into
-                  <span>Proof of What You Can Do.</span>
+                  <span> Proof of What You Can Do.</span>
                 </h1>
 
                 <p className="hero-description">
@@ -151,147 +151,59 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-      {/* ========================= FLYWHEEL ========================= */}
-      <section
-        style={{
-          padding: "70px 20px 85px",
-          background: "#ffffff",
-          borderBottom: "1px solid #eef2f6",
-        }}
-      >
-        <FadeInSection>
+      {/* ========================= INTRO: THE SOLO ECOSYSTEM ========================= */}
+      <FadeInSection>
+        <section className="intro-section" style={{ padding: "85px 20px", background: "#ffffff" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-            <div
-              style={{
-                textAlign: "center",
-                marginBottom: "42px",
-              }}
-            >
-              <h2
-                style={{
-                  fontFamily: "var(--font-montserrat), sans-serif",
-                  fontSize: "clamp(24px, 2.5vw, 34px)",
-                  fontWeight: "800",
-                  color: "#0f172a",
-                  margin: "0 0 10px",
-                  letterSpacing: "-1px",
-                }}
-              >
-               Your Path From Learner to Professional
+            <div className="section-heading center" style={{ margin: "0 auto 48px", textAlign: "center" }}>
+              <p className="section-label">THE SOLO ECOSYSTEM</p>
+              <h2>
+                Your learning, skills, <span>credentials and career — connected.</span>
               </h2>
-
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "#64748b",
-                  margin: 0,
-                }}
-              >
-               A structured six-step journey from exploring interests to becoming hire-ready
+              <p style={{ maxWidth: "680px", margin: "0 auto", color: "#64748b" }}>
+                SOLO brings everything you need to build skills, gain experience, earn verified credentials, 
+                and discover meaningful career opportunities into one connected platform.
               </p>
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-                gap: "18px",
-              }}
-            >
-              {[
-                {
-                  num: "1",
-                  title: "Discover",
-                  desc: "Explore target roles & courses",
-                },
-                {
-                  num: "2",
-                  title: "Learn",
-                  desc: "Enroll in courses, hackathons & projects",
-                },
-                {
-                  num: "3",
-                  title: "Build Skills",
-                  desc: "Work on live projects & assignments",
-                },
-                {
-                  num: "4",
-                  title: "Prove Skills",
-                  desc: "Submit certificates & open evidence",
-                },
-                {
-                  num: "5",
-                  title: "Grow",
-                  desc: "Identify skill gaps against live market roles",
-                },
-                {
-                  num: "6",
-                  title: "Showcase",
-                  desc: "Verifiable credentials & ATS resumes",
-                },
-              ].map((step) => (
-                <div
-                  key={step.num}
-                  style={{
-                    background: "#ffffff",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: "14px",
-                    padding: "20px 16px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    boxShadow: "0 4px 18px rgba(15, 23, 42, 0.04)",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      background: "var(--orange)",
-                      color: "#ffffff",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontFamily: "var(--font-montserrat), sans-serif",
-                      fontWeight: "800",
-                      fontSize: "13px",
-                      marginBottom: "14px",
-                    }}
-                  >
-                    {step.num}
-                  </div>
+            <div className="ecosystem-grid">
+              <div className="ecosystem-card">
+                <div className="card-number">01</div>
+                <h3>Learn</h3>
+                <p>
+                  Access structured coursework and training programs from partner colleges, academies, and institutions.
+                </p>
+              </div>
 
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-montserrat), sans-serif",
-                      fontSize: "16px",
-                      fontWeight: "750",
-                      color: "#1e293b",
-                      margin: "0 0 6px",
-                    }}
-                  >
-                    {step.title}
-                  </h3>
+              <div className="ecosystem-card">
+                <div className="card-number">02</div>
+                <h3>Build</h3>
+                <p>
+                  Develop skills through real-world experiences, live projects, hackathons, and continuous hands-on learning.
+                </p>
+              </div>
 
-                  <p
-                    style={{
-                      fontSize: "12px",
-                      color: "#64748b",
-                      lineHeight: "1.5",
-                      margin: 0,
-                    }}
-                  >
-                    {step.desc}
-                  </p>
-                </div>
-              ))}
+              <div className="ecosystem-card">
+                <div className="card-number">03</div>
+                <h3>Prove</h3>
+                <p>
+                  Turn learning into cryptographic Open Badges, verifiable credentials, and comprehensive achievement records.
+                </p>
+              </div>
+
+              <div className="ecosystem-card">
+                <div className="card-number">04</div>
+                <h3>Grow</h3>
+                <p>
+                  Compare your profile directly to job roles, uncover missing skills, and unlock direct hiring pipelines.
+                </p>
+              </div>
             </div>
           </div>
-        </FadeInSection>
-      </section>
+        </section>
+      </FadeInSection>
 
-      {/* ========================= OPPORTUNITIES ========================= */}
+      {/* ========================= OPPORTUNITIES (BROWSER FRAMED) ========================= */}
       <section
         className="opportunities-section"
         style={{
@@ -327,90 +239,103 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="marquee-wrapper">
-            <div className="marquee-track">
-              {[...opportunities, ...opportunities].map((item, index) => (
-                <div key={index} className="opportunity-card-compact">
-                  <div className="compact-card-content">
-                    <div className="compact-card-header">
-                      <div className="compact-avatar">
-                        <Image
-                          src="/images/profilepic.png"
-                          alt="Organization logo"
-                          width={32}
-                          height={32}
-                          style={{ borderRadius: "50%" }}
-                        />
+          <div className="display-browser-frame frame-wide">
+            <div className="browser-topbar">
+              <div className="browser-dots">
+                <span className="dot-red" />
+                <span className="dot-yellow" />
+                <span className="dot-green" />
+              </div>
+              <div className="browser-url-pill">
+                <span>solo.network/explore/opportunities</span>
+              </div>
+            </div>
+
+            <div className="marquee-wrapper" style={{ padding: "20px 0" }}>
+              <div className="marquee-track">
+                {[...opportunities, ...opportunities].map((item, index) => (
+                  <div key={index} className="opportunity-card-compact">
+                    <div className="compact-card-content">
+                      <div className="compact-card-header">
+                        <div className="compact-avatar">
+                          <Image
+                            src="/images/profilepic.png"
+                            alt="Organization logo"
+                            width={32}
+                            height={32}
+                            style={{ borderRadius: "50%" }}
+                          />
+                        </div>
+
+                        <div className="compact-title-col">
+                          <h3>{item.title}</h3>
+                          <p>{item.organization}</p>
+                        </div>
                       </div>
 
-                      <div className="compact-title-col">
-                        <h3>{item.title}</h3>
-                        <p>{item.organization}</p>
+                      <div className="compact-tags-row">
+                        <span className="skills-badge">
+                          {item.skills.length} Skills
+                        </span>
+
+                        <span className="type-badge">{item.type}</span>
+
+                        <span className="posted-badge">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="12"
+                            height="12"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M12 2C6.58 2 2 6.58 2 12s4.58 10 10 10 10-4.58 10-10S17.42 2 12 2m0 18c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8-3.66 8-8 8"></path>
+                            <path d="M13 7h-2v6h6v-2h-4z"></path>
+                          </svg>
+
+                          {item.posted}
+                        </span>
                       </div>
-                    </div>
 
-                    <div className="compact-tags-row">
-                      <span className="skills-badge">
-                        {item.skills.length} Skills
-                      </span>
+                      <div className="compact-details-row">
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="13"
+                            height="13"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M12 15c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 2-2 2-2"></path>
+                            <path d="M11.65 21.94a1.03 1.03 0 0 0 .7 0C12.7 21.81 21 18.61 21 11c0-4.96-4.04-9-9-9s-9 4.04-9 9c0 7.6 8.3 10.8 8.65 10.94M12 4c3.86 0 7 3.14 7 7 0 5.42-5.53 8.26-7 8.91-1.47-.66-7-3.5-7-8.91 0-3.86 3.14-7 7-7"></path>
+                          </svg>
 
-                      <span className="type-badge">{item.type}</span>
+                          {item.location}
+                        </span>
 
-                      <span className="posted-badge">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="12"
-                          height="12"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 2C6.58 2 2 6.58 2 12s4.58 10 10 10 10-4.58 10-10S17.42 2 12 2m0 18c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8-3.66 8-8 8"></path>
-                          <path d="M13 7h-2v6h6v-2h-4z"></path>
-                        </svg>
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="13"
+                            height="13"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M21 7h-1.4L18 5.4V3c0-.55-.45-1-1-1h-1c-1.44 0-2.75.78-3.45 2H9c-3.86 0-7 3.14-7 7 0 .25.02 6.28 2.11 10.45A1 1 0 0 0 5 22h4c.55 0 1-.45 1-1v-3h2v3c0 .55.45 1 1 1h4c.33 0 .65-.17.83-.45 1.54-2.31 2.08-5.11 2.27-6.55h.9c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1m-1 6h-.81c-.53 0-.97.42-1 .95 0 .04-.19 3.38-1.75 6.05h-2.45v-3c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v3H5.63c-1.61-3.73-1.64-8.95-1.64-9 0-2.76 2.24-5 5-5h4.18c.42 0 .8-.27.94-.67A1.99 1.99 0 0 1 15.98 4v1.81c0 .27.11.52.29.71l2.19 2.19c.19.19.44.29.71.29h.81v4Z"></path>
+                          </svg>
 
-                        {item.posted}
-                      </span>
-                    </div>
+                          {item.payment}
+                        </span>
+                      </div>
 
-                    <div className="compact-details-row">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="13"
-                          height="13"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 15c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 2-2 2-2"></path>
-                          <path d="M11.65 21.94a1.03 1.03 0 0 0 .7 0C12.7 21.81 21 18.61 21 11c0-4.96-4.04-9-9-9s-9 4.04-9 9c0 7.6 8.3 10.8 8.65 10.94M12 4c3.86 0 7 3.14 7 7 0 5.42-5.53 8.26-7 8.91-1.47-.66-7-3.5-7-8.91 0-3.86 3.14-7 7-7"></path>
-                        </svg>
-
-                        {item.location}
-                      </span>
-
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="13"
-                          height="13"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M21 7h-1.4L18 5.4V3c0-.55-.45-1-1-1h-1c-1.44 0-2.75.78-3.45 2H9c-3.86 0-7 3.14-7 7 0 .25.02 6.28 2.11 10.45A1 1 0 0 0 5 22h4c.55 0 1-.45 1-1v-3h2v3c0 .55.45 1 1 1h4c.33 0 .65-.17.83-.45 1.54-2.31 2.08-5.11 2.27-6.55h.9c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1m-1 6h-.81c-.53 0-.97.42-1 .95 0 .04-.19 3.38-1.75 6.05h-2.45v-3c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v3H5.63c-1.61-3.73-1.64-8.95-1.64-9 0-2.76 2.24-5 5-5h4.18c.42 0 .8-.27.94-.67A1.99 1.99 0 0 1 15.98 4v1.81c0 .27.11.52.29.71l2.19 2.19c.19.19.44.29.71.29h.81v4Z"></path>
-                        </svg>
-
-                        {item.payment}
-                      </span>
-                    </div>
-
-                    <div className="compact-action-row">
-                      <Link href={"/signup"} className="view-btn">
-                        View more
-                      </Link>
+                      <div className="compact-action-row">
+                        <Link href={"/signup"} className="view-btn">
+                          View more
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -440,7 +365,7 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-      {/* ========================= PROFILE ========================= */}
+      {/* ========================= PROFILE (BROWSER FRAMED) ========================= */}
       <FadeInSection>
         <section
           className="profile-section"
@@ -484,18 +409,20 @@ export default function Home() {
             </Link>
           </div>
 
-          <div
-            className="profile-preview"
-            style={{
-              padding: "0",
-              background: "#f8fafc",
-              border: "1px solid #e2e8f0",
-              borderRadius: "16px",
-              overflow: "hidden",
-              boxShadow: "0 8px 30px rgba(15, 23, 42, 0.04)",
-            }}
-          >
-            <div style={{ padding: "16px 20px 0" }}>
+          {/* Browser Framed Profile Container */}
+          <div className="display-browser-frame">
+            <div className="browser-topbar">
+              <div className="browser-dots">
+                <span className="dot-red" />
+                <span className="dot-yellow" />
+                <span className="dot-green" />
+              </div>
+              <div className="browser-url-pill">
+                <span>solo.network/profile/@learner</span>
+              </div>
+            </div>
+
+            <div className="profile-preview" style={{ padding: "16px 20px 0", background: "#f8fafc" }}>
               <div
                 style={{
                   display: "grid",
@@ -623,7 +550,6 @@ export default function Home() {
                       @learner.profile ✎
                     </span>
 
-                    {/* DISPLAY ONLY */}
                     <div
                       style={{
                         background: "#fff",
@@ -780,7 +706,6 @@ export default function Home() {
                     gap: "8px",
                   }}
                 >
-                  {/* DISPLAY ONLY */}
                   <div
                     style={{
                       background: "var(--orange)",
@@ -797,7 +722,6 @@ export default function Home() {
                     Generate resume ✨
                   </div>
 
-                  {/* DISPLAY ONLY */}
                   <div
                     style={{
                       background: "#fff",
@@ -948,7 +872,6 @@ export default function Home() {
                   flexWrap: "wrap",
                 }}
               >
-                {/* DISPLAY ONLY */}
                 <div
                   style={{
                     background: "#fff",
@@ -965,7 +888,6 @@ export default function Home() {
                   Verify Government ID
                 </div>
 
-                {/* DISPLAY ONLY */}
                 <div
                   style={{
                     background: "#fff",
@@ -982,7 +904,6 @@ export default function Home() {
                   Ask for endorsement
                 </div>
 
-                {/* DISPLAY ONLY */}
                 <div
                   style={{
                     background: "#fff",
@@ -999,7 +920,6 @@ export default function Home() {
                   Profile CLR
                 </div>
 
-                {/* DISPLAY ONLY */}
                 <div
                   style={{
                     background: "#fff",
@@ -1021,7 +941,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= CREDENTIALS ========================= */}
+      {/* ========================= CREDENTIALS (BROWSER FRAMED) ========================= */}
       <FadeInSection>
         <section
           className="credentials-section"
@@ -1029,62 +949,74 @@ export default function Home() {
             borderBottom: "1px solid #eef2f6",
           }}
         >
-          <div className="credential-visual">
-            <div className="credential-card">
-              <div className="credential-main">
-                <div className="certificate-badge">
-                  <div className="certificate-inner">
-                    <span className="certificate-brand">◇ SOLO Network</span>
-
-                    <strong>ReactJS</strong>
-
-                    <span>Coursework</span>
-                  </div>
-                </div>
-
-                <div className="credential-content">
-                  <div className="credential-title">
-                    <h3>ReactJS</h3>
-                    <p>SPARK+</p>
-                  </div>
-
-                  <div className="credential-status">
-                    <span className="skills-count">8 Skills</span>
-                    <span className="verified-status">Verified</span>
-                  </div>
-
-                  <p className="credential-description">
-                    This badge represents completion of the ReactJS
-                    Certification Course. It reflects understanding of component
-                    lifecycle, hooks, and verified web development coursework.
-                  </p>
-                </div>
+          {/* Browser Framed Credential Container */}
+          <div className="display-browser-frame">
+            <div className="browser-topbar">
+              <div className="browser-dots">
+                <span className="dot-red" />
+                <span className="dot-yellow" />
+                <span className="dot-green" />
               </div>
+              <div className="browser-url-pill">
+                <span>solo.network/credentials/verify/reactjs</span>
+              </div>
+            </div>
 
-              <div className="credential-actions">
-                {/* DISPLAY ONLY */}
-                <div
-                  className="open-badge"
-                  style={{
-                    cursor: "default",
-                    pointerEvents: "none",
-                  }}
-                >
-                  Open badge
+            <div className="credential-visual" style={{ padding: "24px", background: "#f8fafc" }}>
+              <div className="credential-card">
+                <div className="credential-main">
+                  <div className="certificate-badge">
+                    <div className="certificate-inner">
+                      <span className="certificate-brand">◇ SOLO Network</span>
+
+                      <strong>ReactJS</strong>
+
+                      <span>Coursework</span>
+                    </div>
+                  </div>
+
+                  <div className="credential-content">
+                    <div className="credential-title">
+                      <h3>ReactJS</h3>
+                      <p>SPARK+</p>
+                    </div>
+
+                    <div className="credential-status">
+                      <span className="skills-count">8 Skills</span>
+                      <span className="verified-status">Verified</span>
+                    </div>
+
+                    <p className="credential-description">
+                      This badge represents completion of the ReactJS
+                      Certification Course. It reflects understanding of component
+                      lifecycle, hooks, and verified web development coursework.
+                    </p>
+                  </div>
                 </div>
 
-                {/* DISPLAY ONLY */}
-                <span
-                  className="view-credential"
-                  style={{
-                    cursor: "default",
-                    pointerEvents: "none",
-                  }}
-                >
-                  View Credential
-                </span>
+                <div className="credential-actions">
+                  <div
+                    className="open-badge"
+                    style={{
+                      cursor: "default",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    Open badge
+                  </div>
 
-                <span className="credential-platform">◈</span>
+                  <span
+                    className="view-credential"
+                    style={{
+                      cursor: "default",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    View Credential
+                  </span>
+
+                  <span className="credential-platform">◈</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1111,18 +1043,18 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= CAREER PATHWAYS ========================= */}
+      {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
       <FadeInSection>
         <section
           className="career-pathway-explorer"
           style={{
-            padding: "80px 70px",
+            padding: "80px 20px",
             background: "#ffffff",
             borderTop: "1px solid #eef2f6",
             borderBottom: "1px solid #eef2f6",
           }}
         >
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
             <div className="section-heading center">
               <p className="section-label">STRUCTURED CAREER PATHWAYS</p>
 
@@ -1137,176 +1069,187 @@ export default function Home() {
               </p>
             </div>
 
-            <div
-              style={{
-                background: "radial-gradient(#d1d5db 1px, transparent 1px)",
-                backgroundSize: "20px 20px",
-                backgroundColor: "#fafaf9",
-                border: "1px solid #e5e7eb",
-                borderRadius: "18px",
-                padding: "40px 24px",
-                overflowX: "auto",
-                boxShadow: "0 6px 24px rgba(15, 23, 42, 0.03)",
-              }}
-            >
+            {/* Browser Framed Pathways Container */}
+            <div className="display-browser-frame frame-wide">
+              <div className="browser-topbar">
+                <div className="browser-dots">
+                  <span className="dot-red" />
+                  <span className="dot-yellow" />
+                  <span className="dot-green" />
+                </div>
+                <div className="browser-url-pill">
+                  <span>solo.network/pathways/react-developer</span>
+                </div>
+              </div>
+
               <div
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  minWidth: "900px",
-                  gap: "12px",
-                  position: "relative",
+                  background: "radial-gradient(#d1d5db 1px, transparent 1px)",
+                  backgroundSize: "20px 20px",
+                  backgroundColor: "#fafaf9",
+                  padding: "40px 24px",
+                  overflowX: "auto",
                 }}
               >
-                {[
-                  {
-                    name: "ReactJS",
-                    badge: "◇ academia",
-                    type: "Coursework",
-                    color: "#0284c7",
-                  },
-                  {
-                    name: "React Fundamentals",
-                    badge: "◇ academia",
-                    type: "Skills Validation",
-                    color: "#7c3aed",
-                  },
-                  {
-                    name: "React Redux Toolkit",
-                    badge: "◇ academia",
-                    type: "Coursework",
-                    color: "#0284c7",
-                  },
-                  {
-                    name: "RTK Query Basics",
-                    badge: "◇ academia",
-                    type: "Coursework",
-                    color: "#0284c7",
-                  },
-                  {
-                    name: "Redux & RTK Query",
-                    badge: "◇ academia",
-                    type: "Skills Validation",
-                    color: "#7c3aed",
-                  },
-                  {
-                    name: "NextJS",
-                    badge: "◇ academia",
-                    type: "Coursework",
-                    color: "#0284c7",
-                  },
-                ].map((node, i, arr) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      flex: 1,
-                    }}
-                  >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    minWidth: "900px",
+                    gap: "12px",
+                    position: "relative",
+                  }}
+                >
+                  {[
+                    {
+                      name: "ReactJS",
+                      badge: "◇ academia",
+                      type: "Coursework",
+                      color: "#0284c7",
+                    },
+                    {
+                      name: "React Fundamentals",
+                      badge: "◇ academia",
+                      type: "Skills Validation",
+                      color: "#7c3aed",
+                    },
+                    {
+                      name: "React Redux Toolkit",
+                      badge: "◇ academia",
+                      type: "Coursework",
+                      color: "#0284c7",
+                    },
+                    {
+                      name: "RTK Query Basics",
+                      badge: "◇ academia",
+                      type: "Coursework",
+                      color: "#0284c7",
+                    },
+                    {
+                      name: "Redux & RTK Query",
+                      badge: "◇ academia",
+                      type: "Skills Validation",
+                      color: "#7c3aed",
+                    },
+                    {
+                      name: "NextJS",
+                      badge: "◇ academia",
+                      type: "Coursework",
+                      color: "#0284c7",
+                    },
+                  ].map((node, i, arr) => (
                     <div
+                      key={i}
                       style={{
-                        background: "#ffffff",
-                        border: "1px solid #e2e8f0",
-                        borderRadius: "14px",
-                        padding: "16px 14px",
-                        textAlign: "center",
-                        width: "100%",
-                        minWidth: "135px",
-                        boxShadow: "0 4px 14px rgba(0,0,0,0.03)",
-                        position: "relative",
+                        display: "flex",
+                        alignItems: "center",
+                        flex: 1,
                       }}
                     >
-                      <span
-                        style={{
-                          position: "absolute",
-                          top: "-8px",
-                          right: "10px",
-                          background: "#10b981",
-                          color: "#ffffff",
-                          fontSize: "9px",
-                          fontWeight: "700",
-                          padding: "2px 7px",
-                          borderRadius: "10px",
-                        }}
-                      >
-                        Earned
-                      </span>
-
                       <div
                         style={{
-                          width: "52px",
-                          height: "52px",
-                          borderRadius: "50%",
-                          border: `2.5px solid ${node.color}`,
-                          margin: "0 auto 10px",
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          justifyContent: "center",
                           background: "#ffffff",
+                          border: "1px solid #e2e8f0",
+                          borderRadius: "14px",
+                          padding: "16px 14px",
+                          textAlign: "center",
+                          width: "100%",
+                          minWidth: "135px",
+                          boxShadow: "0 4px 14px rgba(0,0,0,0.03)",
+                          position: "relative",
                         }}
                       >
                         <span
                           style={{
-                            fontSize: "6px",
-                            color: node.color,
-                            fontWeight: "700",
-                          }}
-                        >
-                          {node.badge}
-                        </span>
-
-                        <span
-                          style={{
-                            fontSize: "7px",
-                            color: "#1e293b",
-                            fontWeight: "700",
-                          }}
-                        >
-                          Credential
-                        </span>
-
-                        <span
-                          style={{
-                            fontSize: "6px",
-                            background: node.color,
+                            position: "absolute",
+                            top: "-8px",
+                            right: "10px",
+                            background: "#10b981",
                             color: "#ffffff",
-                            width: "100%",
-                            textAlign: "center",
-                            marginTop: "2px",
+                            fontSize: "9px",
+                            fontWeight: "700",
+                            padding: "2px 7px",
+                            borderRadius: "10px",
                           }}
                         >
-                          {node.type}
+                          Earned
                         </span>
+
+                        <div
+                          style={{
+                            width: "52px",
+                            height: "52px",
+                            borderRadius: "50%",
+                            border: `2.5px solid ${node.color}`,
+                            margin: "0 auto 10px",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            background: "#ffffff",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontSize: "6px",
+                              color: node.color,
+                              fontWeight: "700",
+                            }}
+                          >
+                            {node.badge}
+                          </span>
+
+                          <span
+                            style={{
+                              fontSize: "7px",
+                              color: "#1e293b",
+                              fontWeight: "700",
+                            }}
+                          >
+                            Credential
+                          </span>
+
+                          <span
+                            style={{
+                              fontSize: "6px",
+                              background: node.color,
+                              color: "#ffffff",
+                              width: "100%",
+                              textAlign: "center",
+                              marginTop: "2px",
+                            }}
+                          >
+                            {node.type}
+                          </span>
+                        </div>
+
+                        <h4
+                          style={{
+                            margin: 0,
+                            fontSize: "12px",
+                            fontWeight: "700",
+                            color: "#0f172a",
+                          }}
+                        >
+                          {node.name}
+                        </h4>
                       </div>
 
-                      <h4
-                        style={{
-                          margin: 0,
-                          fontSize: "12px",
-                          fontWeight: "700",
-                          color: "#0f172a",
-                        }}
-                      >
-                        {node.name}
-                      </h4>
+                      {i < arr.length - 1 && (
+                        <div
+                          style={{
+                            width: "24px",
+                            height: "2px",
+                            background: "#cbd5e1",
+                            flexShrink: 0,
+                            margin: "0 4px",
+                          }}
+                        />
+                      )}
                     </div>
-
-                    {i < arr.length - 1 && (
-                      <div
-                        style={{
-                          width: "24px",
-                          height: "2px",
-                          background: "#cbd5e1",
-                          flexShrink: 0,
-                          margin: "0 4px",
-                        }}
-                      />
-                    )}
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -1325,7 +1268,206 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= COMMUNITY ========================= */}
+      {/* ========================= REAL-TIME SKILL GAP & ROLE ANALYSIS (SIDE-BY-SIDE) ========================= */}
+      <FadeInSection>
+        <section className="job-skill-gap-section" style={{ padding: "95px 20px", background: "#f8fafc", borderBottom: "1px solid #eef2f6" }}>
+          <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+            <div className="section-heading center" style={{ textAlign: "center", margin: "0 auto 50px" }}>
+              <p className="section-label">GROWTH & CAREER READINESS</p>
+              <h2>
+                Target Opportunities with <span>Real-Time Skill Gap Analysis</span>
+              </h2>
+              <p style={{ maxWidth: "760px", margin: "0 auto", color: "#64748b", fontSize: "15px", lineHeight: "1.7" }}>
+                SOLO benchmarks your sovereign profile directly against live employer requirements. Review the three evaluation tiers and your qualification curve before hitting apply.
+              </p>
+            </div>
+
+            <div className="gap-side-by-side-grid">
+              {/* Left Column: Descriptive Breakdown of the 3 Match Tiers */}
+              <div className="gap-content-column">
+                <div className="role-headline-box">
+                  <span className="role-context-badge">Active Benchmark: Javascript Developer</span>
+                  <h3>Three-Tier Skill Compatibility Framework</h3>
+                  <p>
+                    Every opportunity breaks your abilities down into actionable insight so you never apply blindly.
+                  </p>
+                </div>
+
+                <div className="tier-cards-list">
+                  {/* Tier 1: Matched Skills */}
+                  <div className="tier-card tier-matched">
+                    <div className="tier-header">
+                      <span className="tier-dot green" />
+                      <strong>Matched Skills (Validated Proof)</strong>
+                    </div>
+                    <p>
+                      Competencies fully validated by completed courses, verified credentials, and capstone project evidence that satisfy the employer criteria.
+                    </p>
+                    <div className="tier-examples">
+                      <span>✓ Verified Course Badges</span>
+                      <span>✓ Evidence Files</span>
+                    </div>
+                  </div>
+
+                  {/* Tier 2: Partially Matched */}
+                  <div className="tier-card tier-partial">
+                    <div className="tier-header">
+                      <span className="tier-dot yellow" />
+                      <strong>Partially Matched Skills (In Progress)</strong>
+                    </div>
+                    <p>
+                      Related competencies or modules you have begun. For instance, holding JavaScript fundamentals while the role requires specific framework libraries.
+                    </p>
+                    <div className="tier-examples">
+                      <span>◐ Framework Software</span>
+                      <span>◐ Partial Milestones</span>
+                    </div>
+                  </div>
+
+                  {/* Tier 3: Non-Matched / Missing Skills */}
+                  <div className="tier-card tier-missing">
+                    <div className="tier-header">
+                      <span className="tier-dot red" />
+                      <strong>Non-Matched Skills (Identified Gap)</strong>
+                    </div>
+                    <p>
+                      Mandatory employer requirements not yet present on your record. SOLO links these directly to recommended courses to bridge the exact deficit.
+                    </p>
+                    <div className="tier-examples">
+                      <span>✕ Specialized Libraries</span>
+                      <span>✕ One-Click Enrollment</span>
+                    </div>
+                  </div>
+
+                  {/* Readiness Trend Explanation */}
+                  <div className="trend-explainer-card">
+                    <div className="tier-header">
+                      <span className="tier-dot orange" />
+                      <strong>Readiness Curve & Target Goal</strong>
+                    </div>
+                    <p>
+                      Track your monthly match percentage trajectory as you earn badges. Set target jobs as goals to receive direct course recommendations that boost your hiring score.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="gap-action-row">
+                  <Link href="/explore?type=Jobs#opportunity" className="hero-primary" style={{ padding: "12px 24px", fontSize: "13.5px" }}>
+                    Explore Active Jobs
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column: Compact Screenshot Frame for Skill Match */}
+              <div className="gap-image-column">
+                <div className="display-browser-frame compact-side-frame">
+                  <div className="browser-topbar">
+                    <div className="browser-dots">
+                      <span className="dot-red" />
+                      <span className="dot-yellow" />
+                      <span className="dot-green" />
+                    </div>
+                    <div className="browser-url-pill">
+                      <span>solo.network/dashboard/skill-match</span>
+                    </div>
+                  </div>
+
+                  <div className="side-screenshot-scrollable">
+                    <Image
+                      src="/images/skill-match.png"
+                      alt="SOLO Platform Skill Match Analysis, Gauge Score, and Course Recommendations"
+                      width={1000}
+                      height={1420}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        display: "block",
+                      }}
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* ========================= SOCIAL PLATFORM (COMMUNITY FEED SCREENSHOT) ========================= */}
+      <FadeInSection>
+        <section className="social-platform-section" style={{ padding: "95px 20px", background: "#ffffff", borderBottom: "1px solid #eef2f6" }}>
+          <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+            <div className="social-split-layout">
+              {/* Left Column: Community Network Descriptions */}
+              <div className="social-text-col">
+                <p className="section-label">PEER RECOGNITION & COMMUNITY</p>
+                <h2>
+                  The SOLO <span>Social Learning Network</span>
+                </h2>
+                <p>
+                  Professional growth is collaborative. SOLO brings peers, faculty mentors, and employers into an active social network designed around authentic learning proof.
+                </p>
+
+                <ul className="social-perks-list">
+                  <li>
+                    <span>✓</span>
+                    <div>
+                      <strong>Interactive Community Feeds:</strong>
+                      <p>Publish project deliverables, new certifications, and career updates to your peers with full social reactions and commentary.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span>✓</span>
+                    <div>
+                      <strong>Faculty & Mentor Recommendations:</strong>
+                      <p>Follow peers, discover study partners across colleges, and receive verifiable skill endorsements from recognized mentors.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span>✓</span>
+                    <div>
+                      <strong>Peer Suggestions & Collaboration:</strong>
+                      <p>Connect with suggested learners in your field, share milestone links, and build collaborative teams for upcoming hackathons.</p>
+                    </div>
+                  </li>
+                </ul>
+
+              </div>
+
+              {/* Right Column: Browser Framed Community Feed Screenshot */}
+              <div className="display-browser-frame community-feed-frame">
+                <div className="browser-topbar">
+                  <div className="browser-dots">
+                    <span className="dot-red" />
+                    <span className="dot-yellow" />
+                    <span className="dot-green" />
+                  </div>
+                  <div className="browser-url-pill">
+                    <span>solo.network/home/community</span>
+                  </div>
+                </div>
+
+                <div className="community-screenshot-inner">
+                  <Image
+                    src="/images/community-feed.png"
+                    alt="SOLO Social Learning Network — Community Posts and Suggestions Interface"
+                    width={1100}
+                    height={520}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                    }}
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* ========================= COMMUNITY STATS ========================= */}
       <FadeInSection>
         <section
           className="community-section"
@@ -1445,6 +1587,365 @@ export default function Home() {
 
       <Footer />
       <BackToTop />
+
+      {/* ========================= ENHANCED GLOBAL STYLES ========================= */}
+      <style jsx global>{`
+        /* Standardized Browser Frame Across Showcases */
+        .display-browser-frame {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 18px;
+          overflow: hidden;
+          box-shadow: 0 16px 45px rgba(15, 23, 42, 0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .display-browser-frame:hover {
+          box-shadow: 0 20px 55px rgba(15, 23, 42, 0.11);
+        }
+
+        .frame-wide {
+          max-width: 1240px;
+          margin: 0 auto;
+        }
+
+        .browser-topbar {
+          height: 38px;
+          background: #f8fafc;
+          border-bottom: 1px solid #e2e8f0;
+          display: flex;
+          align-items: center;
+          padding: 0 16px;
+          position: relative;
+        }
+
+        .browser-dots {
+          display: flex;
+          gap: 6px;
+          flex-shrink: 0;
+        }
+
+        .browser-dots span {
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+        }
+
+        .dot-red { background: #f87171; }
+        .dot-yellow { background: #fbbf24; }
+        .dot-green { background: #4ade80; }
+
+        .browser-url-pill {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 6px;
+          padding: 3px 16px;
+          font-size: 10.5px;
+          color: #64748b;
+          font-family: monospace;
+          white-space: nowrap;
+        }
+
+        /* Ecosystem Grid */
+        .ecosystem-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+        }
+
+        .ecosystem-card {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 14px;
+          padding: 24px 20px;
+          transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .ecosystem-card:hover {
+          transform: translateY(-4px);
+          border-color: #fdba74;
+          box-shadow: 0 10px 25px rgba(255, 101, 0, 0.08);
+        }
+
+        .card-number {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 11px;
+          font-weight: 800;
+          color: var(--orange, #ff6500);
+          background: #fff7ed;
+          display: inline-block;
+          padding: 4px 8px;
+          border-radius: 6px;
+          margin-bottom: 12px;
+        }
+
+        .ecosystem-card h3 {
+          margin: 0 0 8px;
+          font-size: 18px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+
+        .ecosystem-card p {
+          margin: 0;
+          font-size: 13px;
+          line-height: 1.6;
+          color: #64748b;
+        }
+
+        /* Side-by-Side Skill Match Section */
+        .gap-side-by-side-grid {
+          display: grid;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 40px;
+          align-items: start;
+        }
+
+        .role-headline-box {
+          margin-bottom: 22px;
+        }
+
+        .role-context-badge {
+          display: inline-block;
+          font-size: 11px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          color: var(--orange, #ff6500);
+          background: #fff7ed;
+          border: 1px solid #fed7aa;
+          padding: 4px 10px;
+          border-radius: 6px;
+          margin-bottom: 10px;
+        }
+
+        .role-headline-box h3 {
+          margin: 0 0 6px;
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 24px;
+          font-weight: 800;
+          color: #0f172a;
+        }
+
+        .role-headline-box p {
+          margin: 0;
+          color: #64748b;
+          font-size: 14px;
+        }
+
+        .tier-cards-list {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .tier-card {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 16px 18px;
+          box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
+        }
+
+        .tier-header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 6px;
+          font-size: 13.5px;
+          color: #0f172a;
+        }
+
+        .tier-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+
+        .tier-dot.green { background: #16a34a; }
+        .tier-dot.yellow { background: #eab308; }
+        .tier-dot.red { background: #ef4444; }
+        .tier-dot.orange { background: var(--orange, #ff6500); }
+
+        .tier-card p {
+          margin: 0 0 10px;
+          font-size: 12.5px;
+          color: #64748b;
+          line-height: 1.55;
+        }
+
+        .tier-examples {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+
+        .tier-examples span {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 6px;
+          padding: 3px 8px;
+          font-size: 11px;
+          font-weight: 600;
+          color: #475569;
+        }
+
+        .trend-explainer-card {
+          background: #fff7ed;
+          border: 1px solid #fed7aa;
+          border-radius: 12px;
+          padding: 16px 18px;
+        }
+
+        .trend-explainer-card p {
+          margin: 0;
+          font-size: 12.5px;
+          color: #64748b;
+          line-height: 1.55;
+        }
+
+        .gap-action-row {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          margin-top: 24px;
+        }
+
+        /* Compact Side Frame for Skill Match Screenshot */
+        .compact-side-frame {
+          width: 100%;
+          max-width: 480px;
+          margin: 0 auto;
+        }
+
+        .side-screenshot-scrollable {
+          width: 100%;
+          max-height: 540px;
+          overflow-y: auto;
+          background: #ffffff;
+          scrollbar-width: thin;
+          scrollbar-color: #cbd5e1 #f8fafc;
+        }
+
+        .side-screenshot-scrollable::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .side-screenshot-scrollable::-webkit-scrollbar-thumb {
+          background-color: #cbd5e1;
+          border-radius: 4px;
+        }
+
+        /* Social Platform Layout */
+        .social-split-layout {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 45px;
+          align-items: center;
+        }
+
+        .social-text-col h2 {
+          margin: 10px 0 14px;
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(28px, 3.5vw, 40px);
+          font-weight: 800;
+          color: #0f172a;
+          line-height: 1.15;
+        }
+
+        .social-text-col h2 span {
+          color: var(--orange, #ff6500);
+        }
+
+        .social-text-col > p {
+          color: #64748b;
+          font-size: 15px;
+          line-height: 1.7;
+          margin: 0 0 24px;
+        }
+
+        .social-perks-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .social-perks-list li {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .social-perks-list li > span {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background: #dcfce7;
+          color: #16a34a;
+          font-size: 10px;
+          font-weight: 800;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        .social-perks-list li strong {
+          display: block;
+          font-size: 13.5px;
+          color: #1e293b;
+          margin-bottom: 2px;
+        }
+
+        .social-perks-list li p {
+          margin: 0;
+          font-size: 12.5px;
+          color: #64748b;
+          line-height: 1.5;
+        }
+
+        .community-feed-frame {
+          width: 100%;
+        }
+
+        .community-screenshot-inner {
+          width: 100%;
+          background: #f8fafc;
+        }
+
+        @media (max-width: 1024px) {
+          .ecosystem-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .gap-side-by-side-grid,
+          .social-split-layout {
+            grid-template-columns: 1fr;
+          }
+          .browser-url-pill {
+            display: none;
+          }
+          .compact-side-frame {
+            max-width: 100%;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .ecosystem-grid {
+            grid-template-columns: 1fr;
+          }
+          .side-screenshot-scrollable {
+            max-height: 380px;
+          }
+        }
+      `}</style>
     </main>
   );
 }

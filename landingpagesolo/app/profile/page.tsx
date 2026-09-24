@@ -1,10 +1,268 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import NavBar from "../components/NavBar";
 import FadeInSection from "../components/FadeInSection";
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
+
+function ResumeJourney() {
+  const [activeFlow, setActiveFlow] = useState<"import" | "generate">(
+    "import"
+  );
+  const [currentStep, setCurrentStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    setCurrentStep(1);
+    setActiveStep(0);
+  }, [activeFlow]);
+
+  const importSteps = [
+    {
+      number: "01",
+      title: "Select Import Resume",
+      description:
+        "Choose the Import Resume option to begin adding information from your existing resume.",
+      image: "/images/resume/import/step-1.png",
+    },
+    {
+      number: "02",
+      title: "Upload Your Resume",
+      description:
+        "Choose your existing resume file and upload it to SOLO.",
+      image: "/images/resume/import/step-2.png",
+    },
+    {
+      number: "03",
+      title: "Review Extracted Information",
+      description:
+        "SOLO extracts information such as skills, education, work experience, and projects for you to review.",
+      image: "/images/resume/import/step-3.png",
+    },
+    {
+      number: "04",
+      title: "Edit & Confirm",
+      description:
+        "Review the imported information and make any necessary changes before saving it.",
+      image: "/images/resume/import/step-4.png",
+    },
+    {
+      number: "05",
+      title: "Save & Finish",
+      description:
+        "Confirm your information and save it to your SOLO profile.",
+      image: "/images/resume/import/step-5.png",
+    },
+  ];
+
+  const generateSteps = [
+    {
+      number: "01",
+      title: "Complete Your Profile",
+      description:
+        "Keep your skills, education, projects, experience, and credentials updated in your SOLO profile.",
+      image: "/images/resume/generate/step-1.png",
+    },
+    {
+      number: "02",
+      title: "Access Generate Resume",
+      description:
+        "Go to your My Profile page and select the Generate Resume option.",
+      image: "/images/resume/generate/step-2.png",
+    },
+    {
+      number: "03",
+      title: "Choose Your Information",
+      description:
+        "Select or deselect the profile sections and achievements you want to include.",
+      image: "/images/resume/generate/step-3.png",
+    },
+    {
+      number: "04",
+      title: "Choose a Template",
+      description:
+        "Select one of the professionally designed, ATS-ready resume templates.",
+      image: "/images/resume/generate/step-4.png",
+    },
+    {
+      number: "05",
+      title: "Preview & Download",
+      description:
+        "Review your completed resume and download it when you are ready to use it.",
+      image: "/images/resume/generate/step-5.png",
+    },
+  ];
+
+  const steps =
+    activeFlow === "import" ? importSteps : generateSteps;
+
+  return (
+    <div className="resume-journey">
+
+      {/* FLOW SWITCHER */}
+      <div className="resume-flow-switcher">
+        <button
+          type="button"
+          className={
+            activeFlow === "import"
+              ? "resume-flow-button active"
+              : "resume-flow-button"
+          }
+          onClick={() => setActiveFlow("import")}
+        >
+          <span>01</span>
+          Import Your Resume
+        </button>
+
+        <button
+          type="button"
+          className={
+            activeFlow === "generate"
+              ? "resume-flow-button active"
+              : "resume-flow-button"
+          }
+          onClick={() => setActiveFlow("generate")}
+        >
+          <span>02</span>
+          Generate Your Resume
+        </button>
+      </div>
+
+      {/* MAIN JOURNEY */}
+      <div className="resume-journey-grid">
+
+        {/* LEFT - STEPS */}
+        <div className="resume-step-list">
+          <div className="resume-step-intro">
+            <span>
+              {activeFlow === "import"
+                ? "IMPORT RESUME"
+                : "GENERATE RESUME"}
+            </span>
+
+            <p>
+              {activeFlow === "import"
+                ? "Bring your existing resume into your SOLO profile."
+                : "Create an updated resume from your SOLO profile."}
+            </p>
+          </div>
+
+          {steps.map((step, index) => (
+            <button
+              type="button"
+              key={step.number}
+              className={
+                index === activeStep
+                  ? "resume-step active"
+                  : "resume-step"
+              }
+              onClick={() => setActiveStep(index)}
+            >
+              <div className="resume-step-number">
+                {step.number}
+              </div>
+
+              <div className="resume-step-content">
+                <h3>{step.title}</h3>
+
+                <p>{step.description}</p>
+
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* RIGHT - IMAGE */}
+        <div className="resume-image-area">
+
+          <div className="resume-image-browser">
+
+            <div className="resume-browser-bar">
+              <div className="resume-browser-dots">
+                <span />
+                <span />
+                <span />
+              </div>
+
+              <span>
+                {activeFlow === "import"
+                  ? "SOLO | Import Resume"
+                  : "SOLO | Generate Resume"}
+              </span>
+            </div>
+
+            <div className="resume-image-wrapper">
+
+              {/* 
+                ADD YOUR SCREENSHOTS HERE:
+                /public/images/resume/import/step-1.png
+                ...
+                /public/images/resume/generate/step-5.png
+              */}
+
+              <img
+                key={steps[activeStep].image}
+                src={steps[activeStep].image}
+                alt={steps[activeStep].title}
+                className="resume-step-image"
+              />
+
+              <div className="resume-image-placeholder">
+                <span>ADD SCREENSHOT</span>
+
+                <strong>
+                  {steps[activeStep].title}
+                </strong>
+
+                <small>
+                  {steps[activeStep].image}
+                </small>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="resume-image-caption">
+            <span>
+              STEP {steps[activeStep].number}
+            </span>
+
+            <strong>
+              {steps[activeStep].title}
+            </strong>
+          </div>
+
+        </div>
+      </div>
+
+      {/* BOTTOM SUMMARY */}
+      <div className="resume-bottom-note">
+
+        <div className="resume-bottom-icon">
+          ✓
+        </div>
+
+        <div>
+          <h3>
+            One profile. Multiple uses.
+          </h3>
+
+          <p>
+            Information stored in your SOLO profile can be used to support
+            your resume and career applications, helping you keep your
+            professional information current as your skills and achievements
+            grow.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
 
 export default function LifelongSkillsPortfolioPage() {
   const profileTabs = [
@@ -62,7 +320,7 @@ export default function LifelongSkillsPortfolioPage() {
       style={{
         background: "#ffffff",
         minHeight: "100vh",
-        overflowX: "hidden",
+        overflowX: "visible",
       }}
     >
       <NavBar />
@@ -469,10 +727,15 @@ export default function LifelongSkillsPortfolioPage() {
                         className="footer-icon"
                         type="button"
                       >
-                        <svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} 
-                        fill={"currentColor"} viewBox={"0 0 28 28"}>
-                        {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
-                        <path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width={24}
+                          height={24}
+                          fill={"currentColor"}
+                          viewBox={"0 0 28 28"}
+                        >
+                          <path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path>
+                          <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
                         </svg>
                       </button>
 
@@ -480,10 +743,14 @@ export default function LifelongSkillsPortfolioPage() {
                         className="footer-icon"
                         type="button"
                       >
-                        <svg  xmlns="http://www.w3.org/2000/svg" width={24} height={24} 
-                        fill={"currentColor"} viewBox={"0 0 28 28"}>
-                        {/* Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free */}
-                        <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2M4 12c0-.9.16-1.76.43-2.57L6 11l2 2v2l2 2 1 1v1.93c-3.94-.49-7-3.86-7-7.93m14.33 4.87c-.65-.53-1.64-.87-2.33-.87v-1c0-1.1-.9-2-2-2h-4v-3c1.1 0 2-.9 2-2V7h1c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 1.83-.63 3.52-1.67 4.87"></path>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width={24}
+                          height={24}
+                          fill={"currentColor"}
+                          viewBox={"0 0 28 28"}
+                        >
+                          <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2M4 12c0-.9.16-1.76.43-2.57L6 11l2 2v2l2 2 1 1v1.93c-3.94-.49-7-3.86-7-7.93m14.33 4.87c-.65-.53-1.64-.87-2.33-.87v-1c0-1.1-.9-2-2-2h-4v-3c1.1 0 2-.9 2-2V7h1c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 1.83-.63 3.52-1.67 4.87"></path>
                         </svg>
                       </button>
 
@@ -687,151 +954,33 @@ export default function LifelongSkillsPortfolioPage() {
         </section>
       </FadeInSection>
 
-        {/* =========================================================
-            RESUME IMPORT & GENERATION
-        ========================================================= */}
-        <FadeInSection>
+      {/* =========================================================
+          RESUME IMPORT & GENERATION
+      ========================================================= */}
+      <FadeInSection>
         <section className="resume-section">
-            <div className="section-container">
+          <div className="section-container">
 
             <div className="section-heading center">
-                <span className="section-label">RESUME TO PROFILE & BACK</span>
+              <span className="section-label">RESUME TO PROFILE & BACK</span>
 
-                <h2>
+              <h2>
                 Turn your resume into a profile,
                 <span> and your profile into a resume.</span>
-                </h2>
+              </h2>
 
-                <p>
-                SOLO makes it easier to build and maintain your professional
-                information. Import an existing resume to populate your profile,
-                or generate an updated, ATS-ready resume using the information
-                already stored in your SOLO profile.
-                </p>
+              <p>
+                Import an existing resume into your SOLO profile or generate an
+                updated, ATS-ready resume using the information already stored
+                in your profile.
+              </p>
             </div>
 
-            <div className="resume-flow">
+            <ResumeJourney />
 
-                {/* IMPORT RESUME */}
-                <div className="resume-feature-card">
-                <div className="resume-card-top">
-                    <span className="resume-number">01</span>
-
-                    <div className="resume-icon">
-                    ↓
-                    </div>
-                </div>
-
-                <span className="resume-card-label">IMPORT RESUME</span>
-
-                <h3>
-                    Start with the information you already have.
-                </h3>
-
-                <p>
-                    Upload an existing resume and SOLO extracts important information
-                    such as your skills, education, work experience, and projects.
-                    You can review and edit the extracted information before saving
-                    it to your profile.
-                </p>
-
-                <div className="resume-steps">
-                    <div>
-                    <span>01</span>
-                    <strong>Upload your resume</strong>
-                    </div>
-
-                    <div>
-                    <span>02</span>
-                    <strong>Review extracted information</strong>
-                    </div>
-
-                    <div>
-                    <span>03</span>
-                    <strong>Edit and confirm your details</strong>
-                    </div>
-
-                    <div>
-                    <span>04</span>
-                    <strong>Save to your profile</strong>
-                    </div>
-                </div>
-                </div>
-
-                {/* CONNECTOR */}
-                <div className="resume-connector">
-                <div className="connector-line" />
-                <span>PROFILE</span>
-                <div className="connector-line" />
-                </div>
-
-                {/* GENERATE RESUME */}
-                <div className="resume-feature-card">
-                <div className="resume-card-top">
-                    <span className="resume-number">02</span>
-
-                    <div className="resume-icon">
-                    ↑
-                    </div>
-                </div>
-
-                <span className="resume-card-label">GENERATE RESUME</span>
-
-                <h3>
-                    Build an updated resume from your profile.
-                </h3>
-
-                <p>
-                    Use your SOLO profile to create a professional, ATS-ready resume.
-                    Select the information and achievements you want to include,
-                    choose a professionally designed template, preview your resume,
-                    and download it when it is ready.
-                </p>
-
-                <div className="resume-steps">
-                    <div>
-                    <span>01</span>
-                    <strong>Complete your learner profile</strong>
-                    </div>
-
-                    <div>
-                    <span>02</span>
-                    <strong>Select the information to include</strong>
-                    </div>
-
-                    <div>
-                    <span>03</span>
-                    <strong>Choose a resume template</strong>
-                    </div>
-
-                    <div>
-                    <span>04</span>
-                    <strong>Preview and download</strong>
-                    </div>
-                </div>
-                </div>
-
-            </div>
-
-            <div className="resume-highlight">
-                <div className="resume-highlight-icon">✓</div>
-
-                <div>
-                <h3>Keep your resume connected to your profile.</h3>
-
-                <p>
-                    As your skills, credentials, experiences, education, and
-                    achievements grow, your profile can provide the information
-                    needed to keep your resume updated. Resumes generated through
-                    SOLO can also include clickable credential links so employers
-                    can verify relevant achievements.
-                </p>
-                </div>
-            </div>
-
-            </div>
+          </div>
         </section>
-        </FadeInSection>
+      </FadeInSection>
 
       {/* =========================================================
           FINAL CTA
@@ -2051,183 +2200,420 @@ export default function LifelongSkillsPortfolioPage() {
           color: #f97316;
         }
 
-    /* =====================================================
-    RESUME IMPORT & GENERATION
-    ===================================================== */
+        /* =====================================================
+        RESUME IMPORT & GENERATION
+        ===================================================== */
 
-    .resume-section {
-    padding: 110px 20px;
-    background: #ffffff;
-    }
+        .resume-section {
+          padding: 110px 20px;
+          background: #ffffff;
+        }
 
-    .resume-flow {
-    display: grid;
-    grid-template-columns: 1fr 90px 1fr;
-    align-items: stretch;
-    gap: 20px;
-    margin-top: 55px;
-    }
+        .resume-journey {
+          margin-top: 55px;
+        }
 
-    .resume-feature-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 30px;
-    transition: all 0.3s ease;
-    }
+        /* =====================================================
+        FLOW SWITCHER
+        ===================================================== */
 
-    .resume-feature-card:hover {
-    transform: translateY(-6px);
-    background: #ffffff;
-    border-color: rgba(249, 115, 22, 0.35);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-    }
+        .resume-flow-switcher {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-bottom: 45px;
+        }
 
-    .resume-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    }
+        .resume-flow-button {
+          border: 1px solid #e2e8f0;
+          background: #f8fafc;
+          color: #64748b;
+          border-radius: 10px;
+          padding: 12px 20px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 13px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.25s ease;
+        }
 
-    .resume-number {
-    font-size: 11px;
-    font-weight: 800;
-    color: #f97316;
-    }
+        .resume-flow-button span {
+          font-size: 10px;
+          color: #94a3b8;
+        }
 
-    .resume-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: #fff7ed;
-    color: #f97316;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: 700;
-    }
+        .resume-flow-button:hover {
+          border-color: #f97316;
+          color: #f97316;
+        }
 
-    .resume-card-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #f97316;
-    margin-bottom: 10px;
-    }
+        .resume-flow-button.active {
+          background: #fff7ed;
+          border-color: #f97316;
+          color: #f97316;
+          box-shadow: 0 8px 20px rgba(249, 115, 22, 0.1);
+        }
 
-    .resume-feature-card h3 {
-    margin: 0 0 12px;
-    font-size: 21px;
-    line-height: 1.25;
-    color: #0f172a;
-    }
+        .resume-flow-button.active span {
+          color: #f97316;
+        }
 
-    .resume-feature-card > p {
-    margin: 0;
-    color: #64748b;
-    font-size: 13.5px;
-    line-height: 1.7;
-    }
+        /* =====================================================
+        MAIN JOURNEY
+        ===================================================== */
 
-    .resume-steps {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-    }
+        .resume-journey-grid {
+          display: grid;
+          grid-template-columns: 390px 1fr;
+          gap: 60px;
+          align-items: center;
+        }
 
-    .resume-steps div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    }
+        /* =====================================================
+        STEPS
+        ===================================================== */
 
-    .resume-steps span {
-    width: 24px;
-    height: 24px;
-    flex: 0 0 24px;
-    border-radius: 50%;
-    background: #fff7ed;
-    color: #f97316;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 800;
-    }
+        .resume-step-list {
+          display: flex;
+          flex-direction: column;
+        }
 
-    .resume-steps strong {
-    font-size: 12px;
-    color: #334155;
-    }
+        .resume-step-intro {
+          padding: 0 0 20px 20px;
+        }
 
-    .resume-connector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    }
+        .resume-step-intro span {
+          font-size: 10px;
+          font-weight: 800;
+          letter-spacing: 1.5px;
+          color: #f97316;
+        }
 
-    .resume-connector span {
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    color: #94a3b8;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    }
+        .resume-step-intro p {
+          margin: 7px 0 0;
+          color: #64748b;
+          font-size: 13px;
+          line-height: 1.5;
+        }
 
-    .connector-line {
-    width: 1px;
-    flex: 1;
-    min-height: 50px;
-    background: #e2e8f0;
-    }
+        .resume-step {
+          width: 100%;
+          display: flex;
+          gap: 16px;
+          text-align: left;
+          padding: 17px 18px;
+          background: transparent;
+          border: none;
+          border-left: 2px solid #e2e8f0;
+          cursor: pointer;
+          transition: all 0.25s ease;
+        }
 
-    .resume-highlight {
-    margin: 30px auto 0;
-    max-width: 950px;
-    padding: 22px 25px;
-    border: 1px solid #fed7aa;
-    background: #fffaf5;
-    border-radius: 14px;
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    }
+        .resume-step:hover {
+          background: #f8fafc;
+        }
 
-    .resume-highlight-icon {
-    width: 32px;
-    height: 32px;
-    flex: 0 0 32px;
-    border-radius: 50%;
-    background: #f97316;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 800;
-    }
+        .resume-step.active {
+          border-left-color: #f97316;
+          background: #fffaf5;
+        }
 
-    .resume-highlight h3 {
-    margin: 2px 0 7px;
-    font-size: 15px;
-    color: #0f172a;
-    }
+        .resume-step-number {
+          width: 32px;
+          height: 32px;
+          flex: 0 0 32px;
+          border-radius: 50%;
+          background: #f1f5f9;
+          color: #94a3b8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 9px;
+          font-weight: 800;
+          transition: all 0.25s ease;
+        }
 
-    .resume-highlight p {
-    margin: 0;
-    color: #64748b;
-    font-size: 12.5px;
-    line-height: 1.65;
-    }
+        .resume-step.active .resume-step-number {
+          background: #f97316;
+          color: #ffffff;
+        }
+
+        .resume-step-content {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .resume-step-content h3 {
+          margin: 2px 0 5px;
+          font-size: 14px;
+          color: #334155;
+          font-weight: 700;
+        }
+
+        .resume-step.active .resume-step-content h3 {
+          color: #0f172a;
+        }
+
+        .resume-step-content p {
+          margin: 0;
+          color: #94a3b8;
+          font-size: 11.5px;
+          line-height: 1.55;
+        }
+
+        .resume-step.active .resume-step-content p {
+          color: #64748b;
+        }
+
+        /* =====================================================
+        IMAGE AREA
+        ===================================================== */
+
+        .resume-image-area {
+          min-width: 0;
+        }
+
+        .resume-image-browser {
+          background: #f1f5f9;
+          border: 1px solid #dbe1e8;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 25px 60px rgba(15, 23, 42, 0.1);
+        }
+
+        .resume-browser-bar {
+          height: 42px;
+          background: #f8fafc;
+          border-bottom: 1px solid #dbe1e8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          color: #94a3b8;
+          font-size: 10px;
+          font-weight: 700;
+        }
+
+        .resume-browser-dots {
+          position: absolute;
+          left: 16px;
+          display: flex;
+          gap: 6px;
+        }
+
+        .resume-browser-dots span {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #cbd5e1;
+        }
+
+        .resume-image-wrapper {
+          position: relative;
+          min-height: 480px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 25px;
+          background:
+            radial-gradient(
+              circle at 50% 30%,
+              rgba(249, 115, 22, 0.08),
+              transparent 45%
+            ),
+            #eef2f6;
+        }
+
+        .resume-step-image {
+          display: block;
+          width: 100%;
+          max-height: 560px;
+          object-fit: contain;
+          border-radius: 8px;
+          background: #ffffff;
+          box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
+          animation: resumeImageReveal 0.45s ease;
+        }
+
+        .resume-image-placeholder {
+          position: absolute;
+          inset: 25px;
+          border: 2px dashed #cbd5e1;
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.75);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          pointer-events: none;
+        }
+
+        .resume-image-placeholder span {
+          font-size: 10px;
+          font-weight: 800;
+          letter-spacing: 1.5px;
+          color: #f97316;
+        }
+
+        .resume-image-placeholder strong {
+          margin-top: 10px;
+          color: #334155;
+          font-size: 16px;
+        }
+
+        .resume-image-placeholder small {
+          margin-top: 8px;
+          color: #94a3b8;
+          font-size: 10px;
+        }
+
+        .resume-step-image[src] + .resume-image-placeholder {
+          display: none;
+        }
+
+        .resume-image-caption {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-top: 15px;
+        }
+
+        .resume-image-caption span {
+          font-size: 10px;
+          font-weight: 800;
+          color: #f97316;
+        }
+
+        .resume-image-caption strong {
+          font-size: 13px;
+          color: #334155;
+        }
+
+        /* =====================================================
+        BOTTOM NOTE
+        ===================================================== */
+
+        .resume-bottom-note {
+          max-width: 950px;
+          margin: 35px auto 0;
+          padding: 22px 25px;
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
+          border: 1px solid #fed7aa;
+          background: #fffaf5;
+          border-radius: 14px;
+        }
+
+        .resume-bottom-icon {
+          width: 32px;
+          height: 32px;
+          flex: 0 0 32px;
+          border-radius: 50%;
+          background: #f97316;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          font-weight: 800;
+        }
+
+        .resume-bottom-note h3 {
+          margin: 2px 0 7px;
+          font-size: 15px;
+          color: #0f172a;
+        }
+
+        .resume-bottom-note p {
+          margin: 0;
+          color: #64748b;
+          font-size: 12.5px;
+          line-height: 1.65;
+        }
+
+        /* =====================================================
+        ANIMATION
+        ===================================================== */
+
+        @keyframes resumeImageReveal {
+          from {
+            opacity: 0;
+            transform: translateX(15px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        /* =====================================================
+        RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+          .resume-journey-grid {
+            grid-template-columns: 1fr;
+            gap: 35px;
+          }
+
+          .resume-step-list {
+            max-width: 700px;
+            margin: 0 auto;
+            width: 100%;
+          }
+
+          .resume-image-area {
+            max-width: 850px;
+            width: 100%;
+            margin: 0 auto;
+          }
+        }
+
+        @media (max-width: 760px) {
+          .resume-section {
+            padding: 75px 18px;
+          }
+
+          .resume-flow-switcher {
+            flex-direction: column;
+          }
+
+          .resume-flow-button {
+            justify-content: center;
+          }
+
+          .resume-image-wrapper {
+            min-height: 330px;
+            padding: 15px;
+          }
+
+          .resume-image-placeholder {
+            inset: 15px;
+          }
+
+          .resume-bottom-note {
+            padding: 18px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .resume-step {
+            padding: 14px 12px;
+          }
+
+          .resume-step-content p {
+            font-size: 11px;
+          }
+
+          .resume-image-wrapper {
+            min-height: 260px;
+          }
+        }
 
         /* =====================================================
            CTA

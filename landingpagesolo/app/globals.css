@@ -50,7 +50,7 @@ body {
   background: #ffffff;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 10000;
 }
 
 .nav-container {
@@ -7125,8 +7125,14 @@ section {
 }
 
 @keyframes heroLineFlow {
-  0% { transform: translateX(-110%); }
-  60%, 100% { transform: translateX(220%); }
+  0% {
+    transform: translateX(-110%);
+  }
+
+  60%,
+  100% {
+    transform: translateX(220%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -7142,6 +7148,7 @@ section {
   .hero-journey-card {
     padding: 48px 38px 44px;
   }
+
   .hero-journey-card .journey-compact .journey-line {
     flex-basis: 24px;
     width: 24px;
@@ -7154,9 +7161,11 @@ section {
     grid-template-columns: minmax(0, 1fr);
     gap: 56px;
   }
+
   .hero-journey-card {
     max-width: 760px;
   }
+
   .hero-journey-card .journey-compact .journey-line {
     flex-basis: 24px;
     width: 24px;
@@ -7169,13 +7178,16 @@ section {
     padding: 32px 22px;
     border-radius: 26px;
   }
+
   .hero-journey-card::after {
     display: none;
   }
+
   .hero-journey-card .journey-compact {
     flex-direction: column;
     align-items: stretch;
   }
+
   .hero-journey-card .journey-compact .journey-item {
     flex: none;
     display: grid;
@@ -7184,20 +7196,24 @@ section {
     align-items: center;
     text-align: left;
   }
+
   .hero-journey-card .journey-compact .journey-circle {
     grid-row: 1 / span 2;
   }
+
   .hero-journey-card .journey-compact .journey-item h3 {
     grid-column: 2;
     margin: 0 0 4px;
     min-height: 0;
     align-self: end;
   }
+
   .hero-journey-card .journey-compact .journey-item p {
     grid-column: 2;
     max-width: none;
     align-self: start;
   }
+
   .hero-journey-card .journey-compact .journey-line {
     flex: 0 0 22px;
     width: 2px;
@@ -7205,6 +7221,7 @@ section {
     height: 22px;
     margin: 0 0 0 31px;
   }
+
   .hero-journey-card .journey-compact .journey-line::after {
     width: 100%;
     height: 60%;
@@ -7213,6 +7230,12 @@ section {
 }
 
 @keyframes heroLineFlowV {
-  0% { transform: translateY(-110%); }
-  60%, 100% { transform: translateY(220%); }
+  0% {
+    transform: translateY(-110%);
+  }
+
+  60%,
+  100% {
+    transform: translateY(220%);
+  }
 }

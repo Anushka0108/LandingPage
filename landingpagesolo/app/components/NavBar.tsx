@@ -195,7 +195,7 @@ export default function NavBar() {
           </Link>
 
           {/* GET STARTED */}
-          <Link href="/signup" className="nav-signup">
+          <Link href="https://app.thesolo.network/" className="nav-signup">
             Get Started
           </Link>
 

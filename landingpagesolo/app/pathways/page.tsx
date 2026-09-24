@@ -223,7 +223,7 @@ export default function CareerPathwaysPage() {
   return (
     <main
       className="career-pathway-page"
-      style={{ background: "#ffffff", minHeight: "100vh" }}
+      style={{ background: "#ffffff", minHeight: "100vh", overflow: "visible", }}
     >
       <NavBar />
 
