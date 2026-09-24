@@ -196,7 +196,7 @@ export default function NavBar() {
 
           {/* GET STARTED */}
           <Link href="/signup" className="nav-signup">
-            Get Started
+            Sign Up
           </Link>
 
         </nav>

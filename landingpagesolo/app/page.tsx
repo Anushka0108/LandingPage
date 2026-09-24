@@ -1,5 +1,5 @@
 "use client";
-
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NavBar from "./components/NavBar";
@@ -10,6 +10,8 @@ import { successStories } from "./data/successStories";
 import { opportunities } from "./data/opportunties";
 
 export default function Home() {
+  const [activeJourneyPhase, setActiveJourneyPhase] = useState("profile");
+
   return (
     <main>
       <NavBar />
@@ -41,9 +43,7 @@ export default function Home() {
                   <Link href="/signup" className="hero-primary">
                     Get Started
                   </Link>
-                  <Link href="/contact" className="hero-secondary">
-                    Contact Us
-                  </Link>
+                  
                 </div>
               </div>
 
@@ -150,146 +150,358 @@ export default function Home() {
           </div>
         </FadeInSection>
       </section>
-
-      {/* ========================= FLYWHEEL ========================= */}
-      <section
-        style={{
-          padding: "70px 20px 85px",
-          background: "#ffffff",
-          borderBottom: "1px solid #eef2f6",
-        }}
-      >
-        <FadeInSection>
-          <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-            <div
-              style={{
-                textAlign: "center",
-                marginBottom: "42px",
-              }}
-            >
-              <h2
-                style={{
-                  fontFamily: "var(--font-montserrat), sans-serif",
-                  fontSize: "clamp(24px, 2.5vw, 34px)",
-                  fontWeight: "800",
-                  color: "#0f172a",
-                  margin: "0 0 10px",
-                  letterSpacing: "-1px",
-                }}
-              >
-               Your Path From Learner to Professional
+        
+            {/* ========================= YOUR JOURNEY (12-STEP ROADMAP) ========================= */}
+      <FadeInSection>
+        <section className="solo-journey-section" id="journey">
+          <div className="solo-journey-wrapper">
+            {/* HEADING */}
+            <div className="section-heading center solo-journey-heading">
+              <p className="section-label">YOUR JOURNEY</p>
+              <h2>
+                Your Journey. Your Growth.
+                <span> Your Future.</span>
               </h2>
-
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "#64748b",
-                  margin: 0,
-                }}
-              >
-               A structured six-step journey from exploring interests to becoming hire-ready
+              <p>
+                SOLO helps learners build a trusted profile and move toward
+                the right opportunities.
               </p>
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-                gap: "18px",
-              }}
-            >
+            {/* PROGRESS RAIL */}
+            <div className="roadmap-progress-rail">
               {[
-                {
-                  num: "1",
-                  title: "Discover",
-                  desc: "Explore target roles & courses",
-                },
-                {
-                  num: "2",
-                  title: "Learn",
-                  desc: "Enroll in courses, hackathons & projects",
-                },
-                {
-                  num: "3",
-                  title: "Build Skills",
-                  desc: "Work on live projects & assignments",
-                },
-                {
-                  num: "4",
-                  title: "Prove Skills",
-                  desc: "Submit certificates & open evidence",
-                },
-                {
-                  num: "5",
-                  title: "Grow",
-                  desc: "Identify skill gaps against live market roles",
-                },
-                {
-                  num: "6",
-                  title: "Showcase",
-                  desc: "Verifiable credentials & ATS resumes",
-                },
-              ].map((step) => (
-                <div
-                  key={step.num}
-                  style={{
-                    background: "#ffffff",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: "14px",
-                    padding: "20px 16px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    boxShadow: "0 4px 18px rgba(15, 23, 42, 0.04)",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      background: "var(--orange)",
-                      color: "#ffffff",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontFamily: "var(--font-montserrat), sans-serif",
-                      fontWeight: "800",
-                      fontSize: "13px",
-                      marginBottom: "14px",
-                    }}
+                { id: "profile", num: "01", label: "PROFILE", accent: "orange" },
+                { id: "discover", num: "02", label: "DISCOVER", accent: "blue" },
+                { id: "achieve", num: "03", label: "ACHIEVE", accent: "gold" },
+                { id: "grow", num: "04", label: "GROW", accent: "coral" },
+              ].map((phase, i, arr) => (
+                <span key={phase.id} style={{ display: "flex", alignItems: "flex-start" }}>
+                  <button
+                    type="button"
+                    className={`progress-node accent-${phase.accent} ${
+                      activeJourneyPhase === phase.id ? "active" : ""
+                    } ${
+                      arr.findIndex((p) => p.id === activeJourneyPhase) > i ? "done" : ""
+                    }`}
+                    onClick={() => setActiveJourneyPhase(phase.id)}
                   >
-                    {step.num}
-                  </div>
-
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-montserrat), sans-serif",
-                      fontSize: "16px",
-                      fontWeight: "750",
-                      color: "#1e293b",
-                      margin: "0 0 6px",
-                    }}
-                  >
-                    {step.title}
-                  </h3>
-
-                  <p
-                    style={{
-                      fontSize: "12px",
-                      color: "#64748b",
-                      lineHeight: "1.5",
-                      margin: 0,
-                    }}
-                  >
-                    {step.desc}
-                  </p>
-                </div>
+                    <span className="progress-node-circle">{phase.num}</span>
+                    <span className="progress-node-label">{phase.label}</span>
+                  </button>
+                  {i < arr.length - 1 && (
+                    <span
+                      className={`progress-connector ${
+                        arr.findIndex((p) => p.id === activeJourneyPhase) > i ? "filled" : ""
+                      }`}
+                    />
+                  )}
+                </span>
               ))}
             </div>
+                        {/* ROADMAP — only the active phase renders */}
+            <div className="solo-roadmap">
+              {activeJourneyPhase === "profile" && (
+                <div className="solo-roadmap-phase accent-orange phase-open">
+                  <button
+                    type="button"
+                    className="roadmap-phase-header"
+                    onClick={() => setActiveJourneyPhase("profile")}
+                  >
+                    <div className="roadmap-phase-title">
+                      <div className="roadmap-phase-number">01</div>
+                      <div>
+                        <span className="roadmap-phase-label">PROFILE</span>
+                        <h3>Build your foundation</h3>
+                      </div>
+                    </div>
+                    <p className="roadmap-phase-desc">
+                      Create your trusted professional identity.
+                    </p>
+                    
+                  </button>
+
+                  <div className="roadmap-steps-wrapper steps-open">
+                    <div className="roadmap-steps">
+                      <div className="roadmap-step">
+                        <span className="step-number">01</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="8" r="3.5" />
+                            <path d="M5 20c.8-3.7 3.1-5.5 7-5.5s6.2 1.8 7 5.5" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Sign Up</h4>
+                          <p>Create your SOLO account and begin your professional journey.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">02</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M6 3h9l4 4v14H6z" />
+                            <path d="M14 3v5h5" />
+                            <path d="M9 12h6M9 15h5M9 18h4" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Add Profile</h4>
+                          <p>Import your resume or manually build your professional profile.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">03</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="3" />
+                            <circle cx="5" cy="7" r="2" />
+                            <circle cx="19" cy="7" r="2" />
+                            <circle cx="19" cy="18" r="2" />
+                            <path d="M10 10 7 8M14 10l3-2M14 14l3 2" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Understand Skills</h4>
+                          <p>SOLO understands your skills and creates a clearer picture of your capabilities.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">04</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20.5 8.8c0 5-8.5 10-8.5 10s-8.5-5-8.5-10A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.5 2.6Z" />
+                            <path d="M17 13.5v4M15 15.5h4" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Add Interests</h4>
+                          <p>Add your interests and preferences to make your journey more relevant.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeJourneyPhase === "discover" && (
+                <div className="solo-roadmap-phase accent-blue phase-open">
+                  <button
+                    type="button"
+                    className="roadmap-phase-header"
+                    onClick={() => setActiveJourneyPhase("discover")}
+                  >
+                    <div className="roadmap-phase-title">
+                      <div className="roadmap-phase-number">02</div>
+                      <div>
+                        <span className="roadmap-phase-label">DISCOVER</span>
+                        <h3>Find the right opportunities</h3>
+                      </div>
+                    </div>
+                    <p className="roadmap-phase-desc">
+                      Discover opportunities matched to your interests.
+                    </p>
+                    
+                  </button>
+
+                  <div className="roadmap-steps-wrapper steps-open">
+                    <div className="roadmap-steps">
+                      <div className="roadmap-step">
+                        <span className="step-number">05</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="3" />
+                            <path d="M8 9h4M8 13h4M8 17h7" />
+                            <circle cx="17" cy="9" r="1.5" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Recommendations</h4>
+                          <p>Discover relevant courses, internships, and jobs based on your profile.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">06</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="3" />
+                            <path d="m8 12 3 3 5-6" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Enroll &amp; Complete</h4>
+                          <p>Enroll in relevant opportunities and complete them to build real experience.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeJourneyPhase === "achieve" && (
+                <div className="solo-roadmap-phase accent-gold phase-open">
+                  <button
+                    type="button"
+                    className="roadmap-phase-header"
+                    onClick={() => setActiveJourneyPhase("achieve")}
+                  >
+                    <div className="roadmap-phase-title">
+                      <div className="roadmap-phase-number">03</div>
+                      <div>
+                        <span className="roadmap-phase-label">ACHIEVE</span>
+                        <h3>Turn your work into proof</h3>
+                      </div>
+                    </div>
+                    <p className="roadmap-phase-desc">
+                      Verify your achievements and showcase your progress.
+                    </p>
+                   
+                  </button>
+
+                  <div className="roadmap-steps-wrapper steps-open">
+                    <div className="roadmap-steps">
+                      <div className="roadmap-step">
+                        <span className="step-number">07</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M6 3h9l4 4v14H6z" />
+                            <path d="M14 3v5h5" />
+                            <path d="M9 13h5M9 16h4" />
+                            <circle cx="18" cy="18" r="3" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Submit Certificate</h4>
+                          <p>Submit your certificate so your achievement can be verified.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">08</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 3 20 6v6c0 4.4-3.2 7.8-8 9-4.8-1.2-8-4.6-8-9V6z" />
+                            <path d="m8.5 12 2.2 2.2 4.8-5" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Earn Verified Badge</h4>
+                          <p>Receive a verifiable badge that represents your achievement.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">09</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="6" cy="12" r="2.5" />
+                            <circle cx="18" cy="6" r="2.5" />
+                            <circle cx="18" cy="18" r="2.5" />
+                            <path d="m8.2 10.8 7.5-3.7M8.2 13.2l7.5 3.7" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Share Credentials</h4>
+                          <p>Share your verified credentials and professional profile with others.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">10</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="5" y="3" width="14" height="18" rx="2" />
+                            <circle cx="10" cy="9" r="2" />
+                            <path d="M13 8h3M13 11h3M8 15h8M8 18h5" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Build Resume</h4>
+                          <p>Turn your profile, skills, and achievements into a professional resume.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeJourneyPhase === "grow" && (
+                <div className="solo-roadmap-phase accent-coral phase-open">
+                  <button
+                    type="button"
+                    className="roadmap-phase-header"
+                   
+                  >
+                    <div className="roadmap-phase-title">
+                      <div className="roadmap-phase-number">04</div>
+                      <div>
+                        <span className="roadmap-phase-label">GROW</span>
+                        <h3>Keep moving forward</h3>
+                      </div>
+                    </div>
+                    <p className="roadmap-phase-desc">
+                      Compare your skills and define your next career goal.
+                    </p>
+                  
+                  </button>
+
+                  <div className="roadmap-steps-wrapper steps-open">
+                    <div className="roadmap-steps">
+                      <div className="roadmap-step">
+                        <span className="step-number">11</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M4 19V9M10 19V5M16 19v-8M22 19V3" />
+                            <path d="m5 7 5-3 6 4 5-4" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Compare to Job Roles</h4>
+                          <p>Compare your profile and skills against relevant job roles.</p>
+                        </div>
+                      </div>
+
+                      <div className="roadmap-step">
+                        <span className="step-number">12</span>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="8" />
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="m16 8 5-5M21 3h-4M21 3v4" />
+                          </svg>
+                        </div>
+                        <div className="step-body">
+                          <h4>Set Career Goals</h4>
+                          <p>Set target roles and career goals for your next stage of growth.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* FINAL MESSAGE */}
+            <div className="solo-roadmap-result">
+              <div className="roadmap-result-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 18 10 12l4 3 6-8" />
+                  <path d="M15 7h5v5" />
+                </svg>
+              </div>
+              <div>
+                <span>YOUR NEXT STEP</span>
+                <h3>Build. Learn. Achieve. Grow.</h3>
+                <p>SOLO is with you at every step of your career journey.</p>
+              </div>
+            </div>
           </div>
-        </FadeInSection>
-      </section>
+        </section>
+      </FadeInSection>
 
       {/* ========================= OPPORTUNITIES ========================= */}
       <section
