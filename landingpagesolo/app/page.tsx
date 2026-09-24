@@ -631,7 +631,7 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-            {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
+           {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
       <FadeInSection>
         <section
           className="career-pathway-explorer"
@@ -851,7 +851,6 @@ export default function Home() {
           </div>
         </section>
       </FadeInSection>
-
 
       {/* ========================= PROFILE (BROWSER FRAMED) ========================= */}
       <FadeInSection>
@@ -1522,7 +1521,6 @@ export default function Home() {
           </div>
         </section>
       </FadeInSection>
-
 
       {/* ========================= REAL-TIME SKILL GAP & ROLE ANALYSIS ========================= */}
       <FadeInSection>

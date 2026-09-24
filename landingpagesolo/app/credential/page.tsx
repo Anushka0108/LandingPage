@@ -674,15 +674,15 @@ export default function CredentialsInformationPage() {
                 <ul className="mobile-feature-list"> 
                   <li> 
                     <span>✓</span> 
-                    <p>Instant mobile access to all earned certificates and badges</p> 
+                    <p>Provides a single, convenient place to manage your verified achievements</p> 
                   </li> 
                   <li> 
                     <span>✓</span> 
-                    <p>Cryptographically secure sovereign storage on your phone</p> 
+                    <p>Makes credential accessible anytime, anywhere</p> 
                   </li> 
                   <li> 
                     <span>✓</span> 
-                    <p>One-tap verification links and QR codes for interviews</p> 
+                    <p>Enables learners to quickly showcase skills and achievements when required</p> 
                   </li> 
                 </ul> 
  
