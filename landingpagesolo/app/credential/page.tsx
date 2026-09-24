@@ -688,7 +688,7 @@ export default function CredentialsInformationPage() {
  
                 <div className="playstore-action-wrap"> 
                   <a 
-                    href="https://play.google.com/store/apps/details?id=com.sparkplustech.solowallet" 
+                    href="https://play.google.com/store/apps/details?id=com.sparkrex.credentialwallet" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="playstore-btn" 
