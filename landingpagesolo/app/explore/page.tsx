@@ -6,7 +6,7 @@ import NavBar from "../components/NavBar";
 import FadeInSection from "../components/FadeInSection"; 
  
 import { opportunities } from "../data/opportunties"; 
-import { useState } from "react"; 
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation"; 
 import Image from "next/image"; 
 import Link from "next/link"; 
@@ -44,7 +44,7 @@ const skills = [
   "JavaScript", 
 ]; 
  
-export default function ExplorePage() { 
+function ExploreContent()  { 
     const searchParams = useSearchParams(); 
     const type = searchParams.get("type"); 
  
@@ -217,4 +217,11 @@ export default function ExplorePage() {
       
     </main> 
   ); 
+}
+export default function ExplorePage() {
+  return (
+    <Suspense fallback={null}>
+      <ExploreContent />
+    </Suspense>
+  );
 }
