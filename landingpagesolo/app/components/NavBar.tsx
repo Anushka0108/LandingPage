@@ -250,7 +250,7 @@ export default function NavBar() {
 
           {/* GET STARTED */}
           <a
-            href="https://app.thesolo.network/"
+            href="/signup"
             className="nav-signup"
             onClick={() => setMobileMenuOpen(false)}
           >
