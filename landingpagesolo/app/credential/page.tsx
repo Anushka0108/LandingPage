@@ -693,7 +693,7 @@ export default function CredentialsInformationPage() {
                     rel="noopener noreferrer" 
                     className="playstore-btn" 
                   > 
-                    <span className="play-icon">▶</span> 
+                    <span className="play-icon"><img src="/images/playstore.png" alt="Google Play Icon" /></span> 
                     <div> 
                       <small>GET IT ON</small> 
                       <strong>Google Play Store</strong> 
