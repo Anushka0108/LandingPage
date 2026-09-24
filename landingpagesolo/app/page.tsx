@@ -1492,7 +1492,7 @@ export default function Home() {
             <div className="section-heading center" style={{ textAlign: "center", margin: "0 auto 50px" }}>
               <p className="section-label">GROWTH & CAREER READINESS</p>
               <h2>
-                Target Opportunities with <span>Real-Time Skill Gap Analysis</span>
+                Target Opportunities with <span>Skill Gap Analysis</span>
               </h2>
               <p style={{ maxWidth: "760px", margin: "0 auto", color: "#64748b", fontSize: "15px", lineHeight: "1.7" }}>
                 SOLO benchmarks your sovereign profile directly against live employer requirements. Review the three evaluation tiers and your qualification curve before hitting apply.
@@ -1624,27 +1624,7 @@ export default function Home() {
                 </p>
 
                 <ul className="social-perks-list" style={{ marginTop: "18px" }}>
-                  <li>
-                    <span>✓</span>
-                    <div>
-                      <strong>Verified Milestone Feeds:</strong>
-                      <p>Publish project deliverables, new certifications, and career updates directly from your sovereign wallet.</p>
-                    </div>
-                  </li>
-                  <li>
-                    <span>✓</span>
-                    <div>
-                      <strong>Peer & Mentor Endorsements:</strong>
-                      <p>Request authentic proof recommendations from verified professors and industry evaluators.</p>
-                    </div>
-                  </li>
-                  <li>
-                    <span>✓</span>
-                    <div>
-                      <strong>Collaborative Suggestions:</strong>
-                      <p>Discover fellow students pursuing similar career tracks and recruit talent for upcoming hackathons.</p>
-                    </div>
-                  </li>
+                 
                 </ul>
               </div>
 
