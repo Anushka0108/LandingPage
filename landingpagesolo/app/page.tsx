@@ -17,14 +17,13 @@ export default function Home() {
     <main>
       <NavBar />
 
-      {/* ========================= HERO (SCATTERED FADED TAGS) ========================= */}
+      {/* ========================= HERO ========================= */}
       <section className="hero">
         <div className="hero-glow hero-glow-one" />
         <div className="hero-glow hero-glow-two" />
 
         <FadeInSection>
           <div className="hero-content hero-content-v2">
-            {/* ---------- scattered faded pills (desktop only) ---------- */}
             <a href="/profile" className="floating-pill pill-learner">
               <span className="pill-icon pill-orange">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -86,7 +85,6 @@ export default function Home() {
               <span className="pill-chevron">›</span>
             </a>
 
-            {/* ---------- HERO TEXT ---------- */}
             <div className="hero-text hero-text-centered">
               <p className="hero-label">LEARN • PROVE • ADVANCE</p>
 
@@ -111,7 +109,7 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-      {/* ========================= YOUR JOURNEY (12-STEP ROADMAP) ========================= */}
+      {/* ========================= YOUR JOURNEY ========================= */}
       <FadeInSection>
         <section className="solo-journey-section" id="journey">
           <div className="solo-journey-wrapper">
@@ -134,7 +132,7 @@ export default function Home() {
                 { id: "achieve", num: "03", label: "ACHIEVE", accent: "gold" },
                 { id: "grow", num: "04", label: "GROW", accent: "coral" },
               ].map((phase, i, arr) => (
-                <span key={phase.id} className="progress-node-item">
+                <span key={phase.id} style={{ display: "flex", alignItems: "flex-start" }}>
                   <button
                     type="button"
                     className={`progress-node accent-${phase.accent} ${
@@ -442,7 +440,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= OPPORTUNITIES (BROWSER FRAMED) ========================= */}
+      {/* ========================= OPPORTUNITIES ========================= */}
       <section
         className="opportunities-section"
         style={{
@@ -591,7 +589,7 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-      {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
+      {/* ========================= CAREER PATHWAYS ========================= */}
       <FadeInSection>
         <section
           className="career-pathway-explorer"
@@ -812,7 +810,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= PROFILE (SCREENSHOT) ========================= */}
+      {/* ========================= PROFILE ========================= */}
       <FadeInSection>
         <section
           className="profile-section"
@@ -883,7 +881,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= CREDENTIALS (SCREENSHOT) ========================= */}
+      {/* ========================= CREDENTIALS ========================= */}
       <FadeInSection>
         <section
           className="credentials-section"
@@ -937,7 +935,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= REAL-TIME SKILL GAP & ROLE ANALYSIS ========================= */}
+      {/* ========================= REAL-TIME SKILL GAP ========================= */}
       <FadeInSection>
         <section className="job-skill-gap-section" style={{ padding: "95px 20px", background: "#f8fafc", borderBottom: "1px solid #eef2f6" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
@@ -1053,7 +1051,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* ========================= MERGED: THE SOLO COMMUNITY & SOCIAL PLATFORM ========================= */}
+      {/* ========================= COMMUNITY & SOCIAL PLATFORM ========================= */}
       <FadeInSection>
         <section className="merged-community-section" style={{ padding: "95px 20px", background: "#ffffff", borderBottom: "1px solid #eef2f6" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
@@ -1201,7 +1199,7 @@ export default function Home() {
       <Footer />
       <BackToTop />
 
-      {/* ========================= ENHANCED GLOBAL STYLES ========================= */}
+      {/* ========================= GLOBAL STYLES ========================= */}
       <style jsx global>{`
         .hero {
           position: relative;
@@ -1238,7 +1236,7 @@ export default function Home() {
           justify-content: center;
         }
 
-        /* ---------- faded floating pills (Desktop) ---------- */
+        /* ---------- Floating Pills (Desktop Only) ---------- */
         .floating-pill {
           position: absolute;
           display: flex;
@@ -1286,14 +1284,11 @@ export default function Home() {
         .pill-text { display: flex; flex-direction: column; gap: 1px; }
         .pill-text strong { font-family: var(--font-montserrat), sans-serif; font-size: 12.5px; color: #2b2f38; }
         .pill-text small { font-size: 10.5px; color: #8a8f99; }
-
         .pill-chevron { margin-left: auto; color: #c3c8d1; font-size: 14px; }
 
-        /* desktop coordinate scatter */
         .pill-learner       { top: 6%;   left: 5%; }
         .pill-verified      { top: 32%;  left: 1%; }
         .pill-community     { top: 58%;  left: 7%; }
-
         .pill-institutions  { top: 10%;  right: 5%; }
         .pill-opportunities { top: 36%;  right: 1%; }
         .pill-collaborate   { top: 60%;  right: 7%; }
@@ -1306,6 +1301,330 @@ export default function Home() {
           font-weight: 800;
         }
 
+        /* ---------- Solo Journey (Original Design Tokens) ---------- */
+        .solo-journey-section {
+          padding: 120px 70px;
+          background: #ffffff;
+        }
+
+        .solo-journey-wrapper {
+          max-width: 1250px;
+          margin: 0 auto;
+        }
+
+        .solo-journey-heading {
+          margin-bottom: 60px;
+        }
+
+        .accent-orange {
+          --phase-accent: var(--orange);
+          --phase-accent-light: var(--orange-light);
+        }
+
+        .accent-blue {
+          --phase-accent: var(--blue);
+          --phase-accent-light: var(--blue-light);
+        }
+
+        .accent-gold {
+          --phase-accent: var(--gold);
+          --phase-accent-light: var(--gold-light);
+        }
+
+        .accent-coral {
+          --phase-accent: var(--coral);
+          --phase-accent-light: var(--coral-light);
+        }
+
+        .roadmap-progress-rail {
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 0;
+          width: 100%;
+          max-width: 900px;
+          margin: 0 auto 56px;
+        }
+
+        .progress-node {
+          flex: 0 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
+
+        .progress-node-circle {
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
+          border: 2px solid var(--border);
+          color: var(--text-muted);
+          font-family: var(--font-montserrat), sans-serif;
+          font-weight: 800;
+          font-size: 13px;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .progress-node-label {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 1.4px;
+          color: var(--text-muted);
+          transition: color 0.3s ease;
+        }
+
+        .progress-node.active .progress-node-circle {
+          border-color: var(--phase-accent);
+          color: var(--phase-accent);
+          background: var(--phase-accent-light);
+          transform: scale(1.12);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .progress-node.active .progress-node-label,
+        .progress-node.done .progress-node-label {
+          color: var(--phase-accent);
+        }
+
+        .progress-node.done .progress-node-circle {
+          border-color: var(--phase-accent);
+          background: var(--phase-accent);
+          color: #fff;
+        }
+
+        .progress-connector {
+          flex: 1 1 auto;
+          height: 2px;
+          margin: 23px 8px 0;
+          background: var(--border);
+          min-width: 20px;
+        }
+
+        .progress-connector.filled {
+          background: var(--orange);
+        }
+
+        .solo-roadmap {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-bottom: 70px;
+        }
+
+        .solo-roadmap-phase {
+          border: 1px solid var(--border);
+          border-radius: 18px;
+          background: #fff;
+          overflow: hidden;
+          transition:
+            border-color 0.4s ease,
+            box-shadow 0.4s ease,
+            transform 0.3s ease;
+        }
+
+        .solo-roadmap-phase.phase-open {
+          border-color: var(--phase-accent);
+          box-shadow: 0 18px 45px rgba(23, 23, 23, 0.06);
+        }
+
+        .roadmap-phase-header {
+          width: 100%;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 24px 28px;
+          text-align: left;
+        }
+
+        .roadmap-phase-title {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+        }
+
+        .roadmap-phase-number {
+          width: 50px;
+          height: 50px;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 14px;
+          background: var(--phase-accent-light);
+          color: var(--phase-accent);
+          font-family: var(--font-montserrat), sans-serif;
+          font-weight: 800;
+          font-size: 14px;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .phase-open .roadmap-phase-number {
+          transform: rotate(-8deg) scale(1.05);
+        }
+
+        .roadmap-phase-label {
+          display: block;
+          margin-bottom: 4px;
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 1.8px;
+          color: var(--phase-accent);
+        }
+
+        .roadmap-phase-title h3 {
+          margin: 0;
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 22px;
+          font-weight: 750;
+          color: var(--foreground);
+        }
+
+        .roadmap-phase-desc {
+          display: none;
+        }
+
+        .roadmap-steps-wrapper {
+          display: grid;
+          grid-template-rows: 0fr;
+          opacity: 0;
+          transition:
+            grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+            opacity 0.4s ease;
+        }
+
+        .roadmap-steps-wrapper.steps-open {
+          grid-template-rows: 1fr;
+          opacity: 1;
+        }
+
+        .roadmap-steps-wrapper > .roadmap-steps {
+          min-height: 0;
+          overflow: visible;
+        }
+
+        .roadmap-steps {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+          gap: 16px;
+          padding: 0 28px 28px 28px;
+          padding-top: 14px;
+        }
+
+        .roadmap-step {
+          position: relative;
+          flex: 1 1 260px;
+          width: 100%;
+          min-height: 100%;
+          box-sizing: border-box;
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+          padding: 20px;
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          background: var(--background);
+          animation: stepPopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+          transition:
+            transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+        }
+
+        .roadmap-step:hover {
+          transform: translateY(-4px);
+          border-color: var(--phase-accent);
+          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        @keyframes stepPopIn {
+          from {
+            opacity: 0;
+            transform: translateY(14px) scale(0.97);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        .step-number {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          min-width: 26px;
+          height: 26px;
+          padding: 0 6px;
+          border-radius: 999px;
+          background: #fff;
+          border: 1.5px solid var(--phase-accent);
+          color: var(--phase-accent);
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 10.5px;
+          font-weight: 800;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .step-icon {
+          flex-shrink: 0;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+          background: var(--phase-accent-light);
+          color: var(--phase-accent);
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .roadmap-step:hover .step-icon {
+          transform: scale(1.1) rotate(-4deg);
+        }
+
+        .step-icon svg {
+          width: 22px;
+          height: 22px;
+          fill: none;
+          stroke: currentColor;
+          stroke-width: 1.8;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+
+        .step-body h4 {
+          margin: 0 0 6px;
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+          color: var(--foreground);
+        }
+
+        .step-body p {
+          margin: 0;
+          font-size: 13px;
+          line-height: 1.6;
+          color: var(--text-muted);
+        }
+
+        /* ---------- Display Browser Frames ---------- */
         .display-browser-frame {
           background: #ffffff;
           border: 1px solid #e2e8f0;
@@ -1350,52 +1669,6 @@ export default function Home() {
           height: 9px;
           border-radius: 50%;
           background: #cbd5e1;
-        }
-
-        .ecosystem-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-        }
-
-        .ecosystem-card {
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          border-radius: 14px;
-          padding: 24px 20px;
-          transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .ecosystem-card:hover {
-          transform: translateY(-4px);
-          border-color: #fdba74;
-          box-shadow: 0 10px 25px rgba(255, 101, 0, 0.08);
-        }
-
-        .card-number {
-          font-family: var(--font-montserrat), sans-serif;
-          font-size: 11px;
-          font-weight: 800;
-          color: var(--orange, #ff6500);
-          background: #fff7ed;
-          display: inline-block;
-          padding: 4px 8px;
-          border-radius: 6px;
-          margin-bottom: 12px;
-        }
-
-        .ecosystem-card h3 {
-          margin: 0 0 8px;
-          font-size: 18px;
-          font-weight: 700;
-          color: #0f172a;
-        }
-
-        .ecosystem-card p {
-          margin: 0;
-          font-size: 13px;
-          line-height: 1.6;
-          color: #64748b;
         }
 
         .profile-section {
@@ -1628,7 +1901,7 @@ export default function Home() {
           color: #64748b;
         }
 
-        /* Success Stories Styling */
+        /* Success Stories */
         .story-heading {
           text-align: center;
           margin-bottom: 45px;
@@ -1748,7 +2021,7 @@ export default function Home() {
         }
 
         /* ============================================================
-           MOBILE & TABLET VIEWPORT OPTIMIZATIONS
+           RESPONSIVE & MOBILE
         ============================================================ */
         @media (max-width: 1024px) {
           .gap-side-by-side-grid,
@@ -1785,8 +2058,32 @@ export default function Home() {
           }
         }
 
+        @media (max-width: 900px) {
+          /* Original Roadmap Responsive Behavior */
+          .solo-journey-section {
+            padding: 90px 24px;
+          }
+
+          .roadmap-progress-rail {
+            flex-wrap: wrap;
+            row-gap: 20px;
+          }
+
+          .progress-connector {
+            display: none;
+          }
+
+          .roadmap-phase-header {
+            flex-wrap: wrap;
+          }
+
+          .roadmap-steps {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          }
+        }
+
         @media (max-width: 768px) {
-          /* 1. Remove scattered pills completely on mobile */
+          /* 1. Remove floating pills on mobile */
           .floating-pill {
             display: none !important;
           }
@@ -1810,94 +2107,7 @@ export default function Home() {
             margin: 18px auto 26px !important;
           }
 
-          /* 3. Journey Section: Expanded spacing between rail items and step cards */
-          .solo-journey-section {
-            padding: 65px 16px !important;
-          }
-
-          .roadmap-progress-rail {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory !important;
-            -webkit-overflow-scrolling: touch;
-            padding: 8px 6px 20px !important;
-            margin-bottom: 34px !important;
-            gap: 14px !important;
-            scrollbar-width: none;
-          }
-
-          .roadmap-progress-rail::-webkit-scrollbar {
-            display: none;
-          }
-
-          .progress-connector {
-            display: none !important;
-          }
-
-          .progress-node {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            gap: 10px !important;
-            padding: 9px 18px !important;
-            border-radius: 999px !important;
-            background: #ffffff !important;
-            border: 1.5px solid var(--border, #eee7df) !important;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04) !important;
-          }
-
-          .progress-node.active {
-            border-color: var(--phase-accent) !important;
-            background: var(--phase-accent-light) !important;
-          }
-
-          .progress-node-circle {
-            width: 26px !important;
-            height: 26px !important;
-            font-size: 11px !important;
-          }
-
-          .progress-node-label {
-            font-size: 12px !important;
-            font-weight: 750 !important;
-          }
-
-          .roadmap-steps {
-            display: flex !important;
-            flex-direction: column !important;
-            padding: 0 16px 24px !important;
-            gap: 18px !important;
-          }
-
-          .roadmap-step {
-            padding: 18px 16px !important;
-            gap: 16px !important;
-            border-radius: 14px !important;
-            background: #ffffff !important;
-            border: 1px solid var(--border, #eee7df) !important;
-            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03) !important;
-          }
-
-          .step-icon {
-            width: 44px !important;
-            height: 44px !important;
-            min-width: 44px !important;
-            border-radius: 12px !important;
-          }
-
-          .step-icon svg {
-            width: 20px !important;
-            height: 20px !important;
-          }
-
-          .step-body h4 {
-            font-size: 15px !important;
-            margin-bottom: 5px !important;
-          }
-
-          /* 4. Profile & Credentials Text */
+          /* 3. Profile & Credentials Text */
           .section-description-text {
             font-size: 13.5px !important;
             line-height: 1.6 !important;
@@ -1916,7 +2126,7 @@ export default function Home() {
             line-height: 1.2 !important;
           }
 
-          /* 5. Community Section: Full mobile responsiveness & overflow protection */
+          /* 4. Community Section: Mobile containment & responsiveness */
           .merged-community-section {
             padding: 60px 16px !important;
             overflow: hidden !important;
@@ -2000,7 +2210,7 @@ export default function Home() {
             line-height: 1.5 !important;
           }
 
-          /* 6. Success Stories */
+          /* 5. Success Stories */
           .success-stories-section {
             padding: 60px 16px !important;
           }
@@ -2050,6 +2260,19 @@ export default function Home() {
           .hero-text h1 {
             font-size: 38px !important;
             letter-spacing: -1.5px !important;
+          }
+
+          /* Original Roadmap Mobile Behavior */
+          .roadmap-steps {
+            grid-template-columns: 1fr;
+          }
+
+          .roadmap-step {
+            flex-direction: column;
+          }
+
+          .step-icon {
+            margin-bottom: 4px;
           }
         }
       `}</style>
