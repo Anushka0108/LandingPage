@@ -17,100 +17,99 @@ export default function Home() {
     <main>
       <NavBar />
 
-     {/* ========================= HERO (SCATTERED FADED TAGS) ========================= */}
-<section className="hero">
-  <div className="hero-glow hero-glow-one" />
-  <div className="hero-glow hero-glow-two" />
+      {/* ========================= HERO (SCATTERED FADED TAGS) ========================= */}
+      <section className="hero">
+        <div className="hero-glow hero-glow-one" />
+        <div className="hero-glow hero-glow-two" />
 
-  <FadeInSection>
-    <div className="hero-content hero-content-v2">
+        <FadeInSection>
+          <div className="hero-content hero-content-v2">
+            {/* ---------- scattered faded pills ---------- */}
+            <a href="/profile" className="floating-pill pill-learner">
+              <span className="pill-icon pill-orange">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 3 2 9l10 6 10-6-10-6Z" /><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+                </svg>
+              </span>
+              <span className="pill-text"><strong>Learner</strong><small>Build your profile</small></span>
+              <span className="pill-chevron">›</span>
+            </a>
 
-      {/* ---------- scattered faded pills ---------- */}
-      <a href="/profile" className="floating-pill pill-learner">
-        <span className="pill-icon pill-orange">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 3 2 9l10 6 10-6-10-6Z" /><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
-          </svg>
-        </span>
-        <span className="pill-text"><strong>Learner</strong><small>Build your profile</small></span>
-        <span className="pill-chevron">›</span>
-      </a>
+            <a href="/credential" className="floating-pill pill-verified">
+              <span className="pill-icon pill-green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z" /><path d="m8.5 12 2.5 2.5L16 9" />
+                </svg>
+              </span>
+              <span className="pill-text"><strong>Verified Profile</strong><small>Get verified credentials</small></span>
+              <span className="pill-chevron">›</span>
+            </a>
 
-      <a href="/credential" className="floating-pill pill-verified">
-        <span className="pill-icon pill-green">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z" /><path d="m8.5 12 2.5 2.5L16 9" />
-          </svg>
-        </span>
-        <span className="pill-text"><strong>Verified Profile</strong><small>Get verified credentials</small></span>
-        <span className="pill-chevron">›</span>
-      </a>
+            <a href="#" className="floating-pill pill-community">
+              <span className="pill-icon pill-purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="9" cy="8" r="3" /><path d="M2 20c.6-3.2 2.7-5 7-5s6.4 1.8 7 5" />
+                  <circle cx="17" cy="9" r="2.3" /><path d="M16 14.2c2.9.4 4.3 1.8 4.8 4" />
+                </svg>
+              </span>
+              <span className="pill-text"><strong>Community</strong><small>Learn &amp; grow</small></span>
+              <span className="pill-chevron">›</span>
+            </a>
 
-      <a href="#" className="floating-pill pill-community">
-        <span className="pill-icon pill-purple">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="9" cy="8" r="3" /><path d="M2 20c.6-3.2 2.7-5 7-5s6.4 1.8 7 5" />
-            <circle cx="17" cy="9" r="2.3" /><path d="M16 14.2c2.9.4 4.3 1.8 4.8 4" />
-          </svg>
-        </span>
-        <span className="pill-text"><strong>Community</strong><small>Learn &amp; grow</small></span>
-        <span className="pill-chevron">›</span>
-      </a>
+            <a href="#" className="floating-pill pill-institutions">
+              <span className="pill-icon pill-indigo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 21h16M4 21V9l8-5 8 5v12M9 21v-7h6v7" />
+                </svg>
+              </span>
+              <span className="pill-text"><strong>Institutions</strong><small>Manage your programs</small></span>
+              <span className="pill-chevron">›</span>
+            </a>
 
-      <a href="#" className="floating-pill pill-institutions">
-        <span className="pill-icon pill-indigo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 21h16M4 21V9l8-5 8 5v12M9 21v-7h6v7" />
-          </svg>
-        </span>
-        <span className="pill-text"><strong>Institutions</strong><small>Manage your programs</small></span>
-        <span className="pill-chevron">›</span>
-      </a>
+            <a href="/explore?type=Jobs" className="floating-pill pill-opportunities">
+              <span className="pill-icon pill-coral">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><path d="M3 13h18" />
+                </svg>
+              </span>
+              <span className="pill-text"><strong>Opportunities</strong><small>Hire top talent</small></span>
+              <span className="pill-chevron">›</span>
+            </a>
 
-      <a href="/explore?type=Jobs" className="floating-pill pill-opportunities">
-        <span className="pill-icon pill-coral">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><path d="M3 13h18" />
-          </svg>
-        </span>
-        <span className="pill-text"><strong>Opportunities</strong><small>Hire top talent</small></span>
-        <span className="pill-chevron">›</span>
-      </a>
+            <a href="#" className="floating-pill pill-collaborate">
+              <span className="pill-icon pill-teal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m12 3 2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.3l6-.8L12 3Z" />
+                </svg>
+              </span>
+              <span className="pill-text"><strong>Collaborate</strong><small>Build together</small></span>
+              <span className="pill-chevron">›</span>
+            </a>
 
-      <a href="#" className="floating-pill pill-collaborate">
-        <span className="pill-icon pill-teal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="m12 3 2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.3l6-.8L12 3Z" />
-          </svg>
-        </span>
-        <span className="pill-text"><strong>Collaborate</strong><small>Build together</small></span>
-        <span className="pill-chevron">›</span>
-      </a>
-     
-      {/* ---------- YOUR EXISTING HERO TEXT — UNCHANGED ---------- */}
-      <div className="hero-text hero-text-centered">
-        <p className="hero-label">LEARN • PROVE • ADVANCE</p>
+            {/* ---------- HERO TEXT ---------- */}
+            <div className="hero-text hero-text-centered">
+              <p className="hero-label">LEARN • PROVE • ADVANCE</p>
 
-        <h1>
-          Turn What You Learn Into
-          <span> Proof of What You Can Do.</span>
-        </h1>
+              <h1>
+                Turn What You Learn Into
+                <span> Proof of What You Can Do.</span>
+              </h1>
 
-        <p className="hero-description">
-          SOLO bridges learning and employment by turning your courses,
-          projects, and certificates into verified credentials,
-          ATS-ready resumes, and real career opportunities.
-        </p>
+              <p className="hero-description">
+                SOLO bridges learning and employment by turning your courses,
+                projects, and certificates into verified credentials,
+                ATS-ready resumes, and real career opportunities.
+              </p>
 
-        <div className="hero-buttons">
-          <a href="/signup" className="hero-primary">
-            Get Started
-          </a>
-        </div>
-      </div>
-    </div>
-  </FadeInSection>
-</section>
+              <div className="hero-buttons">
+                <a href="/signup" className="hero-primary">
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+        </FadeInSection>
+      </section>
 
       {/* ========================= YOUR JOURNEY (12-STEP ROADMAP) ========================= */}
       <FadeInSection>
@@ -479,92 +478,92 @@ export default function Home() {
             </div>
           </div>
 
-            <div className="marquee-wrapper" style={{ padding: "20px 0" }}>
-              <div className="marquee-track">
-                {[...opportunities, ...opportunities].map((item, index) => (
-                  <div key={index} className="opportunity-card-compact">
-                    <div className="compact-card-content">
-                      <div className="compact-card-header">
-                        <div className="compact-avatar">
-                          <Image
-                            src="/images/profilepic.png"
-                            alt="Organization logo"
-                            width={32}
-                            height={32}
-                            style={{ borderRadius: "50%" }}
-                          />
-                        </div>
-
-                        <div className="compact-title-col">
-                          <h3>{item.title}</h3>
-                          <p>{item.organization}</p>
-                        </div>
+          <div className="marquee-wrapper" style={{ padding: "20px 0" }}>
+            <div className="marquee-track">
+              {[...opportunities, ...opportunities].map((item, index) => (
+                <div key={index} className="opportunity-card-compact">
+                  <div className="compact-card-content">
+                    <div className="compact-card-header">
+                      <div className="compact-avatar">
+                        <Image
+                          src="/images/profilepic.png"
+                          alt="Organization logo"
+                          width={32}
+                          height={32}
+                          style={{ borderRadius: "50%" }}
+                        />
                       </div>
 
-                      <div className="compact-tags-row">
-                        <span className="skills-badge">
-                          {item.skills.length} Skills
-                        </span>
-
-                        <span className="type-badge">{item.type}</span>
-
-                        <span className="posted-badge">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="12"
-                            height="12"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M12 2C6.58 2 2 6.58 2 12s4.58 10 10 10 10-4.58 10-10S17.42 2 12 2m0 18c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8-3.66 8-8 8"></path>
-                            <path d="M13 7h-2v6h6v-2h-4z"></path>
-                          </svg>
-
-                          {item.posted}
-                        </span>
-                      </div>
-
-                      <div className="compact-details-row">
-                        <span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="13"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M12 15c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 2-2 2-2"></path>
-                            <path d="M11.65 21.94a1.03 1.03 0 0 0 .7 0C12.7 21.81 21 18.61 21 11c0-4.96-4.04-9-9-9s-9 4.04-9 9c0 7.6 8.3 10.8 8.65 10.94M12 4c3.86 0 7 3.14 7 7 0 5.42-5.53 8.26-7 8.91-1.47-.66-7-3.5-7-8.91 0-3.86 3.14-7 7-7"></path>
-                          </svg>
-
-                          {item.location}
-                        </span>
-
-                        <span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="13"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M21 7h-1.4L18 5.4V3c0-.55-.45-1-1-1h-1c-1.44 0-2.75.78-3.45 2H9c-3.86 0-7 3.14-7 7 0 .25.02 6.28 2.11 10.45A1 1 0 0 0 5 22h4c.55 0 1-.45 1-1v-3h2v3c0 .55.45 1 1 1h4c.33 0 .65-.17.83-.45 1.54-2.31 2.08-5.11 2.27-6.55h.9c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1m-1 6h-.81c-.53 0-.97.42-1 .95 0 .04-.19 3.38-1.75 6.05h-2.45v-3c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v3H5.63c-1.61-3.73-1.64-8.95-1.64-9 0-2.76 2.24-5 5-5h4.18c.42 0 .8-.27.94-.67A1.99 1.99 0 0 1 15.98 4v1.81c0 .27.11.52.29.71l2.19 2.19c.19.19.44.29.71.29h.81v4Z"></path>
-                          </svg>
-
-                          {item.payment}
-                        </span>
-                      </div>
-
-                      <div className="compact-action-row">
-                        <a href="https://app.thesolo.network/" className="view-btn">
-                          View more
-                        </a>
+                      <div className="compact-title-col">
+                        <h3>{item.title}</h3>
+                        <p>{item.organization}</p>
                       </div>
                     </div>
+
+                    <div className="compact-tags-row">
+                      <span className="skills-badge">
+                        {item.skills.length} Skills
+                      </span>
+
+                      <span className="type-badge">{item.type}</span>
+
+                      <span className="posted-badge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="12"
+                          height="12"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 2C6.58 2 2 6.58 2 12s4.58 10 10 10 10-4.58 10-10S17.42 2 12 2m0 18c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8-3.66 8-8 8"></path>
+                          <path d="M13 7h-2v6h6v-2h-4z"></path>
+                        </svg>
+
+                        {item.posted}
+                      </span>
+                    </div>
+
+                    <div className="compact-details-row">
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="13"
+                          height="13"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 15c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 2-2 2-2"></path>
+                          <path d="M11.65 21.94a1.03 1.03 0 0 0 .7 0C12.7 21.81 21 18.61 21 11c0-4.96-4.04-9-9-9s-9 4.04-9 9c0 7.6 8.3 10.8 8.65 10.94M12 4c3.86 0 7 3.14 7 7 0 5.42-5.53 8.26-7 8.91-1.47-.66-7-3.5-7-8.91 0-3.86 3.14-7 7-7"></path>
+                        </svg>
+
+                        {item.location}
+                      </span>
+
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="13"
+                          height="13"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M21 7h-1.4L18 5.4V3c0-.55-.45-1-1-1h-1c-1.44 0-2.75.78-3.45 2H9c-3.86 0-7 3.14-7 7 0 .25.02 6.28 2.11 10.45A1 1 0 0 0 5 22h4c.55 0 1-.45 1-1v-3h2v3c0 .55.45 1 1 1h4c.33 0 .65-.17.83-.45 1.54-2.31 2.08-5.11 2.27-6.55h.9c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1m-1 6h-.81c-.53 0-.97.42-1 .95 0 .04-.19 3.38-1.75 6.05h-2.45v-3c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v3H5.63c-1.61-3.73-1.64-8.95-1.64-9 0-2.76 2.24-5 5-5h4.18c.42 0 .8-.27.94-.67A1.99 1.99 0 0 1 15.98 4v1.81c0 .27.11.52.29.71l2.19 2.19c.19.19.44.29.71.29h.81v4Z"></path>
+                        </svg>
+
+                        {item.payment}
+                      </span>
+                    </div>
+
+                    <div className="compact-action-row">
+                      <a href="https://app.thesolo.network/" className="view-btn">
+                        View more
+                      </a>
+                    </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+          </div>
 
           <div
             style={{
@@ -592,7 +591,7 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-            {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
+      {/* ========================= CAREER PATHWAYS (BROWSER FRAMED) ========================= */}
       <FadeInSection>
         <section
           className="career-pathway-explorer"
@@ -813,8 +812,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-
-      {/* ========================= PROFILE (BROWSER FRAMED) ========================= */}
+      {/* ========================= PROFILE (SCREENSHOT) ========================= */}
       <FadeInSection>
         <section
           className="profile-section"
@@ -829,7 +827,7 @@ export default function Home() {
               More than a resume. <span>A profile that grows with you.</span>
             </h2>
 
-            <p>
+            <p className="section-description-text">
               Build a dynamic professional profile that brings together your
               education, skills, projects, internships, experiences,
               achievements and credentials.
@@ -867,526 +865,25 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="profile-preview" style={{ padding: "16px 20px 0", background: "#f8fafc" }}>
-              <div
+            <div className="browser-screenshot-container">
+              <Image
+                src="/images/profile/profile-overview.png"
+                alt="SOLO Professional Profile and Skills Verification Interface"
+                width={1200}
+                height={800}
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 2fr",
-                  gap: "14px",
-                  alignItems: "stretch",
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
                 }}
-              >
-                <div
-                  style={{
-                    background: "#fff",
-                    padding: "16px",
-                    borderRadius: "12px",
-                    border: "1px solid #edf2f7",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginBottom: "8px",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        margin: 0,
-                        fontSize: "14px",
-                        fontWeight: "700",
-                      }}
-                    >
-                      About Learner
-                    </h3>
-
-                    <span
-                      style={{
-                        color: "var(--orange)",
-                        fontSize: "12px",
-                      }}
-                    >
-                      ✎
-                    </span>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      margin: "6px 0",
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: "var(--orange)",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Add social link
-                    </span>
-
-                    <span
-                      style={{
-                        color: "var(--orange)",
-                        fontSize: "12px",
-                      }}
-                    >
-                      ✎
-                    </span>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginTop: "6px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: "12px",
-                        color: "#4b5563",
-                      }}
-                    >
-                      Location
-                    </span>
-
-                    <span
-                      style={{
-                        color: "var(--orange)",
-                        fontSize: "12px",
-                      }}
-                    >
-                      ✎
-                    </span>
-                  </div>
-                </div>
-
-                <div
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #0284c7 0%, #38bdf8 30%, #7c3aed 100%)",
-                    borderRadius: "12px",
-                    padding: "14px 16px",
-                    color: "#fff",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginBottom: "14px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: "11px",
-                        fontWeight: "600",
-                        opacity: 0.9,
-                      }}
-                    >
-                      @learner.profile ✎
-                    </span>
-
-                    <div
-                      style={{
-                        background: "#fff",
-                        color: "#1f2937",
-                        border: "none",
-                        borderRadius: "6px",
-                        padding: "4px 8px",
-                        fontSize: "10px",
-                        fontWeight: "600",
-                        cursor: "default",
-                        pointerEvents: "none",
-                      }}
-                    >
-                      📷 Edit cover photo
-                    </div>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-end",
-                    }}
-                  >
-                    <div>
-                      <h4
-                        style={{
-                          margin: "0 0 2px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Learner Profile ✎
-                      </h4>
-
-                      <p
-                        style={{
-                          margin: 0,
-                          fontSize: "11px",
-                          opacity: 0.9,
-                        }}
-                      >
-                        Motivated and detail-oriented student ✎
-                      </p>
-                    </div>
-
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: "12px",
-                        textAlign: "center",
-                      }}
-                    >
-                      <div>
-                        <strong
-                          style={{
-                            display: "block",
-                            fontSize: "12px",
-                          }}
-                        >
-                          0
-                        </strong>
-                        <small
-                          style={{
-                            fontSize: "9px",
-                            opacity: 0.85,
-                          }}
-                        >
-                          Posts
-                        </small>
-                      </div>
-
-                      <div>
-                        <strong
-                          style={{
-                            display: "block",
-                            fontSize: "12px",
-                          }}
-                        >
-                          0
-                        </strong>
-                        <small
-                          style={{
-                            fontSize: "9px",
-                            opacity: 0.85,
-                          }}
-                        >
-                          Followers
-                        </small>
-                      </div>
-
-                      <div>
-                        <strong
-                          style={{
-                            display: "block",
-                            fontSize: "12px",
-                          }}
-                        >
-                          0
-                        </strong>
-                        <small
-                          style={{
-                            fontSize: "9px",
-                            opacity: 0.85,
-                          }}
-                        >
-                          Following
-                        </small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  background: "#fff7ed",
-                  border: "1px solid #fed7aa",
-                  borderRadius: "10px",
-                  padding: "10px 14px",
-                  margin: "14px 0",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <div>
-                  <h4
-                    style={{
-                      margin: 0,
-                      fontSize: "12px",
-                      fontWeight: "700",
-                      color: "#1f2937",
-                    }}
-                  >
-                    Resume & profile
-                  </h4>
-
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: "10.5px",
-                      color: "#6b7280",
-                    }}
-                  >
-                    Build a resume from your profile or pull in details by
-                    uploading a file.
-                  </p>
-                </div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "8px",
-                  }}
-                >
-                  <div
-                    style={{
-                      background: "var(--orange)",
-                      color: "#fff",
-                      border: "none",
-                      borderRadius: "6px",
-                      padding: "5px 10px",
-                      fontSize: "10.5px",
-                      fontWeight: "700",
-                      cursor: "default",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    Generate resume ✨
-                  </div>
-
-                  <div
-                    style={{
-                      background: "#fff",
-                      color: "var(--orange)",
-                      border: "1px solid var(--orange)",
-                      borderRadius: "6px",
-                      padding: "5px 10px",
-                      fontSize: "10.5px",
-                      fontWeight: "700",
-                      cursor: "default",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    Import from resume 📄
-                  </div>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  background: "#fff",
-                  padding: "14px 16px",
-                  borderRadius: "12px",
-                  border: "1px solid #edf2f7",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <h4
-                    style={{
-                      margin: 0,
-                      fontSize: "13px",
-                      fontWeight: "700",
-                    }}
-                  >
-                    Acquired Skills
-                  </h4>
-
-                  <span
-                    style={{
-                      color: "var(--orange)",
-                      fontSize: "12px",
-                    }}
-                  >
-                    ✎
-                  </span>
-                </div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "6px",
-                  }}
-                >
-                  <span
-                    style={{
-                      padding: "4px 8px",
-                      background: "#f8fafc",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "6px",
-                      fontSize: "10.5px",
-                      color: "#374151",
-                    }}
-                  >
-                    Artificial Intelligence (AI) And Machine Learning
-                  </span>
-
-                  <span
-                    style={{
-                      padding: "4px 8px",
-                      background: "#f8fafc",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "6px",
-                      fontSize: "10.5px",
-                      color: "#374151",
-                    }}
-                  >
-                    Information And Communications Technology
-                  </span>
-
-                  <span
-                    style={{
-                      padding: "4px 8px",
-                      background: "#f8fafc",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "6px",
-                      fontSize: "10.5px",
-                      color: "#374151",
-                    }}
-                  >
-                    Online Engineering
-                  </span>
-
-                  <span
-                    style={{
-                      padding: "4px 8px",
-                      background: "#f8fafc",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "6px",
-                      fontSize: "10.5px",
-                      color: "#374151",
-                    }}
-                  >
-                    React Navigation
-                  </span>
-
-                  <span
-                    style={{
-                      padding: "4px 8px",
-                      background: "#f8fafc",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "6px",
-                      fontSize: "10.5px",
-                      color: "#374151",
-                    }}
-                  >
-                    Virtual Lab Automation
-                  </span>
-
-                  <span
-                    style={{
-                      padding: "4px 8px",
-                      background: "#f8fafc",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "6px",
-                      fontSize: "10.5px",
-                      color: "#6b7280",
-                    }}
-                  >
-                    42 More Skills
-                  </span>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  gap: "8px",
-                  margin: "14px 0 16px",
-                  flexWrap: "wrap",
-                }}
-              >
-                <div
-                  style={{
-                    background: "#fff",
-                    color: "var(--orange)",
-                    border: "1px solid var(--orange)",
-                    borderRadius: "999px",
-                    padding: "4px 10px",
-                    fontSize: "10px",
-                    fontWeight: "600",
-                    cursor: "default",
-                    pointerEvents: "none",
-                  }}
-                >
-                  Verify Government ID
-                </div>
-
-                <div
-                  style={{
-                    background: "#fff",
-                    color: "var(--orange)",
-                    border: "1px solid var(--orange)",
-                    borderRadius: "999px",
-                    padding: "4px 10px",
-                    fontSize: "10px",
-                    fontWeight: "600",
-                    cursor: "default",
-                    pointerEvents: "none",
-                  }}
-                >
-                  Ask for endorsement
-                </div>
-
-                <div
-                  style={{
-                    background: "#fff",
-                    color: "var(--orange)",
-                    border: "1px solid var(--orange)",
-                    borderRadius: "999px",
-                    padding: "4px 10px",
-                    fontSize: "10px",
-                    fontWeight: "600",
-                    cursor: "default",
-                    pointerEvents: "none",
-                  }}
-                >
-                  Profile CLR
-                </div>
-
-                <div
-                  style={{
-                    background: "#fff",
-                    color: "var(--orange)",
-                    border: "1px solid var(--orange)",
-                    borderRadius: "999px",
-                    padding: "4px 10px",
-                    fontSize: "10px",
-                    fontWeight: "600",
-                    cursor: "default",
-                    pointerEvents: "none",
-                  }}
-                >
-                  Copy Profile Link
-                </div>
-              </div>
+                priority
+              />
             </div>
           </div>
         </section>
       </FadeInSection>
 
-      {/* ========================= CREDENTIALS (BROWSER FRAMED) ========================= */}
+      {/* ========================= CREDENTIALS (SCREENSHOT) ========================= */}
       <FadeInSection>
         <section
           className="credentials-section"
@@ -1394,74 +891,6 @@ export default function Home() {
             borderBottom: "1px solid #eef2f6",
           }}
         >
-          <div className="display-browser-frame">
-            <div className="browser-topbar">
-              <div className="browser-dots">
-                <span className="dot-standard" />
-                <span className="dot-standard" />
-                <span className="dot-standard" />
-              </div>
-            </div>
-
-            <div className="credential-visual" style={{ padding: "24px", background: "#f8fafc" }}>
-              <div className="credential-card">
-                <div className="credential-main">
-                  <div className="certificate-badge">
-                    <div className="certificate-inner">
-                      <span className="certificate-brand">◇ SOLO Network</span>
-
-                      <strong>ReactJS</strong>
-
-                      <span>Coursework</span>
-                    </div>
-                  </div>
-
-                  <div className="credential-content">
-                    <div className="credential-title">
-                      <h3>ReactJS</h3>
-                      <p>SPARK+</p>
-                    </div>
-
-                    <div className="credential-status">
-                      <span className="skills-count">8 Skills</span>
-                      <span className="verified-status">Verified</span>
-                    </div>
-
-                    <p className="credential-description">
-                      This badge represents completion of the ReactJS
-                      Certification Course. It reflects understanding of component
-                      lifecycle, hooks, and verified web development coursework.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="credential-actions">
-                  <div
-                    className="open-badge"
-                    style={{
-                      cursor: "default",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    Open badge
-                  </div>
-
-                  <span
-                    className="view-credential"
-                    style={{
-                      cursor: "default",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    View Credential
-                  </span>
-
-                  <span className="credential-platform">◈</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="credential-text">
             <p className="section-label">VERIFIED ACHIEVEMENTS</p>
 
@@ -1469,7 +898,7 @@ export default function Home() {
               Turn your learning into <span>trusted proof.</span>
             </h2>
 
-            <p>
+            <p className="section-description-text">
               Your achievements shouldn&apos;t disappear inside a folder of
               certificates. SOLO turns learning experiences into verifiable
               digital credentials and Open Badges that you can showcase.
@@ -1481,9 +910,32 @@ export default function Home() {
               </Link>
             </div>
           </div>
+
+          <div className="display-browser-frame">
+            <div className="browser-topbar">
+              <div className="browser-dots">
+                <span className="dot-standard" />
+                <span className="dot-standard" />
+                <span className="dot-standard" />
+              </div>
+            </div>
+
+            <div className="browser-screenshot-container">
+              <Image
+                src="/images/cred1.png"
+                alt="SOLO Verified Achievement Badge and Credential Detail Interface"
+                width={1200}
+                height={800}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+                }}
+              />
+            </div>
+          </div>
         </section>
       </FadeInSection>
-
 
       {/* ========================= REAL-TIME SKILL GAP & ROLE ANALYSIS ========================= */}
       <FadeInSection>
@@ -1622,10 +1074,7 @@ export default function Home() {
                 <p>
                   Publish your latest projects, earned Open Badges, and course completion updates to your campus and professional peers. Celebrate team achievements, comment on new milestones, and gather verified recommendations.
                 </p>
-
-                <ul className="social-perks-list" style={{ marginTop: "18px" }}>
-                 
-                </ul>
+                <ul className="social-perks-list" style={{ marginTop: "18px" }}></ul>
               </div>
 
               <div className="display-browser-frame community-feed-frame">
@@ -1703,7 +1152,6 @@ export default function Home() {
                 <div className="story-card" key={story.id}>
                   <div className="story-card-top">
                     <span className="story-name">{story.partnerName}</span>
-
                     <span className="story-tag">{story.category}</span>
                   </div>
 
@@ -1755,6 +1203,109 @@ export default function Home() {
 
       {/* ========================= ENHANCED GLOBAL STYLES ========================= */}
       <style jsx global>{`
+        .hero {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-content {
+          position: relative;
+          width: 100%;
+        }
+
+        .hero-content-v2 {
+          position: relative;
+          min-height: 560px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hero-text-centered {
+          max-width: 700px;
+          text-align: center;
+          margin: 0 auto;
+          position: relative;
+          z-index: 3;
+        }
+
+        .hero-text-centered .hero-description {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .hero-text-centered .hero-buttons {
+          justify-content: center;
+        }
+
+        /* ---------- faded floating pills (Desktop) ---------- */
+        .floating-pill {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 11px 16px;
+          min-width: 185px;
+          border-radius: 14px;
+          background: rgba(255, 255, 255, 0.55);
+          border: 1px solid rgba(255, 255, 255, 0.7);
+          box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+          backdrop-filter: blur(8px);
+          text-decoration: none;
+          opacity: 0.75;
+          transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+          z-index: 1;
+        }
+
+        .floating-pill:hover {
+          opacity: 1;
+          transform: translateY(-4px);
+          box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+        }
+
+        .pill-icon {
+          width: 32px;
+          height: 32px;
+          border-radius: 10px;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0.9;
+        }
+        .pill-icon svg { width: 17px; height: 17px; }
+
+        .pill-orange  { background: #fff1e6; color: var(--orange); }
+        .pill-green   { background: #ecfdf5; color: #10b981; }
+        .pill-purple  { background: #f3f0ff; color: #7c3aed; }
+        .pill-indigo  { background: #eef2ff; color: #4f46e5; }
+        .pill-coral   { background: #fff0ef; color: var(--coral); }
+        .pill-teal    { background: #ecfeff; color: #0d9488; }
+        .pill-blue    { background: #eff6ff; color: var(--blue); }
+
+        .pill-text { display: flex; flex-direction: column; gap: 1px; }
+        .pill-text strong { font-family: var(--font-montserrat), sans-serif; font-size: 12.5px; color: #2b2f38; }
+        .pill-text small { font-size: 10.5px; color: #8a8f99; }
+
+        .pill-chevron { margin-left: auto; color: #c3c8d1; font-size: 14px; }
+
+        /* desktop coordinate scatter */
+        .pill-learner       { top: 6%;   left: 5%; }
+        .pill-verified      { top: 32%;  left: 1%; }
+        .pill-community     { top: 58%;  left: 7%; }
+
+        .pill-institutions  { top: 10%;  right: 5%; }
+        .pill-opportunities { top: 36%;  right: 1%; }
+        .pill-collaborate   { top: 60%;  right: 7%; }
+
+        .hero h1 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: clamp(38px, 5.2vw, 68px);
+          line-height: 1.1;
+          letter-spacing: -2px;
+          font-weight: 800;
+        }
+
         .display-browser-frame {
           background: #ffffff;
           border: 1px solid #e2e8f0;
@@ -1766,6 +1317,12 @@ export default function Home() {
 
         .display-browser-frame:hover {
           box-shadow: 0 20px 55px rgba(15, 23, 42, 0.11);
+        }
+
+        .browser-screenshot-container {
+          width: 100%;
+          background: #f8fafc;
+          overflow: hidden;
         }
 
         .frame-wide {
@@ -1839,6 +1396,32 @@ export default function Home() {
           font-size: 13px;
           line-height: 1.6;
           color: #64748b;
+        }
+
+        .profile-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 50px;
+          align-items: center;
+          padding: 80px 20px;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+
+        .credentials-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 50px;
+          align-items: center;
+          padding: 80px 20px;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+
+        .section-description-text {
+          font-size: 16px;
+          line-height: 1.75;
+          color: #5d6470;
         }
 
         .gap-side-by-side-grid {
@@ -2013,41 +1596,6 @@ export default function Home() {
           gap: 16px;
         }
 
-        .social-perks-list li {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-        }
-
-        .social-perks-list li > span {
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: #dcfce7;
-          color: #16a34a;
-          font-size: 10px;
-          font-weight: 800;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          margin-top: 2px;
-        }
-
-        .social-perks-list li strong {
-          display: block;
-          font-size: 13.5px;
-          color: #1e293b;
-          margin-bottom: 2px;
-        }
-
-        .social-perks-list li p {
-          margin: 0;
-          font-size: 12.5px;
-          color: #64748b;
-          line-height: 1.5;
-        }
-
         .community-feed-frame {
           width: 100%;
         }
@@ -2057,26 +1605,296 @@ export default function Home() {
           background: #f8fafc;
         }
 
+        /* Success Stories Styling */
+        .story-heading {
+          text-align: center;
+          margin-bottom: 45px;
+        }
+
+        .story-heading h2 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 36px;
+          font-weight: 800;
+          color: #0f172a;
+          margin: 0 0 12px;
+        }
+
+        .story-heading p {
+          color: #64748b;
+          font-size: 15px;
+          margin: 0;
+        }
+
+        .story-grid-wrapper {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+        }
+
+        .story-view-all-link {
+          display: inline-block;
+          margin-bottom: 20px;
+          color: var(--orange);
+          font-weight: 700;
+          text-decoration: none;
+          font-size: 14px;
+        }
+
+        .story-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 24px;
+        }
+
+        .story-card {
+          background: #ffffff;
+          border: 1px solid var(--border);
+          border-radius: 16px;
+          padding: 26px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .story-card:hover {
+          transform: translateY(-4px);
+          border-color: #fed7aa;
+          box-shadow: 0 12px 30px rgba(249, 115, 22, 0.08);
+        }
+
+        .story-card-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 14px;
+        }
+
+        .story-name {
+          font-size: 13px;
+          font-weight: 700;
+          color: var(--orange);
+        }
+
+        .story-tag {
+          font-size: 10.5px;
+          font-weight: 700;
+          padding: 3px 8px;
+          background: #f1f5f9;
+          color: #475569;
+          border-radius: 6px;
+        }
+
+        .story-card h3 {
+          margin: 0 0 10px;
+          font-size: 18px;
+          font-weight: 800;
+          color: #0f172a;
+          line-height: 1.35;
+        }
+
+        .story-card p {
+          color: #64748b;
+          font-size: 13.5px;
+          line-height: 1.6;
+          margin: 0 0 20px;
+          flex-grow: 1;
+        }
+
+        .story-card-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-top: 1px solid #f1f5f9;
+          padding-top: 14px;
+        }
+
+        .story-readmore {
+          color: var(--orange);
+          font-weight: 700;
+          font-size: 13px;
+          text-decoration: none;
+        }
+
+        .story-logo {
+          font-size: 11px;
+          font-weight: 700;
+          color: #94a3b8;
+        }
+
+        /* ============================================================
+           MOBILE & TABLET VIEWPORT OPTIMIZATIONS
+        ============================================================ */
         @media (max-width: 1024px) {
-          .ecosystem-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
           .gap-side-by-side-grid,
-          .community-showcase-split {
-            grid-template-columns: 1fr;
+          .community-showcase-split,
+          .profile-section,
+          .credentials-section {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 36px !important;
+            padding: 55px 20px !important;
           }
+
+          .profile-text,
+          .credential-text,
+          .community-showcase-text,
+          .gap-content-column {
+            order: 1 !important;
+            width: 100% !important;
+          }
+
+          .display-browser-frame,
+          .gap-image-column,
+          .community-feed-frame {
+            order: 2 !important;
+            width: 100% !important;
+          }
+
           .compact-side-frame {
             max-width: 100%;
           }
         }
 
-        @media (max-width: 640px) {
-          .ecosystem-grid {
-            grid-template-columns: 1fr;
+        @media (max-width: 768px) {
+          /* Hero Section & Headline Enhancements */
+          .hero-content-v2 {
+            min-height: 520px !important;
+            padding: 40px 10px 60px !important;
           }
-          .side-screenshot-scrollable {
-            max-height: 380px;
+
+          .hero-text h1 {
+            font-size: 38px !important;
+            line-height: 1.1 !important;
+            letter-spacing: -1.8px !important;
+            margin-bottom: 16px !important;
           }
+
+          .hero-description {
+            font-size: 14.5px !important;
+            line-height: 1.6 !important;
+            margin: 18px auto 26px !important;
+          }
+
+          /* Floating pills remain visible around hero matching the original frame scatter */
+          .floating-pill {
+            display: flex !important;
+            padding: 7px 10px !important;
+            min-width: 135px !important;
+            gap: 7px !important;
+            border-radius: 10px !important;
+            backdrop-filter: blur(6px) !important;
+            background: rgba(255, 255, 255, 0.72) !important;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08) !important;
+            opacity: 0.88 !important;
+            z-index: 2 !important;
+          }
+
+          .pill-icon {
+            width: 26px !important;
+            height: 26px !important;
+            border-radius: 7px !important;
+          }
+
+          .pill-icon svg {
+            width: 14px !important;
+            height: 14px !important;
+          }
+
+          .pill-text strong {
+            font-size: 11px !important;
+          }
+
+          .pill-text small {
+            font-size: 9px !important;
+          }
+
+          .pill-chevron {
+            font-size: 11px !important;
+          }
+
+          /* Scaled mobile scatter positions */
+          .pill-learner       { top: 2%;   left: 2%; }
+          .pill-verified      { top: 22%;  left: 0%; }
+          .pill-community     { top: 76%;  left: 2%; }
+
+          .pill-institutions  { top: 4%;   right: 2%; }
+          .pill-opportunities { top: 24%;  right: 0%; }
+          .pill-collaborate   { top: 78%;  right: 2%; }
+
+          /* Reduced text size for profile & credential descriptions */
+          .section-description-text {
+            font-size: 13.5px !important;
+            line-height: 1.6 !important;
+            color: #64748b !important;
+          }
+
+          .profile-text ul li {
+            font-size: 12.5px !important;
+            line-height: 1.5 !important;
+            margin-bottom: 8px !important;
+          }
+
+          .profile-text h2,
+          .credential-text h2 {
+            font-size: 25px !important;
+            line-height: 1.2 !important;
+          }
+
+          /* Success Stories Section on Mobile */
+          .success-stories-section {
+            padding: 60px 16px !important;
+          }
+
+          .story-heading {
+            margin-bottom: 26px !important;
+          }
+
+          .story-heading h2 {
+            font-size: 27px !important;
+            line-height: 1.2 !important;
+          }
+
+          .story-heading p {
+            font-size: 13px !important;
+          }
+
+          .story-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+          }
+
+          .story-card {
+            padding: 18px 16px !important;
+            border-radius: 14px !important;
+          }
+
+          .story-card h3 {
+            font-size: 16px !important;
+            margin-bottom: 8px !important;
+          }
+
+          .story-card p {
+            font-size: 12.5px !important;
+            line-height: 1.55 !important;
+            margin-bottom: 14px !important;
+          }
+
+          .story-view-all-link {
+            font-size: 13px !important;
+            margin-bottom: 14px !important;
+          }
+        }
+
+        @media (max-width: 560px) {
+          .hero-text h1 {
+            font-size: 34px !important;
+            letter-spacing: -1.2px !important;
+          }
+
         }
       `}</style>
     </main>

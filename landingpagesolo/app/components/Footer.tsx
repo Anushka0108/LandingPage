@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +6,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-container">
         <div className="footer-main">
-          {/* Brand info */}
+          {/* Brand section */}
           <div className="footer-brand">
             <Image
               src="/images/solologo.png"
@@ -21,7 +20,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Nav links */}
+          {/* Navigation Links */}
           <div className="footer-links">
             <div className="footer-col">
               <h4>Explore</h4>
@@ -47,7 +46,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom copyright */}
+        {/* Footer Bottom */}
         <div className="footer-bottom">
           <p>© 2026 SOLO. All rights reserved.</p>
         </div>
@@ -55,15 +54,15 @@ export default function Footer() {
 
       <style jsx>{`
         .site-footer {
-          background: #ffffff;
-          border-top: 1px solid #eef2f6;
-          padding: 60px 20px 32px;
-          color: #334155;
+          background: #0b0f19;
+          border-top: 1px solid #1e293b;
+          padding: 60px 24px 32px;
+          color: #94a3b8;
           font-family: inherit;
         }
 
         .footer-container {
-          max-width: 1280px;
+          max-width: 1240px;
           margin: 0 auto;
         }
 
@@ -76,20 +75,20 @@ export default function Footer() {
         }
 
         .footer-brand {
-          max-width: 340px;
+          max-width: 320px;
         }
 
         .footer-brand p {
           margin: 16px 0 0;
           font-size: 14px;
           line-height: 1.6;
-          color: #64748b;
+          color: #94a3b8;
         }
 
         .footer-links {
           display: grid;
           grid-template-columns: repeat(3, minmax(130px, 1fr));
-          gap: 36px;
+          gap: 40px;
         }
 
         .footer-col {
@@ -100,39 +99,40 @@ export default function Footer() {
 
         .footer-col h4 {
           margin: 0 0 4px;
-          font-size: 15px;
+          font-size: 14px;
           font-weight: 700;
-          color: #0f172a;
-          letter-spacing: -0.2px;
+          color: #f8fafc;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
         }
 
         .footer-col a {
-          color: #64748b;
+          color: #94a3b8;
           text-decoration: none;
           font-size: 14px;
           transition: color 0.2s ease;
         }
 
         .footer-col a:hover {
-          color: #ff5500;
+          color: #f97316;
         }
 
         .footer-bottom {
           padding-top: 24px;
-          border-top: 1px solid #f1f5f9;
+          border-top: 1px solid #1e293b;
           text-align: center;
         }
 
         .footer-bottom p {
           margin: 0;
           font-size: 13px;
-          color: #94a3b8;
+          color: #64748b;
         }
 
-        /* ================= Mobile View Adjustments ================= */
+        /* ================= Mobile View Layout ================= */
         @media (max-width: 768px) {
           .site-footer {
-            padding: 44px 20px 28px;
+            padding: 40px 20px 24px;
           }
 
           .footer-main {
@@ -154,11 +154,11 @@ export default function Footer() {
           .footer-links {
             width: 100%;
             grid-template-columns: repeat(2, 1fr);
-            gap: 28px 20px;
+            gap: 32px 20px;
           }
 
           .footer-col a {
-            padding: 4px 0; /* Easier touch targets */
+            padding: 4px 0; /* Touch area optimization */
             font-size: 13.5px;
           }
 
@@ -167,9 +167,9 @@ export default function Footer() {
           }
         }
 
-        @media (max-width: 440px) {
+        @media (max-width: 480px) {
           .footer-links {
-            grid-template-columns: 1fr; /* Full single-column cascade on small phones */
+            grid-template-columns: 1fr; /* Single column stack on mobile phones */
             gap: 24px;
           }
 
