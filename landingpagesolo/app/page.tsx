@@ -24,7 +24,7 @@ export default function Home() {
 
         <FadeInSection>
           <div className="hero-content hero-content-v2">
-            {/* ---------- scattered faded pills ---------- */}
+            {/* ---------- scattered faded pills (desktop only) ---------- */}
             <a href="/profile" className="floating-pill pill-learner">
               <span className="pill-icon pill-orange">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -134,7 +134,7 @@ export default function Home() {
                 { id: "achieve", num: "03", label: "ACHIEVE", accent: "gold" },
                 { id: "grow", num: "04", label: "GROW", accent: "coral" },
               ].map((phase, i, arr) => (
-                <span key={phase.id} style={{ display: "flex", alignItems: "flex-start" }}>
+                <span key={phase.id} className="progress-node-item">
                   <button
                     type="button"
                     className={`progress-node accent-${phase.accent} ${
@@ -1566,6 +1566,7 @@ export default function Home() {
           border-radius: 4px;
         }
 
+        /* Community Split Desktop */
         .community-showcase-split {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -1587,22 +1588,44 @@ export default function Home() {
           margin: 0 0 20px;
         }
 
-        .social-perks-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-
         .community-feed-frame {
           width: 100%;
+          overflow: hidden;
         }
 
         .community-screenshot-inner {
           width: 100%;
           background: #f8fafc;
+          overflow: hidden;
+        }
+
+        .community-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+        }
+
+        .community-grid > div {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 14px;
+          padding: 22px 20px;
+          transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .community-grid > div strong {
+          display: block;
+          font-family: var(--font-montserrat), sans-serif;
+          font-size: 16px;
+          color: #0f172a;
+          margin-bottom: 8px;
+        }
+
+        .community-grid > div p {
+          margin: 0;
+          font-size: 13px;
+          line-height: 1.6;
+          color: #64748b;
         }
 
         /* Success Stories Styling */
@@ -1756,75 +1779,125 @@ export default function Home() {
           .compact-side-frame {
             max-width: 100%;
           }
+
+          .community-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
         }
 
         @media (max-width: 768px) {
-          /* Hero Section & Headline Enhancements */
+          /* 1. Remove scattered pills completely on mobile */
+          .floating-pill {
+            display: none !important;
+          }
+
+          /* 2. Hero Section */
           .hero-content-v2 {
-            min-height: 520px !important;
-            padding: 40px 10px 60px !important;
+            min-height: auto !important;
+            padding: 50px 14px 45px !important;
           }
 
           .hero-text h1 {
-            font-size: 38px !important;
+            font-size: 42px !important;
             line-height: 1.1 !important;
             letter-spacing: -1.8px !important;
-            margin-bottom: 16px !important;
+            margin-bottom: 18px !important;
           }
 
           .hero-description {
-            font-size: 14.5px !important;
-            line-height: 1.6 !important;
+            font-size: 15px !important;
+            line-height: 1.65 !important;
             margin: 18px auto 26px !important;
           }
 
-          /* Floating pills remain visible around hero matching the original frame scatter */
-          .floating-pill {
-            display: flex !important;
-            padding: 7px 10px !important;
-            min-width: 135px !important;
-            gap: 7px !important;
-            border-radius: 10px !important;
-            backdrop-filter: blur(6px) !important;
-            background: rgba(255, 255, 255, 0.72) !important;
-            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08) !important;
-            opacity: 0.88 !important;
-            z-index: 2 !important;
+          /* 3. Journey Section: Expanded spacing between rail items and step cards */
+          .solo-journey-section {
+            padding: 65px 16px !important;
           }
 
-          .pill-icon {
+          .roadmap-progress-rail {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory !important;
+            -webkit-overflow-scrolling: touch;
+            padding: 8px 6px 20px !important;
+            margin-bottom: 34px !important;
+            gap: 14px !important;
+            scrollbar-width: none;
+          }
+
+          .roadmap-progress-rail::-webkit-scrollbar {
+            display: none;
+          }
+
+          .progress-connector {
+            display: none !important;
+          }
+
+          .progress-node {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 10px !important;
+            padding: 9px 18px !important;
+            border-radius: 999px !important;
+            background: #ffffff !important;
+            border: 1.5px solid var(--border, #eee7df) !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04) !important;
+          }
+
+          .progress-node.active {
+            border-color: var(--phase-accent) !important;
+            background: var(--phase-accent-light) !important;
+          }
+
+          .progress-node-circle {
             width: 26px !important;
             height: 26px !important;
-            border-radius: 7px !important;
-          }
-
-          .pill-icon svg {
-            width: 14px !important;
-            height: 14px !important;
-          }
-
-          .pill-text strong {
             font-size: 11px !important;
           }
 
-          .pill-text small {
-            font-size: 9px !important;
+          .progress-node-label {
+            font-size: 12px !important;
+            font-weight: 750 !important;
           }
 
-          .pill-chevron {
-            font-size: 11px !important;
+          .roadmap-steps {
+            display: flex !important;
+            flex-direction: column !important;
+            padding: 0 16px 24px !important;
+            gap: 18px !important;
           }
 
-          /* Scaled mobile scatter positions */
-          .pill-learner       { top: 2%;   left: 2%; }
-          .pill-verified      { top: 22%;  left: 0%; }
-          .pill-community     { top: 76%;  left: 2%; }
+          .roadmap-step {
+            padding: 18px 16px !important;
+            gap: 16px !important;
+            border-radius: 14px !important;
+            background: #ffffff !important;
+            border: 1px solid var(--border, #eee7df) !important;
+            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03) !important;
+          }
 
-          .pill-institutions  { top: 4%;   right: 2%; }
-          .pill-opportunities { top: 24%;  right: 0%; }
-          .pill-collaborate   { top: 78%;  right: 2%; }
+          .step-icon {
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            border-radius: 12px !important;
+          }
 
-          /* Reduced text size for profile & credential descriptions */
+          .step-icon svg {
+            width: 20px !important;
+            height: 20px !important;
+          }
+
+          .step-body h4 {
+            font-size: 15px !important;
+            margin-bottom: 5px !important;
+          }
+
+          /* 4. Profile & Credentials Text */
           .section-description-text {
             font-size: 13.5px !important;
             line-height: 1.6 !important;
@@ -1843,7 +1916,91 @@ export default function Home() {
             line-height: 1.2 !important;
           }
 
-          /* Success Stories Section on Mobile */
+          /* 5. Community Section: Full mobile responsiveness & overflow protection */
+          .merged-community-section {
+            padding: 60px 16px !important;
+            overflow: hidden !important;
+          }
+
+          .merged-community-section .section-heading {
+            margin-bottom: 30px !important;
+          }
+
+          .merged-community-section .section-heading h2 {
+            font-size: 27px !important;
+            line-height: 1.2 !important;
+          }
+
+          .merged-community-section .section-heading p {
+            font-size: 13.5px !important;
+            line-height: 1.6 !important;
+          }
+
+          .community-showcase-split {
+            gap: 28px !important;
+            margin: 0 !important;
+            width: 100% !important;
+          }
+
+          .community-showcase-text {
+            width: 100% !important;
+            padding: 0 !important;
+          }
+
+          .community-showcase-text h3 {
+            font-size: 22px !important;
+            line-height: 1.25 !important;
+            margin-bottom: 12px !important;
+          }
+
+          .community-showcase-text > p {
+            font-size: 13.5px !important;
+            line-height: 1.6 !important;
+            margin-bottom: 16px !important;
+          }
+
+          .community-feed-frame {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            border-radius: 14px !important;
+          }
+
+          .community-screenshot-inner {
+            width: 100% !important;
+            overflow: hidden !important;
+          }
+
+          .community-screenshot-inner img {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            object-fit: cover !important;
+          }
+
+          .community-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+            margin-top: 36px !important;
+            width: 100% !important;
+          }
+
+          .community-grid > div {
+            padding: 16px 14px !important;
+            border-radius: 12px !important;
+          }
+
+          .community-grid > div strong {
+            font-size: 15px !important;
+            margin-bottom: 4px !important;
+          }
+
+          .community-grid > div p {
+            font-size: 12.5px !important;
+            line-height: 1.5 !important;
+          }
+
+          /* 6. Success Stories */
           .success-stories-section {
             padding: 60px 16px !important;
           }
@@ -1891,10 +2048,9 @@ export default function Home() {
 
         @media (max-width: 560px) {
           .hero-text h1 {
-            font-size: 34px !important;
-            letter-spacing: -1.2px !important;
+            font-size: 38px !important;
+            letter-spacing: -1.5px !important;
           }
-
         }
       `}</style>
     </main>
