@@ -27,7 +27,9 @@ export default function Footer() {
               <a href="/explore#opportunity">Opportunities</a>
               <a href="/explore?type=Courses#opportunity">Courses</a>
               <a href="/explore?type=Projects#opportunity">Projects</a>
-              <a href="/explore?type=Career Pathways#opportunity">Career Pathways</a>
+              <a href="/explore?type=Career Pathways#opportunity">
+                Career Pathways
+              </a>
             </div>
 
             <div className="footer-col">
@@ -39,9 +41,13 @@ export default function Footer() {
 
             <div className="footer-col">
               <h4>Get Started</h4>
-              <Link href="https://app.thesolo.network/">Create Account</Link>
+              <Link href="https://app.thesolo.network/">
+                Create Account
+              </Link>
               <Link href="/explore">Find Your Path</Link>
-              <Link href="https://app.thesolo.network/">Start Learning</Link>
+              <Link href="https://app.thesolo.network/">
+                Start Learning
+              </Link>
             </div>
           </div>
         </div>
@@ -129,55 +135,148 @@ export default function Footer() {
           color: #64748b;
         }
 
-        /* ================= Mobile View Layout ================= */
+        /* =========================
+           TABLET
+        ========================= */
+
         @media (max-width: 768px) {
           .site-footer {
-            padding: 40px 20px 24px;
+            padding: 50px 24px 28px;
           }
 
           .footer-main {
             flex-direction: column;
-            align-items: flex-start;
-            gap: 36px;
-            margin-bottom: 36px;
+            align-items: center;
+            gap: 42px;
+            margin-bottom: 38px;
+            text-align: center;
           }
 
           .footer-brand {
-            max-width: 100%;
+            width: 100%;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
           .footer-brand p {
+            margin: 14px auto 0;
             font-size: 13.5px;
-            margin-top: 12px;
+            line-height: 1.6;
+          }
+
+          .footer-links {
+            width: 100%;
+            max-width: 600px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            text-align: center;
+          }
+
+          .footer-col {
+            align-items: center;
+            gap: 10px;
+          }
+
+          .footer-col h4 {
+            margin-bottom: 6px;
+            font-size: 13px;
+          }
+
+          .footer-col a {
+            padding: 4px 0;
+            font-size: 13px;
+            line-height: 1.4;
+          }
+
+          .footer-bottom {
+            text-align: center;
+          }
+        }
+
+        /* =========================
+           MOBILE PHONE
+        ========================= */
+
+        @media (max-width: 560px) {
+          .site-footer {
+            padding: 42px 20px 24px;
+          }
+
+          .footer-main {
+            gap: 36px;
+            margin-bottom: 32px;
+          }
+
+          .footer-brand {
+            max-width: 300px;
+          }
+
+          .footer-brand p {
+            font-size: 13px;
+            line-height: 1.6;
           }
 
           .footer-links {
             width: 100%;
             grid-template-columns: repeat(2, 1fr);
-            gap: 32px 20px;
-          }
-
-          .footer-col a {
-            padding: 4px 0; /* Touch area optimization */
-            font-size: 13.5px;
-          }
-
-          .footer-bottom {
-            text-align: left;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .footer-links {
-            grid-template-columns: 1fr; /* Single column stack on mobile phones */
-            gap: 24px;
+            gap: 30px 16px;
           }
 
           .footer-col {
-            gap: 10px;
+            gap: 9px;
+          }
+
+          .footer-col h4 {
+            font-size: 12px;
+            letter-spacing: 0.6px;
+            margin-bottom: 4px;
+          }
+
+          .footer-col a {
+            font-size: 12.5px;
+            padding: 5px 2px;
+          }
+
+          .footer-bottom {
+            padding-top: 20px;
+          }
+
+          .footer-bottom p {
+            font-size: 11.5px;
+          }
+        }
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 380px) {
+          .site-footer {
+            padding-left: 16px;
+            padding-right: 16px;
+          }
+
+          .footer-links {
+            grid-template-columns: 1fr;
+            gap: 26px;
+          }
+
+          .footer-col {
+            gap: 8px;
+          }
+
+          .footer-col h4 {
+            font-size: 12px;
+          }
+
+          .footer-col a {
+            font-size: 12.5px;
           }
         }
       `}</style>
     </footer>
   );
 }
+
