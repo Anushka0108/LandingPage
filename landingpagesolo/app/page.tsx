@@ -100,7 +100,7 @@ export default function Home() {
               </p>
 
               <div className="hero-buttons">
-                <a href="/signup" className="hero-primary">
+                <a href="https://app.thesolo.network/" className="hero-primary">
                   Get Started
                 </a>
               </div>
