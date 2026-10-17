@@ -468,13 +468,20 @@ export default function NavBar() {
             gap: 12px;
             box-shadow: -10px 0 30px rgba(15, 23, 42, 0.12);
             transform: translateX(100%);
-            transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+            visibility: hidden;
+            transition:
+              transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0s linear 0.32s;
             z-index: 1030;
             overflow-y: auto;
           }
 
           .nav-links.mobile-open {
             transform: translateX(0);
+            visibility: visible;
+            transition:
+              transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0s;
           }
 
           .nav-links a:not(.nav-signup),

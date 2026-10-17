@@ -3,7 +3,6 @@ export default function Loading() {
   return (
     <main className="explore-loading">
       <div className="explore-loading-content">
-        <div className="explore-loading-logo">SOLO</div>
 
         <div
           className="explore-loading-spinner"
