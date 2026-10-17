@@ -17,7 +17,6 @@ export default function Home() {
     <main>
       <NavBar />
 
-      {/* ========================= HERO ========================= */}
       <section className="hero">
         <div className="hero-glow hero-glow-one" />
         <div className="hero-glow hero-glow-two" />
