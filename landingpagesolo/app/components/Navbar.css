@@ -267,7 +267,7 @@
         overflow: hidden;
         background: #f8fafc;
         border-radius: 10px;
-        padding: 0 8px;
+        padding: 0 4px;
         opacity: 0;
         transform: translateY(-6px);
         transition:
@@ -279,12 +279,27 @@
     .offering-dropdown-container.show .offering-dropdown-inner {
         opacity: 1;
         transform: translateY(0);
-        padding: 6px 8px 10px;
+        padding: 6px 4px 10px;
         margin: 4px 0 10px;
     }
 
+    .offering-dropdown-inner {
+        align-items: stretch;
+    }
+
     .offering-item {
-        padding: 10px 10px !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        padding-left: 8px !important;
+        gap: 12px !important;
+    }
+
+    .offering-item span {
+        text-align: left;
+    }
+
+    .offering-item {
+        padding: 10px 4px !important;
         font-size: 14.5px !important;
     }
 
