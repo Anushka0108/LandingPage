@@ -1806,6 +1806,337 @@ export default function LifelongSkillsPortfolioPage() {
             grid-template-columns: 1fr;
           }
         }
+          
+@media (max-width: 760px) {
+  .portfolio-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .section-container {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .profile-hero-inner {
+    padding: 60px 22px;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(32px, 7vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    overflow-wrap: break-word;
+  }
+
+  .hero-description {
+    margin: 22px 0 26px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .hero-primary,
+  .hero-secondary {
+    width: 100%;
+    padding: 13px 16px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .section-heading h2,
+  .skills-copy h2 {
+    font-size: clamp(27px, 6vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -1px;
+    overflow-wrap: break-word;
+  }
+
+  .section-heading p,
+  .skills-copy > p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .purpose-card {
+    min-width: 0;
+    padding: 22px;
+    min-height: auto;
+  }
+
+  .purpose-number {
+    margin-bottom: 20px;
+  }
+
+  .profile-browser,
+  .resume-image-browser {
+    width: 100%;
+    min-width: 0;
+    border-radius: 12px;
+  }
+
+  .profile-screenshot-wrapper {
+    min-height: 0;
+    width: 100%;
+  }
+
+  .profile-actual-image {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .profile-screenshot-placeholder {
+    inset: 10px;
+    padding: 16px;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-screenshot-placeholder strong {
+    font-size: 15px;
+  }
+
+  .profile-screenshot-placeholder small,
+  .resume-image-placeholder small {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-tabs-demo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .profile-tab {
+    min-width: 0;
+    padding: 12px 8px;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .section-explanation {
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .skills-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .skills-screenshot-container {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .credential-flow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .credential-step {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+
+  .flow-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+    line-height: 1;
+  }
+
+  .resume-flow-switcher {
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .resume-flow-button {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 14px;
+    font-size: 12px;
+  }
+
+  .resume-journey-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .resume-step-list,
+  .resume-image-area {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .resume-step {
+    gap: 12px;
+    padding: 15px 12px;
+  }
+
+  .resume-step-content h3 {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .resume-step-content p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .resume-image-wrapper {
+    min-height: 220px;
+    padding: 12px;
+  }
+
+  .resume-step-image {
+    max-height: none;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .resume-image-placeholder {
+    inset: 12px;
+    padding: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .resume-image-placeholder strong {
+    font-size: 14px;
+  }
+
+  .resume-image-caption {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .resume-bottom-note {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .resume-bottom-note h3 {
+    line-height: 1.4;
+  }
+
+  .resume-bottom-note p {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(30px, 7vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+
+  .cta-content p {
+    font-size: 14px;
+  }
+
+  .cta-button {
+    max-width: 100%;
+    padding: 14px 20px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-hero-inner {
+    padding: 48px 18px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(29px, 8vw, 34px);
+    letter-spacing: -1px;
+  }
+
+  .hero-label,
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+  }
+
+  .intro-section,
+  .profile-showcase-section,
+  .sections-section,
+  .records-section,
+  .skills-explanation-section,
+  .credentials-sections,
+  .resume-section,
+  .final-cta {
+    padding: 55px 16px;
+  }
+
+  .profile-tabs-demo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profile-tab {
+    justify-content: space-between;
+    text-align: left;
+    padding: 13px 14px;
+  }
+
+  .profile-screenshot-placeholder p {
+    font-size: 12px;
+  }
+
+  .browser-top {
+    height: 34px;
+  }
+
+  .resume-browser-bar {
+    height: 36px;
+    font-size: 9px;
+  }
+
+  .resume-image-wrapper {
+    min-height: 190px;
+  }
+
+  .resume-step-number {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .resume-bottom-note {
+    padding: 15px;
+  }
+
+  .resume-bottom-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .cta-button {
+    display: block;
+    width: 100%;
+  }
+}
+
       `}</style>
     </main>
   );

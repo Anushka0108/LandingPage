@@ -788,76 +788,6 @@ export default function CredentialsInformationPage() {
         </section> 
       </FadeInSection> 
  
-      {/* ========================================================= 
-          CLR FEATURE 
-      ========================================================= */} 
-      <FadeInSection> 
-        <section className="clr-section"> 
-          <div className="section-container"> 
-            <div className="clr-card"> 
-              <div className="clr-glow" /> 
- 
-              <div className="clr-content"> 
-                <span className="section-eyebrow"> 
-                  FEATURE HIGHLIGHT 
-                </span> 
- 
-                <h2> 
-                  Combined Internship 
-                  <span> Credential (CLR)</span> 
-                </h2> 
- 
-                <p> 
-                  Instead of managing multiple certificates, SOLO 
-                  synthesizes your complete journey into one master 
-                  credential. 
-                </p> 
- 
-                <div className="clr-formula"> 
-                  <span>Courses</span> 
-                  <b>+</b> 
-                  <span>Internships</span> 
-                  <b>+</b> 
-                  <span>Badges</span> 
-                  <b>=</b> 
-                  <strong>1 Master CLR Record</strong> 
-                </div> 
-              </div> 
- 
-              <div className="clr-visual"> 
-                <div className="clr-document"> 
-                  <div className="document-header"> 
-                    <div className="document-logo"> 
-                      S 
-                    </div> 
- 
-                    <div> 
-                      <small>SOLO NETWORK</small> 
-                      <strong> 
-                        Combined Internship Credential 
-                      </strong> 
-                    </div> 
-                  </div> 
- 
-                  <div className="document-line large" /> 
-                  <div className="document-line" /> 
-                  <div className="document-line short" /> 
- 
-                  <div className="document-badges"> 
-                    <span>COURSES</span> 
-                    <span>INTERNSHIP</span> 
-                    <span>BADGES</span> 
-                  </div> 
- 
-                  <div className="document-verified"> 
-                    ✓ VERIFIED RECORD 
-                  </div> 
-                </div> 
-              </div> 
-            </div> 
-          </div> 
-        </section> 
-      </FadeInSection> 
  
       {/* ========================================================= 
           FINAL CTA 
@@ -2613,6 +2543,416 @@ export default function CredentialsInformationPage() {
           } 
         } 
  
+        @media (max-width: 480px) {
+          .section-container {
+            width: calc(100% - 32px);
+          }
+
+          .section-eyebrow {
+            font-size: 9px;
+            letter-spacing: 1.2px;
+            line-height: 1.5;
+          }
+
+          .section-heading h2,
+          .intro-container h2,
+          .clr-content h2,
+          .cta-content h2 {
+            font-size: clamp(26px, 7.5vw, 34px);
+            letter-spacing: -0.8px;
+            line-height: 1.15;
+          }
+
+          .section-heading p,
+          .intro-container > p {
+            font-size: 13px;
+            line-height: 1.7;
+          }
+
+          .credentials-hero-content {
+            width: calc(100% - 24px);
+            padding: 54px 4px 42px;
+            gap: 12px;
+          }
+
+          .hero-copy h1 {
+            margin: 14px 0;
+            font-size: clamp(31px, 9vw, 39px);
+            line-height: 1.08;
+            letter-spacing: -1.4px;
+          }
+
+          .hero-copy > p {
+            margin-bottom: 22px;
+            font-size: 13px;
+            line-height: 1.65;
+          }
+
+          .hero-actions {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+            margin-bottom: 12px;
+          }
+
+          .primary-action,
+          .secondary-action {
+            width: 100%;
+            min-height: 46px;
+            padding: 0 14px;
+          }
+
+          .hero-visual {
+            min-height: 275px;
+            width: 100%;
+          }
+
+          .hero-credential-card {
+            width: 100%;
+            padding: 16px;
+            border-radius: 16px;
+            transform: none;
+          }
+
+          .credential-top {
+            gap: 11px;
+            align-items: flex-start;
+          }
+
+          .mini-badge {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+          }
+
+          .mini-badge img {
+            width: 38px;
+            height: 38px;
+          }
+
+          .credential-top h3 {
+            font-size: 14px;
+            line-height: 1.35;
+          }
+
+          .credential-top p {
+            font-size: 11px;
+            line-height: 1.4;
+          }
+
+          .credential-preview-divider {
+            margin: 16px 0;
+          }
+
+          .preview-skills {
+            gap: 6px;
+          }
+
+          .preview-skills span {
+            padding: 6px 7px;
+            font-size: 9px;
+          }
+
+          .preview-footer {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 18px;
+            padding-top: 13px;
+          }
+
+          .credential-intro,
+          .wallet-section,
+          .workflow-section,
+          .mobile-app-section,
+          .benefits-section,
+          .clr-section,
+          .final-cta {
+            padding: 54px 0;
+          }
+
+          .intro-container {
+            gap: 16px;
+          }
+
+          .wallet-layout {
+            gap: 28px;
+            margin-top: 32px;
+          }
+
+          .wallet-side-copy h3 {
+            font-size: 25px;
+            letter-spacing: -0.5px;
+          }
+
+          .wallet-side-copy > p {
+            font-size: 13px;
+          }
+
+          .wallet-feature-list {
+            gap: 12px;
+          }
+
+          .carousel-track {
+            height: 385px;
+          }
+
+          .carousel-stacked-card {
+            left: 2.5% !important;
+            width: 95% !important;
+            max-width: 95% !important;
+          }
+
+          .carousel-stacked-card[style*="translateX(54%)"] {
+            transform: translateX(12%) scale(0.88) !important;
+          }
+
+          .carousel-stacked-card[style*="translateX(-54%)"] {
+            transform: translateX(-12%) scale(0.88) !important;
+          }
+
+          .credential-card-main {
+            padding: 16px;
+          }
+
+          .credential-image-box {
+            width: 46px;
+            height: 46px;
+          }
+
+          .credential-image-box img {
+            width: 38px;
+            height: 38px;
+          }
+
+          .credential-card-identity {
+            gap: 10px;
+          }
+
+          .credential-card-identity h3 {
+            font-size: 12px;
+            overflow-wrap: anywhere;
+          }
+
+          .credential-card-identity p {
+            font-size: 10px;
+            line-height: 1.4;
+          }
+
+          .credential-date-row {
+            flex-direction: column;
+            gap: 7px;
+            margin-top: 16px;
+            font-size: 10px;
+          }
+
+          .credential-card-description {
+            font-size: 11px;
+          }
+
+          .credential-card-footer {
+            min-height: 50px;
+            padding: 0 16px;
+          }
+
+          .view-credential {
+            font-size: 10px;
+          }
+
+          .carousel-controls {
+            gap: 11px;
+          }
+
+          .workflow-tabs {
+            gap: 9px;
+            margin-top: 30px;
+          }
+
+          .workflow-tab {
+            min-height: 68px;
+            gap: 10px;
+            padding: 12px;
+          }
+
+          .workflow-tab small {
+            font-size: 9px;
+            line-height: 1.4;
+          }
+
+          .workflow-content {
+            gap: 22px;
+            margin-top: 12px;
+            padding: 16px;
+            border-radius: 15px;
+          }
+
+          .workflow-details h3 {
+            font-size: 22px;
+            line-height: 1.2;
+          }
+
+          .workflow-path {
+            display: flex;
+            align-items: flex-start;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            font-size: 9px;
+            line-height: 1.5;
+          }
+
+          .workflow-details ul {
+            padding-left: 0;
+          }
+
+          .workflow-image-wrapper {
+            min-width: 0;
+            width: 100%;
+          }
+
+          .browser-title {
+            max-width: 70%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .workflow-image {
+            height: 190px;
+          }
+
+          .image-caption {
+            font-size: 10px;
+            line-height: 1.5;
+          }
+
+          .mobile-app-card {
+            gap: 28px;
+            padding: 26px 16px;
+            border-radius: 18px;
+          }
+
+          .mobile-app-content h2 {
+            font-size: clamp(25px, 7vw, 32px);
+            line-height: 1.15;
+            letter-spacing: -0.8px;
+          }
+
+          .mobile-app-content > p {
+            font-size: 13px;
+            line-height: 1.7;
+          }
+
+          .mobile-feature-list {
+            padding: 0;
+            text-align: left;
+          }
+
+          .mobile-feature-list li {
+            align-items: flex-start;
+            gap: 9px;
+          }
+
+          .mobile-feature-list p {
+            font-size: 12px;
+            line-height: 1.55;
+          }
+
+          .playstore-btn {
+            max-width: 100%;
+          }
+
+          .phone-frame {
+            width: min(220px, 75vw);
+            height: 440px;
+          }
+
+          .benefits-grid {
+            gap: 14px;
+            margin-top: 28px;
+          }
+
+          .benefit-card {
+            padding: 24px 20px;
+          }
+
+          .clr-card {
+            gap: 28px;
+            padding: 25px 17px;
+            border-radius: 18px;
+          }
+
+          .clr-content > p {
+            font-size: 13px;
+          }
+
+          .clr-formula {
+            justify-content: center;
+            gap: 6px;
+          }
+
+          .clr-formula span,
+          .clr-formula strong {
+            padding: 7px 8px;
+            font-size: 9px;
+          }
+
+          .clr-document {
+            width: 100%;
+            max-width: 300px;
+            padding: 18px;
+            transform: none;
+          }
+
+          .document-header strong {
+            line-height: 1.4;
+          }
+
+          .cta-content p {
+            font-size: 13px;
+          }
+
+          .cta-button {
+            width: 100%;
+            max-width: 280px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .hero-copy h1 {
+            font-size: 30px;
+          }
+
+          .credential-top h3 {
+            font-size: 12px;
+          }
+
+          .carousel-track {
+            height: 410px;
+          }
+
+          .credential-card-main {
+            padding: 13px;
+          }
+
+          .credential-card-footer {
+            padding: 0 13px;
+          }
+
+          .workflow-content {
+            padding: 13px;
+          }
+
+          .clr-formula {
+            gap: 5px;
+          }
+
+          .clr-formula span,
+          .clr-formula strong {
+            padding: 6px;
+            font-size: 8px;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) { 
           *, 
           *::before, 

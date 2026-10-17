@@ -1200,6 +1200,332 @@ export default function CareerPathwaysPage() {
             aspect-ratio: auto;
           }
         }
+
+        /* MOBILE VIEW */
+        @media (max-width: 600px) {
+          .career-pathway-page {
+            width: 100%;
+            overflow-x: clip !important;
+          }
+
+          .pathway-hero-inner {
+            padding: 54px 20px 48px;
+          }
+
+          .hero-copy {
+            width: 100%;
+            max-width: 100%;
+          }
+
+          .hero-label,
+          .section-label {
+            font-size: 10px;
+            letter-spacing: 1.4px;
+            line-height: 1.6;
+          }
+
+          .hero-copy h1 {
+            font-size: clamp(30px, 8.5vw, 39px);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            overflow-wrap: anywhere;
+          }
+
+          .hero-description {
+            margin: 20px 0 26px;
+            font-size: 14px;
+            line-height: 1.7;
+          }
+
+          .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+            margin-bottom: 8px;
+          }
+
+          .hero-primary,
+          .hero-secondary {
+            display: block;
+            width: 100%;
+            padding: 13px 15px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.45;
+          }
+
+          .enrollment-section,
+          .showcase-section,
+          .completion-section,
+          .final-cta {
+            padding: 56px 16px;
+          }
+
+          .section-container {
+            width: 100%;
+            min-width: 0;
+          }
+
+          .section-heading {
+            margin-bottom: 30px;
+          }
+
+          .section-heading h2 {
+            font-size: clamp(27px, 7vw, 34px);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            overflow-wrap: anywhere;
+          }
+
+          .section-heading p {
+            font-size: 13px;
+            line-height: 1.7;
+          }
+
+          .enrollment-interactive-grid,
+          .completion-interactive-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 24px;
+          }
+
+          .enroll-step-list,
+          .completion-steps-selector,
+          .enroll-image-column,
+          .completion-screenshot-panel {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+          }
+
+          .enroll-step-button {
+            gap: 11px;
+            padding: 14px 12px;
+            border-radius: 12px;
+          }
+
+          .enroll-step-num {
+            width: 30px;
+            height: 30px;
+            flex-basis: 30px;
+            font-size: 11px;
+          }
+
+          .enroll-step-details h3,
+          .completion-step-btn h3 {
+            font-size: 14px;
+            line-height: 1.45;
+          }
+
+          .enroll-route {
+            max-width: 100%;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            font-size: 10px;
+            line-height: 1.5;
+          }
+
+          .enroll-step-details p,
+          .completion-step-btn p {
+            font-size: 12px;
+            line-height: 1.65;
+          }
+
+          .pathway-browser {
+            width: 100%;
+            min-width: 0;
+            border-radius: 11px;
+          }
+
+          .browser-top {
+            height: auto;
+            min-height: 40px;
+            padding: 10px 12px 10px 54px;
+            justify-content: flex-start;
+          }
+
+          .browser-dots {
+            left: 12px;
+            gap: 5px;
+          }
+
+          .browser-dots span {
+            width: 7px;
+            height: 7px;
+          }
+
+          .browser-title {
+            min-width: 0;
+            font-size: 10px;
+            line-height: 1.45;
+            overflow-wrap: anywhere;
+          }
+
+          .browser-screenshot-wrapper,
+          .showcase-wrapper {
+            min-height: 0;
+            aspect-ratio: 4 / 3;
+          }
+
+          .browser-screenshot-image {
+            object-fit: contain;
+            object-position: center;
+          }
+
+          .screenshot-placeholder {
+            inset: 8px;
+            padding: 12px;
+            border-radius: 8px;
+          }
+
+          .screenshot-placeholder strong {
+            font-size: 14px;
+            line-height: 1.4;
+          }
+
+          .screenshot-placeholder p {
+            font-size: 11px;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+          }
+
+          .screenshot-placeholder small {
+            max-width: 100%;
+            font-size: 9px;
+            overflow-wrap: anywhere;
+          }
+
+          .screenshot-caption-row {
+            align-items: flex-start;
+            gap: 8px;
+            margin-top: 11px;
+          }
+
+          .screenshot-caption-row span {
+            flex-shrink: 0;
+          }
+
+          .screenshot-caption-row strong {
+            font-size: 11px;
+            line-height: 1.5;
+          }
+
+          .pathway-bottom-note {
+            margin-top: 26px !important;
+            padding: 16px 14px;
+            gap: 11px;
+            border-radius: 12px;
+          }
+
+          .pathway-bottom-icon {
+            width: 28px;
+            height: 28px;
+            flex-basis: 28px;
+            font-size: 12px;
+          }
+
+          .pathway-bottom-note h3 {
+            font-size: 13px;
+            line-height: 1.45;
+          }
+
+          .pathway-bottom-note p {
+            font-size: 12px;
+            line-height: 1.65;
+            overflow-wrap: anywhere;
+          }
+
+          .view-mode-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-bottom: 24px;
+          }
+
+          .view-mode-button {
+            width: 100%;
+            justify-content: flex-start;
+            padding: 13px 14px;
+            font-size: 12px;
+            text-align: left;
+          }
+
+          .completion-step-btn {
+            padding: 15px 13px;
+            border-radius: 12px;
+          }
+
+          .completion-step-top {
+            flex-wrap: wrap;
+            gap: 6px;
+          }
+
+          .completion-indicator {
+            font-size: 10px;
+          }
+
+          .platform-tag {
+            max-width: 100%;
+            font-size: 10px;
+            white-space: normal;
+            overflow-wrap: anywhere;
+          }
+
+          .cta-content h2 {
+            font-size: clamp(28px, 7.5vw, 36px);
+            line-height: 1.13;
+            letter-spacing: -1px;
+            overflow-wrap: anywhere;
+          }
+
+          .cta-content p {
+            font-size: 13px;
+            line-height: 1.7;
+          }
+
+          .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            padding: 14px 16px;
+            font-size: 13px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .pathway-hero-inner {
+            padding: 44px 15px;
+          }
+
+          .enrollment-section,
+          .showcase-section,
+          .completion-section,
+          .final-cta {
+            padding: 46px 12px;
+          }
+
+          .hero-copy h1 {
+            font-size: 29px;
+            letter-spacing: -1px;
+          }
+
+          .section-heading h2 {
+            font-size: 26px;
+          }
+
+          .enroll-step-button {
+            padding: 12px 10px;
+            gap: 9px;
+          }
+
+          .browser-screenshot-wrapper,
+          .showcase-wrapper {
+            aspect-ratio: 1 / 1;
+          }
+        }
+
       `}</style>
     </main>
   );

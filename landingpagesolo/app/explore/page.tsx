@@ -177,7 +177,7 @@ function ExploreContent()  {
       </section> 
       
        
-      <FadeInSection> 
+
       <section id="opportunity" className="explore-section opportunity-section"> 
         <div className="section-heading"> 
           <p className="section-label">DISCOVER OPPORTUNITIES</p> 
@@ -211,7 +211,6 @@ function ExploreContent()  {
           </div> 
         )} 
       </section> 
-      </FadeInSection> 
       <BackToTop></BackToTop> 
       <Footer></Footer> 
       
@@ -220,7 +219,27 @@ function ExploreContent()  {
 }
 export default function ExplorePage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense
+      fallback={
+        <main className="explore-loading">
+          <div className="explore-loading-content">
+            <div
+              className="explore-loading-spinner"
+              role="status"
+              aria-label="Loading"
+            />
+            <h1>
+              Loading your next
+              <span> opportunity...</span>
+            </h1>
+            <p>
+              We’re gathering the best opportunities tailored
+              to your skills and interests.
+            </p>
+          </div>
+        </main>
+      }
+    >
       <ExploreContent />
     </Suspense>
   );

@@ -223,12 +223,27 @@ export default function NavBar() {
             Infrastructure
           </Link>
 
-          <Link
-            href="/#success-stories"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Success Stories
-          </Link>
+                  <Link
+          href="/#success-stories"
+          onClick={(event) => {
+            setMobileMenuOpen(false);
+            setDropdownOpen(false);
+            setMobileOfferingOpen(false);
+
+            if (pathname === "/") {
+              event.preventDefault();
+
+              setTimeout(() => {
+                document.getElementById("success-stories")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }, 100);
+            }
+          }}
+        >
+          Success Stories
+        </Link>
 
           <Link
             href="/contact"
